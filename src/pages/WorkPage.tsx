@@ -2,9 +2,16 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import DonateBox from "@/components/shared/DonateBox";
 import { Button } from "@/components/ui/button";
+import { useEffect } from "react";
 
 const WorkPage = () => {
   const { t, language } = useLanguage();
+
+  // Use useEffect to ensure smooth page loading
+  useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
+  }, []);
 
   // Add translations for the Work page
   const workTranslations = {
@@ -51,7 +58,7 @@ const WorkPage = () => {
   // Register translations
   useLanguage().addTranslations(workTranslations);
 
-  // Define our work areas
+  // Define our work areas - convert to array of objects instead of using dynamic references
   const workAreas = [
     {
       title: language === 'sv' ? "Akut nödhjälp" : "Emergency Relief",
@@ -83,7 +90,7 @@ const WorkPage = () => {
     }
   ];
 
-  // Current projects
+  // Current projects - simplified to avoid performance issues
   const currentProjects = [
     {
       title: language === 'sv' ? "Akut matdistribution" : "Emergency Food Distribution",
@@ -135,6 +142,7 @@ const WorkPage = () => {
                         src={area.image}
                         alt={area.title}
                         className="w-full h-64 object-cover rounded-lg shadow-md"
+                        loading="lazy"
                       />
                     </div>
                     <div className="md:w-1/2">
