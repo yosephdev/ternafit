@@ -1,0 +1,210 @@
+
+import { useLanguage } from "@/contexts/LanguageContext";
+import DonateBox from "@/components/shared/DonateBox";
+import { Calendar, User, Tag } from "lucide-react";
+import { Link } from "react-router-dom";
+
+// Mock blog data - in a real implementation, this would come from an API
+const blogPosts = [
+  {
+    id: 1,
+    title: {
+      en: "Education Initiatives Making a Difference in Tigray",
+      sv: "Utbildningsinitiativ som gör skillnad i Tigray"
+    },
+    excerpt: {
+      en: "Learn about our latest educational programs helping children continue their learning despite the challenges.",
+      sv: "Läs om våra senaste utbildningsprogram som hjälper barn att fortsätta sitt lärande trots utmaningarna."
+    },
+    author: "Sarah Johnson",
+    date: "2025-03-15",
+    tags: ["Education", "Children"],
+    imageUrl: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=500&auto=format&fit=crop"
+  },
+  {
+    id: 2,
+    title: {
+      en: "Healthcare Access in Remote Communities",
+      sv: "Tillgång till sjukvård i avlägsna samhällen"
+    },
+    excerpt: {
+      en: "Our mobile healthcare teams are reaching communities that have been cut off from regular medical services.",
+      sv: "Våra mobila sjukvårdsteam når samhällen som har varit avskurna från vanliga sjukvårdstjänster."
+    },
+    author: "Dr. Michael Tesfaye",
+    date: "2025-03-02",
+    tags: ["Healthcare", "Rural"],
+    imageUrl: "https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=500&auto=format&fit=crop"
+  },
+  {
+    id: 3,
+    title: {
+      en: "Stories of Resilience: Women Leading Community Recovery",
+      sv: "Berättelser om motståndskraft: Kvinnor leder samhällets återhämtning"
+    },
+    excerpt: {
+      en: "Meet the women who are taking charge of rebuilding their communities after the conflict.",
+      sv: "Möt kvinnorna som tar ansvar för att återuppbygga sina samhällen efter konflikten."
+    },
+    author: "Marta Abebe",
+    date: "2025-02-20",
+    tags: ["Women", "Recovery"],
+    imageUrl: "https://images.unsplash.com/photo-1573497620053-ea5300f94f21?q=80&w=500&auto=format&fit=crop"
+  },
+  {
+    id: 4,
+    title: {
+      en: "Sustainable Agriculture Projects Launch in Eastern Tigray",
+      sv: "Hållbara jordbruksprojekt startar i östra Tigray"
+    },
+    excerpt: {
+      en: "New initiatives are helping farmers adapt to climate challenges while improving food security.",
+      sv: "Nya initiativ hjälper bönder att anpassa sig till klimatutmaningar samtidigt som livsmedelssäkerheten förbättras."
+    },
+    author: "Daniel Haile",
+    date: "2025-02-12",
+    tags: ["Agriculture", "Sustainability"],
+    imageUrl: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=500&auto=format&fit=crop"
+  },
+];
+
+const formatDate = (dateString: string, language: string) => {
+  const date = new Date(dateString);
+  return date.toLocaleDateString(language === 'sv' ? 'sv-SE' : 'en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+};
+
+const BlogPage = () => {
+  const { t, language } = useLanguage();
+
+  return (
+    <main>
+      {/* Page Header */}
+      <section className="bg-muted py-14">
+        <div className="container mx-auto px-4">
+          <h1 className="text-4xl font-serif font-bold text-center">{t("nav.blog")}</h1>
+        </div>
+      </section>
+
+      {/* Blog Content */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {/* Main Content */}
+            <div className="md:col-span-2">
+              <div className="space-y-10">
+                {blogPosts.map((post) => (
+                  <article key={post.id} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                    <div className="md:flex">
+                      <div className="md:w-1/3">
+                        <img 
+                          src={post.imageUrl}
+                          alt={post.title[language as keyof typeof post.title] || post.title.en}
+                          className="w-full h-48 md:h-full object-cover"
+                        />
+                      </div>
+                      <div className="md:w-2/3 p-6">
+                        <h2 className="text-xl font-serif font-bold mb-3">
+                          {post.title[language as keyof typeof post.title] || post.title.en}
+                        </h2>
+                        <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mb-4">
+                          <div className="flex items-center">
+                            <Calendar className="h-4 w-4 mr-1" />
+                            <span>{formatDate(post.date, language)}</span>
+                          </div>
+                          <div className="flex items-center">
+                            <User className="h-4 w-4 mr-1" />
+                            <span>{post.author}</span>
+                          </div>
+                          <div className="flex items-center">
+                            <Tag className="h-4 w-4 mr-1" />
+                            <span>{post.tags.join(", ")}</span>
+                          </div>
+                        </div>
+                        <p className="text-muted-foreground mb-4">
+                          {post.excerpt[language as keyof typeof post.excerpt] || post.excerpt.en}
+                        </p>
+                        <Link to={`/blog/${post.id}`} className="text-terracotta font-medium hover:underline">
+                          {t("common.readMore")}
+                        </Link>
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
+
+              {/* Pagination */}
+              <div className="flex justify-center mt-10">
+                <nav className="flex items-center space-x-2">
+                  <button className="px-3 py-1 rounded border border-muted hover:bg-muted transition-colors">
+                    &larr;
+                  </button>
+                  <button className="px-3 py-1 rounded bg-terracotta text-white">1</button>
+                  <button className="px-3 py-1 rounded border border-muted hover:bg-muted transition-colors">2</button>
+                  <button className="px-3 py-1 rounded border border-muted hover:bg-muted transition-colors">3</button>
+                  <button className="px-3 py-1 rounded border border-muted hover:bg-muted transition-colors">
+                    &rarr;
+                  </button>
+                </nav>
+              </div>
+            </div>
+
+            {/* Sidebar */}
+            <div className="md:col-span-1">
+              <div className="space-y-6">
+                <DonateBox compact sticky />
+
+                {/* Categories */}
+                <div className="bg-white rounded-lg shadow-md p-6 mt-6">
+                  <h3 className="text-lg font-serif font-semibold mb-4">Categories</h3>
+                  <ul className="space-y-2">
+                    <li className="flex justify-between items-center">
+                      <a href="#" className="text-muted-foreground hover:text-terracotta">Education</a>
+                      <span className="bg-muted text-xs px-2 py-1 rounded-full">8</span>
+                    </li>
+                    <li className="flex justify-between items-center">
+                      <a href="#" className="text-muted-foreground hover:text-terracotta">Healthcare</a>
+                      <span className="bg-muted text-xs px-2 py-1 rounded-full">12</span>
+                    </li>
+                    <li className="flex justify-between items-center">
+                      <a href="#" className="text-muted-foreground hover:text-terracotta">Emergency Relief</a>
+                      <span className="bg-muted text-xs px-2 py-1 rounded-full">15</span>
+                    </li>
+                    <li className="flex justify-between items-center">
+                      <a href="#" className="text-muted-foreground hover:text-terracotta">Community Development</a>
+                      <span className="bg-muted text-xs px-2 py-1 rounded-full">6</span>
+                    </li>
+                    <li className="flex justify-between items-center">
+                      <a href="#" className="text-muted-foreground hover:text-terracotta">Advocacy</a>
+                      <span className="bg-muted text-xs px-2 py-1 rounded-full">9</span>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Tags */}
+                <div className="bg-white rounded-lg shadow-md p-6">
+                  <h3 className="text-lg font-serif font-semibold mb-4">Tags</h3>
+                  <div className="flex flex-wrap gap-2">
+                    <a href="#" className="bg-muted px-3 py-1 rounded-full text-sm hover:bg-muted-foreground hover:text-white transition-colors">Education</a>
+                    <a href="#" className="bg-muted px-3 py-1 rounded-full text-sm hover:bg-muted-foreground hover:text-white transition-colors">Healthcare</a>
+                    <a href="#" className="bg-muted px-3 py-1 rounded-full text-sm hover:bg-muted-foreground hover:text-white transition-colors">Children</a>
+                    <a href="#" className="bg-muted px-3 py-1 rounded-full text-sm hover:bg-muted-foreground hover:text-white transition-colors">Women</a>
+                    <a href="#" className="bg-muted px-3 py-1 rounded-full text-sm hover:bg-muted-foreground hover:text-white transition-colors">Water</a>
+                    <a href="#" className="bg-muted px-3 py-1 rounded-full text-sm hover:bg-muted-foreground hover:text-white transition-colors">Food</a>
+                    <a href="#" className="bg-muted px-3 py-1 rounded-full text-sm hover:bg-muted-foreground hover:text-white transition-colors">Sustainability</a>
+                    <a href="#" className="bg-muted px-3 py-1 rounded-full text-sm hover:bg-muted-foreground hover:text-white transition-colors">Community</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+};
+
+export default BlogPage;
