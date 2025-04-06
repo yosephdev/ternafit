@@ -91,6 +91,15 @@ const PodcastPage = () => {
     }
   };
 
+  // Helper function to safely access nested properties with TypeScript
+  const getTitle = (episode: typeof podcastEpisodes[0], lang: string) => {
+    return lang === 'sv' ? episode.title.sv : episode.title.en;
+  };
+  
+  const getDescription = (episode: typeof podcastEpisodes[0], lang: string) => {
+    return lang === 'sv' ? episode.description.sv : episode.description.en;
+  };
+
   return (
     <div className="podcast-page">
       {/* Page Header */}
@@ -106,7 +115,7 @@ const PodcastPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
             <div>
               <h2 className="text-3xl font-serif font-bold mb-4">
-                {podcastEpisodes[0].title[language as keyof typeof podcastEpisodes[0].title] || podcastEpisodes[0].title.en}
+                {getTitle(podcastEpisodes[0], language)}
               </h2>
               <div className="flex items-center space-x-4 mb-4 text-white/80">
                 <div className="flex items-center">
@@ -119,7 +128,7 @@ const PodcastPage = () => {
                 </div>
               </div>
               <p className="mb-6">
-                {podcastEpisodes[0].description[language as keyof typeof podcastEpisodes[0].description] || podcastEpisodes[0].description.en}
+                {getDescription(podcastEpisodes[0], language)}
               </p>
               <button 
                 className="inline-flex items-center bg-white text-terracotta font-semibold py-2 px-4 rounded hover:bg-white/90 transition-colors"
@@ -141,7 +150,7 @@ const PodcastPage = () => {
             <div className="hidden md:block">
               <img 
                 src={podcastEpisodes[0].imageUrl}
-                alt={podcastEpisodes[0].title[language as keyof typeof podcastEpisodes[0].title] || podcastEpisodes[0].title.en}
+                alt={getTitle(podcastEpisodes[0], language)}
                 className="w-full h-auto rounded-lg shadow-lg"
               />
             </div>
@@ -166,13 +175,13 @@ const PodcastPage = () => {
                       <div className="md:w-1/4 flex-shrink-0 mb-4 md:mb-0">
                         <img 
                           src={episode.imageUrl}
-                          alt={episode.title[language as keyof typeof episode.title] || episode.title.en}
+                          alt={getTitle(episode, language)}
                           className="w-full h-32 md:h-full object-cover rounded-md"
                         />
                       </div>
                       <div className="md:w-3/4">
                         <h3 className="text-xl font-serif font-bold mb-2">
-                          {episode.title[language as keyof typeof episode.title] || episode.title.en}
+                          {getTitle(episode, language)}
                         </h3>
                         <div className="flex items-center space-x-4 mb-3 text-sm text-muted-foreground">
                           <div className="flex items-center">
@@ -185,7 +194,7 @@ const PodcastPage = () => {
                           </div>
                         </div>
                         <p className="text-muted-foreground text-sm mb-4">
-                          {episode.description[language as keyof typeof episode.description] || episode.description.en}
+                          {getDescription(episode, language)}
                         </p>
                         <button 
                           className={`inline-flex items-center py-2 px-4 rounded transition-colors ${

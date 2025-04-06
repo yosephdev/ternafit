@@ -32,13 +32,79 @@ const HomePage = () => {
             <div className="md:w-1/2">
               <h2 className="text-3xl font-serif font-bold mb-4">{t('about.mission.title')}</h2>
               <p className="text-lg text-muted-foreground mb-6">
-                {t('about.mission.text')}
+                Ternafit is a non-profit organization dedicated to serving the Tigrayan community. Our mission is to provide humanitarian assistance, advocate for human rights, and empower Tigrayans through education and economic development.
+              </p>
+              <p className="text-lg text-muted-foreground mb-6">
+                Founded in 2015, we work closely with local communities to deliver sustainable solutions that address immediate needs while building long-term resilience.
               </p>
               <Link to="/about">
                 <Button variant="outline" className="border-terracotta text-terracotta hover:bg-terracotta/10">
                   {t('common.learnMore')}
                 </Button>
               </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Programs Section - New section from original website */}
+      <section className="py-16 bg-muted/50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-serif font-bold mb-8 text-center">Our Programs</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white rounded-lg shadow-md overflow-hidden">
+              <div className="h-48 overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1524069290683-0457abfe42c3?q=80&w=400&auto=format&fit=crop" 
+                  alt="Emergency Relief" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-serif font-semibold mb-3">Emergency Relief</h3>
+                <p className="text-muted-foreground mb-4">
+                  Providing food, water, shelter, and medical aid to communities affected by conflict and crisis in Tigray.
+                </p>
+                <Link to="/work" className="text-terracotta hover:underline font-medium">
+                  Learn more →
+                </Link>
+              </div>
+            </div>
+            <div className="bg-white rounded-lg shadow-md overflow-hidden">
+              <div className="h-48 overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=400&auto=format&fit=crop" 
+                  alt="Education & Youth" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-serif font-semibold mb-3">Education & Youth</h3>
+                <p className="text-muted-foreground mb-4">
+                  Creating educational opportunities for children and young adults through scholarships, school supplies, and learning programs.
+                </p>
+                <Link to="/work" className="text-terracotta hover:underline font-medium">
+                  Learn more →
+                </Link>
+              </div>
+            </div>
+            <div className="bg-white rounded-lg shadow-md overflow-hidden">
+              <div className="h-48 overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=400&auto=format&fit=crop" 
+                  alt="Advocacy" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-serif font-semibold mb-3">Advocacy & Awareness</h3>
+                <p className="text-muted-foreground mb-4">
+                  Advocating for the rights and welfare of Tigrayans through media engagement, community events, and policy initiatives.
+                </p>
+                <Link to="/work" className="text-terracotta hover:underline font-medium">
+                  Learn more →
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -51,7 +117,7 @@ const HomePage = () => {
             <div>
               <h2 className="text-3xl font-serif font-bold mb-4">{t('donate.title')}</h2>
               <p className="text-lg mb-6">
-                {t('donate.subtitle')}
+                Your support enables us to provide critical assistance to those in need. Every contribution makes a difference in the lives of the Tigrayan community.
               </p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start">
