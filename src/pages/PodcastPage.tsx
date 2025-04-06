@@ -3,6 +3,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import DonateBox from "@/components/shared/DonateBox";
 import { Calendar, Clock, Play, Pause } from "lucide-react";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
 
 // Mock podcast data - in a real implementation, this would come from an API
 const podcastEpisodes = [
