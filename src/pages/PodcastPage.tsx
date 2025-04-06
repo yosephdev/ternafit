@@ -92,7 +92,7 @@ const PodcastPage = () => {
   };
 
   return (
-    <main>
+    <div className="podcast-page">
       {/* Page Header */}
       <section className="bg-muted py-14">
         <div className="container mx-auto px-4">
@@ -155,7 +155,9 @@ const PodcastPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {/* Main Content */}
             <div className="md:col-span-2">
-              <h2 className="text-2xl font-serif font-bold mb-6">Latest Episodes</h2>
+              <h2 className="text-2xl font-serif font-bold mb-6">
+                {language === 'sv' ? 'Senaste avsnitt' : 'Latest Episodes'}
+              </h2>
               
               <div className="space-y-6">
                 {podcastEpisodes.slice(1).map((episode) => (
@@ -226,9 +228,13 @@ const PodcastPage = () => {
 
                 {/* Subscribe */}
                 <div className="bg-white rounded-lg shadow-md p-6 mt-6">
-                  <h3 className="text-lg font-serif font-semibold mb-4">Subscribe</h3>
+                  <h3 className="text-lg font-serif font-semibold mb-4">
+                    {language === 'sv' ? 'Prenumerera' : 'Subscribe'}
+                  </h3>
                   <p className="text-sm text-muted-foreground mb-4">
-                    Listen to our podcast on your favorite platform and never miss an episode.
+                    {language === 'sv' 
+                      ? 'Lyssna på vår podcast på din favoritplattform och missa aldrig ett avsnitt.' 
+                      : 'Listen to our podcast on your favorite platform and never miss an episode.'}
                   </p>
                   <div className="grid grid-cols-2 gap-3">
                     <a 
@@ -260,22 +266,24 @@ const PodcastPage = () => {
                 
                 {/* Topics */}
                 <div className="bg-white rounded-lg shadow-md p-6">
-                  <h3 className="text-lg font-serif font-semibold mb-4">Topics</h3>
+                  <h3 className="text-lg font-serif font-semibold mb-4">
+                    {language === 'sv' ? 'Ämnen' : 'Topics'}
+                  </h3>
                   <div className="space-y-2">
                     <a href="#" className="block p-2 rounded hover:bg-muted transition-colors">
-                      Humanitarian Aid
+                      {language === 'sv' ? 'Humanitärt bistånd' : 'Humanitarian Aid'}
                     </a>
                     <a href="#" className="block p-2 rounded hover:bg-muted transition-colors">
-                      Education
+                      {language === 'sv' ? 'Utbildning' : 'Education'}
                     </a>
                     <a href="#" className="block p-2 rounded hover:bg-muted transition-colors">
-                      Healthcare
+                      {language === 'sv' ? 'Sjukvård' : 'Healthcare'}
                     </a>
                     <a href="#" className="block p-2 rounded hover:bg-muted transition-colors">
-                      Community Stories
+                      {language === 'sv' ? 'Berättelser från samhället' : 'Community Stories'}
                     </a>
                     <a href="#" className="block p-2 rounded hover:bg-muted transition-colors">
-                      Advocacy
+                      {language === 'sv' ? 'Påverkansarbete' : 'Advocacy'}
                     </a>
                   </div>
                 </div>
@@ -284,7 +292,7 @@ const PodcastPage = () => {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 };
 
