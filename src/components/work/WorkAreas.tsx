@@ -1,7 +1,6 @@
 
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useMemo } from "react";
-import { ScrollArea } from "@/components/ui/scroll-area";
 
 const WorkAreas = () => {
   const { t, language } = useLanguage();

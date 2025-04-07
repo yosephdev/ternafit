@@ -29,7 +29,7 @@ const CurrentProjects = () => {
   return (
     <div className="bg-white rounded-lg shadow-md p-6 mt-6">
       <h3 className="text-lg font-serif font-semibold mb-4">{t("work.projects")}</h3>
-      <ScrollArea className="h-[300px]">
+      <ScrollArea className="h-[250px]">
         <ul className="space-y-3">
           {currentProjects.map((project, index) => (
             <li key={index} className={index < currentProjects.length - 1 ? "border-b border-muted pb-3" : ""}>
