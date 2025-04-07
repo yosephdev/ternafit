@@ -1,28 +1,29 @@
 
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useMemo } from "react";
 
 const CurrentProjects = () => {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
 
-  // Current projects - simplified for better performance
-  const currentProjects = [
+  // Use useMemo to prevent unnecessary re-renders
+  const currentProjects = useMemo(() => [
     {
-      title: language === 'sv' ? "Akut matdistribution" : "Emergency Food Distribution",
-      description: language === 'sv' ? "Förser 5 000 familjer med matpaket" : "Providing food packages to 5,000 families"
+      title: t("work.project.food"),
+      description: t("work.project.food.description")
     },
     {
-      title: language === 'sv' ? "Skolåteruppbyggnad" : "School Rebuilding",
-      description: language === 'sv' ? "Återuppbygger 3 skolor som skadats under konflikten" : "Reconstructing 3 schools damaged during the conflict"
+      title: t("work.project.school"),
+      description: t("work.project.school.description")
     },
     {
-      title: language === 'sv' ? "Utbildning av sjukvårdspersonal" : "Community Health Workers",
-      description: language === 'sv' ? "Utbildar 50 nya sjukvårdspersonal" : "Training 50 new healthcare providers"
+      title: t("work.project.healthcare"),
+      description: t("work.project.healthcare.description")
     },
     {
-      title: language === 'sv' ? "Vattentillgång" : "Water Access",
-      description: language === 'sv' ? "Installerar brunnar i 12 byar" : "Installing wells in 12 villages"
+      title: t("work.project.water"),
+      description: t("work.project.water.description")
     }
-  ];
+  ], [t]);
 
   return (
     <div className="bg-white rounded-lg shadow-md p-6 mt-6">

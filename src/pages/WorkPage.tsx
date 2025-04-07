@@ -10,16 +10,18 @@ import CurrentProjects from "@/components/work/CurrentProjects";
 import VolunteerCTA from "@/components/work/VolunteerCTA";
 
 const WorkPage = () => {
-  const { t } = useLanguage();
+  const { addTranslations } = useLanguage();
 
-  // Use useEffect to ensure smooth page loading
+  // Register translations first (moved up before any component rendering)
   useEffect(() => {
+    // Register translations
+    addTranslations(workTranslations);
+    
     // Scroll to top when component mounts
     window.scrollTo(0, 0);
-  }, []);
+  }, [addTranslations]);
 
-  // Register translations
-  useLanguage().addTranslations(workTranslations);
+  const { t } = useLanguage();
 
   return (
     <main>

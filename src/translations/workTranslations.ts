@@ -38,4 +38,48 @@ export const workTranslations = {
   },
   'work.join': { en: 'Join Our Team', sv: 'Gå med i vårt team' },
   'work.whatwedo': { en: 'What We Do', sv: 'Vad vi gör' },
+  
+  // New translations for work areas
+  'work.area.emergency': { en: 'Emergency Relief', sv: 'Akut nödhjälp' },
+  'work.area.emergency.description': { 
+    en: 'Providing immediate assistance to communities affected by conflict and crisis, including food, water, shelter, and medical aid.',
+    sv: 'Tillhandahåller omedelbar hjälp till samhällen som påverkas av konflikt och kris, inklusive mat, vatten, skydd och medicinsk hjälp.'
+  },
+  'work.area.education': { en: 'Education', sv: 'Utbildning' },
+  'work.area.education.description': {
+    en: 'Supporting educational opportunities for children and adults through school supplies, teacher training, and infrastructure development.',
+    sv: 'Stöder utbildningsmöjligheter för barn och vuxna genom skolmaterial, lärarutbildning och infrastrukturutveckling.'
+  },
+  'work.area.healthcare': { en: 'Healthcare', sv: 'Sjukvård' },
+  'work.area.healthcare.description': {
+    en: 'Improving access to healthcare services through medical supplies, healthcare worker training, and mobile clinic operations.',
+    sv: 'Förbättrar tillgången till sjukvårdstjänster genom medicinska förnödenheter, utbildning av sjukvårdspersonal och drift av mobila kliniker.'
+  },
+  'work.area.advocacy': { en: 'Advocacy', sv: 'Påverkansarbete' },
+  'work.area.advocacy.description': {
+    en: 'Raising awareness about the situation in Tigray and advocating for the rights and needs of the Tigrean community.',
+    sv: 'Ökar medvetenheten om situationen i Tigray och för talan för den tigreanska gemenskapens rättigheter och behov.'
+  },
+  
+  // New translations for current projects
+  'work.project.food': { en: 'Emergency Food Distribution', sv: 'Akut matdistribution' },
+  'work.project.food.description': { 
+    en: 'Providing food packages to 5,000 families',
+    sv: 'Förser 5 000 familjer med matpaket'
+  },
+  'work.project.school': { en: 'School Rebuilding', sv: 'Skolåteruppbyggnad' },
+  'work.project.school.description': {
+    en: 'Reconstructing 3 schools damaged during the conflict',
+    sv: 'Återuppbygger 3 skolor som skadats under konflikten'
+  },
+  'work.project.healthcare': { en: 'Community Health Workers', sv: 'Utbildning av sjukvårdspersonal' },
+  'work.project.healthcare.description': {
+    en: 'Training 50 new healthcare providers',
+    sv: 'Utbildar 50 nya sjukvårdspersonal'
+  },
+  'work.project.water': { en: 'Water Access', sv: 'Vattentillgång' },
+  'work.project.water.description': {
+    en: 'Installing wells in 12 villages',
+    sv: 'Installerar brunnar i 12 byar'
+  }
 };
