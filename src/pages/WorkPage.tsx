@@ -24,7 +24,7 @@ const WorkPage = () => {
   const { t } = useLanguage();
 
   return (
-    <main>
+    <main className="overflow-auto">
       {/* Page Header */}
       <section className="bg-muted py-14">
         <div className="container mx-auto px-4">

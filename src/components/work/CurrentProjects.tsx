@@ -1,6 +1,7 @@
 
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useMemo } from "react";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const CurrentProjects = () => {
   const { t } = useLanguage();
@@ -28,14 +29,16 @@ const CurrentProjects = () => {
   return (
     <div className="bg-white rounded-lg shadow-md p-6 mt-6">
       <h3 className="text-lg font-serif font-semibold mb-4">{t("work.projects")}</h3>
-      <ul className="space-y-3">
-        {currentProjects.map((project, index) => (
-          <li key={index} className={index < currentProjects.length - 1 ? "border-b border-muted pb-3" : ""}>
-            <h4 className="font-medium">{project.title}</h4>
-            <p className="text-sm text-muted-foreground">{project.description}</p>
-          </li>
-        ))}
-      </ul>
+      <ScrollArea className="h-[300px]">
+        <ul className="space-y-3">
+          {currentProjects.map((project, index) => (
+            <li key={index} className={index < currentProjects.length - 1 ? "border-b border-muted pb-3" : ""}>
+              <h4 className="font-medium">{project.title}</h4>
+              <p className="text-sm text-muted-foreground">{project.description}</p>
+            </li>
+          ))}
+        </ul>
+      </ScrollArea>
     </div>
   );
 };
