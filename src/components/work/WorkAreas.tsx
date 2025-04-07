@@ -10,22 +10,22 @@ const WorkAreas = () => {
     {
       title: t("work.area.emergency"),
       description: t("work.area.emergency.description"),
-      image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=500&auto=format&fit=crop"
+      image: "/images/projects/work-area-1.jpg"
     },
     {
       title: t("work.area.education"),
       description: t("work.area.education.description"),
-      image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=500&auto=format&fit=crop"
+      image: "/images/projects/work-area-2.jpg"
     },
     {
       title: t("work.area.healthcare"),
       description: t("work.area.healthcare.description"),
-      image: "https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=500&auto=format&fit=crop"
+      image: "/images/projects/work-area-3.jpg"
     },
     {
       title: t("work.area.advocacy"),
       description: t("work.area.advocacy.description"),
-      image: "https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?q=80&w=500&auto=format&fit=crop"
+      image: "/images/projects/work-area-4.jpg"
     }
   ], [language, t]);
 

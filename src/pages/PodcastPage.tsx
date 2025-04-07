@@ -19,7 +19,7 @@ const podcastEpisodes = [
     },
     date: "2025-03-15",
     duration: "45:12",
-    imageUrl: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=500&auto=format&fit=crop",
+    imageUrl: "/images/podcast/episode1.jpg",
     audioUrl: "#" // Would be a real audio URL in production
   },
   {
@@ -34,7 +34,7 @@ const podcastEpisodes = [
     },
     date: "2025-03-01",
     duration: "39:45",
-    imageUrl: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=500&auto=format&fit=crop",
+    imageUrl: "/images/podcast/episode2.jpg",
     audioUrl: "#" // Would be a real audio URL in production
   },
   {
@@ -49,7 +49,7 @@ const podcastEpisodes = [
     },
     date: "2025-02-15",
     duration: "52:30",
-    imageUrl: "https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=500&auto=format&fit=crop",
+    imageUrl: "/images/podcast/episode3.jpg",
     audioUrl: "#" // Would be a real audio URL in production
   },
   {

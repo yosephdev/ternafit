@@ -17,7 +17,7 @@ const newsItems = [
       sv: "Tack vare era donationer kunde vi leverera nödvändiga förnödenheter till behövande familjer."
     },
     date: "2025-03-10",
-    imageUrl: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=500&auto=format&fit=crop"
+    imageUrl: "/images/projects/emergency-relief2.jpg"
   },
   {
     id: 2,
@@ -30,7 +30,7 @@ const newsItems = [
       sv: "Vårt nya initiativ syftar till att tillhandahålla utbildningsresurser till barn som påverkats av krisen."
     },
     date: "2025-03-05",
-    imageUrl: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=500&auto=format&fit=crop"
+    imageUrl: "/images/projects/education.jpg"
   },
   {
     id: 3,
@@ -43,7 +43,7 @@ const newsItems = [
       sv: "Våra senaste påverkansinsatser har lett till betydande policyförändringar till förmån för det tigreanska samhället."
     },
     date: "2025-02-28",
-    imageUrl: "https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?q=80&w=500&auto=format&fit=crop"
+    imageUrl: "/images/projects/advocacy3.jpg"
   }
 ];
 

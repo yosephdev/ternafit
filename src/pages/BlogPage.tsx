@@ -16,10 +16,10 @@ const blogPosts = [
       en: "Learn about our latest educational programs helping children continue their learning despite the challenges.",
       sv: "Läs om våra senaste utbildningsprogram som hjälper barn att fortsätta sitt lärande trots utmaningarna."
     },
-    author: "Sarah Johnson",
+    author: "Yoseph Berhane",
     date: "2025-03-15",
     tags: ["Education", "Children"],
-    imageUrl: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=500&auto=format&fit=crop"
+    imageUrl: "/images/projects/education.jpg"
   },
   {
     id: 2,
@@ -34,7 +34,7 @@ const blogPosts = [
     author: "Dr. Michael Tesfaye",
     date: "2025-03-02",
     tags: ["Healthcare", "Rural"],
-    imageUrl: "https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=500&auto=format&fit=crop"
+    imageUrl: "/images/projects/healthcare.jpg"
   },
   {
     id: 3,
@@ -49,7 +49,7 @@ const blogPosts = [
     author: "Marta Abebe",
     date: "2025-02-20",
     tags: ["Women", "Recovery"],
-    imageUrl: "https://images.unsplash.com/photo-1573497620053-ea5300f94f21?q=80&w=500&auto=format&fit=crop"
+    imageUrl: "/public/images/projects/weyniabraha.jpg"
   },
   {
     id: 4,
@@ -64,7 +64,7 @@ const blogPosts = [
     author: "Daniel Haile",
     date: "2025-02-12",
     tags: ["Agriculture", "Sustainability"],
-    imageUrl: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=500&auto=format&fit=crop"
+    imageUrl: "/images/projects/agriculture.jpg"
   },
 ];
 

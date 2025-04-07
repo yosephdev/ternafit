@@ -65,8 +65,8 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-4">{t("common.contact")}</h3>
             <ul className="space-y-2 text-sm text-gray-600">
               <li>Ternafit</li>
-              <li>Drottninggatan 16</li>
-              <li>11123 Stockholm</li>
+              <li>Jungfrugatan 1</li>
+              <li>641 31 Katrineholm</li>
               <li>Sweden</li>
               <li className="pt-2 flex items-center">
                 <Mail className="h-4 w-4 mr-2" /> 

@@ -6,9 +6,9 @@ import { useEffect, useState } from "react";
 
 // Hero backgrounds for different regions
 const regionalBackgrounds = {
-  nordic: "/hero-nordic.jpg", // Placeholder - this would be replaced with actual image
-  international: "/hero-international.jpg", // Placeholder - this would be replaced with actual image
-  default: "https://images.unsplash.com/photo-1604363937376-bde1acef45a2?q=80&w=1200&auto=format&fit=crop"
+  nordic: "/images/projects/hero-international.jpg", // Placeholder - this would be replaced with actual image
+  international: "/images/projects/hero-international.jpg", // Placeholder - this would be replaced with actual image
+  default: "/images/projects/hero-international.jpg", // Default image
 };
 
 const Hero = () => {
@@ -57,7 +57,7 @@ const Hero = () => {
           </Link>
           
           <Link to="/about">
-            <Button variant="outline" className="border-2 border-white text-white hover:bg-white/10 font-semibold px-8 py-6 text-lg">
+            <Button variant="outline" className="border-2 border-white text-terracotta hover:bg-white/10 font-semibold px-8 py-6 text-lg">
               {t("home.cta.learn")}
             </Button>
           </Link>

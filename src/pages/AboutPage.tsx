@@ -26,7 +26,7 @@ const AboutPage = () => {
                   {t("about.mission.text")}
                 </p>
                 <p className="text-muted-foreground">
-                  Ternafit was founded in 2015 as a response to the growing humanitarian crisis in Tigray. 
+                  Ternafit was founded in 2023 as a response to the growing humanitarian crisis in Tigray. 
                   Our team consists of dedicated volunteers from diverse backgrounds who share a common 
                   goal: to alleviate suffering and create sustainable solutions for the Tigrean community.
                 </p>
@@ -80,12 +80,12 @@ const AboutPage = () => {
                   <div className="flex flex-col items-center text-center">
                     <div className="w-40 h-40 rounded-full overflow-hidden mb-4">
                       <img 
-                        src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop" 
+                        src="/images/team/yoseph.jpg" 
                         alt="Team Member" 
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <h3 className="text-lg font-serif font-medium">Sarah Johnson</h3>
+                    <h3 className="text-lg font-serif font-medium">Yoseph Berhane</h3>
                     <p className="text-sm text-muted-foreground">Executive Director</p>
                   </div>
                   <div className="flex flex-col items-center text-center">
@@ -96,7 +96,7 @@ const AboutPage = () => {
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <h3 className="text-lg font-serif font-medium">Michael Tesfaye</h3>
+                    <h3 className="text-lg font-serif font-medium">Mebrat Gebru</h3>
                     <p className="text-sm text-muted-foreground">Programs Director</p>
                   </div>
                 </div>

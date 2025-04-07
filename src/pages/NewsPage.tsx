@@ -19,7 +19,7 @@ const newsItems = [
     },
     date: "2025-03-10",
     category: "Emergency Relief",
-    imageUrl: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=500&auto=format&fit=crop"
+    imageUrl: "/public/images/projects/emergency-relief.jpg"
   },
   {
     id: 2,
@@ -33,7 +33,7 @@ const newsItems = [
     },
     date: "2025-03-05",
     category: "Education",
-    imageUrl: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=500&auto=format&fit=crop"
+    imageUrl: "/public/images/projects/education.jpg"
   },
   {
     id: 3,
@@ -47,24 +47,10 @@ const newsItems = [
     },
     date: "2025-02-28",
     category: "Advocacy",
-    imageUrl: "https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?q=80&w=500&auto=format&fit=crop"
-  },
+    imageUrl: "/public/images/projects/advocacy.jpg"
+  },  
   {
     id: 4,
-    title: {
-      en: "Water Project Completed in Western Tigray",
-      sv: "Vattenprojekt slutfört i västra Tigray"
-    },
-    content: {
-      en: "Clean water is now accessible to thousands of residents through our latest infrastructure project.",
-      sv: "Rent vatten är nu tillgängligt för tusentals invånare genom vårt senaste infrastrukturprojekt."
-    },
-    date: "2025-02-20",
-    category: "Infrastructure",
-    imageUrl: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=500&auto=format&fit=crop"
-  },
-  {
-    id: 5,
     title: {
       en: "Healthcare Training Program Graduates First Cohort",
       sv: "Sjukvårdsutbildningsprogram utexaminerar första kullen"
@@ -75,10 +61,10 @@ const newsItems = [
     },
     date: "2025-02-15",
     category: "Healthcare",
-    imageUrl: "https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=500&auto=format&fit=crop"
+    imageUrl: "/public/images/projects/healthcare.jpg"
   },
   {
-    id: 6,
+    id: 5,
     title: {
       en: "Annual Fundraising Gala Raises Record Amount",
       sv: "Årlig insamlingsgala samlar in rekordbelopp"
@@ -89,7 +75,7 @@ const newsItems = [
     },
     date: "2025-02-10",
     category: "Fundraising",
-    imageUrl: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=500&auto=format&fit=crop"
+    imageUrl: "/images/projects/fundraising.jpg"
   },
 ];
 

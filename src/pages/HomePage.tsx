@@ -24,7 +24,7 @@ const HomePage = () => {
           <div className="flex flex-col md:flex-row gap-12 items-center">
             <div className="md:w-1/2">
               <img 
-                src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=600&auto=format&fit=crop" 
+                src="/images/projects/hero-international.jpg" 
                 alt="Ternafit Mission" 
                 className="rounded-lg shadow-lg w-full h-auto object-cover"
               />
@@ -35,10 +35,10 @@ const HomePage = () => {
                 Ternafit is a non-profit organization dedicated to serving the Tigrayan community. Our mission is to provide humanitarian assistance, advocate for human rights, and empower Tigrayans through education and economic development.
               </p>
               <p className="text-lg text-muted-foreground mb-6">
-                Founded in 2015, we work closely with local communities to deliver sustainable solutions that address immediate needs while building long-term resilience.
+                Founded in 2023, we work closely with local communities to deliver sustainable solutions that address immediate needs while building long-term resilience.
               </p>
               <Link to="/about">
-                <Button variant="outline" className="border-terracotta text-terracotta hover:bg-terracotta/10">
+                <Button variant="outline" className="text-terracotta hover:bg-terracotta hover:text-white">
                   {t('common.learnMore')}
                 </Button>
               </Link>
@@ -55,7 +55,7 @@ const HomePage = () => {
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="h-48 overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1524069290683-0457abfe42c3?q=80&w=400&auto=format&fit=crop" 
+                  src="/public/images/projects/emergency-relief.jpg" 
                   alt="Emergency Relief" 
                   className="w-full h-full object-cover"
                 />
@@ -73,7 +73,7 @@ const HomePage = () => {
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="h-48 overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=400&auto=format&fit=crop" 
+                  src="/public/images/projects/youth-education.jpg" 
                   alt="Education & Youth" 
                   className="w-full h-full object-cover"
                 />
@@ -91,7 +91,7 @@ const HomePage = () => {
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="h-48 overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=400&auto=format&fit=crop" 
+                  src="/images/projects/advocacy.jpg" 
                   alt="Advocacy" 
                   className="w-full h-full object-cover"
                 />
