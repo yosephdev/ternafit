@@ -27,7 +27,7 @@ const App = () => (
         <BrowserRouter>
           <div className="flex flex-col min-h-screen">
             <Header />
-            <div className="flex-grow">
+            <div className="flex-grow overflow-auto">
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/about" element={<AboutPage />} />
