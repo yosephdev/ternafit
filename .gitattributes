@@ -1,3 +1,4 @@
 *.mp4 filter=lfs diff=lfs merge=lfs -text
 public/images/podcast/episode2.mp4 filter=lfs diff=lfs merge=lfs -text
 public/images/podcast/episode3.mp4 filter=lfs diff=lfs merge=lfs -text
+public/images/podcast/episode5.mp4 filter=lfs diff=lfs merge=lfs -text
