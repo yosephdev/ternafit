@@ -1,104 +1,95 @@
-
 import { useLanguage } from "@/contexts/LanguageContext";
 import DonateBox from "@/components/shared/DonateBox";
 import { Calendar, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
-
-// Mock news data - in a real implementation, this would come from an API
-const newsItems = [
-  {
-    id: 1,
-    title: {
-      en: "Emergency Relief Delivered to Eastern Tigray",
-      sv: "Akut nödhjälp levererad till östra Tigray"
-    },
-    content: {
-      en: "Thanks to your donations, we were able to deliver essential supplies to families in need.",
-      sv: "Tack vare era donationer kunde vi leverera nödvändiga förnödenheter till behövande familjer."
-    },
-    date: "2025-03-10",
-    category: "Emergency Relief",
-    imageUrl: "/public/images/projects/emergency-relief.jpg"
-  },
-  {
-    id: 2,
-    title: {
-      en: "New Educational Program Launches Next Month",
-      sv: "Nytt utbildningsprogram startar nästa månad"
-    },
-    content: {
-      en: "Our new initiative aims to provide educational resources to children affected by the crisis.",
-      sv: "Vårt nya initiativ syftar till att tillhandahålla utbildningsresurser till barn som påverkats av krisen."
-    },
-    date: "2025-03-05",
-    category: "Education",
-    imageUrl: "/public/images/projects/education.jpg"
-  },
-  {
-    id: 3,
-    title: {
-      en: "Advocacy Campaign Results in Policy Changes",
-      sv: "Påverkanskampanj resulterar i policyförändringar"
-    },
-    content: {
-      en: "Our recent advocacy efforts have led to significant policy changes to benefit the Tigrean community.",
-      sv: "Våra senaste påverkansinsatser har lett till betydande policyförändringar till förmån för det tigreanska samhället."
-    },
-    date: "2025-02-28",
-    category: "Advocacy",
-    imageUrl: "/public/images/projects/advocacy.jpg"
-  },  
-  {
-    id: 4,
-    title: {
-      en: "Healthcare Training Program Graduates First Cohort",
-      sv: "Sjukvårdsutbildningsprogram utexaminerar första kullen"
-    },
-    content: {
-      en: "25 new healthcare workers have completed their training and will be deployed to rural clinics.",
-      sv: "25 nya sjukvårdare har slutfört sin utbildning och kommer att sättas in på landsbygdskliniker."
-    },
-    date: "2025-02-15",
-    category: "Healthcare",
-    imageUrl: "/public/images/projects/healthcare.jpg"
-  },
-  {
-    id: 5,
-    title: {
-      en: "Annual Fundraising Gala Raises Record Amount",
-      sv: "Årlig insamlingsgala samlar in rekordbelopp"
-    },
-    content: {
-      en: "This year's gala event raised over $250,000 for our ongoing programs in Tigray.",
-      sv: "Årets galaevenemang samlade in över 2,5 miljoner kronor till våra pågående program i Tigray."
-    },
-    date: "2025-02-10",
-    category: "Fundraising",
-    imageUrl: "/images/projects/fundraising.jpg"
-  },
-];
-
-const formatDate = (dateString: string, language: string) => {
-  const date = new Date(dateString);
-  return date.toLocaleDateString(language === 'sv' ? 'sv-SE' : 'en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  });
-};
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const NewsPage = () => {
   const { t, language } = useLanguage();
+  const [newsItems, setNewsItems] = useState([]);
   const [activeCategory, setActiveCategory] = useState("all");
-  
-  // Filter news by category
-  const filteredNews = activeCategory === "all" 
-    ? newsItems 
+  const [categories, setCategories] = useState(["all"]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      const cacheKey = `tigrayNews_${language}`;
+      const cachedData = sessionStorage.getItem(cacheKey);
+
+      if (cachedData) {
+        const parsed = JSON.parse(cachedData);
+        setNewsItems(parsed.newsItems);
+        setCategories(parsed.categories);
+        return;
+      }
+
+      try {
+        const response = await axios.get('https://newsapi.org/v2/everything', {
+          params: {
+            q: 'Tigray AND Tigray',
+            apiKey: process.env.REACT_APP_NEWS_API_KEY,
+            language: language === 'sv' ? 'sv' : 'en',
+          },
+        });
+
+        const filteredArticles = response.data.articles.filter(article =>
+          article.title?.toLowerCase().includes('tigray') ||
+          article.description?.toLowerCase().includes('tigray') ||
+          article.content?.toLowerCase().includes('tigray')
+        );
+
+        const articles = filteredArticles.map((article, index) => ({
+          id: index + 1,
+          title: {
+            en: article.title,
+            sv: article.title,
+          },
+          content: {
+            en: article.description || article.content,
+            sv: article.description || article.content,
+          },
+          date: article.publishedAt,
+          category: article.source.name,
+          imageUrl: article.urlToImage,
+          url: article.url,
+        }));
+
+        const uniqueCategories = [
+          "all",
+          ...Array.from(new Set(articles.map(item => item.category.toLowerCase()))),
+        ];
+
+        setNewsItems(articles);
+        setCategories(uniqueCategories);
+
+        sessionStorage.setItem(cacheKey, JSON.stringify({ newsItems: articles, categories: uniqueCategories }));
+      } catch (error) {
+        console.error("Error fetching news:", error);
+      }
+    };
+
+    fetchNews();
+  }, [language]);
+
+  const formatDate = (dateString, language) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString(language === 'sv' ? 'sv-SE' : 'en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+  };
+
+  const filteredNews = activeCategory === "all"
+    ? newsItems
     : newsItems.filter(item => item.category.toLowerCase() === activeCategory.toLowerCase());
 
-  // Get unique categories
-  const categories = ["all", ...Array.from(new Set(newsItems.map(item => item.category.toLowerCase())))];
+  const totalPages = Math.ceil(filteredNews.length / itemsPerPage);
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentNewsItems = filteredNews.slice(indexOfFirstItem, indexOfLastItem);
 
   return (
     <main>
@@ -126,26 +117,31 @@ const NewsPage = () => {
                           ? "bg-terracotta text-white"
                           : "bg-muted text-foreground hover:bg-terracotta/20"
                       }`}
-                      onClick={() => setActiveCategory(category)}
+                      onClick={() => {
+                        setActiveCategory(category);
+                        setCurrentPage(1); // Reset page when category changes
+                      }}
                     >
                       {category.charAt(0).toUpperCase() + category.slice(1)}
                     </button>
                   ))}
                 </div>
               </div>
-              
+
               {/* News List */}
               <div className="space-y-8">
-                {filteredNews.map((item) => (
+                {currentNewsItems.map((item) => (
                   <article key={item.id} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                     <div className="md:flex">
-                      <div className="md:w-1/3">
-                        <img 
-                          src={item.imageUrl}
-                          alt={item.title[language as keyof typeof item.title] || item.title.en}
-                          className="w-full h-48 md:h-full object-cover"
-                        />
-                      </div>
+                      {item.imageUrl && (
+                        <div className="md:w-1/3">
+                          <img
+                            src={item.imageUrl}
+                            alt={item.title[language] || item.title.en}
+                            className="w-full h-48 md:h-full object-cover"
+                          />
+                        </div>
+                      )}
                       <div className="md:w-2/3 p-6">
                         <div className="flex justify-between items-start mb-2">
                           <span className="bg-muted px-3 py-1 rounded-full text-xs">
@@ -157,15 +153,21 @@ const NewsPage = () => {
                           </div>
                         </div>
                         <h2 className="text-xl font-serif font-bold mb-3">
-                          {item.title[language as keyof typeof item.title] || item.title.en}
+                          {item.title[language] || item.title.en}
                         </h2>
                         <p className="text-muted-foreground mb-4">
-                          {item.content[language as keyof typeof item.content] || item.content.en}
+                          {item.content[language] || item.content.en}
                         </p>
-                        <Link to={`/news/${item.id}`} className="text-terracotta font-medium hover:underline flex items-center">
-                          {t("common.readMore")}
-                          <ArrowRight className="h-4 w-4 ml-1" />
-                        </Link>
+                        <a
+                            href={item.url} // Ensure item.url is correctly populated
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-terracotta font-medium hover:underline flex items-center"
+                          >
+                            {t("common.readMore")}
+                            <ArrowRight className="h-4 w-4 ml-1" />
+                          </a>
+
                       </div>
                     </div>
                   </article>
@@ -173,19 +175,39 @@ const NewsPage = () => {
               </div>
 
               {/* Pagination */}
-              <div className="flex justify-center mt-10">
-                <nav className="flex items-center space-x-2">
-                  <button className="px-3 py-1 rounded border border-muted hover:bg-muted transition-colors">
-                    &larr;
-                  </button>
-                  <button className="px-3 py-1 rounded bg-terracotta text-white">1</button>
-                  <button className="px-3 py-1 rounded border border-muted hover:bg-muted transition-colors">2</button>
-                  <button className="px-3 py-1 rounded border border-muted hover:bg-muted transition-colors">3</button>
-                  <button className="px-3 py-1 rounded border border-muted hover:bg-muted transition-colors">
-                    &rarr;
-                  </button>
-                </nav>
-              </div>
+              {totalPages > 1 && (
+                <div className="flex justify-center mt-10">
+                  <nav className="flex items-center space-x-2">
+                    <button
+                      disabled={currentPage === 1}
+                      onClick={() => setCurrentPage(currentPage - 1)}
+                      className="px-3 py-1 rounded border border-muted hover:bg-muted transition-colors"
+                    >
+                      &larr;
+                    </button>
+                    {[...Array(totalPages)].map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentPage(index + 1)}
+                        className={`px-3 py-1 rounded ${
+                          currentPage === index + 1
+                            ? "bg-terracotta text-white"
+                            : "border border-muted hover:bg-muted"
+                        }`}
+                      >
+                        {index + 1}
+                      </button>
+                    ))}
+                    <button
+                      disabled={currentPage === totalPages}
+                      onClick={() => setCurrentPage(currentPage + 1)}
+                      className="px-3 py-1 rounded border border-muted hover:bg-muted transition-colors"
+                    >
+                      &rarr;
+                    </button>
+                  </nav>
+                </div>
+              )}
             </div>
 
             {/* Sidebar */}
@@ -200,17 +222,22 @@ const NewsPage = () => {
                     {newsItems.slice(0, 3).map((item) => (
                       <div key={item.id} className="flex gap-3">
                         <div className="flex-shrink-0 w-16 h-16">
-                          <img 
+                          <img
                             src={item.imageUrl}
-                            alt={item.title[language as keyof typeof item.title] || item.title.en}
+                            alt={item.title[language] || item.title.en}
                             className="w-full h-full object-cover rounded"
                           />
                         </div>
                         <div>
                           <h4 className="text-sm font-medium line-clamp-2">
-                            <Link to={`/news/${item.id}`} className="hover:text-terracotta">
-                              {item.title[language as keyof typeof item.title] || item.title.en}
-                            </Link>
+                            <a
+                              href={item.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="hover:text-terracotta"
+                            >
+                              {item.title[language] || item.title.en}
+                            </a>
                           </h4>
                           <p className="text-xs text-muted-foreground">
                             {formatDate(item.date, language)}
@@ -228,8 +255,8 @@ const NewsPage = () => {
                     Subscribe to our newsletter to receive the latest news and updates from Ternafit.
                   </p>
                   <div className="space-y-3">
-                    <input 
-                      type="email" 
+                    <input
+                      type="email"
                       placeholder={t("common.email")}
                       className="w-full px-4 py-2 rounded border border-white bg-transparent placeholder-white/70 text-white focus:outline-none focus:ring-2 focus:ring-white"
                     />

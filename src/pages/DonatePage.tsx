@@ -9,7 +9,7 @@ const DonatePage = () => {
   const [donationAmount, setDonationAmount] = useState(50);
   const [customAmount, setCustomAmount] = useState("");
   const [donationType, setDonationType] = useState("onetime");
-  const [currency, setCurrency] = useState(language === 'sv' ? 'SEK' : 'USD');
+  const currency = language === 'sv' ? 'SEK' : 'USD';
   
   // Donation amounts
   const amounts = [25, 50, 100, 250];
@@ -162,9 +162,9 @@ const DonatePage = () => {
                 
                 {/* Payment Options */}
                 <div className="mt-4 flex justify-center gap-4">
-                  <img src="https://cdn.worldvectorlogo.com/logos/paypal-2.svg" alt="PayPal" className="h-8" />
-                  <img src="https://cdn.worldvectorlogo.com/logos/swish-1.svg" alt="Swish" className="h-8" />
-                  <img src="https://cdn.worldvectorlogo.com/logos/visa-2021-1.svg" alt="Visa" className="h-8" />
+                  <img src="https://cdn.worldvectorlogo.com/logos/paypal-3.svg" alt="PayPal" className="h-8" />
+                  <img src="/images/projects/swish.png" alt="Swish" className="h-8" />
+                  <img src="https://cdn.worldvectorlogo.com/logos/visa-5.svg" alt="Visa" className="h-8" />
                   <img src="https://cdn.worldvectorlogo.com/logos/mastercard-6.svg" alt="Mastercard" className="h-8" />
                 </div>
                 

@@ -55,7 +55,7 @@ const HomePage = () => {
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="h-48 overflow-hidden">
                 <img 
-                  src="/public/images/projects/emergency-relief.jpg" 
+                  src="/images/projects/emergency-relief.jpg" 
                   alt="Emergency Relief" 
                   className="w-full h-full object-cover"
                 />
@@ -73,7 +73,7 @@ const HomePage = () => {
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="h-48 overflow-hidden">
                 <img 
-                  src="/public/images/projects/youth-education.jpg" 
+                  src="/images/projects/youth-education.jpg" 
                   alt="Education & Youth" 
                   className="w-full h-full object-cover"
                 />

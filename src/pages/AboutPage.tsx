@@ -91,12 +91,12 @@ const AboutPage = () => {
                   <div className="flex flex-col items-center text-center">
                     <div className="w-40 h-40 rounded-full overflow-hidden mb-4">
                       <img 
-                        src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&auto=format&fit=crop" 
+                        src="/images/team/julian.jpg" 
                         alt="Team Member" 
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <h3 className="text-lg font-serif font-medium">Mebrat Gebru</h3>
+                    <h3 className="text-lg font-serif font-medium">Julian Bergman</h3>
                     <p className="text-sm text-muted-foreground">Programs Director</p>
                   </div>
                 </div>

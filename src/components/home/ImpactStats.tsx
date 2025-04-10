@@ -29,21 +29,21 @@ const ImpactStats = () => {
   const stats = [
     {
       icon: <Users className="h-8 w-8 text-terracotta" />,
-      value: 25000,
+      value: 5000,
       label: t("home.impact.people"),
       prefix: "",
       suffix: "+",
     },
     {
       icon: <CheckCircle className="h-8 w-8 text-terracotta" />,
-      value: 120,
+      value: 20,
       label: t("home.impact.projects"),
       prefix: "",
       suffix: "",
     },
     {
       icon: <Home className="h-8 w-8 text-terracotta" />,
-      value: 45,
+      value: 35,
       label: t("home.impact.communities"),
       prefix: "",
       suffix: "",
