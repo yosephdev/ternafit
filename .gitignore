@@ -25,3 +25,4 @@ dist-ssr
 
 .env
 .env/
+public/images/podcast/episode5.mp4
