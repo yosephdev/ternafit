@@ -29,7 +29,7 @@ const NewsPage = () => {
         const response = await axios.get('https://newsapi.org/v2/everything', {
           params: {
             q: 'Tigray AND Tigray',
-            apiKey: process.env.REACT_APP_NEWS_API_KEY,
+            apiKey: '9fcccfdfe49f43cf8408d08263b75355',
             language: language === 'sv' ? 'sv' : 'en',
           },
         });
