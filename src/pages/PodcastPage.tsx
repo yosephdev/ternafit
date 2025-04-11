@@ -19,7 +19,7 @@ const podcastEpisodes = [
     date: "2025-03-15",
     duration: "45:12",
     imageUrl: "/images/podcast/episode6.jpg",
-    audioUrl: "/images/podcast/episode6.wav" // Placeholder for audio URL
+    audioUrl: "https://ternafit.org/media/audiopodcast-episode8.wav" // Placeholder for audio URL
   },
   {
     id: 5,
@@ -34,7 +34,7 @@ const podcastEpisodes = [
     date: "2025-03-01",
     duration: "39:45",
     imageUrl: "/images/podcast/episode5.jpg",
-    audioUrl: "/images/podcast/episode5.mp4" // Placeholder for audio URL
+    audioUrl: "https://ternafit.org/media/beyond-repair-reflections.mp3" // Placeholder for audio URL
   },
   {
     id: 4,
@@ -49,7 +49,7 @@ const podcastEpisodes = [
     date: "2025-02-15",
     duration: "52:30",
     imageUrl: "/images/podcast/episode4.png",
-    audioUrl: "/images/podcast/episode6.wav" // Placeholder for audio URL
+    audioUrl: "https://ternafit.org/media/audiopodcast-episode6.wav" // Placeholder for audio URL
   },
   {
     id: 3,
@@ -64,7 +64,7 @@ const podcastEpisodes = [
     date: "2025-02-01",
     duration: "41:18",
     imageUrl: "/images/podcast/episode3.jpg",
-    audioUrl: "/images/podcast/episode3." // Placeholder for audio URL
+    audioUrl: "https://ternafit.org/media/audiopodcast-episode3.mp4" // Placeholder for audio URL
   },
   {
     id: 2,
@@ -79,7 +79,7 @@ const podcastEpisodes = [
     date: "2024-12-15",
     duration: "47:22",
     imageUrl: "/images/podcast/episode2.jpg",
-    audioUrl: "/images/podcast/episode2.mp4" // Placeholder for audio URL
+    audioUrl: "https://ternafit.org/media/audiopodcast-episode.mp4" // Placeholder for audio URL
   },
   {
     id: 1,
@@ -94,7 +94,7 @@ const podcastEpisodes = [
     date: "2024-11-01",
     duration: "38:50",
     imageUrl: "/images/podcast/episode1.png",
-    audioUrl: "images/podcast/episode1.mp3" // Placeholder for audio URL
+    audioUrl: "https://ternafit.org/media/audiopodcast-episode.mp3" // Placeholder for audio URL
   }
 ];
 
