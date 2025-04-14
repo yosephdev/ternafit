@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -16,7 +17,15 @@ import NewsPage from "./pages/NewsPage";
 import DonatePage from "./pages/DonatePage";
 import NotFound from "./pages/NotFound";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      retry: 1,
+      staleTime: 5 * 60 * 1000, // 5 minutes
+    },
+  },
+});
 
 const routes = [
   {
@@ -69,7 +78,7 @@ const App = () => (
             <div className="flex-grow overflow-auto">
               <Routes>
                 {routes.map((route) => (
-                  <Route key={route.path} {...route} />
+                  <Route key={route.path} path={route.path} element={route.element} />
                 ))}
               </Routes>
             </div>
