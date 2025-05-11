@@ -73,7 +73,7 @@ const DonatePage = () => {
           currency: currency,
           donationType: donationType,
           success_url: `${window.location.origin}/donation-success?session_id={CHECKOUT_SESSION_ID}`,
-          cancel_url: `${window.location.origin}/donation-cancelled`,
+          cancel_url: `${window.location.origin}/donation-cancel`,
         }),
       });
 

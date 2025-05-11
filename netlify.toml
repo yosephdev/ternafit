@@ -1,0 +1,8 @@
+[dev]
+  targetPort = 8080
+  # port = 8888 # Netlify Dev will run on this port (e.g. http://localhost:8888)
+  # publish = "dist" # If your Vite build output is not 'dist'
+  # command = "npm run dev" # If you need to customize the dev command
+
+[functions]
+  directory = "netlify/functions"

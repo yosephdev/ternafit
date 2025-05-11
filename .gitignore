@@ -26,3 +26,6 @@ dist-ssr
 .env
 .env.local
 public/images/podcast/episode5.mp4
+
+# Local Netlify folder
+.netlify

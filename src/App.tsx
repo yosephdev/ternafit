@@ -15,6 +15,8 @@ import BlogPostPage from "./pages/BlogPostPage";
 import PodcastPage from "./pages/PodcastPage";
 import NewsPage from "./pages/NewsPage";
 import DonatePage from "./pages/DonatePage";
+import DonationSuccessPage from "./pages/DonationSuccessPage";
+import DonationCancelPage from "./pages/DonationCancelPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient({
@@ -59,6 +61,14 @@ const routes = [
   {
     path: "/donate",
     element: <DonatePage />,
+  },
+  {
+    path: "/donation-success",
+    element: <DonationSuccessPage />,
+  },
+  {
+    path: "/donation-cancel",
+    element: <DonationCancelPage />,
   },
   {
     path: "*",
