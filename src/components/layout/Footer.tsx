@@ -21,13 +21,13 @@ const Footer = () => {
               Supporting the Tigrean community through humanitarian aid, education, and advocacy.
             </p>
             <div className="flex space-x-4 mt-4">
-              <a href="#" className="text-gray-600 hover:text-terracotta" aria-label="Facebook">
+              <a href="https://www.facebook.com/ternafit" className="text-gray-600 hover:text-terracotta" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
                 <Facebook className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-600 hover:text-terracotta" aria-label="Twitter">
+              <a href="https://twitter.com/InfoTernafit" className="text-gray-600 hover:text-terracotta" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
                 <Twitter className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-600 hover:text-terracotta" aria-label="Instagram">
+              <a href="http://instagram.com/ternafit" className="text-gray-600 hover:text-terracotta" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
                 <Instagram className="h-5 w-5" />
               </a>
             </div>

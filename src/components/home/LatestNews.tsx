@@ -1,51 +1,27 @@
-
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "lucide-react";
 
-// Mock news data - in a real implementation, this would come from an API
-const newsItems = [
-  {
-    id: 1,
-    title: {
-      en: "Emergency Relief Delivered to Eastern Tigray",
-      sv: "Akut nödhjälp levererad till östra Tigray"
-    },
-    excerpt: {
-      en: "Thanks to your donations, we were able to deliver essential supplies to families in need.",
-      sv: "Tack vare era donationer kunde vi leverera nödvändiga förnödenheter till behövande familjer."
-    },
-    date: "2025-03-10",
-    imageUrl: "/images/projects/emergency-relief2.jpg"
-  },
-  {
-    id: 2,
-    title: {
-      en: "New Educational Program Launches Next Month",
-      sv: "Nytt utbildningsprogram startar nästa månad"
-    },
-    excerpt: {
-      en: "Our new initiative aims to provide educational resources to children affected by the crisis.",
-      sv: "Vårt nya initiativ syftar till att tillhandahålla utbildningsresurser till barn som påverkats av krisen."
-    },
-    date: "2025-03-05",
-    imageUrl: "/images/projects/education.jpg"
-  },
-  {
-    id: 3,
-    title: {
-      en: "Advocacy Campaign Results in Policy Changes",
-      sv: "Påverkanskampanj resulterar i policyförändringar"
-    },
-    excerpt: {
-      en: "Our recent advocacy efforts have led to significant policy changes to benefit the Tigrean community.",
-      sv: "Våra senaste påverkansinsatser har lett till betydande policyförändringar till förmån för det tigreanska samhället."
-    },
-    date: "2025-02-28",
-    imageUrl: "/images/projects/advocacy3.jpg"
-  }
-];
+interface NewsItem {
+  id: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  description?: string;
+  publishedAt?: string;
+  content?: string;
+  imageUrl: string | null;
+  url: string;
+  source: { name: string } | string;
+  image?: string | null; // Added for GNews
+  urlToImage?: string | null;
+}
+
+const GNEWS_API_KEY = import.meta.env.VITE_GNEWS_API_KEY;
+const GNEWS_API_URL_BASE = "https://gnews.io/api/v4/top-headlines";
+const TOP_HEADLINES_QUERY = "Tigray";
 
 const formatDate = (dateString: string, language: string) => {
   const date = new Date(dateString);
@@ -56,8 +32,84 @@ const formatDate = (dateString: string, language: string) => {
   });
 };
 
+function dedupeArticles(articles: Array<Partial<NewsItem>>): Array<Partial<NewsItem>> {
+  const seen = new Set<string>();
+  return articles.filter(article => {
+    const key = article.url;
+    if (!key || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+// Function to check if content is strongly related to Tigray
+function isTigrayRelated(text: string): boolean {
+  const lowerText = text.toLowerCase();
+  const tigrayKeywords = [
+    'tigray', 
+    'tplf', 
+    'mekelle', 
+    'axum', 
+    'adwa', 
+    'tigrayan', 
+    'tigrinya',
+    'endf', 
+    'ertirea', 
+    'ethiopia',
+    'abiy ahmed',
+    'getachew reda'
+  ];
+  
+  // Must contain at least one primary keyword and one secondary keyword
+  const primaryKeywords = ['tigray', 'tplf', 'mekelle'];
+  const hasPrimary = primaryKeywords.some(kw => lowerText.includes(kw));
+  
+  return hasPrimary && tigrayKeywords.some(kw => lowerText.includes(kw));
+}
+
 const LatestNews = () => {
   const { t, language } = useLanguage();
+  const [news, setNews] = useState<NewsItem[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    setLoading(true);
+    setError(null);
+
+    fetch(
+      `${GNEWS_API_URL_BASE}?q=${encodeURIComponent(TOP_HEADLINES_QUERY)}&lang=${language === "sv" ? "sv" : "en"}&country=et&max=6&apikey=${GNEWS_API_KEY}`
+    )
+      .then(res => {
+        if (!res.ok) {
+          // Try to get error message from GNews if available
+          return res.json().then(errData => {
+            throw new Error(errData.errors ? errData.errors.join(', ') : `API request failed: ${res.statusText}`);
+          }).catch(() => {
+            // Fallback if res.json() fails or no specific GNews error
+            throw new Error(`API request failed: ${res.statusText}`);
+          });
+        }
+        return res.json();
+      })
+      .then(data => {
+        const articles: NewsItem[] = (data.articles || []).map((article: Partial<NewsItem>) => ({
+          id: article.url || `news-${Math.random()}`,
+          title: article.title || "No title available",
+          excerpt: article.description || article.content || "",
+          date: article.publishedAt || new Date().toISOString(),
+          imageUrl: article.image || null,
+          url: article.url || "#",
+          source: typeof article.source === 'object' && article.source !== null ? article.source.name || "Unknown source" : typeof article.source === 'string' ? article.source : "Unknown source",
+        }));
+        setNews(articles.slice(0, 6)); // Ensure we only take up to 6 articles
+      })
+      .catch((err) => {
+        console.error("Error fetching top headlines:", err);
+        setError(err.message || t('news.loadError'));
+      })
+      .finally(() => setLoading(false));
+  }, [language, t]);
 
   return (
     <section className="py-16 bg-muted/30">
@@ -71,40 +123,57 @@ const LatestNews = () => {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {newsItems.map((item) => (
-            <article 
-              key={item.id} 
-              className="bg-card rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow group"
-            >
-              <div className="relative h-48 overflow-hidden">
-                <img 
-                  src={item.imageUrl} 
-                  alt={item.title[language as keyof typeof item.title] || item.title.en}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-              </div>
-              <div className="p-6">
-                <div className="flex items-center text-sm text-muted-foreground mb-3">
-                  <Calendar className="h-4 w-4 mr-1" />
-                  <span>{formatDate(item.date, language)}</span>
+        {loading ? (
+          <div className="text-center text-lg py-12">{t('news.loading')}</div>
+        ) : error ? (
+          <div className="text-center text-red-600">{error}</div>
+        ) : news.length === 0 ? (
+          <div className="text-center text-terracotta">{t('news.noTigrayNews')}</div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {news.map((item) => (
+              <a
+                key={item.id}
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-card rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow group flex flex-col"
+                title={item.title}
+              >
+                {item.imageUrl ? (
+                  <div className="relative h-48 overflow-hidden bg-gray-100">
+                    <img
+                      src={item.imageUrl}
+                      alt={item.title}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  </div>
+                ) : (
+                  <div className="relative h-48 bg-muted flex items-center justify-center text-muted-foreground">
+                    <span className="text-4xl">📰</span>
+                  </div>
+                )}
+                <div className="p-6 flex-1 flex flex-col">
+                  <div className="flex items-center text-sm text-muted-foreground mb-3">
+                    <Calendar className="h-4 w-4 mr-1" />
+                    <span>{formatDate(item.date, language)}</span>
+                    {item.source && (
+                      <span className="ml-auto font-medium text-xs bg-muted px-2 py-0.5 rounded-full">
+                        {typeof item.source === "string" ? item.source : item.source?.name}
+                      </span>
+                    )}
+                  </div>
+                  <h3 className="text-xl font-serif font-semibold mb-3 line-clamp-2">{item.title}</h3>
+                  <p className="text-muted-foreground mb-4 line-clamp-3 flex-1">{item.excerpt}</p>
+                  <span className="text-terracotta font-medium hover:underline">
+                    {t("common.readMore")}
+                  </span>
                 </div>
-                <h3 className="text-xl font-serif font-semibold mb-3">
-                  {item.title[language as keyof typeof item.title] || item.title.en}
-                </h3>
-                <p className="text-muted-foreground mb-4">
-                  {item.excerpt[language as keyof typeof item.excerpt] || item.excerpt.en}
-                </p>
-                <Link 
-                  to={`/news/${item.id}`} 
-                  className="text-terracotta font-medium hover:underline"
-                >
-                  {t("common.readMore")}
-                </Link>
-              </div>
-            </article>
-          ))}
-        </div>
+              </a>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
