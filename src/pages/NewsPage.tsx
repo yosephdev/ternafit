@@ -84,7 +84,7 @@ const NewsPage = () => {
   useEffect(() => {
     const GNEWS_API_KEY = import.meta.env.VITE_GNEWS_API_KEY;
     const MEDIASTACK_API_KEY = import.meta.env.VITE_MEDIASTACK_API_KEY;
-    const NEWSDATA_API_KEY = import.meta.env.VITE_NEWSAPI_KEY; // Assuming VITE_NEWSAPI_KEY is for NewsData.io
+    const NEWSDATA_API_KEY = import.meta.env.VITE_NEWSDATAIO_API_KEY;
 
     const fetchNews = async () => {
       setIsLoading(true);
