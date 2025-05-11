@@ -1,8 +1,9 @@
 
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useState, useEffect } from "react"; // Added useEffect
 import { Check, CreditCard, DollarSign } from "lucide-react";
+import { loadStripe, Stripe } from '@stripe/stripe-js'; // Added loadStripe and Stripe type
 
 const DonatePage = () => {
   const { t, language } = useLanguage();
@@ -10,7 +11,19 @@ const DonatePage = () => {
   const [customAmount, setCustomAmount] = useState("");
   const [donationType, setDonationType] = useState("onetime");
   const currency = language === 'sv' ? 'SEK' : 'USD';
-  
+  const [stripePromise, setStripePromise] = useState<Promise<Stripe | null> | null>(null);
+  const [stripeError, setStripeError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const stripeKey = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY;
+    if (stripeKey) {
+      setStripePromise(loadStripe(stripeKey));
+    } else {
+      console.error("Stripe publishable key is not set. Please set VITE_STRIPE_PUBLISHABLE_KEY in your .env file");
+      setStripeError("Stripe is not configured correctly. Donations are currently unavailable.");
+    }
+  }, []);
+
   // Donation amounts
   const amounts = [25, 50, 100, 250];
   
@@ -28,7 +41,64 @@ const DonatePage = () => {
   
   // Actual amount to use
   const actualAmount = customAmount ? parseFloat(customAmount) : donationAmount;
-  
+
+  const handleDonateClick = async () => {
+    if (!stripePromise) {
+      setStripeError("Stripe is not initialized. Please try again in a moment.");
+      console.error("Stripe.js has not loaded yet.");
+      return;
+    }
+
+    if (actualAmount <= 0) {
+      setStripeError("Please enter a valid donation amount.");
+      return;
+    }
+    setStripeError(null); // Clear previous errors
+
+    const stripe = await stripePromise;
+    if (!stripe) {
+      setStripeError("Stripe failed to load. Please refresh the page and try again.");
+      console.error("Stripe object is null after promise resolution.");
+      return;
+    }
+
+    try {
+      const response = await fetch('/.netlify/functions/create-checkout-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          amount: actualAmount,
+          currency: currency,
+          donationType: donationType,
+          success_url: `${window.location.origin}/donation-success?session_id={CHECKOUT_SESSION_ID}`,
+          cancel_url: `${window.location.origin}/donation-cancelled`,
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || `Server error: ${response.status}`);
+      }
+
+      const { sessionId } = await response.json();
+      const { error } = await stripe.redirectToCheckout({ sessionId });
+
+      if (error) {
+        console.error("Error redirecting to Stripe Checkout:", error);
+        setStripeError(error.message || "An unexpected error occurred during redirect.");
+      }
+    } catch (error: unknown) {
+      console.error("Error processing donation:", error);
+      let message = "Could not process donation. Please try again.";
+      if (error instanceof Error) {
+        message = error.message;
+      }
+      setStripeError(message);
+    }
+  };
+
   return (
     <main>
       {/* Page Header */}
@@ -156,9 +226,14 @@ const DonatePage = () => {
                 </div>
                 
                 {/* Payment Button */}
-                <Button className="w-full bg-terracotta hover:bg-terracotta/90 text-white font-semibold py-6 text-lg mt-4">
+                <Button 
+                  className="w-full bg-terracotta hover:bg-terracotta/90 text-white font-semibold py-6 text-lg mt-4"
+                  onClick={handleDonateClick}
+                  disabled={!stripePromise || actualAmount <= 0}
+                >
                   {t("donate.button")} {actualAmount > 0 ? `(${currency} ${actualAmount})` : ''}
                 </Button>
+                {stripeError && <p className="text-red-500 text-sm mt-2 text-center">{stripeError}</p>}
                 
                 {/* Payment Options */}
                 <div className="mt-4 flex justify-center gap-4">
