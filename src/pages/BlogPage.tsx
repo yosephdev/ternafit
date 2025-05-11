@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
-<<<<<<< HEAD
+
 import DonateBox from "@/components/shared/DonateBox";
 import { Calendar, User, Tag, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
+import BlogSidebar from "@/components/blog/BlogSidebar";
 
 // Featured internal blog stories for Ternafit; can easily add more here!
 const featuredStories = [
@@ -30,17 +31,10 @@ const featuredStories = [
       "Your support made all this possible. This piece summarizes where we've been and where we're going, highlighting people and communities at the heart of our mission."
   },
 ];
-=======
-import { Calendar, User, Tag } from "lucide-react";
-import { Link } from "react-router-dom";
-import { blogPosts } from "@/data/blogPosts";
-import BlogSidebar from "@/components/blog/BlogSidebar";
->>>>>>> b6639eb7ef75f4f4d38f7702908d9a1212524cd4
 
-const BlogPage = () => {
+const BlogPage: React.FC = () => {
   const { t, language } = useLanguage();
 
-<<<<<<< HEAD
   type BlogPost =
     | {
         // Internal story
@@ -72,12 +66,12 @@ const BlogPage = () => {
   const [loading, setLoading] = useState(true);
   const [fetchError, setFetchError] = useState<string | null>(null);
 
-  // Fetch external blog/news articles about Tigray\
+  // Fetch external blog/news articles about Tigray
   useEffect(() => {
     setLoading(true);
     setFetchError(null);
 
-    const результатовGNews = fetch(
+    const fetchGNews = fetch(
       `https://gnews.io/api/v4/search?q=Tigray&lang=en&country=et&max=10&apikey=${import.meta.env.VITE_GNEWS_API_KEY}`
     ).then((res) => {
       if (!res.ok) throw new Error(`GNews API request failed: ${res.statusText}`);
@@ -85,7 +79,7 @@ const BlogPage = () => {
     });
 
     const fetchMediastack = fetch(
-      `http://api.mediastack.com/v1/news?access_key=${import.meta.env.VITE_MEDIASTACK_API_KEY}&keywords=Tigray&countries=et&languages=en&limit=10`
+      `https://api.mediastack.com/v1/news?access_key=${import.meta.env.VITE_MEDIASTACK_API_KEY}&keywords=Tigray&countries=et&languages=en&limit=10`
     ).then((res) => {
       if (!res.ok) throw new Error(`Mediastack API request failed: ${res.statusText}`);
       return res.json();
@@ -98,7 +92,7 @@ const BlogPage = () => {
       return res.json();
     });
 
-    Promise.allSettled([результатовGNews, fetchMediastack, fetchNewsData])
+    Promise.allSettled([fetchGNews, fetchMediastack, fetchNewsData])
       .then((results) => {
         const combinedPosts: BlogPost[] = [];
         const errorMessages: string[] = [];
@@ -140,8 +134,7 @@ const BlogPage = () => {
                 imageUrl: "/images/default.jpg",
                 tags: ["Tigray", "External", sourceName],
                 internal: false,
-                // Ensure 'url' field is present for deduplication and linking
-                url: "#" 
+                url: article.url || article.link || "#" // Use article URL if available
               };
               if (sourceName === "GNews") {
                 post = {
@@ -194,18 +187,15 @@ const BlogPage = () => {
         // Re-assign simple numeric IDs for React keys after deduplication and sorting
         const finalPosts = uniquePosts.map((post, i) => ({ ...post, id: i + 100 }));
 
-
         setExternalPosts(finalPosts);
 
         if (errorMessages.length > 0 && finalPosts.length === 0) {
           setFetchError(`Could not load any external stories. Errors: ${errorMessages.join("; ")}`);
         } else if (errorMessages.length > 0) {
-          // Optionally, notify user about partial failure, though posts are still shown.
-           console.warn("Some news sources failed to load:", errorMessages.join("; "));
+          console.warn("Some news sources failed to load:", errorMessages.join("; "));
         }
-
       })
-      .catch((err) => { // This catch is for Promise.allSettled itself, unlikely to be hit if individual fetches handle errors.
+      .catch((err) => {
         console.error("Critical error in fetching news:", err);
         setFetchError("A critical error occurred while fetching news. Please try again later.");
       })
@@ -239,17 +229,6 @@ const BlogPage = () => {
     page * itemsPerPage
   );
 
-=======
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString(language === 'sv' ? 'sv-SE' : 'en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
-  };
-
->>>>>>> b6639eb7ef75f4f4d38f7702908d9a1212524cd4
   return (
     <main>
       {/* Hero Section */}
@@ -268,9 +247,7 @@ const BlogPage = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {/* Main Content */}
-<<<<<<< HEAD
             <div className="md:col-span-2 space-y-12">
-
               {/* Featured Internal Ternafit Blog Posts */}
               <section>
                 <h2 className="text-2xl font-serif font-bold mb-6">Featured Ternafit Stories</h2>
@@ -291,28 +268,6 @@ const BlogPage = () => {
                         </div>
                         <div className="md:w-2/3 p-6">
                           <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mb-2">
-=======
-            <div className="md:col-span-2">
-              <div className="space-y-10">
-                {blogPosts.length > 0 ? (
-                  blogPosts.map((post) => (
-                    <article key={post.id} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                      <div className="md:flex">
-                        <div className="md:w-1/3">
-                          <img 
-                            src={post.imageUrl}
-                            alt={post.title[language as keyof typeof post.title] || post.title.en}
-                            className="w-full h-48 md:h-full object-cover"
-                          />
-                        </div>
-                        <div className="md:w-2/3 p-6">
-                          <h2 className="text-xl font-serif font-bold mb-3">
-                            <Link to={`/blog/${post.id}`} className="hover:text-terracotta">
-                              {post.title[language as keyof typeof post.title] || post.title.en}
-                            </Link>
-                          </h2>
-                          <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mb-4">
->>>>>>> b6639eb7ef75f4f4d38f7702908d9a1212524cd4
                             <div className="flex items-center">
                               <Calendar className="h-4 w-4 mr-1" />
                               <span>{formatDate(post.date)}</span>
@@ -326,9 +281,12 @@ const BlogPage = () => {
                               <span>{post.tags.join(", ")}</span>
                             </div>
                           </div>
-<<<<<<< HEAD
-                          <h2 className="text-2xl font-serif font-bold mb-2">{post.title}</h2>
-                          <p className="mb-4 text-muted-foreground">{post.excerpt}</p>
+                          <h2 className="text-xl font-serif font-bold mb-3">
+                            {post.title}
+                          </h2>
+                          <p className="text-muted-foreground mb-4">
+                            {post.excerpt}
+                          </p>
                           <div className="prose">
                             {post.content.split('\n').map((para, i) => (
                               para.trim() !== "" ? <p key={i}>{para}</p> : <br key={i} />
@@ -389,7 +347,7 @@ const BlogPage = () => {
                             </div>
                           </div>
                           <p className="text-muted-foreground mb-4">
-                            {renderText(post.excerpt)}
+                            {post.excerpt ? renderText(post.excerpt) : "No excerpt available"}
                           </p>
                         </div>
                       </div>
@@ -433,116 +391,13 @@ const BlogPage = () => {
                   </div>
                 )}
               </section>
-
             </div>
+
             {/* Sidebar */}
-            <aside className="md:col-span-1 space-y-6">
+            <div className="md:col-span-1 space-y-6">
               <DonateBox compact sticky />
-              {/* Popular Posts */}
-              <div className="bg-white rounded-lg shadow-md p-6">
-                <h3 className="text-lg font-serif font-semibold mb-4">
-                  Popular Posts
-                </h3>
-                <ul className="space-y-2">
-                  <li>
-                    <a
-                      href="#"
-                      className="flex items-center space-x-2 text-muted-foreground hover:text-terracotta"
-                    >
-                      <MessageCircle className="h-4 w-4" />
-                      <span>Education Initiatives in Tigray</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="flex items-center space-x-2 text-muted-foreground hover:text-terracotta"
-                    >
-                      <MessageCircle className="h-4 w-4" />
-                      <span>Stories of Resilience</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Tags */}
-              <div className="bg-white rounded-lg shadow-md p-6">
-                <h3 className="text-lg font-serif font-semibold mb-4">
-                  Tags
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  <a
-                    href="#"
-                    className="bg-muted px-3 py-1 rounded-full text-sm hover:bg-muted-foreground hover:text-white transition-colors"
-                  >
-                    Education
-                  </a>
-                  <a
-                    href="#"
-                    className="bg-muted px-3 py-1 rounded-full text-sm hover:bg-muted-foreground hover:text-white transition-colors"
-                  >
-                    Healthcare
-                  </a>
-                  <a
-                    href="#"
-                    className="bg-muted px-3 py-1 rounded-full text-sm hover:bg-muted-foreground hover:text-white transition-colors"
-                  >
-                    Women
-                  </a>
-                  <a
-                    href="#"
-                    className="bg-muted px-3 py-1 rounded-full text-sm hover:bg-muted-foreground hover:text-white transition-colors"
-                  >
-                    Impact
-                  </a>
-                  <a
-                    href="#"
-                    className="bg-muted px-3 py-1 rounded-full text-sm hover:bg-muted-foreground hover:text-white transition-colors"
-                  >
-                    Diaspora
-                  </a>
-                </div>
-              </div>
-            </aside>
-=======
-                          <p className="text-muted-foreground mb-4">
-                            {post.excerpt[language as keyof typeof post.excerpt] || post.excerpt.en}
-                          </p>
-                          <Link to={`/blog/${post.id}`} className="text-terracotta font-medium hover:underline">
-                            {t("common.readMore")}
-                          </Link>
-                        </div>
-                      </div>
-                    </article>
-                  ))
-                ) : (
-                  <div className="text-center py-10">
-                    <p className="text-muted-foreground">No blog posts available.</p>
-                  </div>
-                )}
-              </div>
-
-              {/* Pagination */}
-              {blogPosts.length > 0 && (
-                <div className="flex justify-center mt-10">
-                  <nav className="flex items-center space-x-2">
-                    <button className="px-3 py-1 rounded border border-muted hover:bg-muted transition-colors">
-                      &larr;
-                    </button>
-                    <button className="px-3 py-1 rounded bg-terracotta text-white">1</button>
-                    <button className="px-3 py-1 rounded border border-muted hover:bg-muted transition-colors">
-                      &rarr;
-                    </button>
-                  </nav>
-                </div>
-              )}
-            </div>
-
-            {/* Sidebar */}
-            <div className="md:col-span-1">
               <BlogSidebar />
             </div>
->>>>>>> b6639eb7ef75f4f4d38f7702908d9a1212524cd4
           </div>
         </div>
       </section>
