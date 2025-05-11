@@ -17,6 +17,9 @@ import NewsPage from "./pages/NewsPage";
 import DonatePage from "./pages/DonatePage";
 import DonationSuccessPage from "./pages/DonationSuccessPage";
 import DonationCancelPage from "./pages/DonationCancelPage";
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage"; // Added import
+import TermsOfServicePage from "./pages/TermsOfServicePage"; // Added import
+import ContactPage from "./pages/ContactPage"; // Added import
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient({
@@ -71,8 +74,19 @@ const routes = [
     element: <DonationCancelPage />,
   },
   {
-    path: "*",
-    element: <NotFound />,
+    path: "/privacy-policy", // Added route
+    element: <PrivacyPolicyPage />,
+  },
+  {
+    path: "/terms-of-service", // Added route
+    element: <TermsOfServicePage />,
+  },
+  {
+    path: "/contact", // Added route
+    element: <ContactPage />,
+  },
+  {
+    path: "*",    element: <NotFound />,
   },
 ];
 
