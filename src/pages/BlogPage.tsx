@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+<<<<<<< HEAD
 import DonateBox from "@/components/shared/DonateBox";
 import { Calendar, User, Tag, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -29,10 +30,17 @@ const featuredStories = [
       "Your support made all this possible. This piece summarizes where we've been and where we're going, highlighting people and communities at the heart of our mission."
   },
 ];
+=======
+import { Calendar, User, Tag } from "lucide-react";
+import { Link } from "react-router-dom";
+import { blogPosts } from "@/data/blogPosts";
+import BlogSidebar from "@/components/blog/BlogSidebar";
+>>>>>>> b6639eb7ef75f4f4d38f7702908d9a1212524cd4
 
 const BlogPage = () => {
   const { t, language } = useLanguage();
 
+<<<<<<< HEAD
   type BlogPost =
     | {
         // Internal story
@@ -231,6 +239,17 @@ const BlogPage = () => {
     page * itemsPerPage
   );
 
+=======
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString(language === 'sv' ? 'sv-SE' : 'en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  };
+
+>>>>>>> b6639eb7ef75f4f4d38f7702908d9a1212524cd4
   return (
     <main>
       {/* Hero Section */}
@@ -249,6 +268,7 @@ const BlogPage = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {/* Main Content */}
+<<<<<<< HEAD
             <div className="md:col-span-2 space-y-12">
 
               {/* Featured Internal Ternafit Blog Posts */}
@@ -271,6 +291,28 @@ const BlogPage = () => {
                         </div>
                         <div className="md:w-2/3 p-6">
                           <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mb-2">
+=======
+            <div className="md:col-span-2">
+              <div className="space-y-10">
+                {blogPosts.length > 0 ? (
+                  blogPosts.map((post) => (
+                    <article key={post.id} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                      <div className="md:flex">
+                        <div className="md:w-1/3">
+                          <img 
+                            src={post.imageUrl}
+                            alt={post.title[language as keyof typeof post.title] || post.title.en}
+                            className="w-full h-48 md:h-full object-cover"
+                          />
+                        </div>
+                        <div className="md:w-2/3 p-6">
+                          <h2 className="text-xl font-serif font-bold mb-3">
+                            <Link to={`/blog/${post.id}`} className="hover:text-terracotta">
+                              {post.title[language as keyof typeof post.title] || post.title.en}
+                            </Link>
+                          </h2>
+                          <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mb-4">
+>>>>>>> b6639eb7ef75f4f4d38f7702908d9a1212524cd4
                             <div className="flex items-center">
                               <Calendar className="h-4 w-4 mr-1" />
                               <span>{formatDate(post.date)}</span>
@@ -284,6 +326,7 @@ const BlogPage = () => {
                               <span>{post.tags.join(", ")}</span>
                             </div>
                           </div>
+<<<<<<< HEAD
                           <h2 className="text-2xl font-serif font-bold mb-2">{post.title}</h2>
                           <p className="mb-4 text-muted-foreground">{post.excerpt}</p>
                           <div className="prose">
@@ -461,6 +504,45 @@ const BlogPage = () => {
                 </div>
               </div>
             </aside>
+=======
+                          <p className="text-muted-foreground mb-4">
+                            {post.excerpt[language as keyof typeof post.excerpt] || post.excerpt.en}
+                          </p>
+                          <Link to={`/blog/${post.id}`} className="text-terracotta font-medium hover:underline">
+                            {t("common.readMore")}
+                          </Link>
+                        </div>
+                      </div>
+                    </article>
+                  ))
+                ) : (
+                  <div className="text-center py-10">
+                    <p className="text-muted-foreground">No blog posts available.</p>
+                  </div>
+                )}
+              </div>
+
+              {/* Pagination */}
+              {blogPosts.length > 0 && (
+                <div className="flex justify-center mt-10">
+                  <nav className="flex items-center space-x-2">
+                    <button className="px-3 py-1 rounded border border-muted hover:bg-muted transition-colors">
+                      &larr;
+                    </button>
+                    <button className="px-3 py-1 rounded bg-terracotta text-white">1</button>
+                    <button className="px-3 py-1 rounded border border-muted hover:bg-muted transition-colors">
+                      &rarr;
+                    </button>
+                  </nav>
+                </div>
+              )}
+            </div>
+
+            {/* Sidebar */}
+            <div className="md:col-span-1">
+              <BlogSidebar />
+            </div>
+>>>>>>> b6639eb7ef75f4f4d38f7702908d9a1212524cd4
           </div>
         </div>
       </section>

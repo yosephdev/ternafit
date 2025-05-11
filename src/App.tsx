@@ -11,12 +11,60 @@ import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import WorkPage from "./pages/WorkPage";
 import BlogPage from "./pages/BlogPage";
+import BlogPostPage from "./pages/BlogPostPage";
 import PodcastPage from "./pages/PodcastPage";
 import NewsPage from "./pages/NewsPage";
 import DonatePage from "./pages/DonatePage";
 import NotFound from "./pages/NotFound";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      retry: 1,
+      staleTime: 5 * 60 * 1000, // 5 minutes
+    },
+  },
+});
+
+const routes = [
+  {
+    path: "/",
+    element: <HomePage />,
+  },
+  {
+    path: "/about",
+    element: <AboutPage />,
+  },
+  {
+    path: "/work",
+    element: <WorkPage />,
+  },
+  {
+    path: "/blog",
+    element: <BlogPage />,
+  },
+  {
+    path: "/blog/:id",
+    element: <BlogPostPage />,
+  },
+  {
+    path: "/podcast",
+    element: <PodcastPage />,
+  },
+  {
+    path: "/news",
+    element: <NewsPage />,
+  },
+  {
+    path: "/donate",
+    element: <DonatePage />,
+  },
+  {
+    path: "*",
+    element: <NotFound />,
+  },
+];
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -29,14 +77,9 @@ const App = () => (
             <Header />
             <div className="flex-grow overflow-auto">
               <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/about" element={<AboutPage />} />
-                <Route path="/work" element={<WorkPage />} />
-                <Route path="/blog" element={<BlogPage />} />
-                <Route path="/podcast" element={<PodcastPage />} />
-                <Route path="/news" element={<NewsPage />} />
-                <Route path="/donate" element={<DonatePage />} />
-                <Route path="*" element={<NotFound />} />
+                {routes.map((route) => (
+                  <Route key={route.path} path={route.path} element={route.element} />
+                ))}
               </Routes>
             </div>
             <Footer />

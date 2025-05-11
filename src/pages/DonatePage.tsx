@@ -190,7 +190,7 @@ const DonatePage = () => {
               <div className="flex items-center">
                 <div className="w-10 h-10 rounded-full overflow-hidden mr-3">
                   <img 
-                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=50&auto=format&fit=crop" 
+                    src="" 
                     alt="Testimonial" 
                     className="w-full h-full object-cover"
                   />
@@ -209,13 +209,13 @@ const DonatePage = () => {
               <div className="flex items-center">
                 <div className="w-10 h-10 rounded-full overflow-hidden mr-3">
                   <img 
-                    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=50&auto=format&fit=crop" 
+                    src="" 
                     alt="Testimonial" 
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div>
-                  <h4 className="font-medium">Marta Abebe</h4>
+                  <h4 className="font-medium">Marta Berihun</h4>
                   <p className="text-sm text-muted-foreground">Teacher</p>
                 </div>
               </div>
