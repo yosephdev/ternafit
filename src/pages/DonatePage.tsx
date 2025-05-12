@@ -77,14 +77,34 @@ const DonatePage = () => {
         }),
       });
 
+      console.log('Raw response:', response);
+    
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || `Server error: ${response.status}`);
+        // Try to get error message from response
+        let errorMessage = `Server error: ${response.status}`;
+        try {
+          const errorData = await response.json();
+          errorMessage = errorData.error || errorMessage;
+        } catch (e) {
+          // If we can't parse JSON, just use the status text
+          errorMessage = response.statusText || errorMessage;
+        }
+        throw new Error(errorMessage);
       }
-
-      const { sessionId } = await response.json();
-      const { error } = await stripe.redirectToCheckout({ sessionId });
-
+    
+      // Check if response has content before parsing
+      const contentLength = response.headers.get('content-length');
+      if (contentLength === '0') {
+        throw new Error('Empty response from server');
+      }
+    
+      const data = await response.json();
+      if (!data?.sessionId) {
+        throw new Error('Missing session ID in response');
+      }
+    
+      const { error } = await stripe.redirectToCheckout({ sessionId: data.sessionId });
+    
       if (error) {
         console.error("Error redirecting to Stripe Checkout:", error);
         setStripeError(error.message || "An unexpected error occurred during redirect.");
@@ -264,8 +284,8 @@ const DonatePage = () => {
               <div className="flex items-center">
                 <div className="w-10 h-10 rounded-full overflow-hidden mr-3">
                   <img 
-                    src="" 
-                    alt="Testimonial" 
+                    src="/images/projects/Testimonial-1.png"
+                    alt="Image of a rural village or a water tap" 
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -283,13 +303,13 @@ const DonatePage = () => {
               <div className="flex items-center">
                 <div className="w-10 h-10 rounded-full overflow-hidden mr-3">
                   <img 
-                    src="" 
-                    alt="Testimonial" 
+                    src="/images/projects/Testimonial-2.jpg" 
+                    alt="Image of children in a classroom or reading books" 
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div>
-                  <h4 className="font-medium">Marta Berihun</h4>
+                  <h4 className="font-medium">Marta Tesfay</h4>
                   <p className="text-sm text-muted-foreground">Teacher</p>
                 </div>
               </div>
@@ -302,13 +322,13 @@ const DonatePage = () => {
               <div className="flex items-center">
                 <div className="w-10 h-10 rounded-full overflow-hidden mr-3">
                   <img 
-                    src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=50&auto=format&fit=crop" 
-                    alt="Testimonial" 
+                    src="/images/projects/Testimonial-3.jpg" 
+                    alt="Image of a person" 
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div>
-                  <h4 className="font-medium">Johan Andersson</h4>
+                  <h4 className="font-medium">Julian Bergman</h4>
                   <p className="text-sm text-muted-foreground">Regular Donor</p>
                 </div>
               </div>
