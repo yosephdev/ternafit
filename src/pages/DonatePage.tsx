@@ -303,7 +303,7 @@ const DonatePage = () => {
               <div className="flex items-center">
                 <div className="w-10 h-10 rounded-full overflow-hidden mr-3">
                   <img 
-                    src="/images/projects/Testimonial-2.jpg" 
+                    src="/images/projects/Testimonial-2.png" 
                     alt="Image of children in a classroom or reading books" 
                     className="w-full h-full object-cover"
                   />
