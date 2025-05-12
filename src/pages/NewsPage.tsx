@@ -505,16 +505,33 @@ const NewsPage = () => {
                 <p className="text-sm mb-4">
                   {t("news.newsletterDescription") || "Subscribe to our newsletter to receive the latest news and updates from Ternafit."}
                 </p>
-                <div className="space-y-3">
+                <form 
+                  action="https://dev.us9.list-manage.com/subscribe/post?u=17d8ed2a68846353b5803e6f6&id=43d363d756&f_id=001c52e1f0" 
+                  method="post" 
+                  name="mc-embedded-subscribe-form"
+                  className="validate space-y-3"
+                  target="_blank" 
+                  noValidate
+                >
                   <input
                     type="email"
+                    name="EMAIL" 
                     placeholder={t("common.email") || "Your email"}
                     className="w-full px-4 py-2 rounded border border-white bg-transparent placeholder-white/70 text-white focus:outline-none focus:ring-2 focus:ring-white"
+                    required 
                   />
-                  <button className="w-full py-2 bg-white text-terracotta font-medium rounded hover:bg-white/90 transition-colors">
+                  {/* real people should not fill this in and expect good things - do not remove this or risk form bot signups*/}
+                  <div style={{position: 'absolute', left: '-5000px'}} aria-hidden="true">
+                      <input type="text" name="b_17d8ed2a68846353b5803e6f6_43d363d756" tabIndex={-1} defaultValue="" />
+                  </div>
+                  <button 
+                    type="submit" 
+                    name="subscribe"
+                    className="w-full py-2 bg-white text-terracotta font-medium rounded hover:bg-white/90 transition-colors"
+                  >
                     {t("common.subscribe") || "Subscribe"}
                   </button>
-                </div>
+                </form>
               </div>
             </div>
           </div>
