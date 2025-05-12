@@ -237,8 +237,7 @@ const DonatePage = () => {
                 
                 {/* Payment Options */}
                 <div className="mt-4 flex justify-center gap-4">
-                  <img src="https://cdn.worldvectorlogo.com/logos/paypal-3.svg" alt="PayPal" className="h-8" />
-                  <img src="/images/projects/swish.png" alt="Swish" className="h-8" />
+                  <img src="https://cdn.worldvectorlogo.com/logos/paypal-3.svg" alt="PayPal" className="h-8" />                  
                   <img src="https://cdn.worldvectorlogo.com/logos/visa-5.svg" alt="Visa" className="h-8" />
                   <img src="https://cdn.worldvectorlogo.com/logos/mastercard-6.svg" alt="Mastercard" className="h-8" />
                 </div>

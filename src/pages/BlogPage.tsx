@@ -395,7 +395,7 @@ const BlogPage: React.FC = () => {
 
             {/* Sidebar */}
             <div className="md:col-span-1 space-y-6">
-              <DonateBox compact sticky />
+              {/* <DonateBox compact sticky /> */}
               <BlogSidebar />
             </div>
           </div>

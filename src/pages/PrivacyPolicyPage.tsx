@@ -1,15 +1,27 @@
 import React from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const PrivacyPolicyPage: React.FC = () => {
-  return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-6">Your Privacy, Our Priority</h1>
-      <p className="mb-4 text-sm text-gray-600">Last updated: August 18, 2024</p>
+  const { t } = useLanguage();
 
-      <p className="mb-4">
-        At Ternafit, we don’t just respect your privacy; we cherish it. Our Privacy Policy outlines our
-        steadfast commitment to protecting your personal information.
-      </p>
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <section className="bg-muted py-14">
+        <div className="container mx-auto px-4">
+          <h1 className="text-4xl font-serif font-bold text-center text-gray-800">{t('privacy.hero.title')}</h1>
+          <p className="text-center mt-4 text-lg max-w-2xl mx-auto text-gray-600">{t('privacy.hero.subtitle')}</p>
+        </div>
+      </section>
+
+      {/* Main content container */}
+      <div className="py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl mx-auto bg-white p-8 sm:p-10 rounded-xl shadow-xl prose lg:prose-xl">
+          <h2 className="text-2xl font-semibold text-gray-700">1. Introduction</h2>
+          <p className="mb-4">
+            At Ternafit, we don’t just respect your privacy; we cherish it. Our Privacy Policy outlines our
+            steadfast commitment to protecting your personal information.
+          </p>
       <p className="mb-4">
         This Privacy Policy describes our policies and procedures on the collection, use, and disclosure
         of your information when you use the Service and informs you of your privacy rights and how the
@@ -391,8 +403,9 @@ const PrivacyPolicyPage: React.FC = () => {
       <ul className="list-disc list-inside mb-6 space-y-2">
         <li>By email: info@ternafit.org</li>
       </ul>
+      </div>
+    </div>    
     </div>
   );
 };
-
 export default PrivacyPolicyPage;

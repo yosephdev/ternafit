@@ -29,6 +29,9 @@ export const initialTranslations: Translations = {
   'home.impact.title': { en: 'Our Impact', sv: 'Vår påverkan' },
   'home.impact.people': { en: 'People Helped', sv: 'Personer hjälpta' },
   'home.impact.projects': { en: 'Projects Completed', sv: 'Projekt slutförda' },
+  'home.impact.peopleReached': { en: 'People Reached', sv: 'Personer Nådda' },
+  'home.impact.advocacyCampaigns': { en: 'Advocacy Campaigns', sv: 'Påverkanskampanjer' },
+  'home.impact.strategicPartnerships': { en: 'Strategic Partnerships', sv: 'Strategiska Partnerskap' },
 
   // About
   'about.title': { en: 'About Ternafit', sv: 'Om Ternafit' },
@@ -70,7 +73,6 @@ export const initialTranslations: Translations = {
     sv: 'Din donation kan vara avdragsgill'
   },
 
-
   // News Page
   'news.title': { en: 'Latest News', sv: 'Senaste Nyheterna' },
   'news.description': { en: 'Stay updated with the latest articles and insights.', sv: 'Håll dig uppdaterad med de senaste artiklarna och insikterna.' },
@@ -78,10 +80,32 @@ export const initialTranslations: Translations = {
   'news.newsletterTitle': { en: 'Subscribe to our Newsletter', sv: 'Prenumerera på vårt nyhetsbrev' },
   'news.newsletterDescription': { en: 'Get the latest updates delivered to your inbox.', sv: 'Få de senaste uppdateringarna direkt till din inkorg.' },
 
+  // Contact Page Hero
+  'contact.hero.title': { en: 'Contact Us', sv: 'Kontakta Oss' },
+  'contact.hero.subtitle': {
+    en: "We'd love to hear from you! Whether you have a question about our mission, activities, or how you can get involved, feel free to reach out.",
+    sv: 'Vi vill gärna höra från dig! Oavsett om du har en fråga om vårt uppdrag, våra aktiviteter eller hur du kan engagera dig, tveka inte att höra av dig.'
+  },
+  'contact.form.success': { en: 'Message sent successfully!', sv: 'Meddelandet har skickats!' },
+
+  // Terms of Service Page Hero
+  'terms.hero.title': { en: 'Terms of Service', sv: 'Användarvillkor' },
+  'terms.hero.subtitle': {
+    en: 'Please read these terms of service carefully before using Our Service.',
+    sv: 'Vänligen läs dessa användarvillkor noggrant innan du använder vår tjänst.'
+  },
+
+  // Privacy Policy Page Hero
+  'privacy.hero.title': { en: 'Privacy Policy', sv: 'Integritetspolicy' },
+  'privacy.hero.subtitle': {
+    en: 'Your privacy is important to us. This privacy statement explains the personal data Ternafit processes, how Ternafit processes it, and for what purposes.',
+    sv: 'Din integritet är viktig för oss. Denna integritetspolicy förklarar vilka personuppgifter Ternafit behandlar, hur Ternafit behandlar dem och för vilka ändamål.'
+  },
+
   // Footer
   'footer.rights': {
-    en: '© 2025 Ternafit. All rights reserved.',
-    sv: '© 2025 Ternafit. Alla rättigheter förbehållna.'
+    en: ' 2025 Ternafit. All rights reserved.',
+    sv: ' 2025 Ternafit. Alla rättigheter förbehållna.'
   },
   'footer.privacy': { en: 'Privacy Policy', sv: 'Integritetspolicy' },
   'footer.terms': { en: 'Terms of Service', sv: 'Användarvillkor' },

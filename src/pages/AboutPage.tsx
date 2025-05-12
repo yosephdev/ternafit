@@ -141,7 +141,9 @@ const AboutPage = () => {
                 </ul>
                 <div className="mt-4">
                   <a
-                    href="/#newsletter"
+                    href="https://dev.us9.list-manage.com/subscribe/post?u=17d8ed2a68846353b5803e6f6&id=43d363d756&f_id=001c52e1f0"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-block bg-terracotta text-white px-6 py-2 rounded-full font-medium shadow hover:bg-terracotta/90"
                   >
                     Subscribe to Newsletter

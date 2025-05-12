@@ -65,7 +65,7 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-4">{t("common.contact")}</h3>
             <ul className="space-y-2 text-sm text-gray-600">
               <li>Ternafit</li>
-              <li>Jungfrugatan 1</li>
+              <li>Jungfrugatan 1F</li>
               <li>641 31 Katrineholm</li>
               <li>Sweden</li>
               <li className="pt-2 flex items-center">
@@ -83,20 +83,34 @@ const Footer = () => {
             <p className="text-sm text-muted-foreground mb-4">
               Stay updated with our latest news and events.
             </p>
-            <div className="flex flex-col sm:flex-row gap-2">
+            <form 
+              action="https://dev.us9.list-manage.com/subscribe/post?u=17d8ed2a68846353b5803e6f6&id=43d363d756&f_id=001c52e1f0" 
+              method="post" 
+              name="mc-embedded-subscribe-form"
+              className="validate flex flex-col sm:flex-row gap-2"
+              target="_blank" 
+              noValidate
+            >
               <Input 
                 type="email" 
+                name="EMAIL" 
                 placeholder={t("common.email")}
                 className="flex-grow text-sm"
+                required 
               />
+              {/* real people should not fill this in and expect good things - do not remove this or risk form bot signups*/}
+              <div style={{position: 'absolute', left: '-5000px'}} aria-hidden="true">
+                  <input type="text" name="b_17d8ed2a68846353b5803e6f6_43d363d756" tabIndex={-1} defaultValue="" />
+              </div>
               <Button 
                 type="submit" 
+                name="subscribe"
                 className="bg-terracotta hover:bg-terracotta/90 text-white"
                 size="sm"
               >
                 {t("common.subscribe")}
               </Button>
-            </div>
+            </form>
           </div>
         </div>
 

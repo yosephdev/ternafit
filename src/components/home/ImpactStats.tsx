@@ -1,7 +1,7 @@
 
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useEffect, useState } from "react";
-import { Users, CheckCircle, Home } from "lucide-react";
+import { Users, Megaphone, Handshake } from "lucide-react";
 
 const ImpactStats = () => {
   const { t } = useLanguage();
@@ -29,22 +29,22 @@ const ImpactStats = () => {
   const stats = [
     {
       icon: <Users className="h-8 w-8 text-terracotta" />,
-      value: 5000,
-      label: t("home.impact.people"),
+      value: 3500,
+      label: t("home.impact.peopleReached"),
       prefix: "",
       suffix: "+",
     },
     {
-      icon: <CheckCircle className="h-8 w-8 text-terracotta" />,
-      value: 20,
-      label: t("home.impact.projects"),
+      icon: <Megaphone className="h-8 w-8 text-terracotta" />,
+      value: 5,
+      label: t("home.impact.advocacyCampaigns"),
       prefix: "",
       suffix: "",
     },
     {
-      icon: <Home className="h-8 w-8 text-terracotta" />,
-      value: 35,
-      label: t("home.impact.communities"),
+      icon: <Handshake className="h-8 w-8 text-terracotta" />,
+      value: 4,
+      label: t("home.impact.strategicPartnerships"),
       prefix: "",
       suffix: "",
     },

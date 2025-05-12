@@ -175,7 +175,7 @@ const WorkPage = () => {
                     We're always looking for dedicated volunteers and fresh ideas—whether you're in Sweden, the diaspora, or following our mission online.
                   </p>
                   <a
-                    href="/#contact"
+                    href="/contact"
                     className="inline-block bg-white text-terracotta px-6 py-2 rounded-full font-medium shadow hover:bg-white/90"
                   >
                     Get Involved
