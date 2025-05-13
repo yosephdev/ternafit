@@ -84,7 +84,7 @@ const ContactPage: React.FC = () => {
               <h2 className="text-2xl sm:text-3xl font-semibold text-gray-700">{organizationName}</h2>
               <div>
                 <h3 className="text-lg font-medium text-gray-600">Email</h3>
-                <a href={`mailto:${contactEmail}`} className="text-blue-600 hover:text-blue-700 hover:underline transition duration-150 ease-in-out">{contactEmail}</a>
+                <a href={`mailto:${contactEmail}`} className="text-terracota-600 hover:text-terracota-700 hover:underline transition duration-150 ease-in-out">{contactEmail}</a>
               </div>
               <div>
                 <h3 className="text-lg font-medium text-gray-600">Address</h3>

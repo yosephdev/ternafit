@@ -21,7 +21,7 @@ const TermsOfServicePage: React.FC = () => {
 
       {/* Main content container for existing terms */}
       <div className="py-12 px-4 sm:px-6 lg:px-8"> {/* Outer container for padding */}
-        <div className="max-w-3xl mx-auto bg-white p-8 sm:p-10 rounded-xl shadow-xl prose lg:prose-xl">
+        <div className="max-w-5xl mx-auto bg-white p-8 sm:p-10 rounded-xl shadow-xl prose lg:prose-xl">
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold">{t('terms.hero.title')}</h1> {/* Repeated title for within-content consistency */}
             <p className="text-sm text-gray-600">{t('common.lastUpdated')}: {lastUpdatedDate}</p>
@@ -228,7 +228,7 @@ const TermsOfServicePage: React.FC = () => {
               regarding use of the Site, please contact us at:
             </p>
             <p className="mb-3">
-              {organizationName}<br />
+              {/* {organizationName}<br /> */}
               {/* Add Address if available, or remove this line */}
               {contactEmail}
             </p>

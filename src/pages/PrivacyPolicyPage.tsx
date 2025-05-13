@@ -16,7 +16,7 @@ const PrivacyPolicyPage: React.FC = () => {
 
       {/* Main content container */}
       <div className="py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto bg-white p-8 sm:p-10 rounded-xl shadow-xl prose lg:prose-xl">
+        <div className="max-w-5xl mx-auto bg-white p-8 sm:p-10 rounded-xl shadow-xl prose lg:prose-xl">
           <h2 className="text-2xl font-semibold text-gray-700">1. Introduction</h2>
           <p className="mb-4">
             At Ternafit, we don’t just respect your privacy; we cherish it. Our Privacy Policy outlines our

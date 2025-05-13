@@ -47,6 +47,7 @@ export const initialTranslations: Translations = {
   },
 
   // Common
+  'common.lastUpdated': { en: 'Last Updated', sv: 'Senast uppdaterad' },
   'common.readMore': { en: 'Read More', sv: 'Läs mer' },
   'common.learnMore': { en: 'Learn More', sv: 'Läs mer' },
   'common.contact': { en: 'Contact Us', sv: 'Kontakta oss' },
