@@ -1,9 +1,7 @@
-
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
-import { useState, useEffect } from "react"; // Added useEffect
-import { Check, CreditCard, DollarSign } from "lucide-react";
-import { loadStripe, Stripe } from '@stripe/stripe-js'; // Added loadStripe and Stripe type
+import { useState } from "react";
+import { Check, DollarSign } from "lucide-react";
 
 const DonatePage = () => {
   const { t, language } = useLanguage();
@@ -11,18 +9,6 @@ const DonatePage = () => {
   const [customAmount, setCustomAmount] = useState("");
   const [donationType, setDonationType] = useState("onetime");
   const currency = language === 'sv' ? 'SEK' : 'USD';
-  const [stripePromise, setStripePromise] = useState<Promise<Stripe | null> | null>(null);
-  const [stripeError, setStripeError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const stripeKey = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY;
-    if (stripeKey) {
-      setStripePromise(loadStripe(stripeKey));
-    } else {
-      console.error("Stripe publishable key is not set. Please set VITE_STRIPE_PUBLISHABLE_KEY in your .env file");
-      setStripeError("Stripe is not configured correctly. Donations are currently unavailable.");
-    }
-  }, []);
 
   // Donation amounts
   const amounts = [25, 50, 100, 250];
@@ -40,84 +26,8 @@ const DonatePage = () => {
   };
   
   // Actual amount to use
-  const actualAmount = customAmount ? parseFloat(customAmount) : donationAmount;
+  // const actualAmount = customAmount ? parseFloat(customAmount) : donationAmount; // This might be used by Ko-fi if we customize it further
 
-  const handleDonateClick = async () => {
-    if (!stripePromise) {
-      setStripeError("Stripe is not initialized. Please try again in a moment.");
-      console.error("Stripe.js has not loaded yet.");
-      return;
-    }
-
-    if (actualAmount <= 0) {
-      setStripeError("Please enter a valid donation amount.");
-      return;
-    }
-    setStripeError(null); // Clear previous errors
-
-    const stripe = await stripePromise;
-    if (!stripe) {
-      setStripeError("Stripe failed to load. Please refresh the page and try again.");
-      console.error("Stripe object is null after promise resolution.");
-      return;
-    }
-
-    try {
-      const response = await fetch('/.netlify/functions/create-checkout-session', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          amount: actualAmount,
-          currency: currency,
-          donationType: donationType,
-          success_url: `${window.location.origin}/donation-success?session_id={CHECKOUT_SESSION_ID}`,
-          cancel_url: `${window.location.origin}/donation-cancel`,
-        }),
-      });
-
-      console.log('Raw response:', response);
-    
-      if (!response.ok) {
-        // Try to get error message from response
-        let errorMessage = `Server error: ${response.status}`;
-        try {
-          const errorData = await response.json();
-          errorMessage = errorData.error || errorMessage;
-        } catch (e) {
-          // If we can't parse JSON, just use the status text
-          errorMessage = response.statusText || errorMessage;
-        }
-        throw new Error(errorMessage);
-      }
-    
-      // Check if response has content before parsing
-      const contentLength = response.headers.get('content-length');
-      if (contentLength === '0') {
-        throw new Error('Empty response from server');
-      }
-    
-      const data = await response.json();
-      if (!data?.sessionId) {
-        throw new Error('Missing session ID in response');
-      }
-    
-      const { error } = await stripe.redirectToCheckout({ sessionId: data.sessionId });
-    
-      if (error) {
-        console.error("Error redirecting to Stripe Checkout:", error);
-        setStripeError(error.message || "An unexpected error occurred during redirect.");
-      }
-    } catch (error: unknown) {
-      console.error("Error processing donation:", error);
-      let message = "Could not process donation. Please try again.";
-      if (error instanceof Error) {
-        message = error.message;
-      }
-      setStripeError(message);
-    }
-  };
 
   return (
     <main>
@@ -179,92 +89,8 @@ const DonatePage = () => {
               <div className="md:w-2/3 p-6 md:p-8">
                 <h3 className="text-xl font-serif font-bold mb-6">{t("donate.title")}</h3>
                 
-                {/* Amount Selection */}
-                <div className="mb-6">
-                  <label className="block mb-2 font-medium">{t("donate.amount")}</label>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-3">
-                    {amounts.map((amount) => (
-                      <button
-                        key={amount}
-                        className={`py-2 px-4 rounded-md border transition-colors ${
-                          donationAmount === amount && !customAmount
-                            ? "bg-terracotta text-white border-terracotta"
-                            : "border-gray-300 hover:border-terracotta"
-                        }`}
-                        onClick={() => handleAmountSelect(amount)}
-                      >
-                        {currency} {amount}
-                      </button>
-                    ))}
-                  </div>
-                  
-                  <div className="mt-3">
-                    <label className="block mb-2 text-sm">{t("donate.custom")}</label>
-                    <div className="relative">
-                      <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">
-                        {currency}
-                      </span>
-                      <input
-                        type="number"
-                        value={customAmount}
-                        onChange={handleCustomAmount}
-                        className="w-full py-2 pl-12 pr-4 rounded-md border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-terracotta focus:border-terracotta"
-                        placeholder="0.00"
-                        min="1"
-                      />
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Donation Type Selection */}
-                <div className="mb-6">
-                  <label className="block mb-2 font-medium">Donation Type</label>
-                  <div className="flex space-x-2">
-                    <button
-                      className={`flex-1 py-2 px-4 rounded-md border transition-colors flex justify-center items-center gap-2 ${
-                        donationType === "onetime"
-                          ? "bg-terracotta text-white border-terracotta"
-                          : "border-gray-300 hover:border-terracotta"
-                      }`}
-                      onClick={() => setDonationType("onetime")}
-                    >
-                      <DollarSign className="h-4 w-4" />
-                      {t("donate.onetime")}
-                    </button>
-                    <button
-                      className={`flex-1 py-2 px-4 rounded-md border transition-colors flex justify-center items-center gap-2 ${
-                        donationType === "monthly"
-                          ? "bg-terracotta text-white border-terracotta"
-                          : "border-gray-300 hover:border-terracotta"
-                      }`}
-                      onClick={() => setDonationType("monthly")}
-                    >
-                      <CreditCard className="h-4 w-4" />
-                      {t("donate.monthly")}
-                    </button>
-                  </div>
-                </div>
-                
-                {/* Payment Button */}
-                <Button 
-                  className="w-full bg-terracotta hover:bg-terracotta/90 text-white font-semibold py-6 text-lg mt-4"
-                  onClick={handleDonateClick}
-                  disabled={!stripePromise || actualAmount <= 0}
-                >
-                  {t("donate.button")} {actualAmount > 0 ? `(${currency} ${actualAmount})` : ''}
-                </Button>
-                {stripeError && <p className="text-red-500 text-sm mt-2 text-center">{stripeError}</p>}
-                
-                {/* Payment Options */}
-                <div className="mt-4 flex justify-center gap-4">
-                  <img src="https://cdn.worldvectorlogo.com/logos/paypal-3.svg" alt="PayPal" className="h-8" />                  
-                  <img src="https://cdn.worldvectorlogo.com/logos/visa-5.svg" alt="Visa" className="h-8" />
-                  <img src="https://cdn.worldvectorlogo.com/logos/mastercard-6.svg" alt="Mastercard" className="h-8" />
-                </div>
-                
-                <div className="mt-4 text-sm text-center text-gray-500">
-                  <p>{t("donate.secure")} • {t("donate.tax")}</p>
-                </div>
+                {/* Ko-fi Embedded Panel */}
+                <iframe id='kofiframe' src='https://ko-fi.com/ternafit/?hidefeed=true&widget=true&embed=true&preview=true' style={{border:'none', width:'100%', height:'712px', backgroundColor:'#f9f9f9', borderRadius:'10px', overflow:'hidden'}} title='ternafit'></iframe>
               </div>
             </div>
           </div>

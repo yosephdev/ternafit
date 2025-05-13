@@ -68,10 +68,6 @@ export const initialTranslations: Translations = {
   'donate.onetime': { en: 'One-time Donation', sv: 'Engångsdonation' },
   'donate.button': { en: 'Donate Now', sv: 'Donera nu' },
   'donate.secure': { en: 'Secure payment', sv: 'Säker betalning' },
-  'donate.tax': {
-    en: 'Your donation may be tax-deductible',
-    sv: 'Din donation kan vara avdragsgill'
-  },
 
   // News Page
   'news.title': { en: 'Latest News', sv: 'Senaste Nyheterna' },

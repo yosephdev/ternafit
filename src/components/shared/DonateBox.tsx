@@ -116,13 +116,13 @@ const DonateBox = ({ compact = false, sticky = false }: DonateBoxProps) => {
       </div>
       
       <Link to="/donate">
-        <Button className="w-full bg-white hover:bg-white/90 text-lightblue font-semibold py-6 text-lg">
+        <Button className="w-full bg-terracotta hover:bg-terracotta/90 text-white font-semibold py-6 text-lg">
           {t("donate.button")} {actualAmount > 0 ? `(${currency} ${actualAmount})` : ''}
         </Button>
       </Link>
       
       <div className="mt-4 text-sm text-center text-white/90">
-        <p>{t("donate.secure")} • {t("donate.tax")}</p>
+        <p>{t("donate.secure")}</p>
         
         {/* Urgency message */}
         <p className="mt-4 font-medium">
