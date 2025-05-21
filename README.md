@@ -1,73 +1,99 @@
-# Welcome to your Lovable project
+# Ternafit - Tigray Impact Initiative
 
-## Project info
+<!-- ![Ternafit Logo](public/images/ternafit-logo.png) -->
 
-**URL**: https://lovable.dev/projects/c5f5e98a-09f5-43d1-85e2-68dcadaeaace
+![Ternafit Preview](public/images/ternafit-preview.png)
 
-## How can I edit this code?
+## 🌍 About Ternafit
 
-There are several ways of editing your application.
+Ternafit is a platform dedicated to raising awareness about the Tigray region, sharing stories of resilience, and providing updates on recovery efforts. Our mission is to amplify Tigrean voices and support the community through information and advocacy.
 
-**Use Lovable**
+## 🚀 Features
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/c5f5e98a-09f5-43d1-85e2-68dcadaeaace) and start prompting.
+- **Podcast Series**: Engaging audio content featuring stories, interviews, and discussions about Tigray
+- **Multilingual Support**: Content available in English and Swedish
+- **Responsive Design**: Works on all devices
+- **Modern Tech Stack**: Built with the latest web technologies
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🛠️ Technologies Used
 
-**Use your preferred IDE**
+- **Frontend**:
+  - React 18 with TypeScript
+  - Vite for fast development
+  - shadcn/ui components
+  - Tailwind CSS for styling
+  - React Router for navigation
+  - Lucide Icons
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- **Hosting & Storage**:
+  - Netlify for web hosting
+  - AWS S3 for media storage
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 🚀 Getting Started
 
-Follow these steps:
+### Prerequisites
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+- Node.js (v16 or later)
+- npm (v8 or later) or yarn
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### Installation
 
-# Step 3: Install the necessary dependencies.
-npm i
+1. **Clone the repository**
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+   ```sh
+   git clone https://github.com/yosephdev/ternafit.git
+   cd tigray-impact-ai-reach
+   ```
+
+2. **Install dependencies**
+
+   ```sh
+   npm install
+   # or
+   yarn
+   ```
+
+3. **Start the development server**
+
+   ```sh
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+4. **Open in your browser**
+   The app should be running at `http://localhost:5173`
+
+## 📂 Project Structure
+
+```
+src/
+├── components/     # Reusable UI components
+├── pages/          # Page components
+├── assets/         # Static assets
+├── styles/         # Global styles
+└── utils/          # Utility functions
 ```
 
-**Edit a file directly in GitHub**
+## 🌐 Deployment
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+The application is deployed on Netlify. To deploy your changes:
 
-**Use GitHub Codespaces**
+1. Push your changes to the `main` branch
+2. Netlify will automatically trigger a new deployment
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 📝 License
 
-## What technologies are used for this project?
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-This project is built with:
+## 🤝 Contributing
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+We welcome contributions! Please read our [Contributing Guide](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
 
-## How can I deploy this project?
+## 📞 Contact
 
-Simply open [Lovable](https://lovable.dev/projects/c5f5e98a-09f5-43d1-85e2-68dcadaeaace) and click on Share -> Publish.
+For inquiries, please contact us at [info@ternafit.org](mailto:info@ternafit.org)
 
-## Can I connect a custom domain to my Lovable project?
+---
 
-Yes it is!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Made with ❤️ for Tigray
