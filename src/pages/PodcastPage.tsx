@@ -17,7 +17,7 @@ type Episode = {
 
 const podcastEpisodes: Episode[] = [
   {
-    id: 6,
+    id: 9,
     title: {
       en: "Tigray in Focus: Stories of Recovery, Challenges, and Hope",
       sv: "Tigray i fokus: Berättelser om återhämtning, utmaningar och hopp"
@@ -25,47 +25,71 @@ const podcastEpisodes: Episode[] = [
     date: "2025-03-15",
     duration: "45:12",
     imageUrl: "/images/podcast/episode6.jpg",
-    audioUrl: "https://ternafit.org/media/audiopodcast-episode8.wav",
+    audioUrl: "https://tigray-impact-podcasts.s3.eu-central-1.amazonaws.com/audiopodcast-episode8.wav",
     category: ["Stories", "Recovery"]
   },
   {
-    id: 5,
+    id: 8,
+    title: {
+      en: "ADS and Ternafit in Action",
+      sv: "ADS och Ternafit i aktion"
+    },
+    date: "2025-03-1",
+    duration: "45:30",
+    imageUrl: "/images/podcast/episode5.jpg",
+    audioUrl: "https://tigray-impact-podcasts.s3.eu-central-1.amazonaws.com/ADS+and+Ternafit+in+Action.wav",
+    category: ["Stories", "Updates"]
+  },
+  {
+    id: 7,
+    title: {
+      en: "Fear or Support: Understanding Tigray's Quiet Resistance",
+      sv: "Rädsla eller stöd: Att förstå Tigrays tysta motstånd"
+    },
+    date: "2025-04-15",
+    duration: "50:20",
+    imageUrl: "/images/podcast/episode8.jpg",
+    audioUrl: "https://tigray-impact-podcasts.s3.eu-central-1.amazonaws.com/Fear+or+Support_+Understanding+Tigray%E2%80%99s+Quiet+Resistance.wav",
+    category: ["Stories", "Politics"]
+  },
+  {
+    id: 6,
     title: {
       en: "Beyond Repair: Reflections of a Tigrean",
       sv: "Utanför reparationsområdet: Reflektioner från en Tigrean"
     },
     date: "2025-03-01",
     duration: "39:45",
-    imageUrl: "/images/podcast/episode5.jpg",
-    audioUrl: "https://ternafit.org/media/beyond-repair-reflections.mp3",
+    imageUrl: "/images/podcast/episode1.png",
+    audioUrl: "https://tigray-impact-podcasts.s3.eu-central-1.amazonaws.com/Beyond+Repair_+Reflections+of+a+Tigrean.wav",
     category: ["Stories", "Recovery"]
+  },
+  {
+    id: 5,
+    title: {
+      en: "Tigray's Future: Why a Referendum Matters",
+      sv: "Tigrays framtid: Varför en folkomröstning är viktig"
+    },
+    date: "2025-02-28",
+    duration: "46:15",
+    imageUrl: "/images/podcast/episode4.png",
+    audioUrl: "https://tigray-impact-podcasts.s3.eu-central-1.amazonaws.com/Tigray%E2%80%99s+Future_+Why+a+Referendum+Matters.wav",
+    category: ["Politics", "Updates"]
   },
   {
     id: 4,
     title: {
-      en: "Why the Referendum Matters",
-      sv: "Varför folkomröstningen är viktig"
+      en: "The Integrative Voice",
+      sv: "Den integrerande rösten"
     },
     date: "2025-02-15",
-    duration: "52:30",
-    imageUrl: "/images/podcast/episode4.png",
-    audioUrl: "https://ternafit.org/media/audiopodcast-episode6.wav",
-    category: ["Updates", "Politics"]
+    duration: "45:30",
+    imageUrl: "/images/podcast/episode3.jpg",
+    audioUrl: "https://tigray-impact-podcasts.s3.eu-central-1.amazonaws.com/The+Integrative+Voice.wav",
+    category: ["Stories", "Interviews"]
   },
   {
     id: 3,
-    title: {
-      en: "Collaborating for Change",
-      sv: "Samarbete för förändring"
-    },
-    date: "2025-02-01",
-    duration: "41:18",
-    imageUrl: "/images/podcast/episode3.jpg",
-    audioUrl: "https://ternafit.org/media/audiopodcast-episode3.mp4",
-    category: ["Stories", "Partnerships"]
-  },
-  {
-    id: 2,
     title: {
       en: "Inside Tigray: The Battle for Voice and Freedom",
       sv: "Inuti Tigray: Kampen för röst och frihet"
@@ -73,8 +97,20 @@ const podcastEpisodes: Episode[] = [
     date: "2024-12-15",
     duration: "47:22",
     imageUrl: "/images/podcast/episode2.jpg",
-    audioUrl: "https://ternafit.org/media/audiopodcast-episode.mp4",
+    audioUrl: "https://tigray-impact-podcasts.s3.eu-central-1.amazonaws.com/Inside+Tigray_+The+Battle+for+Voice+and+Freedom.mp3",
     category: ["Stories", "Politics"]
+  },
+  {
+    id: 2,
+    title: {
+      en: "The Heart of Our Work",
+      sv: "Hjärtat i vårt arbete"
+    },
+    date: "2024-11-15",
+    duration: "40:15",
+    imageUrl: "/images/podcast/episode9.webp",
+    audioUrl: "https://tigray-impact-podcasts.s3.eu-central-1.amazonaws.com/audiopodcast-episode.wav",
+    category: ["Stories", "Updates"]
   },
   {
     id: 1,
@@ -84,8 +120,8 @@ const podcastEpisodes: Episode[] = [
     },
     date: "2024-11-01",
     duration: "38:50",
-    imageUrl: "/images/podcast/episode1.png",
-    audioUrl: "https://ternafit.org/media/audiopodcast-episode.mp3",
+    imageUrl: "/images/podcast/overcast.png",
+    audioUrl: "https://tigray-impact-podcasts.s3.eu-central-1.amazonaws.com/audiopodcast-episode.mp3",
     category: ["Stories", "Updates"]
   }
 ];
