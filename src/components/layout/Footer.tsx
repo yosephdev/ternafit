@@ -71,7 +71,7 @@ const Footer = () => {
               <li className="pt-2 flex items-center">
                 <Mail className="h-4 w-4 mr-2" /> 
                 <a href="mailto:contact@ternafit.org" className="hover:text-terracotta">
-                  contact@ternafit.org
+                  info@ternafit.org
                 </a>
               </li>
             </ul>
