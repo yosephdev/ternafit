@@ -4,8 +4,15 @@
   # publish = "dist" # If your Vite build output is not 'dist'
   # command = "npm run dev" # If you need to customize the dev command
 
+[build]
+  command = "npm run build"
+  publish = "dist"
+  functions = "netlify/functions"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
 [functions]
   directory = "netlify/functions"
-
-[build]
-  functions = "netlify/functions"
