@@ -29,40 +29,44 @@ const ContactPage: React.FC = () => {
     setSubmitStatus('idle');
     setSubmitMessage('');
 
+    // For Netlify Forms - this will be submitted by the hidden form
+    const form = event.currentTarget;
+    const formDataObj = new FormData(form);
+    
     try {
-      const response = await fetch('/.netlify/functions/send-email', {
+      // Submit to Netlify Forms
+      // Convert FormData to URLSearchParams with proper typing
+      const formEntries = Array.from(formDataObj.entries()).reduce((acc, [key, value]) => {
+        acc[key] = value.toString();
+        return acc;
+      }, {} as Record<string, string>);
+      
+      const response = await fetch('/', {
         method: 'POST',
+        body: new URLSearchParams(formEntries).toString(),
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: JSON.stringify(formData),
       });
 
       if (response.ok) {
-        const result = await response.json();
         setSubmitStatus('success');
-        setSubmitMessage(result.message || t('contact.form.success'));
+        setSubmitMessage('Thank you for your message! We will get back to you soon.');
         setFormData({ name: '', email: '', subject: '', message: '' });
+        
+        // Reset the form for Netlify
+        const netlifyForm = document.getElementById('netlify-form') as HTMLFormElement;
+        if (netlifyForm) netlifyForm.reset();
       } else {
-        let errorMessage = 'Failed to send message. Server error.';
-        try {
-          const errorResult = await response.json();
-          errorMessage = errorResult.message || `Error: ${response.status} - ${response.statusText}`;
-        } catch (e) {
-          errorMessage = `Error: ${response.status} - ${response.statusText}`;
-          console.error('Contact form submission error: Could not parse error response as JSON', e);
-        }
-        setSubmitStatus('error');
-        setSubmitMessage(errorMessage);
-        console.error('Contact form submission error:', errorMessage);
+        throw new Error('Form submission failed');
       }
     } catch (error) {
-      console.error('Contact form submission error:', error);
+      console.error('Form submission error:', error);
       setSubmitStatus('error');
-      const message = error instanceof Error ? error.message : 'An unexpected error occurred.';
-      setSubmitMessage(`Failed to send message. ${message}`);
+      setSubmitMessage('Failed to send message. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
     }
-    setIsSubmitting(false);
   };
 
   return (
@@ -99,9 +103,37 @@ const ContactPage: React.FC = () => {
               </p>
             </div>
 
-            {/* Contact Form Section */}
+            {/* Hidden Netlify Form */}
+            <form 
+              id="netlify-form"
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              netlify-honeypot="bot-field"
+              className="hidden"
+            >
+              <input type="hidden" name="form-name" value="contact" />
+              <input name="bot-field" />
+              <input name="name" type="text" />
+              <input name="email" type="email" />
+              <input name="subject" type="text" />
+              <textarea name="message"></textarea>
+            </form>
+
+            {/* Visible Form */}
             <div className="bg-gray-50 p-6 sm:p-8 rounded-lg shadow-inner">
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form 
+                onSubmit={handleSubmit} 
+                className="space-y-6"
+                data-netlify="true"
+                data-netlify-honeypot="bot-field"
+              >
+                <input type="hidden" name="form-name" value="contact" />
+                <div style={{ display: 'none' }}>
+                  <label>
+                    Don't fill this out if you're human: <input name="bot-field" />
+                  </label>
+                </div>
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700">Full Name</label>
                   <input 
