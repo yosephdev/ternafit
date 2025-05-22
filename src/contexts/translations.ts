@@ -54,8 +54,8 @@ export const initialTranslations: Translations = {
   'common.subscribe': { en: 'Subscribe', sv: 'Prenumerera' },
   'common.email': { en: 'Email', sv: 'E-post' },
   'common.name': { en: 'Name', sv: 'Namn' },
-  'common.submit': { en: 'Submit', sv: 'Skicka' },
-  'common.loading': { en: 'Loading...', sv: 'Laddar...' },
+  'common.submit': { en: 'Send Message', sv: 'Skicka meddelande' },
+  'common.loading': { en: 'Sending...', sv: 'Skickar...' },
 
   // Donation
   'donate.title': { en: 'Make a Donation', sv: 'Gör en donation' },
@@ -77,27 +77,48 @@ export const initialTranslations: Translations = {
   'news.newsletterTitle': { en: 'Subscribe to our Newsletter', sv: 'Prenumerera på vårt nyhetsbrev' },
   'news.newsletterDescription': { en: 'Get the latest updates delivered to your inbox.', sv: 'Få de senaste uppdateringarna direkt till din inkorg.' },
 
-  // Contact Page Hero
-  'contact.hero.title': { en: 'Contact Us', sv: 'Kontakta Oss' },
+  // Contact Page
+  'contact.title': {
+    en: 'Contact Us',
+    sv: 'Kontakta oss'
+  },
+  'contact.subtitle': {
+    en: 'Get in touch with our team',
+    sv: 'Kontakta vårt team'
+  },
+  'contact.hero.title': {
+    en: 'Get in Touch',
+    sv: 'Kontakta oss'
+  },
   'contact.hero.subtitle': {
     en: "We'd love to hear from you! Whether you have a question about our mission, activities, or how you can get involved, feel free to reach out.",
     sv: 'Vi vill gärna höra från dig! Oavsett om du har en fråga om vårt uppdrag, våra aktiviteter eller hur du kan engagera dig, tveka inte att höra av dig.'
   },
-  'contact.form.success': { en: 'Message sent successfully!', sv: 'Meddelandet har skickats!' },
+  'contact.form.success': { 
+    en: 'Message sent successfully!', 
+    sv: 'Meddelandet har skickats!' 
+  },
 
   // Terms of Service Page Hero
-  'terms.hero.title': { en: 'Terms of Service', sv: 'Användarvillkor' },
+  'terms.hero.title': { 
+    en: 'Terms of Service', 
+    sv: 'Användarvillkor' 
+  },
   'terms.hero.subtitle': {
     en: 'Please read these terms of service carefully before using Our Service.',
     sv: 'Vänligen läs dessa användarvillkor noggrant innan du använder vår tjänst.'
   },
 
   // Privacy Policy Page Hero
-  'privacy.hero.title': { en: 'Privacy Policy', sv: 'Integritetspolicy' },
+  'privacy.hero.title': { 
+    en: 'Privacy Policy', 
+    sv: 'Integritetspolicy' 
+  },
   'privacy.hero.subtitle': {
     en: 'Your privacy is important to us. This privacy statement explains the personal data Ternafit processes, how Ternafit processes it, and for what purposes.',
     sv: 'Din integritet är viktig för oss. Denna integritetspolicy förklarar vilka personuppgifter Ternafit behandlar, hur Ternafit behandlar dem och för vilka ändamål.'
   },
+
 
   // Footer
   'footer.rights': {

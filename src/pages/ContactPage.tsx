@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { FormEvent, useState } from 'react';
+import NetlifyForm from '../components/NetlifyForm';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const ContactPage: React.FC = () => {
@@ -29,41 +30,99 @@ const ContactPage: React.FC = () => {
     setSubmitStatus('idle');
     setSubmitMessage('');
 
-    // For Netlify Forms - this will be submitted by the hidden form
     const form = event.currentTarget;
-    const formDataObj = new FormData(form);
+    const formData = new FormData(form);
     
     try {
-      // Submit to Netlify Forms
-      // Convert FormData to URLSearchParams with proper typing
-      const formEntries = Array.from(formDataObj.entries()).reduce((acc, [key, value]) => {
-        acc[key] = value.toString();
-        return acc;
-      }, {} as Record<string, string>);
-      
-      const response = await fetch('/', {
-        method: 'POST',
-        body: new URLSearchParams(formEntries).toString(),
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-      });
+      // Create form data for URL-encoded submission
+      const formDataObj = {
+        'form-name': 'contact',
+        name: formData.get('name') || '',
+        email: formData.get('email') || '',
+        subject: formData.get('subject') || 'New Contact Form Submission',
+        message: formData.get('message') || ''
+      };
 
+      console.log('Submitting form with data:', formDataObj);
+
+      // Determine if we're in development or production
+      const isLocalDevelopment = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+      
+      let response: Response;
+      
+      if (isLocalDevelopment) {
+        // In development, log the form data and simulate success
+        console.log('Running in development mode - form data:', formDataObj);
+        
+        // Simulate network delay
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        
+        // Return a mock success response
+        response = new Response(JSON.stringify({ success: true }), {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' }
+        });
+      } else {
+        // In production, submit to Netlify Forms
+        response = await fetch('/', {
+          method: 'POST',
+          headers: { 
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Accept': 'application/json'
+          },
+          body: new URLSearchParams(formDataObj as Record<string, string>).toString()
+        });
+      }
+
+      console.log('Response status:', response.status, response.statusText);
+      
+      // Get the response text first
+      const responseText = await response.text();
+      console.log('Response text:', responseText);
+
+      // Check if response is OK (status 200-299)
       if (response.ok) {
         setSubmitStatus('success');
         setSubmitMessage('Thank you for your message! We will get back to you soon.');
         setFormData({ name: '', email: '', subject: '', message: '' });
-        
-        // Reset the form for Netlify
-        const netlifyForm = document.getElementById('netlify-form') as HTMLFormElement;
-        if (netlifyForm) netlifyForm.reset();
+        form.reset();
       } else {
-        throw new Error('Form submission failed');
+        // Try to parse error message from response
+        let errorMessage = `Form submission failed with status: ${response.status} ${response.statusText}`;
+        try {
+          if (responseText) {
+            try {
+              const parsedError = JSON.parse(responseText);
+              errorMessage = parsedError.error || errorMessage;
+            } catch (e) {
+              // If not JSON, use the response text as is
+              errorMessage = responseText || errorMessage;
+            }
+          }
+        } catch (e) {
+          console.error('Error processing error response:', e);
+        }
+        console.error('Form submission error details:', {
+          status: response.status,
+          statusText: response.statusText,
+          headers: Object.fromEntries(response.headers.entries()),
+          body: responseText
+        });
+        throw new Error(errorMessage);
       }
     } catch (error) {
       console.error('Form submission error:', error);
       setSubmitStatus('error');
-      setSubmitMessage('Failed to send message. Please try again later.');
+      setSubmitMessage(error instanceof Error ? error.message : 'An unexpected error occurred. Please try again.');
+      
+      // Log additional error details
+      if (error instanceof Error) {
+        console.error('Error details:', {
+          name: error.name,
+          message: error.message,
+          stack: error.stack
+        });
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -81,58 +140,59 @@ const ContactPage: React.FC = () => {
 
       {/* Main content container */}
       <div className="py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto bg-white p-8 sm:p-10 rounded-xl shadow-xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
-            {/* Contact Information Section */}
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            {/* Contact Information */}
             <div className="space-y-6">
-              <h2 className="text-2xl sm:text-3xl font-semibold text-gray-700">{organizationName}</h2>
-              <div>
-                <h3 className="text-lg font-medium text-gray-600">Email</h3>
-                <a href={`mailto:${contactEmail}`} className="text-terracota-600 hover:text-terracota-700 hover:underline transition duration-150 ease-in-out">{contactEmail}</a>
+              <div className="text-center md:text-left">
+                <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
+                  {t('contact.title')}
+                </h1>
+                <p className="mt-3 text-xl text-gray-500 sm:mt-4">
+                  {t('contact.subtitle')}
+                </p>
               </div>
-              <div>
-                <h3 className="text-lg font-medium text-gray-600">Address</h3>
-                <p className="text-gray-500">{contactAddress}</p>
+              
+              <div className="space-y-4">
+                <div>
+                  <h3 className="text-lg font-medium text-gray-600">Address</h3>
+                  <p className="text-gray-500">{contactAddress}</p>
+                </div>
+                <div>
+                  <h3 className="text-lg font-medium text-gray-600">Email</h3>
+                  <a href={`mailto:${contactEmail}`} className="text-terracotta-600 hover:underline">
+                    {contactEmail}
+                  </a>
+                </div>
+                <div>
+                  <h3 className="text-lg font-medium text-gray-600">Office Hours</h3>
+                  <p className="text-gray-500">{officeHours}</p>
+                </div>
+                <p className="text-gray-500 text-sm pt-2">
+                  Use the form to send us a message directly, or use the contact details provided. 
+                  We aim to respond within 24-48 business hours.
+                </p>
               </div>
-              <div>
-                <h3 className="text-lg font-medium text-gray-600">Office Hours</h3>
-                <p className="text-gray-500">{officeHours}</p>
-              </div>
-              <p className="text-gray-500 text-sm">
-                Use the form to send us a message directly, or use the contact details provided. We aim to respond within 24-48 business hours.
-              </p>
             </div>
 
-            {/* Hidden Netlify Form */}
-            <form 
-              id="netlify-form"
-              name="contact"
-              method="POST"
-              data-netlify="true"
-              netlify-honeypot="bot-field"
-              className="hidden"
-            >
-              <input type="hidden" name="form-name" value="contact" />
-              <input name="bot-field" />
-              <input name="name" type="text" />
-              <input name="email" type="email" />
-              <input name="subject" type="text" />
-              <textarea name="message"></textarea>
-            </form>
-
-            {/* Visible Form */}
-            <div className="bg-gray-50 p-6 sm:p-8 rounded-lg shadow-inner">
-              <form 
-                onSubmit={handleSubmit} 
-                className="space-y-6"
-                data-netlify="true"
+            {/* Contact Form */}
+            <div className="bg-white p-6 sm:p-8 rounded-lg shadow-lg border border-gray-200">
+              <NetlifyForm 
+                name="contact"
+                method="POST"
+                data-netlify={true}
                 data-netlify-honeypot="bot-field"
+                onSubmit={handleSubmit}
+                className="space-y-6"
               >
                 <input type="hidden" name="form-name" value="contact" />
-                <div style={{ display: 'none' }}>
-                  <label>
-                    Don't fill this out if you're human: <input name="bot-field" />
-                  </label>
+                <div className="hidden">
+                  <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                </div>
+                <input type="hidden" name="form-action" value="contact" />
+                <div className="hidden">
+                  <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                  <input type="text" name="_gotcha" style={{display: 'none'}} />
                 </div>
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700">Full Name</label>
@@ -199,7 +259,7 @@ const ContactPage: React.FC = () => {
                     {isSubmitting ? t('common.loading') : t('common.submit')}
                   </button>
                 </div>
-              </form>
+              </NetlifyForm>
               {submitStatus !== 'idle' && (
                 <div className={`mt-4 p-3 rounded-md text-sm ${submitStatus === 'success' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
                   <p>{submitMessage}</p>
@@ -221,8 +281,7 @@ const ContactPage: React.FC = () => {
                 loading="lazy" 
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Google Maps Location of Ternafit"
-              >
-              </iframe>
+              ></iframe>
             </div>
           </div>
         </div>
