@@ -1,6 +1,13 @@
 import type { Handler, HandlerEvent, HandlerContext } from "@netlify/functions";
 import { Resend } from 'resend';
 
+// Define the error response type from Resend API
+interface ResendErrorResponse {
+  statusCode: number;
+  name: string;
+  message: string;
+}
+
 // Initialize Resend with the API key from environment variables
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -49,26 +56,37 @@ const handler: Handler = async (event: HandlerEvent, context: HandlerContext) =>
       <p>${message.replace(/\n/g, '<br>')}</p>
     `;
 
-    const data = await resend.emails.send({
-      from: `Ternafit Contact Form <${CONTACT_FORM_SENDER_EMAIL}>`, // This 'from' name is what appears in the email client
-      to: [CONTACT_FORM_RECEIVER_EMAIL],
+    // Updated to match Resend API reference pattern
+    const { data, error } = await resend.emails.send({
+      from: `Ternafit Contact Form <${CONTACT_FORM_SENDER_EMAIL}>`,
+      to: CONTACT_FORM_RECEIVER_EMAIL, // Can be string or array
       subject: `New Contact Form Message: ${subject}`,
-      replyTo: email, // So you can directly reply to the user who submitted the form
+      replyTo: email, // Using camelCase as per Resend API
       html: emailHtml,
     });
 
-    if (data.error) {
-      console.error("Resend API Error:", data.error);
+    if (error) {
+      console.error("Resend API Error:", error);
+      
+      // Type assertion for the error object
+      const resendError = error as unknown as ResendErrorResponse;
+      
       return {
-        statusCode: 500,
-        body: JSON.stringify({ message: `Failed to send email: ${data.error.message}` }),
+        statusCode: resendError.statusCode || 500,
+        body: JSON.stringify({ 
+          message: `Failed to send email: ${resendError.message || 'Unknown error occurred'}`,
+          name: resendError.name || 'UnknownError'
+        }),
         headers: { 'Content-Type': 'application/json' },
       };
     }
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: "Email sent successfully! We will get back to you as soon as possible." }),
+      body: JSON.stringify({ 
+        message: "Email sent successfully! We will get back to you as soon as possible.",
+        emailId: data?.id // Include the email ID from Resend response
+      }),
       headers: { 'Content-Type': 'application/json' },
     };
 
@@ -83,7 +101,10 @@ const handler: Handler = async (event: HandlerEvent, context: HandlerContext) =>
     }
     return {
       statusCode: 500,
-      body: JSON.stringify({ message: `Server error: ${errorMessage}` }),
+      body: JSON.stringify({ 
+        message: `Server error: ${errorMessage}`,
+        error: error instanceof Error ? error.name : 'UnknownError'
+      }),
       headers: { 'Content-Type': 'application/json' },
     };
   }
