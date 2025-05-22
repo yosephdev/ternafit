@@ -5,7 +5,7 @@ const ContactPage: React.FC = () => {
   const { t } = useLanguage();
   const organizationName = "Ternafit";
   const contactEmail = "info@ternafit.org";
-  const contactAddress = "Jungfrugatan 1F, 64131, Katrineholm, Sweden";
+  const contactAddress = "Jungfrugatan 1F, 641 31, Katrineholm, Sweden";
   const officeHours = "Monday - Friday: 9:00 AM - 5:00 PM (CET)";
 
   const [formData, setFormData] = useState({

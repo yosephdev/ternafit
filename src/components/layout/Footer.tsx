@@ -70,7 +70,7 @@ const Footer = () => {
               <li>Sweden</li>
               <li className="pt-2 flex items-center">
                 <Mail className="h-4 w-4 mr-2" /> 
-                <a href="mailto:contact@ternafit.org" className="hover:text-terracotta">
+                <a href="mailto:info@ternafit.org" className="hover:text-terracotta">
                   info@ternafit.org
                 </a>
               </li>
