@@ -1,9 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Merriweather:wght@400;700&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
   :root {
@@ -70,20 +69,32 @@
 }
 
 @layer base {
-  * {
+  /* * {
     border-color: hsl(var(--border));
     border-width: 1px;
     border-style: solid;
-  }
+  } */
+
+  input,
+button,
+select,
+textarea {
+  border-color: hsl(var(--border));
+  border-width: 1px;
+  border-style: solid;
+  border-radius: var(--radius);
+  transition: all 0.2s ease;
+}
+
 
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
-    font-family: 'Inter', 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+    font-family: 'Roboto', 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Merriweather', serif;
     font-weight: 500;
   }
   

@@ -98,25 +98,25 @@ const AboutPage = () => {
               <div>
                 <h2 className="text-2xl font-serif font-bold mb-4">Our Values</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="border border-muted rounded-lg p-4">
+                  <div className="bg-white rounded-lg p-4 border border-muted">
                     <h3 className="text-lg font-serif font-medium mb-2">Compassion</h3>
                     <p className="text-sm text-muted-foreground">
                       We approach our work with empathy and respect for the dignity of those we serve.
                     </p>
                   </div>
-                  <div className="border border-muted rounded-lg p-4">
+                  <div className="bg-white rounded-lg p-4 border border-muted">
                     <h3 className="text-lg font-serif font-medium mb-2">Integrity</h3>
                     <p className="text-sm text-muted-foreground">
                       We are committed to transparency and accountability in all our operations.
                     </p>
                   </div>
-                  <div className="border border-muted rounded-lg p-4">
+                  <div className="bg-white rounded-lg p-4 border border-muted">
                     <h3 className="text-lg font-serif font-medium mb-2">Collaboration</h3>
                     <p className="text-sm text-muted-foreground">
                       We work together with local communities and organizations to achieve our goals.
                     </p>
                   </div>
-                  <div className="border border-muted rounded-lg p-4">
+                  <div className="bg-white rounded-lg p-4 border border-muted">
                     <h3 className="text-lg font-serif font-medium mb-2">Innovation</h3>
                     <p className="text-sm text-muted-foreground">
                       We continuously seek creative solutions to complex challenges.
