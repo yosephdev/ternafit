@@ -35,28 +35,22 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-bold mb-4">{t("nav.about")}</h3>
+            <h3 className="text-lg font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li>
-                <Link to="/about" className="text-sm text-gray-600 hover:text-terracotta">
-                  {t("nav.about")}
-                </Link>
-              </li>
-              <li>
-                <Link to="/work" className="text-sm text-gray-600 hover:text-terracotta">
-                  {t("nav.work")}
-                </Link>
-              </li>
-              <li>
-                <Link to="/blog" className="text-sm text-gray-600 hover:text-terracotta">
-                  {t("nav.blog")}
-                </Link>
-              </li>
-              <li>
-                <Link to="/news" className="text-sm text-gray-600 hover:text-terracotta">
-                  {t("nav.news")}
-                </Link>
-              </li>
+              <li><Link to="/about" className="text-sm text-gray-600 hover:text-terracotta">{t("nav.about")}</Link></li>
+              <li><Link to="/work" className="text-sm text-gray-600 hover:text-terracotta">{t("nav.work")}</Link></li>
+              <li><Link to="/blog" className="text-sm text-gray-600 hover:text-terracotta">{t("nav.blog")}</Link></li>
+              <li><Link to="/news" className="text-sm text-gray-600 hover:text-terracotta">{t("nav.news")}</Link></li>
+              <li><Link to="/podcast" className="text-sm text-gray-600 hover:text-terracotta">{t("nav.podcast")}</Link></li>
+            </ul>
+          </div>
+
+          {/* Support Us */}
+          <div>
+            <h3 className="text-lg font-bold mb-4">Support Us</h3>
+            <ul className="space-y-2">
+              <li><Link to="/donate" className="text-sm text-gray-600 hover:text-terracotta">{t("nav.donate")}</Link></li>
+              <li><Link to="/get-involved" className="text-sm text-gray-600 hover:text-terracotta">{t("nav.getInvolved")}</Link></li>
             </ul>
           </div>
 

@@ -6,8 +6,8 @@ import { Calendar } from "lucide-react";
 
 interface NewsItem {
   id: string;
-  title: string;
-  excerpt: string;
+  title: { en: string; sv: string };
+  excerpt: { en: string; sv: string };
   date: string;
   description?: string;
   publishedAt?: string;
@@ -95,8 +95,14 @@ const LatestNews = () => {
       .then(data => {
         const articles: NewsItem[] = (data.articles || []).map((article: Partial<NewsItem>) => ({
           id: article.url || `news-${Math.random()}`,
-          title: article.title || "No title available",
-          excerpt: article.description || article.content || "",
+          title: {
+            en: article.title || "No title available",
+            sv: article.title || "Ingen titel tillgänglig",
+          },
+          excerpt: {
+            en: article.description || article.content || "",
+            sv: article.description || article.content || "",
+          },
           date: article.publishedAt || new Date().toISOString(),
           imageUrl: article.image || null,
           url: article.url || "#",
@@ -106,7 +112,7 @@ const LatestNews = () => {
       })
       .catch((err) => {
         console.error("Error fetching top headlines:", err);
-        setError(err.message || t('news.loadError'));
+        setError(String(err.message || t('news.loadError')));
       })
       .finally(() => setLoading(false));
   }, [language, t]);
@@ -144,7 +150,7 @@ const LatestNews = () => {
                   <div className="relative h-48 overflow-hidden bg-gray-100">
                     <img
                       src={item.imageUrl}
-                      alt={item.title}
+                      alt={item.title[language]}
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       loading="lazy"
                     />
@@ -164,8 +170,8 @@ const LatestNews = () => {
                       </span>
                     )}
                   </div>
-                  <h3 className="text-xl font-serif font-semibold mb-3 line-clamp-2">{item.title}</h3>
-                  <p className="text-muted-foreground mb-4 line-clamp-3 flex-1">{item.excerpt}</p>
+                  <h3 className="text-xl font-serif font-bold mb-3 line-clamp-2">{item.title[language]}</h3>
+                  <p className="text-muted-foreground mb-4 line-clamp-3 flex-1">{item.excerpt[language]}</p>
                   <span className="text-terracotta font-medium hover:underline">
                     {t("common.readMore")}
                   </span>

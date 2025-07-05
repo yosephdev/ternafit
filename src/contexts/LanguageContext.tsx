@@ -26,7 +26,13 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
       console.warn(`Translation key not found: ${key}`);
       return key;
     }
-    return translations[key][language] || key;
+    const translatedValue = translations[key][language];
+    if (typeof translatedValue === 'string') {
+      return translatedValue;
+    }
+    // Fallback if translatedValue is not a string (e.g., undefined or an object)
+    console.warn(`Translation for key "${key}" in language "${language}" is not a string. Found:`, translatedValue);
+    return String(translatedValue || key); // Ensure it's a string
   };
 
   // Add new translations

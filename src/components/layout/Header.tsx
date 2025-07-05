@@ -46,22 +46,27 @@ const Header = () => {
     { path: "/blog", label: t("nav.blog") },
     { path: "/podcast", label: t("nav.podcast") },
     { path: "/news", label: t("nav.news") },
+    { path: "/get-involved", label: t("nav.getInvolved") },
   ];
 
   return (
-    <header 
+    <header
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
-        scrolled ? "bg-background/95 backdrop-blur-sm shadow-md" : "bg-transparent"
+        scrolled
+          ? "bg-background/95 backdrop-blur-sm shadow-md"
+          : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-4 flex items-center justify-between h-16">
+      <div className="container mx-auto flex h-16 items-center justify-between px-4">
         {/* Logo */}
         <Link to="/" className="flex items-center">
-          <span className="text-xl font-serif font-bold text-terracotta">Ternafit</span>
+          <span className="font-serif text-xl font-bold text-terracotta">
+            Ternafit
+          </span>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-6">
+        <nav className="hidden items-center space-x-6 md:flex">
           {navLinks.map((link) => (
             <Link
               key={link.path}
@@ -76,19 +81,23 @@ const Header = () => {
         </nav>
 
         {/* Right side: Language toggle and donate button */}
-        <div className="hidden md:flex items-center space-x-4">
+        <div className="hidden items-center space-x-4 md:flex">
           <button
             onClick={toggleLanguage}
-            className="flex items-center text-sm font-medium px-3 py-1 rounded-full border border-border hover:bg-muted transition duration-200"
+            className="flex items-center rounded-full border border-border px-3 py-1 text-sm font-medium hover:bg-muted transition duration-200"
             aria-label="Toggle language"
           >
-            <Globe className="w-4 h-4 mr-1" />
+            <Globe className="mr-1 h-4 w-4" />
             {language === "en" ? "EN" : "SV"}
           </button>
-          
+          <Link to="/contact">
+            <Button variant="outline" size="sm">
+              {t("footer.contact")}
+            </Button>
+          </Link>
           <Link to="/donate">
-            <Button 
-              className="bg-terracotta hover:bg-terracotta/90 text-white" 
+            <Button
+              className="bg-terracotta text-white hover:bg-terracotta/90"
               size="sm"
             >
               {t("nav.donate")}
@@ -137,14 +146,21 @@ const Header = () => {
                 {link.label}
               </Link>
             ))}
-            <Link to="/donate">
-              <Button 
-                className="w-full mt-2 bg-terracotta hover:bg-terracotta/90 text-white" 
-                size="lg"
-              >
-                {t("nav.donate")}
-              </Button>
-            </Link>
+            <div className="mt-4 space-y-2">
+              <Link to="/donate">
+                <Button
+                  className="w-full bg-terracotta text-white hover:bg-terracotta/90"
+                  size="lg"
+                >
+                  {t("nav.donate")}
+                </Button>
+              </Link>
+              <Link to="/contact">
+                <Button className="w-full" variant="outline" size="lg">
+                  {t("footer.contact")}
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       )}

@@ -17,6 +17,7 @@ export const initialTranslations: Translations = {
   'nav.podcast': { en: 'Podcast', sv: 'Podd' },
   'nav.news': { en: 'News', sv: 'Nyheter' },
   'nav.donate': { en: 'Donate', sv: 'Donera' },
+  'nav.getInvolved': { en: 'Get Involved', sv: 'Engagera dig' },
 
   // Homepage
   'home.hero.title': { en: 'Support Tigray', sv: 'Stöd Tigray' },
@@ -26,6 +27,8 @@ export const initialTranslations: Translations = {
   },
   'home.cta.donate': { en: 'Donate Now', sv: 'Donera nu' },
   'home.cta.learn': { en: 'Learn More', sv: 'Läs mer' },
+  'home.donations.people': { en: 'people', sv: 'personer' },
+  'home.donations.donatedToday': { en: 'have donated today', sv: 'har donerat idag' },
   'home.impact.title': { en: 'Our Impact', sv: 'Vår påverkan' },
   'home.impact.people': { en: 'People Helped', sv: 'Personer hjälpta' },
   'home.impact.projects': { en: 'Projects Completed', sv: 'Projekt slutförda' },
@@ -76,8 +79,27 @@ export const initialTranslations: Translations = {
   'news.featured': { en: 'Featured News', sv: 'Utvalda Nyheter' },
   'news.newsletterTitle': { en: 'Subscribe to our Newsletter', sv: 'Prenumerera på vårt nyhetsbrev' },
   'news.newsletterDescription': { en: 'Get the latest updates delivered to your inbox.', sv: 'Få de senaste uppdateringarna direkt till din inkorg.' },
+  'news.loadError': { en: 'Failed to load news. Please try again later.', sv: 'Kunde inte ladda nyheter. Försök igen senare.' },
+  'news.noTigrayNews': { en: 'No Tigray-related news found at the moment.', sv: 'Inga Tigray-relaterade nyheter hittades för tillfället.' },
+  'news.loading': { en: 'Loading news...', sv: 'Laddar nyheter...' },
 
-  // Contact Page
+    'blog.sharePost': { en: 'Share this post:', sv: 'Dela detta inlägg:' },
+
+  // Author Bio
+  'authorBio.title': { en: 'About the Author', sv: 'Om författaren' },
+  'authorBio.founderRole': { en: 'Founder & Program Director', sv: 'Grundare & Programdirektör' },
+  'authorBio.fieldCoordinatorRole': { en: 'Field Coordinator', sv: 'Fältkoordinator' },
+  'authorBio.yosephBio': {
+    en: 'Yoseph has worked in humanitarian response in Tigray for over a decade and leads Ternafit\'s education and advocacy programs.',
+    sv: 'Yoseph har arbetat med humanitära insatser i Tigray i över ett decennium och leder Ternafit\'s program för utbildning och påverkansarbete.'
+  },
+  'authorBio.genericBio': {
+    en: 'With experience in local and international NGOs, the author is dedicated to documenting real stories from communities affected by the conflict.',
+    sv: 'Med erfarenhet från lokala och internationella NGOs, är författaren dedikerad till att dokumentera verkliga berättelser från samhällen påverkade av konflikten.'
+  },
+
+// Contact Page
+
   'contact.title': {
     en: 'Contact Us',
     sv: 'Kontakta oss'

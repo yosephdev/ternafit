@@ -5,7 +5,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 type Episode = {
   id: number;
-  title: { en: string; sv: string };
+  title: string;
   imageUrl: string;
   audioUrl: string;
   duration: string;
@@ -14,21 +14,10 @@ type Episode = {
 type PodcastPlayerProps = {
   episode: Episode;
   compact?: boolean;
-  onPlay?: () => void;
-  onPause?: () => void;
-  onSeek?: (time: number) => void;
-  onShare?: () => void;
-  onDownload?: () => void;
-  onVolumeChange?: (volume: number) => void;
-  onDurationChange?: (duration: number) => void;
-  onTimeUpdate?: (currentTime: number) => void;
-  onEnded?: () => void;
-  onLoadedMetadata?: (duration: number) => void;
-  onError?: (error: Error) => void;
 };
 
 const PodcastPlayer = ({ episode, compact = false }: PodcastPlayerProps) => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
@@ -69,7 +58,7 @@ const PodcastPlayer = ({ episode, compact = false }: PodcastPlayerProps) => {
   };
 
   const shareEpisode = () => {
-    const title = episode.title[t("currentLanguage") as keyof typeof episode.title];
+    const title = episode.title;
     if (navigator.share) {
       navigator.share({
         title,
@@ -104,7 +93,7 @@ const PodcastPlayer = ({ episode, compact = false }: PodcastPlayerProps) => {
     };
   }, []);
 
-  const title = episode.title[t("currentLanguage") as keyof typeof episode.title];
+  
 
   return (
     <div className={`bg-white rounded-lg shadow-sm ${compact ? "p-4" : "p-6"} w-full`}>
@@ -114,11 +103,11 @@ const PodcastPlayer = ({ episode, compact = false }: PodcastPlayerProps) => {
         <div className="flex items-center gap-4 mb-4">
           <img
             src={episode.imageUrl}
-            alt={title}
+            alt={episode.title}
             className="w-16 h-16 rounded-md object-cover"
           />
           <div className="min-w-0">
-            <h3 className="font-serif font-bold line-clamp-2">{title}</h3>
+            <h3 className="font-serif font-bold line-clamp-2">{episode.title}</h3>
             <p className="text-sm text-muted-foreground">{episode.duration}</p>
           </div>
         </div>

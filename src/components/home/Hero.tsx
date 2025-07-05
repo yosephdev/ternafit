@@ -65,7 +65,7 @@ const Hero = () => {
         
         {/* Optional: Add a "Currently X people are donating" banner */}
         <div className="mt-12 bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3 text-white text-sm">
-          <span className="font-semibold">3 {language === 'sv' ? 'personer' : 'people'}</span> {language === 'sv' ? 'har donerat idag' : 'have donated today'}
+          <span className="font-semibold">3 {t('home.donations.people')}</span> {t('home.donations.donatedToday')}
         </div>
       </div>
     </div>

@@ -6,13 +6,12 @@ import { BlogPost } from '@/data/blogPosts';
 interface RelatedPostsProps {
   currentPostId: number;
   posts: BlogPost[];
-  language: string;
 }
 
-const RelatedPosts = ({ currentPostId, posts, language }: RelatedPostsProps) => {
+const RelatedPosts = ({ currentPostId, posts }: RelatedPostsProps) => {
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString(language === 'sv' ? 'sv-SE' : 'en-US', {
+    return date.toLocaleDateString('en-US', { // Assuming English for related posts date format
       year: 'numeric',
       month: 'long',
       day: 'numeric'
@@ -22,7 +21,7 @@ const RelatedPosts = ({ currentPostId, posts, language }: RelatedPostsProps) => 
   return (
     <div className="mt-10">
       <h3 className="text-xl font-serif font-semibold mb-6">
-        {language === 'sv' ? 'Relaterade inlägg' : 'Related Posts'}
+        Related Posts
       </h3>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {posts
@@ -36,12 +35,12 @@ const RelatedPosts = ({ currentPostId, posts, language }: RelatedPostsProps) => 
             >
               <img 
                 src={relatedPost.imageUrl}
-                alt={relatedPost.title[language as keyof typeof relatedPost.title] || relatedPost.title.en}
+                alt={relatedPost.title}
                 className="w-full h-40 object-cover"
               />
               <div className="p-4">
                 <h4 className="font-medium mb-2">
-                  {relatedPost.title[language as keyof typeof relatedPost.title] || relatedPost.title.en}
+                  {relatedPost.title}
                 </h4>
                 <div className="text-xs text-muted-foreground">
                   {formatDate(relatedPost.date)}

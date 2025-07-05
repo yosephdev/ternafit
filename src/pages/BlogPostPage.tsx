@@ -41,7 +41,7 @@ const BlogPostPage = () => {
       <section className="bg-muted py-14">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl font-serif font-bold text-center mb-4">
-            {post.title[language as keyof typeof post.title] || post.title.en}
+            {post.title}
           </h1>
           <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
             <div className="flex items-center">
@@ -70,7 +70,7 @@ const BlogPostPage = () => {
               <div className="rounded-lg overflow-hidden mb-8">
                 <img 
                   src={post.imageUrl}
-                  alt={post.title[language as keyof typeof post.title] || post.title.en}
+                  alt={post.title}
                   className="w-full h-auto"
                 />
               </div>
@@ -78,11 +78,11 @@ const BlogPostPage = () => {
               {/* Article Content */}
               <div className="prose prose-lg max-w-none">
                 <p className="lead text-xl mb-6">
-                  {post.excerpt[language as keyof typeof post.excerpt] || post.excerpt.en}
+                  {post.excerpt}
                 </p>
                 
                 {/* Display content paragraphs */}
-                {post.content[language as keyof typeof post.content || post.content.en]
+                {post.content
                   .split('\n\n')
                   .map((paragraph, index) => (
                     <p key={index}>{paragraph}</p>

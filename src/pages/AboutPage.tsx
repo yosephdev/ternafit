@@ -1,6 +1,8 @@
 
 import { useLanguage } from "@/contexts/LanguageContext";
 import DonateBox from "@/components/shared/DonateBox";
+import { teamMembers } from "@/data/teamMembers";
+import { TeamMemberCard } from "@/components/about/TeamMemberCard";
 
 const AboutPage = () => {
   const { t } = useLanguage();
@@ -152,33 +154,16 @@ const AboutPage = () => {
               </div>
 
               {/* Our Team */}
-              <div>
-                <h2 className="text-2xl font-serif font-bold mb-4">Our Team</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                  <div className="flex flex-col items-center text-center">
-                    <div className="w-40 h-40 rounded-full overflow-hidden mb-4">
-                      <img 
-                        src="/images/team/yoseph.jpg" 
-                        alt="Team Member" 
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <h3 className="text-lg font-serif font-medium">Yoseph Berhane</h3>
-                    <p className="text-sm text-muted-foreground">Executive Director</p>
-                  </div>
-                  <div className="flex flex-col items-center text-center">
-                    <div className="w-40 h-40 rounded-full overflow-hidden mb-4">
-                      <img 
-                        src="/images/team/mebrat.webp" 
-                        alt="Team Member" 
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <h3 className="text-lg font-serif font-medium">Mebrat Gebru</h3>
-                    <p className="text-sm text-muted-foreground">Programs Director</p>
+              <section id="team" className="py-16 bg-white">
+                <div className="container mx-auto px-4">
+                  <h2 className="text-3xl font-serif font-bold text-center mb-12">Meet Our Team</h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    {teamMembers.map((member) => (
+                      <TeamMemberCard key={member.name} member={member} />
+                    ))}
                   </div>
                 </div>
-              </div>
+              </section>
             </div>
 
             {/* Sidebar */}

@@ -20,36 +20,6 @@ interface NewsItem {
   url: string;
 }
 
-interface SentimentStats {
-  positive: number;
-  negative: number;
-  neutral: number;
-}
-
-interface NewsDataIOArticle {
-  article_id: string;
-  title: string;
-  link: string;
-  keywords: string[] | null;
-  creator: string[] | null;
-  video_url: string | null;
-  description: string | null;
-  content: string | null;
-  pubDate: string;
-  image_url: string | null;
-  source_id: string;
-  source_url: string | null;
-  source_icon: string | null;
-  source_priority: number | null;
-  country: string[];
-  category: string[];
-  language: string;
-  ai_tag?: string;
-  sentiment?: string;
-  sentiment_stats?: SentimentStats;
-  ai_region?: string;
-}
-
 interface GNewsArticle {
   title: string;
   description: string;
@@ -60,15 +30,6 @@ interface GNewsArticle {
     name: string;
     url?: string; // Adding optional URL for source based on typical API structures
   };
-}
-
-interface MediastackArticle {
-  title: string;
-  description: string;
-  published_at: string;
-  source: string;
-  image?: string;
-  url: string;
 }
 
 const NewsPage = () => {
@@ -83,8 +44,6 @@ const NewsPage = () => {
 
   useEffect(() => {
     const GNEWS_API_KEY = import.meta.env.VITE_GNEWS_API_KEY;
-    const MEDIASTACK_API_KEY = import.meta.env.VITE_MEDIASTACK_API_KEY;
-    const NEWSDATA_API_KEY = import.meta.env.VITE_NEWSDATAIO_API_KEY;
 
     const fetchNews = async () => {
       setIsLoading(true);
@@ -107,7 +66,6 @@ const NewsPage = () => {
       }
 
       let allArticles: NewsItem[] = [];
-      const errors: string[] = [];
 
       // 1. GNews
       if (GNEWS_API_KEY) {
@@ -134,7 +92,7 @@ const NewsPage = () => {
                 sv: article.description || "Inget innehåll tillgängligt",
               },
               date: article.publishedAt || new Date().toISOString(),
-              category: article.source?.name || "GNews",
+              category: article.source?.name || "General",
               imageUrl: article.image || undefined,
               url: article.url,
             };
@@ -146,84 +104,7 @@ const NewsPage = () => {
         } else {
           console.error("Error fetching GNews: An unknown error occurred", e);
         }
-          errors.push("GNews");
-        }
-      }
-
-      // 2. Mediastack
-      if (MEDIASTACK_API_KEY) {
-        try {
-          // Note: Mediastack free plan might not support HTTPS or all params.
-          // Using HTTP as per some free plan examples. Adjust if your plan supports HTTPS.
-          const response = await axios.get('http://api.mediastack.com/v1/news', {
-            params: {
-              access_key: MEDIASTACK_API_KEY,
-              keywords: 'Tigray',
-              countries: 'et', 
-              languages: currentLang === 'sv' ? 'sv' : 'en', // Mediastack uses 'en', 'sv'
-              limit: 15,
-              sort: 'published_desc',
-            },
-          });
-          const mediastackArticles = response.data.data?.map((article: MediastackArticle): NewsItem | null => {
-            if (!article.url) return null;
-            return {
-              id: 0,
-              title: {
-                en: article.title || "No title available",
-                sv: article.title || "Ingen titel tillgänglig",
-              },
-              content: {
-                en: article.description || "No content available",
-                sv: article.description || "Inget innehåll tillgängligt",
-              },
-              date: article.published_at || new Date().toISOString(),
-              category: article.source || "Mediastack",
-              imageUrl: article.image || undefined,
-              url: article.url,
-            };
-          }).filter((item: NewsItem | null) => item !== null) as NewsItem[];
-          allArticles = allArticles.concat(mediastackArticles);
-        } catch (e: unknown) {
-          console.error("Error fetching Mediastack:", e);
-          errors.push("Mediastack");
-        }
-      }
-
-      // 3. NewsData.io
-      if (NEWSDATA_API_KEY) {
-        try {
-          const response = await axios.get('https://newsdata.io/api/1/news', {
-            params: {
-              apikey: NEWSDATA_API_KEY,
-              q: 'Tigray',
-              country: 'et',
-              language: currentLang, 
-              size: 10, // Max for free tier is often 10 results per page
-            },
-          });
-          const newsdataArticles = response.data.results?.map((article: NewsDataIOArticle): NewsItem | null => {
-            if (!article.link) return null;
-            return {
-              id: 0,
-              title: {
-                en: article.title || "No title available",
-                sv: article.title || "Ingen titel tillgänglig",
-              },
-              content: {
-                en: article.description || article.content || "No content available",
-                sv: article.description || article.content || "Inget innehåll tillgängligt",
-              },
-              date: article.pubDate || new Date().toISOString(),
-              category: article.source_id || "NewsData.io", // source_id might be a slug
-              imageUrl: article.image_url || undefined,
-              url: article.link,
-            };
-          }).filter((item: NewsItem | null) => item !== null) as NewsItem[];
-          allArticles = allArticles.concat(newsdataArticles);
-        } catch (e: unknown) {
-          console.error("Error fetching NewsData.io:", e);
-          errors.push("NewsData.io");
+          setError("Failed to load news from GNews.");
         }
       }
       
@@ -260,20 +141,8 @@ const NewsPage = () => {
           console.warn("Could not cache news data:", e);
         }
       } else {
-        if (errors.length === 3 && GNEWS_API_KEY && MEDIASTACK_API_KEY && NEWSDATA_API_KEY) { // Check if all configured APIs failed
-             setError(`Failed to load news from all sources. Errors: ${errors.join(', ')}.`);
-        } else if (errors.length > 0 && errors.length < 3) {
-             setError(`Failed to load news from some sources: ${errors.join(', ')}. Displaying available data.`);
-             // If some data was fetched but then filtered to zero, this case might not be ideal
-             // but if allArticles was empty from the start and some APIs failed:
-             if(allArticles.length === 0) setNewsItems([]); 
-        } else if (!GNEWS_API_KEY && !MEDIASTACK_API_KEY && !NEWSDATA_API_KEY) {
-            setError("No news APIs configured. Please check environment variables.");
-        }
-         else {
-           setError("No news articles found matching your criteria.");
-           setNewsItems([]); // Ensure newsItems is empty
-        }
+        setError("No news articles found matching your criteria.");
+        setNewsItems([]); // Ensure newsItems is empty
       }
       setIsLoading(false);
     };
@@ -304,12 +173,6 @@ const NewsPage = () => {
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
-
-  const renderText = (text: string | { en: string; sv: string }): string => {
-    if (typeof text === "string") return text;
-    if (text && (text.en || text.sv)) return text[language] || text.en || "";
-    return "";
-  };
 
   return (
     <main>
@@ -373,7 +236,7 @@ const NewsPage = () => {
                               <div className="md:w-1/3">
                                 <img
                                   src={item.imageUrl}
-                                  alt={renderText(item.title)}
+                                  alt={item.title[language]}
                                   className="w-full h-48 md:h-full object-cover"
                                   loading="lazy"
                                   onError={(e) => {
@@ -393,10 +256,10 @@ const NewsPage = () => {
                                 </div>
                               </div>
                               <h2 className="text-xl font-serif font-bold mb-3">
-                                {renderText(item.title)}
+                                {item.title[language]}
                               </h2>
                               <p className="text-muted-foreground mb-4 line-clamp-3">
-                                {renderText(item.content)}
+                                {item.content[language]}
                               </p>
                               <a
                                 href={item.url}
@@ -472,7 +335,7 @@ const NewsPage = () => {
                       <div className="flex-shrink-0 w-16 h-16">
                         <img
                           src={item.imageUrl || '/images/default-news.jpg'}
-                          alt={renderText(item.title)}
+                          alt={item.title[language]}
                           className="w-full h-full object-cover rounded"
                           loading="lazy"
                         />
@@ -485,7 +348,7 @@ const NewsPage = () => {
                             rel="noopener noreferrer"
                             className="hover:text-terracotta"
                           >
-                            {renderText(item.title)}
+                            {item.title[language]}
                           </a>
                         </h4>
                         <p className="text-xs text-muted-foreground">

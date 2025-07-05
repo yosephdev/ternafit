@@ -4,6 +4,8 @@ import Hero from "@/components/home/Hero";
 import ImpactStats from "@/components/home/ImpactStats";
 import LatestNews from "@/components/home/LatestNews";
 import DonateBox from "@/components/shared/DonateBox";
+import LatestPosts from "@/components/home/LatestPosts";
+import FeaturedVideo from "@/components/home/FeaturedVideo";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -72,6 +74,9 @@ const HomePage = () => {
           */}
         </div>
       </section>
+
+      {/* Featured Video */}
+      <FeaturedVideo />
 
       {/* Programs Section */}
       <section className="py-16 bg-muted/50">
@@ -181,6 +186,9 @@ const HomePage = () => {
       
       {/* Latest News */}
       <LatestNews />
+      
+      {/* Latest Blog Posts */}
+      <LatestPosts />
     </main>
   );
 };

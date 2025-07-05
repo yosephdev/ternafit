@@ -7,7 +7,7 @@ import PodcastPlayer from "@/components/shared/PodcastPlayer";
 
 type Episode = {
   id: number;
-  title: { en: string; sv: string };
+  title: string;
   date: string;
   duration: string;
   imageUrl: string;
@@ -18,10 +18,7 @@ type Episode = {
 const podcastEpisodes: Episode[] = [
   {
     id: 9,
-    title: {
-      en: "Tigray in Focus: Stories of Recovery, Challenges, and Hope",
-      sv: "Tigray i fokus: Berättelser om återhämtning, utmaningar och hopp"
-    },
+    title: "Tigray in Focus: Stories of Recovery, Challenges, and Hope",
     date: "2025-03-15",
     duration: "45:12",
     imageUrl: "/images/podcast/episode6.jpg",
@@ -30,10 +27,7 @@ const podcastEpisodes: Episode[] = [
   },
   {
     id: 8,
-    title: {
-      en: "ADS and Ternafit in Action",
-      sv: "ADS och Ternafit i aktion"
-    },
+    title: "ADS and Ternafit in Action",
     date: "2025-03-1",
     duration: "45:30",
     imageUrl: "/images/podcast/episode5.jpg",
@@ -42,10 +36,7 @@ const podcastEpisodes: Episode[] = [
   },
   {
     id: 7,
-    title: {
-      en: "Fear or Support: Understanding Tigray's Quiet Resistance",
-      sv: "Rädsla eller stöd: Att förstå Tigrays tysta motstånd"
-    },
+    title: "Fear or Support: Understanding Tigray's Quiet Resistance",
     date: "2025-04-15",
     duration: "50:20",
     imageUrl: "/images/podcast/episode8.jpg",
@@ -54,10 +45,7 @@ const podcastEpisodes: Episode[] = [
   },
   {
     id: 6,
-    title: {
-      en: "Beyond Repair: Reflections of a Tigrean",
-      sv: "Utanför reparationsområdet: Reflektioner från en Tigrean"
-    },
+    title: "Beyond Repair: Reflections of a Tigrean",
     date: "2025-03-01",
     duration: "39:45",
     imageUrl: "/images/podcast/episode1.png",
@@ -66,10 +54,7 @@ const podcastEpisodes: Episode[] = [
   },
   {
     id: 5,
-    title: {
-      en: "Tigray's Future: Why a Referendum Matters",
-      sv: "Tigrays framtid: Varför en folkomröstning är viktig"
-    },
+    title: "Tigray's Future: Why a Referendum Matters",
     date: "2025-02-28",
     duration: "46:15",
     imageUrl: "/images/podcast/episode4.png",
@@ -78,10 +63,7 @@ const podcastEpisodes: Episode[] = [
   },
   {
     id: 4,
-    title: {
-      en: "The Integrative Voice",
-      sv: "Den integrerande rösten"
-    },
+    title: "The Integrative Voice",
     date: "2025-02-15",
     duration: "45:30",
     imageUrl: "/images/podcast/episode3.jpg",
@@ -90,10 +72,7 @@ const podcastEpisodes: Episode[] = [
   },
   {
     id: 3,
-    title: {
-      en: "Inside Tigray: The Battle for Voice and Freedom",
-      sv: "Inuti Tigray: Kampen för röst och frihet"
-    },
+    title: "Inside Tigray: The Battle for Voice and Freedom",
     date: "2024-12-15",
     duration: "47:22",
     imageUrl: "/images/podcast/episode2.jpg",
@@ -102,10 +81,7 @@ const podcastEpisodes: Episode[] = [
   },
   {
     id: 2,
-    title: {
-      en: "The Heart of Our Work",
-      sv: "Hjärtat i vårt arbete"
-    },
+    title: "The Heart of Our Work",
     date: "2024-11-15",
     duration: "40:15",
     imageUrl: "/images/podcast/episode9.webp",
@@ -114,10 +90,7 @@ const podcastEpisodes: Episode[] = [
   },
   {
     id: 1,
-    title: {
-      en: "Our Journey So Far",
-      sv: "Vår resa hittills"
-    },
+    title: "Our Journey So Far",
     date: "2024-11-01",
     duration: "38:50",
     imageUrl: "/images/podcast/overcast.png",
@@ -154,9 +127,6 @@ const PodcastPage = () => {
       ? podcastEpisodes
       : podcastEpisodes.filter((ep) => ep.category.includes(currentCategory));
 
-  const getTitle = (episode: Episode, lang: string) =>
-    lang === "sv" ? episode.title.sv : episode.title.en;
-
   return (
     <div className="podcast-page">
       {/* Category Filter */}
@@ -184,7 +154,7 @@ const PodcastPage = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
               <div>
                 <h2 className="text-3xl font-serif font-bold mb-4">
-                  {getTitle(podcastEpisodes[0], language)}
+                  {podcastEpisodes[0].title}
                 </h2>
                 <div className="flex items-center space-x-4 mb-4 text-white/80">
                   <div className="flex items-center">
@@ -206,7 +176,7 @@ const PodcastPage = () => {
               <div className="hidden md:block">
                 <img
                   src={podcastEpisodes[0].imageUrl}
-                  alt={getTitle(podcastEpisodes[0], language)}
+                  alt={podcastEpisodes[0].title}
                   className="w-full h-auto rounded-lg shadow-lg"
                 />
               </div>
@@ -228,7 +198,7 @@ const PodcastPage = () => {
               >
                 <img
                   src={episode.imageUrl}
-                  alt={getTitle(episode, language)}
+                  alt={episode.title}
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-6 space-y-3">
@@ -243,7 +213,7 @@ const PodcastPage = () => {
                     ))}
                   </div>
                   <h3 className="text-xl font-serif font-bold">
-                    {getTitle(episode, language)}
+                    {episode.title}
                   </h3>
                   <div className="flex items-center space-x-4 text-sm text-muted-foreground">
                     <div className="flex items-center">

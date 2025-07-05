@@ -20,6 +20,7 @@ import DonationCancelPage from "./pages/DonationCancelPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage"; // Added import
 import TermsOfServicePage from "./pages/TermsOfServicePage"; // Added import
 import ContactPage from "./pages/ContactPage"; // Added import
+import GetInvolvedPage from "./pages/GetInvolvedPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient({
@@ -84,6 +85,10 @@ const routes = [
   {
     path: "/contact", // Added route
     element: <ContactPage />,
+  },
+  {
+    path: "/get-involved",
+    element: <GetInvolvedPage />,
   },
   {
     path: "*",    element: <NotFound />,
