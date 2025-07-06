@@ -23,7 +23,7 @@ const HomePage = () => {
       {/* Impact Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-serif font-bold mb-8 text-center">Our Impact</h2>
+          <h2 className="text-3xl font-serif font-bold mb-8 text-center">{t("home.impact.sectionTitle")}</h2>
           <div className="flex flex-col md:flex-row gap-12 items-center">
             <div className="md:w-1/2">
               <img
@@ -34,17 +34,17 @@ const HomePage = () => {
             </div>
             <div className="md:w-1/2">
               <p className="text-lg text-muted-foreground mb-6">
-                Since our founding in 2023, Ternafit has focused on advocacy and raising awareness for the Tigrayan crisis from Sweden. We collaborate with partner NGOs to help deliver essential resources and support to Tigrayan families and hard-to-reach villages. Our efforts in advocacy and building strong partnerships continue to expand—thanks to people like you.
+                {t("home.impact.description")}
               </p>
               <ul className="space-y-3 mb-8 text-base">
                 <li>
-                  <span className="font-bold text-terracotta">3,500+</span> People reached through awareness events and campaigns held in Katrineholm, Eskilstuna, Oslo, and Örebro, raising visibility around the crisis in Tigray and mobilizing community support.
+                  <span className="font-bold text-terracotta">3,500+</span> {t("home.impact.stat1")}
                 </li>
                 <li>
-                  <span className="font-bold text-terracotta">5</span> Advocacy campaigns launched successfully to influence diaspora engagement, humanitarian response, and digital awareness on social platforms and in local communities.
+                  <span className="font-bold text-terracotta">5</span> {t("home.impact.stat2")}
                 </li>
                 <li>
-                  <span className="font-bold text-terracotta">4</span> Strategic partnerships formed, including collaboration with Anenitigray Development Services (ADS) and other grassroots initiatives, strengthening our collective impact and outreach.
+                  <span className="font-bold text-terracotta">4</span> {t("home.impact.stat3")}
                 </li>
               </ul>
               <Link to={t("path.about")}>
@@ -60,13 +60,13 @@ const HomePage = () => {
       {/* Award Announcement Section */}
       <section className="py-16 bg-gray-100">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-serif font-bold mb-4 text-gray-800">Ternafit Honored in the Non-Profit Organisation Awards 2025</h2>
+          <h2 className="text-3xl font-serif font-bold mb-4 text-gray-800">{t("home.award.title")}</h2>
           <p className="text-lg text-gray-600 mb-6 max-w-3xl mx-auto">
-            We are proud to announce that Ternafit has been named <span className="font-semibold">Best Tigrean Community Support Initiative 2025 – Sweden</span> by Acquisition International. This recognition celebrates our dedication to advocacy, awareness, and supporting the Tigrean community.
+            {t("home.award.description1")}
           </p>
           <p className="text-xl text-terracotta mb-6">🏆</p>
           <p className="text-lg text-gray-600 mb-2">
-            Thank you to our community, volunteers, and supporters. Together, we make a difference. Stay tuned for the official announcement in June!
+            {t("home.award.description2")}
           </p>
          {/*<p className="text-md text-gray-500">
             ➡️ <a href="https://acquisitioninternational.digital/winners-list/?award=98329-2024" target="_blank" rel="noopener noreferrer"></a> 
@@ -76,12 +76,17 @@ const HomePage = () => {
       </section>
 
       {/* Featured Video */}
-      <FeaturedVideo />
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-serif font-bold text-center mb-8">{t("home.featuredVideo.title")}</h2>
+          <FeaturedVideo />
+        </div>
+      </section>
 
       {/* Programs Section */}
       <section className="py-16 bg-muted/50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-serif font-bold mb-8 text-center">Our Programs</h2>
+          <h2 className="text-3xl font-serif font-bold mb-8 text-center">{t("home.programs.title")}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="h-48 overflow-hidden">
@@ -92,12 +97,12 @@ const HomePage = () => {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-serif font-semibold mb-3">Emergency Relief</h3>
+                <h3 className="text-xl font-serif font-semibold mb-3">{t("home.programs.emergencyRelief.title")}</h3>
                 <p className="text-muted-foreground mb-4">
-                  Delivering food, safe water, shelter, and medical care to Tigrayan families affected by war, displacement, and disaster.
+                  {t("home.programs.emergencyRelief.description")}
                 </p>
                 <Link to={t("path.work")} className="text-terracotta hover:underline font-medium">
-                  Learn more →
+                  {t("common.learnMore")} →
                 </Link>
               </div>
             </div>
@@ -110,12 +115,12 @@ const HomePage = () => {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-serif font-semibold mb-3">Education & Youth</h3>
+                <h3 className="text-xl font-serif font-semibold mb-3">{t("home.programs.educationYouth.title")}</h3>
                 <p className="text-muted-foreground mb-4">
-                  Offering scholarships, supplies, and mentorship opportunities—helping Tigrayan children and youth rebuild their futures through learning.
+                  {t("home.programs.educationYouth.description")}
                 </p>
                 <Link to={t("path.work")} className="text-terracotta hover:underline font-medium">
-                  Learn more →
+                  {t("common.learnMore")} →
                 </Link>
               </div>
             </div>
@@ -128,12 +133,12 @@ const HomePage = () => {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-serif font-semibold mb-3">Advocacy & Awareness</h3>
+                <h3 className="text-xl font-serif font-semibold mb-3">{t("home.programs.advocacyAwareness.title")}</h3>
                 <p className="text-muted-foreground mb-4">
-                  Raising global awareness, informing policy, and partnering with communities and media to protect rights and amplify Tigrayan voices.
+                  {t("home.programs.advocacyAwareness.description")}
                 </p>
                 <Link to={t("path.work")} className="text-terracotta hover:underline font-medium">
-                  Learn more →
+                  {t("common.learnMore")} →
                 </Link>
               </div>
             </div>

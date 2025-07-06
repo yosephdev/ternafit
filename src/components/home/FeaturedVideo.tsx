@@ -1,10 +1,12 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const FeaturedVideo = () => {
+  const { t } = useLanguage();
     return (
         <section className="py-16 bg-muted">
             <div className="container mx-auto px-4">
-                <h2 className="text-3xl font-serif font-bold text-center mb-8">Featured Video</h2>
+                <h2 className="text-3xl font-serif font-bold text-center mb-8">{t("home.featuredVideo.title")}</h2>
                 <Card className="overflow-hidden">
                     <CardContent className="p-0">
                         <div className="aspect-w-16 aspect-h-9">

@@ -11,7 +11,7 @@ const LatestPosts = () => {
   return (
     <section className="py-16 bg-background">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-serif font-bold text-center mb-8">From the Blog</h2>
+        <h2 className="text-3xl font-serif font-bold text-center mb-8">{t("home.latestPosts.title")}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {latestPosts.map((post) => (
             <BlogPostCard key={post.id} post={post} />
@@ -19,7 +19,7 @@ const LatestPosts = () => {
         </div>
         <div className="text-center mt-12">
           <Link to={t("path.blog")}>
-            <Button variant="outline">View All Posts</Button>
+            <Button variant="outline">{t("home.latestPosts.viewAll")}</Button>
           </Link>
         </div>
       </div>

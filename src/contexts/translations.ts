@@ -371,6 +371,35 @@ export const initialTranslations: Translations = {
     'blog.hero.subtitle': { en: 'Stories of resilience, hope, and progress. Real stories by Ternafit and the Tigrayan community—read, share, and join the voice for Tigray.', sv: 'Berättelser om motståndskraft, hopp och framsteg. Verkliga berättelser av Ternafit och det tigreanska samhället – läs, dela och anslut dig till rösten för Tigray.' },
 
     // Blog Sidebar
+    // (Duplicate block removed; only one definition of each key is allowed)
+
+    // Homepage Sections
+    'home.impact.sectionTitle': { en: 'Our Impact', sv: 'Vår påverkan' },
+    'home.impact.description': { en: 'Since our founding in 2023, Ternafit has focused on advocacy and raising awareness for the Tigrayan crisis from Sweden. We collaborate with partner NGOs to help deliver essential resources and support to Tigrayan families and hard-to-reach villages. Our efforts in advocacy and building strong partnerships continue to expand—thanks to people like you.', sv: 'Sedan vår grundande 2023 har Ternafit fokuserat på påverkansarbete och att öka medvetenheten om Tigray-krisen från Sverige. Vi samarbetar med partnerorganisationer för att leverera viktiga resurser och stöd till tigreanska familjer och svåråtkomliga byar. Våra ansträngningar inom påverkansarbete och att bygga starka partnerskap fortsätter att expandera – tack vare människor som du.' },
+    'home.impact.stat1': { en: 'People reached through awareness events and campaigns held in Katrineholm, Eskilstuna, Oslo, and Örebro, raising visibility around the crisis in Tigray and mobilizing community support.', sv: 'Personer nådda genom medvetenhetsevenemang och kampanjer hållna i Katrineholm, Eskilstuna, Oslo och Örebro, vilket ökar synligheten kring krisen i Tigray och mobiliserar samhällsstöd.' },
+    'home.impact.stat2': { en: 'Advocacy campaigns launched successfully to influence diaspora engagement, humanitarian response, and digital awareness on social platforms and in local communities.', sv: 'Påverkanskampanjer lanserade framgångsrikt för att påverka diasporans engagemang, humanitära insatser och digital medvetenhet på sociala plattformar och i lokala samhällen.' },
+    'home.impact.stat3': { en: 'Strategic partnerships formed, including collaboration with Anenitigray Development Services (ADS) and other grassroots initiatives, strengthening our collective impact and outreach.', sv: 'Strategiska partnerskap bildade, inklusive samarbete med Anenitigray Development Services (ADS) och andra gräsrotsinitiativ, vilket stärker vår kollektiva påverkan och räckvidd.' },
+    'home.award.title': { en: 'Ternafit Honored in the Non-Profit Organisation Awards 2025', sv: 'Ternafit hedras i Non-Profit Organisation Awards 2025' },
+    'home.award.description1': { en: 'We are proud to announce that Ternafit has been named <span className="font-semibold">Best Tigrean Community Support Initiative 2025 – Sweden</span> by Acquisition International. This recognition celebrates our dedication to advocacy, awareness, and supporting the Tigrean community.', sv: 'Vi är stolta över att meddela att Ternafit har utnämnts till <span className="font-semibold">Bästa Tigreanska Samhällsstödsinitiativ 2025 – Sverige</span> av Acquisition International. Detta erkännande firar vårt engagemang för påverkansarbete, medvetenhet och stöd till det tigreanska samhället.' },
+    'home.award.description2': { en: 'Thank you to our community, volunteers, and supporters. Together, we make a difference. Stay tuned for the official announcement in June!', sv: 'Tack till vårt samhälle, våra volontärer och supportrar. Tillsammans gör vi skillnad. Håll utkik efter det officiella tillkännagivandet i juni!' },
+    'home.programs.title': { en: 'Our Programs', sv: 'Våra program' },
+    'home.programs.emergencyRelief.title': { en: 'Emergency Relief', sv: 'Nödhjälp' },
+    'home.programs.emergencyRelief.description': { en: 'Delivering food, safe water, shelter, and medical care to Tigrayan families affected by war, displacement, and disaster.', sv: 'Levererar mat, säkert vatten, skydd och medicinsk vård till tigreanska familjer som drabbats av krig, fördrivning och katastrofer.' },
+    'home.programs.educationYouth.title': { en: 'Education & Youth', sv: 'Utbildning & Ungdom' },
+    'home.programs.educationYouth.description': { en: 'Offering scholarships, supplies, and mentorship opportunities—helping Tigrayan children and youth rebuild their futures through learning.', sv: 'Erbjuder stipendier, förnödenheter och mentorskap – hjälper tigreanska barn och ungdomar att återuppbygga sin framtid genom lärande.' },
+    'home.programs.advocacyAwareness.title': { en: 'Advocacy & Awareness', sv: 'Påverkansarbete & Medvetenhet' },
+    'home.programs.advocacyAwareness.description': { en: 'Raising global awareness, informing policy, and partnering with communities and media to protect rights and amplify Tigrayan voices.', sv: 'Ökar global medvetenhet, informerar policy och samarbetar med samhällen och media för att skydda rättigheter och förstärka tigreanska röster.' },
+
+    // Homepage Latest Posts
+    'home.latestPosts.title': { en: 'From the Blog', sv: 'Från bloggen' },
+
+    // Homepage Latest Posts
+    'home.latestPosts.viewAll': { en: 'View All Posts', sv: 'Visa alla inlägg' },
+
+    // Homepage Featured Video
+    'home.featuredVideo.title': { en: 'Featured Video', sv: 'Utvald video' },
+
+    // Blog Sidebar
     'blog.sidebar.categories.title': { en: 'Categories', sv: 'Kategorier' },
     'blog.sidebar.categories.education': { en: 'Education', sv: 'Utbildning' },
     'blog.sidebar.categories.healthcare': { en: 'Healthcare', sv: 'Sjukvård' },
