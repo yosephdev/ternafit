@@ -11,23 +11,19 @@ const AboutPage = () => {
   const impact = [
     {
       icon: "🌍",
-      title: "Reliable Information Shared",
-      desc: "Curated hundreds of news updates and resources to keep our audience informed about the situation in Tigray."
+      key: "infoShared",
     },
     {
       icon: "📢",
-      title: "Awareness Campaigns",
-      desc: "Launched multiple social media campaigns and online discussions, amplifying the Tigrayan voice worldwide."
+      key: "awarenessCampaigns",
     },
     {
       icon: "🤝",
-      title: "Community Connections",
-      desc: "Fostered collaborations between Swedish Tigreans and established aid organizations for support and volunteering."
+      key: "communityConnections",
     },
     {
       icon: "✉️",
-      title: "Newsletter Subscribers",
-      desc: "Built an engaged community who receives regular updates, opportunities, and ways to get involved."
+      key: "newsletterSubscribers",
     }
   ];
 
@@ -38,8 +34,8 @@ const AboutPage = () => {
         <div className="container mx-auto px-4">
           <h1 className="text-4xl font-serif font-bold text-center mb-4">{t("about.title")} <span className="block text-lg font-normal mt-2">(Tigrinya: ጠርናፊት)</span></h1>
           <p className="text-lg text-center max-w-2xl mx-auto">
-            <strong>Welcome to Ternafit!</strong><br />
-            Ternafit is a Sweden-based NGO with a mission to empower the Tigrean people through initiatives in information sharing, raising awareness, and building connections for aid.
+            <strong>{t("about.welcome")}</strong><br />
+            {t("about.intro")}
           </p>
         </div>
       </section>
@@ -52,44 +48,44 @@ const AboutPage = () => {
 
               {/* Mission statement */}
               <div>
-                <h2 className="text-2xl font-serif font-bold mb-4">Our Mission</h2>
+                <h2 className="text-2xl font-serif font-bold mb-4">{t("about.mission.title")}</h2>
                 <p className="mb-4">
-                  Empowering the Tigrean people through various initiatives is not just our commitment, it's our calling.
+                  {t("about.mission.text1")}
                 </p>
                 <ul className="list-disc ml-6 space-y-2 text-muted-foreground">
-                  <li>Standing with the people of Tigray for dignity, justice, and opportunity.</li>
-                  <li>Supporting Tigray by sharing accurate and timely information, amplifying voices, and connecting passionate supporters to effective aid opportunities.</li>
+                  <li>{t("about.mission.text2")}</li>
+                  <li>{t("about.mission.text3")}</li>
                 </ul>
               </div>
 
               {/* How We Support */}
               <div>
-                <h2 className="text-2xl font-serif font-bold mb-4">How We Support Tigray</h2>
+                <h2 className="text-2xl font-serif font-bold mb-4">{t("about.howWeSupport.title")}</h2>
                 <div className="grid md:grid-cols-2 gap-8">
                   <div className="bg-white rounded-lg p-6 shadow flex gap-4 items-start">
                     <span className="text-3xl">🌍</span>
                     <div>
-                      <h3 className="text-lg font-semibold mb-2">Sharing Reliable Information</h3>
+                      <h3 className="text-lg font-semibold mb-2">{t("about.howWeSupport.infoSharing.title")}</h3>
                       <p className="text-muted-foreground">
-                        We curate and share resources from trusted voices, ensuring our community stays updated on Tigray.
+                        {t("about.howWeSupport.infoSharing.desc")}
                       </p>
                     </div>
                   </div>
                   <div className="bg-white rounded-lg p-6 shadow flex gap-4 items-start">
                     <span className="text-3xl">📢</span>
                     <div>
-                      <h3 className="text-lg font-semibold mb-2">Raising Awareness</h3>
+                      <h3 className="text-lg font-semibold mb-2">{t("about.howWeSupport.awareness.title")}</h3>
                       <p className="text-muted-foreground">
-                        We advocate for the Tigrean people, leading discussions and running campaigns to keep their story heard.
+                        {t("about.howWeSupport.awareness.desc")}
                       </p>
                     </div>
                   </div>
                   <div className="bg-white rounded-lg p-6 shadow flex gap-4 items-start">
                     <span className="text-3xl">🤝</span>
                     <div>
-                      <h3 className="text-lg font-semibold mb-2">Connecting with Aid Organizations</h3>
+                      <h3 className="text-lg font-semibold mb-2">{t("about.howWeSupport.connections.title")}</h3>
                       <p className="text-muted-foreground">
-                        We bridge Swedish Tigreans and reputable aid organizations, helping facilitate volunteer and donation opportunities.
+                        {t("about.howWeSupport.connections.desc")}
                       </p>
                     </div>
                   </div>
@@ -98,30 +94,30 @@ const AboutPage = () => {
 
               {/* Our Values */}
               <div>
-                <h2 className="text-2xl font-serif font-bold mb-4">Our Values</h2>
+                <h2 className="text-2xl font-serif font-bold mb-4">{t("about.values.title")}</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="bg-white rounded-lg p-4 border border-muted">
-                    <h3 className="text-lg font-serif font-medium mb-2">Compassion</h3>
+                    <h3 className="text-lg font-serif font-medium mb-2">{t("about.values.compassion.title")}</h3>
                     <p className="text-sm text-muted-foreground">
-                      We approach our work with empathy and respect for the dignity of those we serve.
+                      {t("about.values.compassion.desc")}
                     </p>
                   </div>
                   <div className="bg-white rounded-lg p-4 border border-muted">
-                    <h3 className="text-lg font-serif font-medium mb-2">Integrity</h3>
+                    <h3 className="text-lg font-serif font-medium mb-2">{t("about.values.integrity.title")}</h3>
                     <p className="text-sm text-muted-foreground">
-                      We are committed to transparency and accountability in all our operations.
+                      {t("about.values.integrity.desc")}
                     </p>
                   </div>
                   <div className="bg-white rounded-lg p-4 border border-muted">
-                    <h3 className="text-lg font-serif font-medium mb-2">Collaboration</h3>
+                    <h3 className="text-lg font-serif font-medium mb-2">{t("about.values.collaboration.title")}</h3>
                     <p className="text-sm text-muted-foreground">
-                      We work together with local communities and organizations to achieve our goals.
+                      {t("about.values.collaboration.desc")}
                     </p>
                   </div>
                   <div className="bg-white rounded-lg p-4 border border-muted">
-                    <h3 className="text-lg font-serif font-medium mb-2">Innovation</h3>
+                    <h3 className="text-lg font-serif font-medium mb-2">{t("about.values.innovation.title")}</h3>
                     <p className="text-sm text-muted-foreground">
-                      We continuously seek creative solutions to complex challenges.
+                      {t("about.values.innovation.desc")}
                     </p>
                   </div>
                 </div>
@@ -129,16 +125,16 @@ const AboutPage = () => {
 
               {/* Join Our Cause */}
               <div>
-                <h2 className="text-2xl font-serif font-bold mb-4">Join Our Cause</h2>
+                <h2 className="text-2xl font-serif font-bold mb-4">{t("about.joinCause.title")}</h2>
                 <ul className="list-disc ml-6 text-muted-foreground space-y-3 mb-4">
                   <li>
-                    <strong>Stay Informed:</strong> Subscribe to our newsletter for news, resources, and ways to make a difference.
+                    <strong>{t("about.joinCause.stayInformed.title")}</strong> {t("about.joinCause.stayInformed.desc")}
                   </li>
                   <li>
-                    <strong>Raise Awareness:</strong> Share and discuss the situation in Tigray on your social media, network, and beyond.
+                    <strong>{t("about.joinCause.raiseAwareness.title")}</strong> {t("about.joinCause.raiseAwareness.desc")}
                   </li>
                   <li>
-                    <strong>Collaborate with Us:</strong> Contribute your ideas, time, or resources. All support helps strengthen our impact!
+                    <strong>{t("about.joinCause.collaborate.title")}</strong> {t("about.joinCause.collaborate.desc")}
                   </li>
                 </ul>
                 <div className="mt-4">
@@ -148,7 +144,7 @@ const AboutPage = () => {
                     rel="noopener noreferrer"
                     className="inline-block bg-terracotta text-white px-6 py-2 rounded-full font-medium shadow hover:bg-terracotta/90"
                   >
-                    Subscribe to Newsletter
+                    {t("about.joinCause.subscribeButton")}
                   </a>
                 </div>
               </div>
@@ -172,20 +168,20 @@ const AboutPage = () => {
 
               {/* Non-physical impact/achievements */}
               <div className="bg-white rounded-lg shadow-md p-6 mt-6">
-                <h3 className="text-lg font-serif font-semibold mb-4">Our Impact So Far</h3>
+                <h3 className="text-lg font-serif font-semibold mb-4">{t("about.impactSoFar.title")}</h3>
                 <ul className="space-y-3">
                   {impact.map((item, idx) => (
                     <li key={idx} className="flex items-start gap-2">
                       <span className="text-2xl">{item.icon}</span>
                       <div>
-                        <strong className="block">{item.title}</strong>
-                        <span className="text-sm block text-muted-foreground">{item.desc}</span>
+                        <strong className="block">{t(`about.impactSoFar.${item.key}.title`)}</strong>
+                        <span className="text-sm block text-muted-foreground">{t(`about.impactSoFar.${item.key}.desc`)}</span>
                       </div>
                     </li>
                   ))}
                   <li className="text-xs text-muted-foreground mt-4">
-                    Every action, big or small, makes a difference. <br />
-                    <strong>Together, we stand with Tigray!</strong>
+                    {t("about.impactSoFar.callToAction1")} <br />
+                    <strong>{t("about.impactSoFar.callToAction2")}</strong>
                   </li>
                 </ul>
               </div>

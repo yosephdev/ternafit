@@ -21,7 +21,7 @@ const BlogPostPage = () => {
     return (
       <div className="container mx-auto px-4 py-16">
         <h1 className="text-2xl font-bold mb-4">Blog post not found</h1>
-        <Link to="/blog" className="text-terracotta hover:underline">← Back to blog</Link>
+        <Link to={t("path.blog")} className="text-terracotta hover:underline">← Back to blog</Link>
       </div>
     );
   }
@@ -41,7 +41,7 @@ const BlogPostPage = () => {
       <section className="bg-muted py-14">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl font-serif font-bold text-center mb-4">
-            {post.title}
+            {post.title[language]}
           </h1>
           <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
             <div className="flex items-center">
@@ -78,11 +78,11 @@ const BlogPostPage = () => {
               {/* Article Content */}
               <div className="prose prose-lg max-w-none">
                 <p className="lead text-xl mb-6">
-                  {post.excerpt}
+                  {post.excerpt[language]}
                 </p>
                 
                 {/* Display content paragraphs */}
-                {post.content
+                {post.content[language]
                   .split('\n\n')
                   .map((paragraph, index) => (
                     <p key={index}>{paragraph}</p>

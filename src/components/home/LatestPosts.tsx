@@ -2,8 +2,10 @@ import { Link } from "react-router-dom";
 import { blogPosts } from "@/data/blogPosts";
 import { BlogPostCard } from "./BlogPostCard";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const LatestPosts = () => {
+  const { t } = useLanguage();
   const latestPosts = blogPosts.slice(0, 3);
 
   return (
@@ -16,7 +18,7 @@ const LatestPosts = () => {
           ))}
         </div>
         <div className="text-center mt-12">
-          <Link to="/blog">
+          <Link to={t("path.blog")}>
             <Button variant="outline">View All Posts</Button>
           </Link>
         </div>

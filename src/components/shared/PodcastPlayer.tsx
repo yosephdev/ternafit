@@ -5,7 +5,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 type Episode = {
   id: number;
-  title: string;
+  title: { en: string; sv: string; };
   imageUrl: string;
   audioUrl: string;
   duration: string;
@@ -103,11 +103,11 @@ const PodcastPlayer = ({ episode, compact = false }: PodcastPlayerProps) => {
         <div className="flex items-center gap-4 mb-4">
           <img
             src={episode.imageUrl}
-            alt={episode.title}
+            alt={episode.title[language]}
             className="w-16 h-16 rounded-md object-cover"
           />
           <div className="min-w-0">
-            <h3 className="font-serif font-bold line-clamp-2">{episode.title}</h3>
+            <h3 className="font-serif font-bold line-clamp-2">{episode.title[language]}</h3>
             <p className="text-sm text-muted-foreground">{episode.duration}</p>
           </div>
         </div>

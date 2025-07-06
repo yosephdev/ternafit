@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { BlogPost } from "@/data/blogPosts";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface BlogPostCardProps {
   post: BlogPost;
 }
 
 export const BlogPostCard = ({ post }: BlogPostCardProps) => {
+  const { t, language } = useLanguage();
 
   return (
     <Card className="overflow-hidden transition-shadow duration-300 hover:shadow-lg flex flex-col h-full">
@@ -15,13 +17,13 @@ export const BlogPostCard = ({ post }: BlogPostCardProps) => {
           <img src={post.imageUrl} alt={post.title} className="object-cover w-full h-full rounded-t-lg" />
         </div>
         <CardTitle className="text-xl font-serif leading-tight">
-          <Link to={`/blog/${post.id}`} className="hover:text-terracotta transition-colors duration-200">
-            {post.title}
+          <Link to={`${t("path.blogPost")}${post.id}`} className="hover:text-terracotta transition-colors duration-200">
+            {post.title[language]}
           </Link>
         </CardTitle>
       </CardHeader>
       <CardContent className="flex-grow">
-        <p className="text-muted-foreground line-clamp-3">{post.excerpt}</p>
+        <p className="text-muted-foreground line-clamp-3">{post.excerpt[language]}</p>
       </CardContent>
       <CardFooter className="flex justify-between items-center text-sm text-muted-foreground">
         <span>{post.author}</span>

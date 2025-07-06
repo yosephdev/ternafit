@@ -12,69 +12,57 @@ import DonateBox from "@/components/shared/DonateBox";
 const workHighlights = [
   {
     icon: "🌐",
-    title: "Information Sharing",
-    description: "Curated reliable updates and resources about Tigray, making critical information accessible for the global community."
+    key: "infoSharing"
   },
   {
     icon: "📢",
-    title: "Raising Awareness",
-    description: "Spearheaded online campaigns, webinars, and social media discussions to amplify the voices of the Tigrean people."
+    key: "awareness"
   },
   {
     icon: "🤲",
-    title: "Building Alliances",
-    description: "Connected Swedish Tigreans with aid organizations and fostered partnerships for sustainable, positive change."
+    key: "alliances"
   },
   {
     icon: "💡",
-    title: "Innovative Support",
-    description: "Piloted creative solutions, including virtual support groups and collaborative research for long-term rebuilding."
+    key: "innovativeSupport"
   },
 ];
 
 const approachPrinciples = [
   {
     icon: "🤝",
-    title: "Community-Led",
-    desc: "We work hand-in-hand with local communities and diaspora groups to ensure lasting impact and mutual trust."
+    key: "community"
   },
   {
     icon: "🌱",
-    title: "Sustainable",
-    desc: "We invest in education, healthcare, and capacity-building for outcomes that last far beyond short-term aid."
+    key: "sustainable"
   },
   {
     icon: "🧑‍🤝‍🧑",
-    title: "Inclusive",
-    desc: "We strive to reach every group regardless of age, gender, or background—leaving no one behind."
+    key: "inclusive"
   },
   {
     icon: "🔎",
-    title: "Transparent",
-    desc: "We communicate openly about progress, challenges, and resource use with donors, partners, and the public."
+    key: "transparent"
   },
 ];
 
 const focusAreas = [
   {
     icon: "📚",
-    title: "Education Initiatives",
-    desc: "Support for school reopening drives, supplies for children, and digital learning outreach to keep students engaged."
+    key: "education"
   },
   {
     icon: "🏥",
-    title: "Healthcare Advocacy",
-    desc: "Community health events, healthcare worker training, and partnerships for mobile clinics and medical donations."
+    key: "healthcare"
   },
   {
     icon: "⛑️",
-    title: "Emergency Relief",
-    desc: "Responding to critical developments by connecting the community with credible aid organizations and material support."
+    key: "emergencyRelief"
   },
   {
     icon: "🗣️",
-    title: "Advocacy & Rights",
-    desc: "Campaigning for peace, protection, and the human rights of the Tigrayan people on international platforms."
+    key: "advocacyRights"
   }
 ];
 
@@ -109,7 +97,7 @@ const WorkPage = () => {
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-4xl font-serif font-bold mb-3">{t("work.title")}</h1>
             <p className="text-lg max-w-2xl mx-auto">
-              At Ternafit, our work goes beyond physical aid. We empower, inform, connect, and advocate for Tigray — online and in real life — to build lasting hope and opportunities.
+              {t("work.hero.subtitle")}
             </p>
           </div>
         </section>
@@ -122,14 +110,14 @@ const WorkPage = () => {
               <div className="md:col-span-2 space-y-12">
                 {/* What We Do Highlights */}
                 <section>
-                  <h2 className="text-2xl font-serif font-bold mb-6">What We Do</h2>
+                  <h2 className="text-2xl font-serif font-bold mb-6">{t("work.whatWeDo.title")}</h2>
                   <div className="grid md:grid-cols-2 gap-8">
                     {workHighlights.map((item, idx) => (
                       <div key={idx} className="bg-white rounded-lg p-6 shadow flex gap-4 items-start">
                         <span className="text-3xl">{item.icon}</span>
                         <div>
-                          <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
-                          <p className="text-muted-foreground">{item.description}</p>
+                          <h3 className="text-lg font-semibold mb-2">{t(`work.whatWeDo.${item.key}.title`)}</h3>
+                          <p className="text-muted-foreground">{t(`work.whatWeDo.${item.key}.desc`)}</p>
                         </div>
                       </div>
                     ))}
@@ -138,14 +126,14 @@ const WorkPage = () => {
 
                 {/* Our Principles */}
                 <section>
-                  <h2 className="text-2xl font-serif font-bold mb-6">Our Approach</h2>
+                  <h2 className="text-2xl font-serif font-bold mb-6">{t("work.approach.title")}</h2>
                   <div className="grid md:grid-cols-2 gap-8">
                     {approachPrinciples.map((p, idx) => (
                       <div key={idx} className="border rounded-lg p-6 flex gap-3 items-start bg-muted/50">
                         <span className="text-2xl">{p.icon}</span>
                         <div>
-                          <h4 className="text-lg font-medium mb-1">{p.title}</h4>
-                          <p className="text-sm text-muted-foreground">{p.desc}</p>
+                          <h4 className="text-lg font-medium mb-1">{t(`work.approach.${p.key}.title`)}</h4>
+                          <p className="text-sm text-muted-foreground">{t(`work.approach.${p.key}.desc`)}</p>
                         </div>
                       </div>
                     ))}
@@ -154,14 +142,14 @@ const WorkPage = () => {
 
                 {/* Focus Areas */}
                 <section>
-                  <h2 className="text-2xl font-serif font-bold mb-6">Our Current Focus</h2>
+                  <h2 className="text-2xl font-serif font-bold mb-6">{t("work.focusAreas.title")}</h2>
                   <div className="grid md:grid-cols-2 gap-8">
                     {focusAreas.map((f, idx) => (
                       <div key={idx} className="bg-white rounded-lg p-6 shadow flex gap-4 items-start">
                         <span className="text-3xl">{f.icon}</span>
                         <div>
-                          <h3 className="text-lg font-semibold mb-2">{f.title}</h3>
-                          <p className="text-muted-foreground">{f.desc}</p>
+                          <h3 className="text-lg font-semibold mb-2">{t(`work.focusAreas.${f.key}.title`)}</h3>
+                          <p className="text-muted-foreground">{t(`work.focusAreas.${f.key}.desc`)}</p>
                         </div>
                       </div>
                     ))}
@@ -170,15 +158,15 @@ const WorkPage = () => {
 
                 {/* Volunteer CTA */}
                 <section className="bg-terracotta text-white rounded-lg shadow-md p-6">
-                  <h3 className="text-lg font-serif font-semibold mb-3">Volunteer With Us</h3>
+                  <h3 className="text-lg font-serif font-semibold mb-3">{t("work.volunteer.title")}</h3>
                   <p className="text-sm mb-4">
-                    We're always looking for dedicated volunteers and fresh ideas—whether you're in Sweden, the diaspora, or following our mission online.
+                    {t("work.volunteer.desc")}
                   </p>
                   <a
                     href="/contact"
                     className="inline-block bg-white text-terracotta px-6 py-2 rounded-full font-medium shadow hover:bg-white/90"
                   >
-                    Get Involved
+                    {t("work.volunteer.button")}
                   </a>
                 </section>
               </div>
@@ -190,37 +178,37 @@ const WorkPage = () => {
                   
                   {/* Active Campaigns & Impact */}
                   <div className="bg-white rounded-lg shadow-md p-6 mt-6">
-                    <h3 className="text-lg font-serif font-semibold mb-4">Active Campaigns & Impact</h3>
+                    <h3 className="text-lg font-serif font-semibold mb-4">{t("work.activeCampaigns.title")}</h3>
                     <ul className="space-y-3">
                       <li className="flex items-start gap-2">
                         <span className="text-2xl">📢</span>
                         <div>
-                          <strong className="block">#StandWithTigray Campaigns</strong>
+                          <strong className="block">{t("work.activeCampaigns.standWithTigray.title")}</strong>
                           <span className="text-sm block text-muted-foreground">
-                            Engaging hundreds via social and virtual events raising global awareness.
+                            {t("work.activeCampaigns.standWithTigray.desc")}
                           </span>
                         </div>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-2xl">🤝</span>
                         <div>
-                          <strong className="block">Partnerships Established</strong>
+                          <strong className="block">{t("work.activeCampaigns.partnerships.title")}</strong>
                           <span className="text-sm block text-muted-foreground">
-                            Multiple collaborations with NGOs and community groups for skilled volunteering and advocacy.
+                            {t("work.activeCampaigns.partnerships.desc")}
                           </span>
                         </div>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-2xl">💬</span>
                         <div>
-                          <strong className="block">Media Outreach</strong>
+                          <strong className="block">{t("work.activeCampaigns.mediaOutreach.title")}</strong>
                           <span className="text-sm block text-muted-foreground">
-                            Featured in diaspora newsletters and regional radio broadcasts to spread our message.
+                            {t("work.activeCampaigns.mediaOutreach.desc")}
                           </span>
                         </div>
                       </li>
                       <li className="text-xs text-muted-foreground mt-4">
-                        Every action (big or small) moves Tigray forward.
+                        {t("work.activeCampaigns.callToAction")}
                       </li>
                     </ul>
                   </div>

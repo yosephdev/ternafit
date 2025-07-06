@@ -122,7 +122,7 @@ const LatestNews = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center mb-10">
           <h2 className="text-3xl font-serif font-bold">{t("nav.news")}</h2>
-          <Link to="/news">
+          <Link to={t("path.news")}>
             <Button variant="outline" className="border-terracotta text-terracotta hover:bg-terracotta/10">
               {t("common.readMore")}
             </Button>

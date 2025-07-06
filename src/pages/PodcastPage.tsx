@@ -7,7 +7,7 @@ import PodcastPlayer from "@/components/shared/PodcastPlayer";
 
 type Episode = {
   id: number;
-  title: string;
+  title: { en: string; sv: string; };
   date: string;
   duration: string;
   imageUrl: string;
@@ -18,7 +18,10 @@ type Episode = {
 const podcastEpisodes: Episode[] = [
   {
     id: 9,
-    title: "Tigray in Focus: Stories of Recovery, Challenges, and Hope",
+    title: {
+      en: "Tigray in Focus: Stories of Recovery, Challenges, and Hope",
+      sv: "Tigray i fokus: Berättelser om återhämtning, utmaningar och hopp"
+    },
     date: "2025-03-15",
     duration: "45:12",
     imageUrl: "/images/podcast/episode6.jpg",
@@ -27,7 +30,10 @@ const podcastEpisodes: Episode[] = [
   },
   {
     id: 8,
-    title: "ADS and Ternafit in Action",
+    title: {
+      en: "ADS and Ternafit in Action",
+      sv: "ADS och Ternafit i aktion"
+    },
     date: "2025-03-1",
     duration: "45:30",
     imageUrl: "/images/podcast/episode5.jpg",
@@ -36,7 +42,10 @@ const podcastEpisodes: Episode[] = [
   },
   {
     id: 7,
-    title: "Fear or Support: Understanding Tigray's Quiet Resistance",
+    title: {
+      en: "Fear or Support: Understanding Tigray's Quiet Resistance",
+      sv: "Rädsla eller stöd: Att förstå Tigrays tysta motstånd"
+    },
     date: "2025-04-15",
     duration: "50:20",
     imageUrl: "/images/podcast/episode8.jpg",
@@ -45,7 +54,10 @@ const podcastEpisodes: Episode[] = [
   },
   {
     id: 6,
-    title: "Beyond Repair: Reflections of a Tigrean",
+    title: {
+      en: "Beyond Repair: Reflections of a Tigrean",
+      sv: "Bortom reparation: Reflektioner från en tigrean"
+    },
     date: "2025-03-01",
     duration: "39:45",
     imageUrl: "/images/podcast/episode1.png",
@@ -54,7 +66,10 @@ const podcastEpisodes: Episode[] = [
   },
   {
     id: 5,
-    title: "Tigray's Future: Why a Referendum Matters",
+    title: {
+      en: "Tigray's Future: Why a Referendum Matters",
+      sv: "Tigrays framtid: Varför en folkomröstning är viktig"
+    },
     date: "2025-02-28",
     duration: "46:15",
     imageUrl: "/images/podcast/episode4.png",
@@ -63,7 +78,10 @@ const podcastEpisodes: Episode[] = [
   },
   {
     id: 4,
-    title: "The Integrative Voice",
+    title: {
+      en: "The Integrative Voice",
+      sv: "Den integrerande rösten"
+    },
     date: "2025-02-15",
     duration: "45:30",
     imageUrl: "/images/podcast/episode3.jpg",
@@ -72,7 +90,10 @@ const podcastEpisodes: Episode[] = [
   },
   {
     id: 3,
-    title: "Inside Tigray: The Battle for Voice and Freedom",
+    title: {
+      en: "Inside Tigray: The Battle for Voice and Freedom",
+      sv: "Inuti Tigray: Kampen för röst och frihet"
+    },
     date: "2024-12-15",
     duration: "47:22",
     imageUrl: "/images/podcast/episode2.jpg",
@@ -81,7 +102,10 @@ const podcastEpisodes: Episode[] = [
   },
   {
     id: 2,
-    title: "The Heart of Our Work",
+    title: {
+      en: "The Heart of Our Work",
+      sv: "Hjärtat i vårt arbete"
+    },
     date: "2024-11-15",
     duration: "40:15",
     imageUrl: "/images/podcast/episode9.webp",
@@ -90,7 +114,10 @@ const podcastEpisodes: Episode[] = [
   },
   {
     id: 1,
-    title: "Our Journey So Far",
+    title: {
+      en: "Our Journey So Far",
+      sv: "Vår resa hittills"
+    },
     date: "2024-11-01",
     duration: "38:50",
     imageUrl: "/images/podcast/overcast.png",
@@ -99,33 +126,33 @@ const podcastEpisodes: Episode[] = [
   }
 ];
 
-const categories = [
-  "All Episodes",
-  "Stories",
-  "Interviews",
-  "Recovery",
-  "Updates",
-  "Behind the Scenes"
-];
-
-const formatDate = (dateString: string, language: string) => {
-  const date = new Date(dateString);
-  return date.toLocaleDateString(language === 'sv' ? 'sv-SE' : 'en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  });
-};
-
-const PodcastPage = () => {
+  const PodcastPage = () => {
   const { t, language } = useLanguage();
-  const [currentCategory, setCurrentCategory] = useState("All Episodes");
+  const [currentCategory, setCurrentCategory] = useState("podcast.category.allEpisodes");
   const [currentEpisode, setCurrentEpisode] = useState<Episode | null>(null);
 
+  const categories = [
+    { key: "podcast.category.allEpisodes", label: t("podcast.category.allEpisodes") },
+    { key: "podcast.category.stories", label: t("podcast.category.stories") },
+    { key: "podcast.category.interviews", label: t("podcast.category.interviews") },
+    { key: "podcast.category.recovery", label: t("podcast.category.recovery") },
+    { key: "podcast.category.updates", label: t("podcast.category.updates") },
+    { key: "podcast.category.behindTheScenes", label: t("podcast.category.behindTheScenes") },
+  ];
+
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString(language === 'sv' ? 'sv-SE' : 'en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  };
+
   const filteredEpisodes =
-    currentCategory === "All Episodes"
+    currentCategory === "podcast.category.allEpisodes"
       ? podcastEpisodes
-      : podcastEpisodes.filter((ep) => ep.category.includes(currentCategory));
+      : podcastEpisodes.filter((ep) => ep.category.includes(t(currentCategory)));
 
   return (
     <div className="podcast-page">
@@ -133,14 +160,14 @@ const PodcastPage = () => {
       <section className="py-6 bg-white border-b sticky top-0 z-10">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap gap-2">
-            {categories.map((category) => (
+            {categories.map((categoryObj) => (
               <Button
-                key={category}
-                variant={currentCategory === category ? "default" : "outline"}
-                onClick={() => setCurrentCategory(category)}
+                key={categoryObj.key}
+                variant={currentCategory === categoryObj.key ? "default" : "outline"}
+                onClick={() => setCurrentCategory(categoryObj.key)}
                 className="text-sm"
               >
-                {category}
+                {categoryObj.label}
               </Button>
             ))}
           </div>
@@ -154,7 +181,7 @@ const PodcastPage = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
               <div>
                 <h2 className="text-3xl font-serif font-bold mb-4">
-                  {podcastEpisodes[0].title}
+                  {podcastEpisodes[0].title[language]}
                 </h2>
                 <div className="flex items-center space-x-4 mb-4 text-white/80">
                   <div className="flex items-center">
@@ -213,7 +240,7 @@ const PodcastPage = () => {
                     ))}
                   </div>
                   <h3 className="text-xl font-serif font-bold">
-                    {episode.title}
+                    {episode.title[language]}
                   </h3>
                   <div className="flex items-center space-x-4 text-sm text-muted-foreground">
                     <div className="flex items-center">
@@ -243,7 +270,7 @@ const PodcastPage = () => {
             <div>
               <h2 className="text-3xl font-serif font-bold mb-4">{t('donate.title')}</h2>
               <p className="text-lg mb-6">
-                Your generosity allows Ternafit to deliver urgent relief and lasting hope. Every contribution goes directly to families and communities working to rebuild and thrive.
+                {t("home.donate.intro")}
               </p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start">
@@ -252,7 +279,7 @@ const PodcastPage = () => {
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </span>
-                  <span>Deliver meals and medicine to families in urgent need</span>
+                  <span>{t("home.donate.benefit1")}</span>
                 </li>
                 <li className="flex items-start">
                   <span className="bg-terracotta rounded-full p-1 mr-3 mt-1">
@@ -260,7 +287,7 @@ const PodcastPage = () => {
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </span>
-                  <span>Fund safe spaces and resources for children's education</span>
+                  <span>{t("home.donate.benefit2")}</span>
                 </li>
                 <li className="flex items-start">
                   <span className="bg-terracotta rounded-full p-1 mr-3 mt-1">
@@ -268,7 +295,7 @@ const PodcastPage = () => {
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </span>
-                  <span>Expand healthcare and recovery programs in remote areas</span>
+                  <span>{t("home.donate.benefit3")}</span>
                 </li>
               </ul>
             </div>

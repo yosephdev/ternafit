@@ -11,24 +11,40 @@ const featuredStories = [
   {
     id: 1,
     date: "2024-05-10",
-    title: "Building Hope: Why Ternafit Started a Blog",
+    title: {
+      en: "Building Hope: Why Ternafit Started a Blog",
+      sv: "Bygger hopp: Varför Ternafit startade en blogg"
+    },
     author: "Yoseph Berhane (Founder)",
-    excerpt: "When we founded Ternafit, we were determined to do more than deliver aid—we wanted to elevate the voices and stories of Tigray. This blog is a place for resilience, hope, and the power of global solidarity.",
+    excerpt: {
+      en: "When we founded Ternafit, we were determined to do more than deliver aid—we wanted to elevate the voices and stories of Tigray. This blog is a place for resilience, hope, and the power of global solidarity.",
+      sv: "När vi grundade Ternafit var vi fast beslutna att göra mer än att leverera bistånd – vi ville lyfta fram Tigrays röster och berättelser. Denna blogg är en plats för motståndskraft, hopp och kraften i global solidaritet."
+    },
     imageUrl: "/images/projects/terna-featured-1.jpg",
     tags: ["Ternafit", "Founders"],
-    content:
-      "After a year of advocacy, this blog will document the struggles, hopes and achievements of Ternafit and our wider Tigrayan community. We invite you to read, share, and be a part of this journey with us."
+    content: {
+      en: "After a year of advocacy, this blog will document the struggles, hopes and achievements of Ternafit and our wider Tigrayan community. We invite you to read, share, and be a part of this journey with us.",
+      sv: "Efter ett år av påverkansarbete kommer denna blogg att dokumentera Ternafits och vårt bredare tigreanska samhälles kamp, förhoppningar och framgångar. Vi inbjuder dig att läsa, dela och vara en del av denna resa med oss."
+    }
   },
   {
     id: 2,
     date: "2024-09-27",
-    title: "Milestones: A Year of Resilience",
+    title: {
+      en: "Milestones: A Year of Resilience",
+      sv: "Milstolpar: Ett år av motståndskraft"
+    },
     author: "Ternafit Stories Team",
-    excerpt: "From launching social media campaigns to reporting from the field, our first year as Ternafit showed what's possible even without big partners. Here's a summary of wins, challenges, and what comes next.",
+    excerpt: {
+      en: "From launching social media campaigns to reporting from the field, our first year as Ternafit showed what's possible even without big partners. Here's a summary of wins, challenges, and what comes next.",
+      sv: "Från att lansera sociala mediekampanjer till att rapportera från fältet, vårt första år som Ternafit visade vad som är möjligt även utan stora partners. Här är en sammanfattning av framgångar, utmaningar och vad som kommer härnäst."
+    },
     imageUrl: "/images/projects/terna-featured-2.jpg",
     tags: ["Milestones", "Impact"],
-    content:
-      "Your support made all this possible. This piece summarizes where we've been and where we're going, highlighting people and communities at the heart of our mission."
+    content: {
+      en: "Your support made all this possible. This piece summarizes where we've been and where we're going, highlighting people and communities at the heart of our mission.",
+      sv: "Ditt stöd gjorde allt detta möjligt. Denna text sammanfattar var vi har varit och vart vi är på väg, och lyfter fram människor och samhällen som är kärnan i vårt uppdrag."
+    }
   },
 ];
 
@@ -53,7 +69,7 @@ const BlogPage: React.FC = () => {
             {t("nav.blog")}
           </h1>
           <p className="text-lg text-white max-w-xl mx-auto">
-            Stories of resilience, hope, and progress. Real stories by Ternafit and the Tigrayan community—read, share, and join the voice for Tigray.
+            {t("blog.hero.subtitle")}
           </p>
         </div>
       </section>
@@ -76,7 +92,7 @@ const BlogPage: React.FC = () => {
                         <div className="md:w-1/3">
                           <img
                             src={post.imageUrl}
-                            alt={post.title}
+                            alt={post.title[language]}
                             className="w-full h-48 md:h-full object-cover"
                             loading="lazy"
                           />
@@ -97,13 +113,13 @@ const BlogPage: React.FC = () => {
                             </div>
                           </div>
                           <h2 className="text-xl font-serif font-bold mb-3">
-                            {post.title}
+                            {post.title[language]}
                           </h2>
                           <p className="text-muted-foreground mb-4">
-                            {post.excerpt}
+                            {post.excerpt[language]}
                           </p>
                           <div className="prose">
-                            {post.content.split('\n').map((para, i) => (
+                            {post.content[language].split('\n').map((para, i) => (
                               para.trim() !== "" ? <p key={i}>{para}</p> : <br key={i} />
                             ))}
                           </div>

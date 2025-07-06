@@ -36,17 +36,29 @@ const Header = () => {
     setMobileMenuOpen(false);
   }, [location]);
 
+  // Prevent body scrolling when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
   const isActive = (path: string) => location.pathname === path;
 
   // Navigation links
   const navLinks = [
-    { path: "/", label: t("nav.home") },
-    { path: "/about", label: t("nav.about") },
-    { path: "/work", label: t("nav.work") },
-    { path: "/blog", label: t("nav.blog") },
-    { path: "/podcast", label: t("nav.podcast") },
-    { path: "/news", label: t("nav.news") },
-    { path: "/get-involved", label: t("nav.getInvolved") },
+    { path: t("path.home"), label: t("nav.home") },
+    { path: t("path.about"), label: t("nav.about") },
+    { path: t("path.work"), label: t("nav.work") },
+    { path: t("path.blog"), label: t("nav.blog") },
+    { path: t("path.podcast"), label: t("nav.podcast") },
+    { path: t("path.news"), label: t("nav.news") },
+    { path: t("path.getInvolved"), label: t("nav.getInvolved") },
   ];
 
   return (
@@ -59,7 +71,7 @@ const Header = () => {
     >
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         {/* Logo */}
-        <Link to="/" className="flex items-center">
+        <Link to={t("path.home")} className="flex items-center">
           <span className="font-serif text-xl font-bold text-terracotta">
             Ternafit
           </span>
@@ -90,12 +102,12 @@ const Header = () => {
             <Globe className="mr-1 h-4 w-4" />
             {language === "en" ? "EN" : "SV"}
           </button>
-          <Link to="/contact">
+          <Link to={t("path.contact")}>
             <Button variant="outline" size="sm">
               {t("footer.contact")}
             </Button>
           </Link>
-          <Link to="/donate">
+          <Link to={t("path.donate")}>
             <Button
               className="bg-terracotta text-white hover:bg-terracotta/90"
               size="sm"
@@ -109,10 +121,11 @@ const Header = () => {
         <div className="flex items-center space-x-3 md:hidden">
           <button
             onClick={toggleLanguage}
-            className="flex items-center text-sm px-2 py-1 rounded-full border border-border"
+            className="flex items-center rounded-full border border-border px-3 py-1 text-sm font-medium hover:bg-muted transition duration-200"
             aria-label="Toggle language"
           >
-            <Globe className="w-4 h-4" />
+            <Globe className="mr-1 h-4 w-4" />
+            {language === "en" ? "EN" : "SV"}
           </button>
 
           <button
@@ -130,40 +143,40 @@ const Header = () => {
       </div>
 
       {/* Mobile menu */}
-      {mobileMenuOpen && (
-        <div className="fixed inset-0 top-16 bg-background z-40 md:hidden">
-          <div className="flex flex-col space-y-2 p-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`p-3 rounded-md font-medium ${
-                  isActive(link.path)
-                    ? "bg-muted text-terracotta"
-                    : "hover:bg-muted"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <div className="mt-4 space-y-2">
-              <Link to="/donate">
-                <Button
-                  className="w-full bg-terracotta text-white hover:bg-terracotta/90"
-                  size="lg"
+      <div
+        className={`fixed inset-0 top-16 z-50 transform transition-all duration-300 ease-in-out md:hidden ${mobileMenuOpen ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"}`}
+      >
+        {mobileMenuOpen && (
+          <div className="h-full w-full bg-background p-4 shadow-lg">
+            <div className="flex flex-col space-y-2">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`rounded-md p-3 font-medium ${isActive(link.path) ? "bg-muted text-terracotta" : "hover:bg-muted"}`}
                 >
-                  {t("nav.donate")}
-                </Button>
-              </Link>
-              <Link to="/contact">
-                <Button className="w-full" variant="outline" size="lg">
-                  {t("footer.contact")}
-                </Button>
-              </Link>
+                  {link.label}
+                </Link>
+              ))}
+              <div className="mt-4 space-y-2">
+                <Link to={t("path.donate")}>
+                  <Button
+                    className="w-full bg-terracotta text-white hover:bg-terracotta/90"
+                    size="lg"
+                  >
+                    {t("nav.donate")}
+                  </Button>
+                </Link>
+                <Link to={t("path.contact")}>
+                  <Button className="w-full" variant="outline" size="lg">
+                    {t("footer.contact")}
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </header>
   );
 };

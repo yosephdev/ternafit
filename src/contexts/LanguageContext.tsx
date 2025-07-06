@@ -1,4 +1,4 @@
-import React, { useState, useContext, ReactNode } from 'react';
+import React, { useState, useContext, ReactNode, useCallback } from 'react';
 import { LanguageContext, Language, LanguageContextType } from './LanguageContextDefinition';
 import { initialTranslations, Translations } from './translations';
 
@@ -36,9 +36,9 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
   };
 
   // Add new translations
-  const addTranslations = (newTranslations: Translations) => {
+  const addTranslations = useCallback((newTranslations: Translations) => {
     setTranslations(prev => ({ ...prev, ...newTranslations }));
-  };
+  }, []);
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage: changeLanguage, t, translations, addTranslations }}>

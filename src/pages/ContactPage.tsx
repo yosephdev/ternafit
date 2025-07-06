@@ -6,8 +6,6 @@ const ContactPage: React.FC = () => {
   const { t } = useLanguage();
   const organizationName = "Ternafit";
   const contactEmail = "info@ternafit.org";
-  const contactAddress = "Jungfrugatan 1F, 641 31, Katrineholm, Sweden";
-  const officeHours = "Monday - Friday: 9:00 AM - 5:00 PM (CET)";
 
   const [formData, setFormData] = useState({
     name: '',
@@ -83,7 +81,7 @@ const ContactPage: React.FC = () => {
       // Check if response is OK (status 200-299)
       if (response.ok) {
         setSubmitStatus('success');
-        setSubmitMessage('Thank you for your message! We will get back to you soon.');
+        setSubmitMessage(t('contact.form.submitSuccess'));
         setFormData({ name: '', email: '', subject: '', message: '' });
         form.reset();
       } else {
@@ -113,7 +111,7 @@ const ContactPage: React.FC = () => {
     } catch (error) {
       console.error('Form submission error:', error);
       setSubmitStatus('error');
-      setSubmitMessage(error instanceof Error ? error.message : 'An unexpected error occurred. Please try again.');
+      setSubmitMessage(error instanceof Error ? error.message : t('contact.form.submitError'));
       
       // Log additional error details
       if (error instanceof Error) {
@@ -155,22 +153,23 @@ const ContactPage: React.FC = () => {
               
               <div className="space-y-4">
                 <div>
-                  <h3 className="text-lg font-medium text-gray-600">Address</h3>
-                  <p className="text-gray-500">{contactAddress}</p>
+                  <h3 className="text-lg font-medium text-gray-600">{t('contact.address.title')}</h3>
+                  <p className="text-gray-500">{t('contact.address.line1')}</p>
+                  <p className="text-gray-500">{t('contact.address.line2')}</p>
+                  <p className="text-gray-500">{t('contact.address.line3')}</p>
                 </div>
                 <div>
-                  <h3 className="text-lg font-medium text-gray-600">Email</h3>
+                  <h3 className="text-lg font-medium text-gray-600">{t('contact.email.title')}</h3>
                   <a href={`mailto:${contactEmail}`} className="text-terracotta-600 hover:underline">
                     {contactEmail}
                   </a>
                 </div>
                 <div>
-                  <h3 className="text-lg font-medium text-gray-600">Office Hours</h3>
-                  <p className="text-gray-500">{officeHours}</p>
+                  <h3 className="text-lg font-medium text-gray-600">{t('contact.officeHours.title')}</h3>
+                  <p className="text-gray-500">{t('contact.officeHours.desc')}</p>
                 </div>
                 <p className="text-gray-500 text-sm pt-2">
-                  Use the form to send us a message directly, or use the contact details provided. 
-                  We aim to respond within 24-48 business hours.
+                  {t('contact.form.intro')}
                 </p>
               </div>
             </div>
@@ -195,7 +194,7 @@ const ContactPage: React.FC = () => {
                   <input type="text" name="_gotcha" style={{display: 'none'}} />
                 </div>
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700">Full Name</label>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700">{t('contact.form.fullName')}</label>
                   <input 
                     type="text" 
                     name="name" 
@@ -205,11 +204,11 @@ const ContactPage: React.FC = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     disabled={isSubmitting}
-                    placeholder="Your Full Name"
+                    placeholder={t('contact.form.placeholder.fullName')}
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email Address</label>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700">{t('contact.form.emailAddress')}</label>
                   <input 
                     type="email" 
                     name="email" 
@@ -219,11 +218,11 @@ const ContactPage: React.FC = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     disabled={isSubmitting}
-                    placeholder="your.email@example.com"
+                    placeholder={t('contact.form.placeholder.email')}
                   />
                 </div>
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700">Subject</label>
+                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700">{t('contact.form.subject')}</label>
                   <input 
                     type="text" 
                     name="subject" 
@@ -233,11 +232,11 @@ const ContactPage: React.FC = () => {
                     value={formData.subject}
                     onChange={handleInputChange}
                     disabled={isSubmitting}
-                    placeholder="Regarding..."
+                    placeholder={t('contact.form.placeholder.subject')}
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700">{t('contact.form.message')}</label>
                   <textarea 
                     name="message" 
                     id="message" 
@@ -247,7 +246,7 @@ const ContactPage: React.FC = () => {
                     value={formData.message}
                     onChange={handleInputChange}
                     disabled={isSubmitting}
-                    placeholder="Your message here..."
+                    placeholder={t('contact.form.placeholder.message')}
                   />
                 </div>
                 <div>
@@ -270,7 +269,7 @@ const ContactPage: React.FC = () => {
           
           {/* Google Maps Embed */}
           <div className="mt-12 pt-8 border-t border-gray-200">
-            <h3 className="text-xl sm:text-2xl font-semibold text-gray-700 mb-4 text-center">Our Location</h3>
+            <h3 className="text-xl sm:text-2xl font-semibold text-gray-700 mb-4 text-center">{t('contact.location.title')}</h3>
             <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
               <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4110.544134777508!2d16.215963376970155!3d58.993906237824675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465eb7ee8655c21d%3A0x5b3a8a8192dd48fb!2sJungfrugatan%201F%2C%20641%2031%20Katrineholm!5e0!3m2!1sen!2sse!4v1746974613698!5m2!1sen!2sse" 

@@ -59,7 +59,7 @@ const DonateBox = ({ compact = false, sticky = false }: DonateBoxProps) => {
             </button>
           ))}
         </div>
-        <Link to="/donate">
+        <Link to={t("path.donate")}>
           <Button className="w-full bg-terracotta hover:bg-terracotta/90 text-white">
             {t("donate.button")}
           </Button>
@@ -115,7 +115,7 @@ const DonateBox = ({ compact = false, sticky = false }: DonateBoxProps) => {
         </div>
       </div>
       
-      <Link to="/donate">
+      <Link to={t("path.donate")}>
         <Button className="w-full bg-terracotta hover:bg-terracotta/90 text-white font-semibold py-6 text-lg">
           {t("donate.button")} {actualAmount > 0 ? `(${currency} ${actualAmount})` : ''}
         </Button>

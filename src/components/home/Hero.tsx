@@ -50,13 +50,13 @@ const Hero = () => {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 animate-fade-in">
-          <Link to="/donate">
+          <Link to={t("path.donate")}>
             <Button className="bg-white text-terracotta hover:bg-gray-100 font-semibold px-8 py-6 text-lg">
               {t("home.cta.donate")}
             </Button>
           </Link>
           
-          <Link to="/about">
+          <Link to={t("path.about")}>
             <Button variant="outline" className="border-2 border-white text-terracotta hover:bg-white/10 font-semibold px-8 py-6 text-lg">
               {t("home.cta.learn")}
             </Button>

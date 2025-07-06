@@ -17,287 +17,194 @@ const PrivacyPolicyPage: React.FC = () => {
       {/* Main content container */}
       <div className="py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto bg-white p-8 sm:p-10 rounded-xl shadow-xl prose lg:prose-xl">
-          <h2 className="text-2xl font-semibold text-gray-700">1. Introduction</h2>
+          <h2 className="text-2xl font-semibold text-gray-700">{t('privacy.intro.title')}</h2>
           <p className="mb-4">
-            At Ternafit, we don’t just respect your privacy; we cherish it. Our Privacy Policy outlines our
-            steadfast commitment to protecting your personal information.
+            {t('privacy.intro.text1')}
           </p>
       <p className="mb-4">
-        This Privacy Policy describes our policies and procedures on the collection, use, and disclosure
-        of your information when you use the Service and informs you of your privacy rights and how the
-        law protects you.
+        {t('privacy.intro.text2')}
       </p>
       <p className="mb-6">
-        We use your Personal Data to provide and improve the Service. By using the Service, you agree to
-        the collection and use of information in accordance with this Privacy Policy.
+        {t('privacy.intro.text3')}
       </p>
 
-      <h2 className="text-2xl font-semibold mb-4">Interpretation and Definitions</h2>
-      <h3 className="text-xl font-semibold mb-2">Interpretation</h3>
+      <h2 className="text-2xl font-semibold mb-4">{t('privacy.definitions.title')}</h2>
+      <h3 className="text-xl font-semibold mb-2">{t('privacy.definitions.interpretation.title')}</h3>
       <p className="mb-4">
-        The words in which the initial letter is capitalized have meanings defined under the following
-        conditions. The following definitions shall have the same meaning regardless of whether they
-        appear in singular or plural form.
+        {t('privacy.definitions.interpretation.text')}
       </p>
 
-      <h3 className="text-xl font-semibold mb-2">Definitions</h3>
-      <p className="mb-4">For the purposes of this Privacy Policy:</p>
+      <h3 className="text-xl font-semibold mb-2">{t('privacy.definitions.definitions.title')}</h3>
+      <p className="mb-4">{t('privacy.definitions.definitions.intro')}</p>
       <ul className="list-disc list-inside mb-6 space-y-2">
         <li>
-          <strong>Account:</strong> A unique account created for you to access our Service or parts of
-          our Service.
+          <strong>{t('privacy.definitions.definitions.account').split(':')[0]}:</strong> {t('privacy.definitions.definitions.account').split(':')[1]}
         </li>
         <li>
-          <strong>Affiliate:</strong> An entity that controls, is controlled by, or is under common
-          control with a party, where “control” means ownership of 50% or more of the shares, equity
-          interest, or other securities entitled to vote for election of directors or other managing
-          authority.
+          <strong>{t('privacy.definitions.definitions.affiliate').split(':')[0]}:</strong> {t('privacy.definitions.definitions.affiliate').split(':')[1]}
         </li>
         <li>
-          <strong>Organization:</strong> (referred to as either “the Organization”, “We”, “Us”, or
-          “Our” in this Agreement) refers to Ternafit, Jungfrugatan 1F, 64131, Katrineholm, Sweden.
+          <strong>{t('privacy.definitions.definitions.organization').split(':')[0]}:</strong> {t('privacy.definitions.definitions.organization').split(':')[1]}
         </li>
         <li>
-          <strong>Cookies:</strong> Small files that are placed on your computer, mobile device, or any
-          other device by a website, containing the details of your browsing history on that website
-          among its many uses.
+          <strong>{t('privacy.definitions.definitions.cookies').split(':')[0]}:</strong> {t('privacy.definitions.definitions.cookies').split(':')[1]}
         </li>
         <li>
-          <strong>Country:</strong> Refers to Sweden.
+          <strong>{t('privacy.definitions.definitions.country').split(':')[0]}:</strong> {t('privacy.definitions.definitions.country').split(':')[1]}
         </li>
         <li>
-          <strong>Device:</strong> Any device that can access the Service, such as a computer,
-          cellphone, or digital tablet.
+          <strong>{t('privacy.definitions.definitions.device').split(':')[0]}:</strong> {t('privacy.definitions.definitions.device').split(':')[1]}
         </li>
         <li>
-          <strong>Personal Data:</strong> Any information that relates to an identified or identifiable
-          individual.
+          <strong>{t('privacy.definitions.definitions.personalData').split(':')[0]}:</strong> {t('privacy.definitions.definitions.personalData').split(':')[1]}
         </li>
         <li>
-          <strong>Service:</strong> Refers to the Website.
+          <strong>{t('privacy.definitions.definitions.service').split(':')[0]}:</strong> {t('privacy.definitions.definitions.service').split(':')[1]}
         </li>
         <li>
-          <strong>Service Provider:</strong> Any natural or legal person who processes data on behalf
-          of the Organization. This refers to third-party companies or individuals employed by the
-          Organization to facilitate the Service, provide the Service on behalf of the Organization,
-          perform services related to the Service, or assist the Organization in analyzing how the
-          Service is used.
+          <strong>{t('privacy.definitions.definitions.serviceProvider').split(':')[0]}:</strong> {t('privacy.definitions.definitions.serviceProvider').split(':')[1]}
         </li>
         <li>
-          <strong>Usage Data:</strong> Data collected automatically, either generated by the use of the
-          Service or from the Service infrastructure itself (for example, the duration of a page
-          visit).
+          <strong>{t('privacy.definitions.definitions.usageData').split(':')[0]}:</strong> {t('privacy.definitions.definitions.usageData').split(':')[1]}
         </li>
         <li>
-          <strong>Website:</strong> Refers to Ternafit, accessible from https://www.ternafit.org
+          <strong>{t('privacy.definitions.definitions.website').split(':')[0]}:</strong> {t('privacy.definitions.definitions.website').split(':')[1]}
         </li>
         <li>
-          <strong>You:</strong> The individual accessing or using the Service, or the company, or other
-          legal entity on behalf of which such individual is accessing or using the Service, as
-          applicable.
+          <strong>{t('privacy.definitions.definitions.you').split(':')[0]}:</strong> {t('privacy.definitions.definitions.you').split(':')[1]}
         </li>
       </ul>
 
-      <h2 className="text-2xl font-semibold mb-4">Collecting and Using Your Personal Data</h2>
-      <h3 className="text-xl font-semibold mb-2">Types of Data Collected</h3>
-      <h4 className="text-lg font-semibold mb-2">Personal Data</h4>
+      <h2 className="text-2xl font-semibold mb-4">{t('privacy.dataCollection.title')}</h2>
+      <h3 className="text-xl font-semibold mb-2">{t('privacy.dataCollection.types.title')}</h3>
+      <h4 className="text-lg font-semibold mb-2">{t('privacy.dataCollection.personalData.title')}</h4>
       <p className="mb-4">
-        While using our Service, we may ask you to provide us with certain personally identifiable
-        information that can be used to contact or identify you. Personally identifiable information
-        may include, but is not limited to:
+        {t('privacy.dataCollection.personalData.text')}
       </p>
       <ul className="list-disc list-inside mb-4 ml-4">
-        <li>Email address</li>
-        <li>Usage Data</li>
+        <li>{t('privacy.dataCollection.personalData.email')}</li>
+        <li>{t('privacy.dataCollection.personalData.usageData')}</li>
       </ul>
 
-      <h4 className="text-lg font-semibold mb-2">Usage Data</h4>
-      <p className="mb-4">Usage Data is collected automatically when using the Service.</p>
+      <h4 className="text-lg font-semibold mb-2">{t('privacy.dataCollection.usageData.title')}</h4>
+      <p className="mb-4">{t('privacy.dataCollection.usageData.text1')}</p>
       <p className="mb-4">
-        Usage Data may include information such as your Device’s Internet Protocol address (e.g., IP
-        address), browser type, browser version, the pages of our Service that you visit, the time and
-        date of your visit, the time spent on those pages, unique device identifiers, and other
-        diagnostic data.
+        {t('privacy.dataCollection.usageData.text2')}
       </p>
       <p className="mb-4">
-        When you access the Service by or through a mobile device, we may collect certain information
-        automatically, including, but not limited to, the type of mobile device you use, your mobile
-        device unique ID, the IP address of your mobile device, your mobile operating system, the type
-        of mobile Internet browser you use, unique device identifiers, and other diagnostic data.
+        {t('privacy.dataCollection.usageData.text3')}
       </p>
       <p className="mb-6">
-        We may also collect information that your browser sends whenever you visit our Service or when
-        you access the Service by or through a mobile device.
+        {t('privacy.dataCollection.usageData.text4')}
       </p>
 
-      <h3 className="text-xl font-semibold mb-2">Tracking Technologies and Cookies</h3>
+      <h3 className="text-xl font-semibold mb-2">{t('privacy.trackingTechnologies.title')}</h3>
       <p className="mb-4">
-        We use Cookies and similar tracking technologies to track the activity on our Service and store
-        certain information. Tracking technologies used may include beacons, tags, and scripts to
-        collect and track information and to improve and analyze our Service. The technologies we use
-        may include:
+        {t('privacy.trackingTechnologies.text1')}
       </p>
       <ul className="list-disc list-inside mb-6 space-y-2">
         <li>
-          <strong>Cookies or Browser Cookies:</strong> A cookie is a small file placed on your Device.
-          You can instruct your browser to refuse all Cookies or to indicate when a Cookie is being
-          sent. However, if you do not accept Cookies, you may not be able to use some parts of our
-          Service. Unless you have adjusted your browser setting so that it will refuse Cookies, our
-          Service may use Cookies.
+          <strong>{t('privacy.trackingTechnologies.cookies.title')}</strong> {t('privacy.trackingTechnologies.cookies.desc')}
         </li>
         <li>
-          <strong>Web Beacons:</strong> Certain sections of our Service and our emails may contain
-          small electronic files known as web beacons (also referred to as clear gifs, pixel tags, and
-          single-pixel gifs) that permit the Organization, for example, to count users who have
-          visited those pages or opened an email and for other related website statistics (for
-          example, recording the popularity of a certain section and verifying system and server
-          integrity).
+          <strong>{t('privacy.trackingTechnologies.webBeacons.title')}</strong> {t('privacy.trackingTechnologies.webBeacons.desc')}
         </li>
       </ul>
       <p className="mb-4">
-        Cookies can be “Persistent” or “Session” Cookies. Persistent Cookies remain on your personal
-        computer or mobile device when you go offline, while Session Cookies are deleted as soon as you
-        close your web browser.
+        {t('privacy.trackingTechnologies.text2')}
       </p>
       <p className="mb-4">
-        We use both Session and Persistent Cookies for the purposes set out below:
+        {t('privacy.trackingTechnologies.text3')}
       </p>
       <ul className="list-disc list-inside mb-6 space-y-4">
         <li>
-          <p><strong>Necessary / Essential Cookies</strong></p>
-          <p>Type: Session Cookies</p>
-          <p>Administered by: Us</p>
+          <p><strong>{t('privacy.trackingTechnologies.necessaryCookies.title')}</strong></p>
+          <p>{t('privacy.trackingTechnologies.necessaryCookies.type')}</p>
+          <p>{t('privacy.trackingTechnologies.necessaryCookies.administeredBy')}</p>
           <p>
-            Purpose: These Cookies are essential to provide you with services available through the
-            Website and to enable you to use some of its features. They help to authenticate users and
-            prevent fraudulent use of user accounts. Without these Cookies, the services that you have
-            asked for cannot be provided, and we only use these Cookies to provide you with those
-            services.
+            {t('privacy.trackingTechnologies.necessaryCookies.purpose')}
           </p>
         </li>
         <li>
-          <p><strong>Cookies Policy / Notice Acceptance Cookies</strong></p>
-          <p>Type: Persistent Cookies</p>
-          <p>Administered by: Us</p>
-          <p>Purpose: These Cookies identify if users have accepted the use of cookies on the Website.</p>
+          <p><strong>{t('privacy.trackingTechnologies.policyAcceptanceCookies.title')}</strong></p>
+          <p>{t('privacy.trackingTechnologies.policyAcceptanceCookies.type')}</p>
+          <p>{t('privacy.trackingTechnologies.policyAcceptanceCookies.administeredBy')}</p>
+          <p>{t('privacy.trackingTechnologies.policyAcceptanceCookies.purpose')}</p>
         </li>
         <li>
-          <p><strong>Functionality Cookies</strong></p>
-          <p>Type: Persistent Cookies</p>
-          <p>Administered by: Us</p>
+          <p><strong>{t('privacy.trackingTechnologies.functionalityCookies.title')}</strong></p>
+          <p>{t('privacy.trackingTechnologies.functionalityCookies.type')}</p>
+          <p>{t('privacy.trackingTechnologies.functionalityCookies.administeredBy')}</p>
           <p>
-            Purpose: These Cookies allow us to remember choices you make when you use the Website, such
-            as remembering your login details or language preference. The purpose of these Cookies is
-            to provide you with a more personal experience and to avoid you having to re-enter your
-            preferences every time you use the Website.
+            {t('privacy.trackingTechnologies.functionalityCookies.purpose')}
           </p>
         </li>
       </ul>
       <p className="mb-6">
-        For more information about the cookies we use and your choices regarding cookies, please visit
-        our Cookies Policy or the Cookies section of our Privacy Policy.
+        {t('privacy.trackingTechnologies.text4')}
       </p>
 
-      <h2 className="text-2xl font-semibold mb-4">Use of Your Personal Data</h2>
-      <p className="mb-4">The Organization may use Personal Data for the following purposes:</p>
+      <h2 className="text-2xl font-semibold mb-4">{t('privacy.useOfPersonalData.title')}</h2>
+      <p className="mb-4">{t('privacy.useOfPersonalData.text1')}</p>
       <ul className="list-disc list-inside mb-6 space-y-2">
-        <li>To provide and maintain our Service, including to monitor the usage of our Service.</li>
+        <li>{t('privacy.useOfPersonalData.purpose1')}</li>
         <li>
-          To manage Your Account: to manage your registration as a user of the Service. The Personal
-          Data you provide can give you access to different functionalities of the Service that are
-          available to you as a registered user.
+          {t('privacy.useOfPersonalData.purpose2')}
         </li>
         <li>
-          For the performance of a contract: the development, compliance, and undertaking of the
-          purchase contract for the products, items, or services you have purchased or any other
-          contract with Us through the Service.
+          {t('privacy.useOfPersonalData.purpose3')}
         </li>
         <li>
-          To contact you: To contact you by email, telephone calls, SMS, or other equivalent forms of
-          electronic communication, such as a mobile application’s push notifications regarding updates
-          or informative communications related to the functionalities, products, or contracted
-          services, including security updates when necessary or reasonable for their implementation.
+          {t('privacy.useOfPersonalData.purpose4')}
         </li>
         <li>
-          To provide you with news, special offers, and general information about other goods,
-          services, and events we offer that are similar to those that you have already purchased or
-          inquired about unless you have opted not to receive such information.
+          {t('privacy.useOfPersonalData.purpose5')}
         </li>
-        <li>To manage Your requests: To attend to and manage your requests to us.</li>
+        <li>{t('privacy.useOfPersonalData.purpose6')}</li>
         <li>
-          For business transfers: We may use your information to evaluate or conduct a merger,
-          divestiture, restructuring, reorganization, dissolution, or other sale or transfer of some
-          or all of our assets, whether as a going concern or as part of bankruptcy, liquidation, or
-          similar proceeding, in which Personal Data held by us about our Service users is among the
-          assets transferred.
+          {t('privacy.useOfPersonalData.purpose7')}
         </li>
         <li>
-          For other purposes: We may use your information for other purposes, such as data analysis,
-          identifying usage trends, determining the effectiveness of our promotional campaigns, and
-          evaluating and improving our Service, products, services, marketing, and your experience.
+          {t('privacy.useOfPersonalData.purpose8')}
         </li>
       </ul>
-      <p className="mb-4">We may share your personal information in the following situations:</p>
+      <p className="mb-4">{t('privacy.useOfPersonalData.shareInfo.text1')}</p>
       <ul className="list-disc list-inside mb-6 space-y-2">
         <li>
-          With Service Providers: We may share your personal information with Service Providers to
-          monitor and analyze the use of our Service and to contact you.
+          {t('privacy.useOfPersonalData.shareInfo.situation1')}
         </li>
         <li>
-          For business transfers: We may share or transfer your personal information in connection
-          with, or during negotiations of, any merger, sale of Organization assets, financing, or
-          acquisition of all or a portion of our business to another company.
+          {t('privacy.useOfPersonalData.shareInfo.situation2')}
         </li>
         <li>
-          With Affiliates: We may share your information with our affiliates, in which case we will
-          require those affiliates to honor this Privacy Policy. Affiliates include our parent
-          organization and any other subsidiaries, joint venture partners, or other companies that we
-          control or that are under common control with us.
+          {t('privacy.useOfPersonalData.shareInfo.situation3')}
         </li>
         <li>
-          With business partners: We may share your information with our business partners to offer you
-          certain products, services, or promotions.
+          {t('privacy.useOfPersonalData.shareInfo.situation4')}
         </li>
         <li>
-          With other users: When you share personal information or otherwise interact in the public
-          areas with other users, such information may be viewed by all users and may be publicly
-          distributed outside.
+          {t('privacy.useOfPersonalData.shareInfo.situation5')}
         </li>
-        <li>With your consent: We may disclose your personal information for any other purpose with your consent.</li>
+        <li>{t('privacy.useOfPersonalData.shareInfo.situation6')}</li>
       </ul>
 
-      <h2 className="text-2xl font-semibold mb-4">Retention of Your Personal Data</h2>
+      <h2 className="text-2xl font-semibold mb-4">{t('privacy.dataRetention.title')}</h2>
       <p className="mb-4">
-        The Organization will retain Your Personal Data only for as long as is necessary for the
-        purposes set out in this Privacy Policy. We will retain and use Your Personal Data to the
-        extent necessary to comply with our legal obligations (for example, if we are required to
-        retain your data to comply with applicable laws), resolve disputes, and enforce our legal
-        agreements and policies.
+        {t('privacy.dataRetention.text1')}
       </p>
       <p className="mb-6">
-        The Organization will also retain Usage Data for internal analysis purposes. Usage Data is
-        generally retained for a shorter period of time, except when this data is used to strengthen
-        the security or to improve the functionality of Our Service, or We are legally obligated to
-        retain this data for longer time periods.
+        {t('privacy.dataRetention.text2')}
       </p>
 
-      <h2 className="text-2xl font-semibold mb-4">Transfer of Your Personal Data</h2>
+      <h2 className="text-2xl font-semibold mb-4">{t('privacy.dataTransfer.title')}</h2>
       <p className="mb-4">
-        Your information, including Personal Data, is processed at the Organization’s operating offices
-        and in any other places where the parties involved in the processing are located. It means that
-        this information may be transferred to — and maintained on — computers located outside of Your
-        state, province, country, or other governmental jurisdiction where the data protection laws may
-        differ from those of Your jurisdiction.
+        {t('privacy.dataTransfer.text1')}
       </p>
       <p className="mb-4">
-        Your consent to this Privacy Policy followed by Your submission of such information represents
-        Your agreement to that transfer.
+        {t('privacy.dataTransfer.text2')}
       </p>
       <p className="mb-6">
-        The Organization will take all steps reasonably necessary to ensure that Your data is treated
-        securely and in accordance with this Privacy Policy and no transfer of Your Personal Data will
-        take place to an organization or a country unless there are adequate controls in place
-        including the security of Your data and other personal information.
+        {t('privacy.dataTransfer.text3')}
       </p>
 
       <h2 className="text-2xl font-semibold mb-4">Delete Your Personal Data</h2>

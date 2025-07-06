@@ -15,7 +15,7 @@ const BlogPost = () => {
         <div className="text-center">
           <h1 className="text-4xl font-serif font-bold mb-4">{t("blog.notFound")}</h1>
           <Link 
-            to="/blog" 
+            to={t("path.blog")} 
             className="inline-flex items-center text-terracotta hover:underline"
           >
             <ArrowLeft className="h-5 w-5 mr-2" />
@@ -33,7 +33,7 @@ const BlogPost = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             <Link 
-              to="/blog" 
+              to={t("path.blog")} 
               className="inline-flex items-center text-terracotta hover:underline mb-6"
             >
               <ArrowLeft className="h-5 w-5 mr-2" />
@@ -121,7 +121,7 @@ const BlogPost = () => {
                       .slice(0, 3)
                       .map(relatedPost => (
                         <li key={relatedPost.id} className="border-b border-muted pb-4 last:border-0 last:pb-0">
-                          <Link to={`/blog/${relatedPost.id}`} className="block hover:text-terracotta transition-colors">
+                          <Link to={`${t("path.blogPost")}${relatedPost.id}`} className="block hover:text-terracotta transition-colors">
                             <h4 className="font-medium">{relatedPost.title}</h4>
                             <p className="text-sm text-muted-foreground">{formatDate(relatedPost.date, language)}</p>
                           </Link>

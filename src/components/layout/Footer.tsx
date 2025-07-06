@@ -14,11 +14,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {/* Organization Info */}
           <div className="col-span-1 md:col-span-1 lg:col-span-1">
-            <Link to="/" className="inline-block mb-4">
+            <Link to={t("path.home")} className="inline-block mb-4">
               <h3 className="text-xl font-serif font-bold text-terracotta">Ternafit</h3>
             </Link>
             <p className="text-sm text-muted-foreground mb-4">
-              Supporting the Tigrean community through humanitarian aid, education, and advocacy.
+              {t("footer.tagline")}
             </p>
             <div className="flex space-x-4 mt-4">
               <a href="https://www.facebook.com/ternafit" className="text-gray-600 hover:text-terracotta" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
@@ -35,22 +35,22 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-bold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-bold mb-4">{t("footer.quickLinks")}</h3>
             <ul className="space-y-2">
-              <li><Link to="/about" className="text-sm text-gray-600 hover:text-terracotta">{t("nav.about")}</Link></li>
-              <li><Link to="/work" className="text-sm text-gray-600 hover:text-terracotta">{t("nav.work")}</Link></li>
-              <li><Link to="/blog" className="text-sm text-gray-600 hover:text-terracotta">{t("nav.blog")}</Link></li>
-              <li><Link to="/news" className="text-sm text-gray-600 hover:text-terracotta">{t("nav.news")}</Link></li>
-              <li><Link to="/podcast" className="text-sm text-gray-600 hover:text-terracotta">{t("nav.podcast")}</Link></li>
+              <li><Link to={t("path.about")} className="text-sm text-gray-600 hover:text-terracotta">{t("nav.about")}</Link></li>
+              <li><Link to={t("path.work")} className="text-sm text-gray-600 hover:text-terracotta">{t("nav.work")}</Link></li>
+              <li><Link to={t("path.blog")} className="text-sm text-gray-600 hover:text-terracotta">{t("nav.blog")}</Link></li>
+              <li><Link to={t("path.news")} className="text-sm text-gray-600 hover:text-terracotta">{t("nav.news")}</Link></li>
+              <li><Link to={t("path.podcast")} className="text-sm text-gray-600 hover:text-terracotta">{t("nav.podcast")}</Link></li>
             </ul>
           </div>
 
           {/* Support Us */}
           <div>
-            <h3 className="text-lg font-bold mb-4">Support Us</h3>
+            <h3 className="text-lg font-bold mb-4">{t("footer.supportUs")}</h3>
             <ul className="space-y-2">
-              <li><Link to="/donate" className="text-sm text-gray-600 hover:text-terracotta">{t("nav.donate")}</Link></li>
-              <li><Link to="/get-involved" className="text-sm text-gray-600 hover:text-terracotta">{t("nav.getInvolved")}</Link></li>
+              <li><Link to={t("path.donate")} className="text-sm text-gray-600 hover:text-terracotta">{t("nav.donate")}</Link></li>
+              <li><Link to={t("path.getInvolved")} className="text-sm text-gray-600 hover:text-terracotta">{t("nav.getInvolved")}</Link></li>
             </ul>
           </div>
 
@@ -61,7 +61,7 @@ const Footer = () => {
               <li>Ternafit</li>
               <li>Jungfrugatan 1F</li>
               <li>641 31 Katrineholm</li>
-              <li>Sweden</li>
+              <li>{t("footer.country")}</li>
               <li className="pt-2 flex items-center">
                 <Mail className="h-4 w-4 mr-2" /> 
                 <a href="mailto:info@ternafit.org" className="hover:text-terracotta">
@@ -75,7 +75,7 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold mb-4">{t("common.subscribe")}</h3>
             <p className="text-sm text-muted-foreground mb-4">
-              Stay updated with our latest news and events.
+              {t("footer.newsletterDescription")}
             </p>
             <form 
               action="https://dev.us9.list-manage.com/subscribe/post?u=17d8ed2a68846353b5803e6f6&id=43d363d756&f_id=001c52e1f0" 
@@ -112,13 +112,13 @@ const Footer = () => {
         <div className="border-t border-gray-300 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-600">
           <p>{t("footer.rights")}</p>
           <div className="flex space-x-4 mt-4 md:mt-0">
-            <Link to="/privacy-policy" className="hover:text-terracotta">
+            <Link to={t("path.privacyPolicy")} className="hover:text-terracotta">
               {t("footer.privacy")}
             </Link>
-            <Link to="/terms-of-service" className="hover:text-terracotta">
+            <Link to={t("path.termsOfService")} className="hover:text-terracotta">
               {t("footer.terms")}
             </Link>
-            <Link to="/contact" className="hover:text-terracotta">
+            <Link to={t("path.contact")} className="hover:text-terracotta">
               {t("footer.contact")}
             </Link>
           </div>

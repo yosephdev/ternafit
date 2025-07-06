@@ -2,27 +2,33 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { getInvolvedTranslations } from "@/translations/getInvolvedTranslations";
 
 const GetInvolvedPage = () => {
-  const { t } = useLanguage();
+  const { t, addTranslations } = useLanguage();
+
+  useEffect(() => {
+    addTranslations(getInvolvedTranslations);
+  }, [addTranslations]);
 
   const waysToHelp = [
     {
-      title: "Donate",
-      description: "Your financial support helps us provide essential resources to the Tigrean community.",
-      cta: "Donate Now",
-      link: "/donate",
+      title: t("getInvolved.card.donate.title"),
+      description: t("getInvolved.card.donate.description"),
+      cta: t("getInvolved.card.donate.cta"),
+      link: t("path.donate"),
     },
     {
-      title: "Volunteer",
-      description: "Join our team of dedicated volunteers and contribute your skills to our mission.",
-      cta: "Learn More",
-      link: "/contact",
+      title: t("getInvolved.card.volunteer.title"),
+      description: t("getInvolved.card.volunteer.description"),
+      cta: t("getInvolved.card.volunteer.cta"),
+      link: t("path.contact"),
     },
     {
-      title: "Spread the Word",
-      description: "Follow us on social media and share our content to raise awareness about the situation in Tigray.",
-      cta: "Follow Us",
+      title: t("getInvolved.card.spreadWord.title"),
+      description: t("getInvolved.card.spreadWord.description"),
+      cta: t("getInvolved.card.spreadWord.cta"),
       link: "#", // Add social media links here
     },
   ];
@@ -31,9 +37,9 @@ const GetInvolvedPage = () => {
     <main>
       <section className="bg-muted py-14">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl font-serif font-bold mb-4">Get Involved</h1>
+          <h1 className="text-4xl font-serif font-bold mb-4">{t("getInvolved.hero.title")}</h1>
           <p className="text-lg max-w-2xl mx-auto">
-            There are many ways you can support Ternafit and the Tigrean community. Choose the one that's right for you.
+            {t("getInvolved.hero.subtitle")}
           </p>
         </div>
       </section>

@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BlogPost } from '@/data/blogPosts';
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface RelatedPostsProps {
   currentPostId: number;
@@ -9,6 +10,7 @@ interface RelatedPostsProps {
 }
 
 const RelatedPosts = ({ currentPostId, posts }: RelatedPostsProps) => {
+  const { t } = useLanguage();
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', { // Assuming English for related posts date format
@@ -30,7 +32,7 @@ const RelatedPosts = ({ currentPostId, posts }: RelatedPostsProps) => {
           .map(relatedPost => (
             <Link 
               key={relatedPost.id} 
-              to={`/blog/${relatedPost.id}`}
+              to={`${t("path.blogPost")}${relatedPost.id}`}
               className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
             >
               <img 

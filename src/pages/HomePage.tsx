@@ -47,7 +47,7 @@ const HomePage = () => {
                   <span className="font-bold text-terracotta">4</span> Strategic partnerships formed, including collaboration with Anenitigray Development Services (ADS) and other grassroots initiatives, strengthening our collective impact and outreach.
                 </li>
               </ul>
-              <Link to="/about">
+              <Link to={t("path.about")}>
                 <Button variant="outline" className="text-terracotta hover:bg-terracotta hover:text-white">
                   {t('common.learnMore')}
                 </Button>
@@ -96,7 +96,7 @@ const HomePage = () => {
                 <p className="text-muted-foreground mb-4">
                   Delivering food, safe water, shelter, and medical care to Tigrayan families affected by war, displacement, and disaster.
                 </p>
-                <Link to="/work" className="text-terracotta hover:underline font-medium">
+                <Link to={t("path.work")} className="text-terracotta hover:underline font-medium">
                   Learn more →
                 </Link>
               </div>
@@ -114,7 +114,7 @@ const HomePage = () => {
                 <p className="text-muted-foreground mb-4">
                   Offering scholarships, supplies, and mentorship opportunities—helping Tigrayan children and youth rebuild their futures through learning.
                 </p>
-                <Link to="/work" className="text-terracotta hover:underline font-medium">
+                <Link to={t("path.work")} className="text-terracotta hover:underline font-medium">
                   Learn more →
                 </Link>
               </div>
@@ -132,7 +132,7 @@ const HomePage = () => {
                 <p className="text-muted-foreground mb-4">
                   Raising global awareness, informing policy, and partnering with communities and media to protect rights and amplify Tigrayan voices.
                 </p>
-                <Link to="/work" className="text-terracotta hover:underline font-medium">
+                <Link to={t("path.work")} className="text-terracotta hover:underline font-medium">
                   Learn more →
                 </Link>
               </div>
@@ -148,7 +148,7 @@ const HomePage = () => {
             <div>
               <h2 className="text-3xl font-serif font-bold mb-4">{t('donate.title')}</h2>
               <p className="text-lg mb-6">
-                Your generosity allows Ternafit to deliver urgent relief and lasting hope. Every contribution goes directly to families and communities working to rebuild and thrive.
+                {t("home.donate.intro")}
               </p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start">
@@ -157,7 +157,7 @@ const HomePage = () => {
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </span>
-                  <span>Deliver meals and medicine to families in urgent need</span>
+                  <span>{t("home.donate.benefit1")}</span>
                 </li>
                 <li className="flex items-start">
                   <span className="bg-terracotta rounded-full p-1 mr-3 mt-1">
@@ -165,7 +165,7 @@ const HomePage = () => {
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </span>
-                  <span>Fund safe spaces and resources for children's education</span>
+                  <span>{t("home.donate.benefit2")}</span>
                 </li>
                 <li className="flex items-start">
                   <span className="bg-terracotta rounded-full p-1 mr-3 mt-1">
@@ -173,7 +173,7 @@ const HomePage = () => {
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </span>
-                  <span>Expand healthcare and recovery programs in remote areas</span>
+                  <span>{t("home.donate.benefit3")}</span>
                 </li>
               </ul>
             </div>
