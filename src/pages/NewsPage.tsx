@@ -71,7 +71,7 @@ const NewsPage = () => {
     }
   ];
 
-  // Enhanced local news with more variety
+  // Enhanced local news with more variety and international sources
   const getLocalNews = () => [
     {
       title: { 
@@ -128,6 +128,35 @@ const NewsPage = () => {
       category: "Health",
       imageUrl: "/images/news/mobile-clinics.jpg",
       url: "#mobile-clinics"
+    },
+    // Add more fallback international-style news
+    {
+      title: { 
+        en: "UN Reports Improved Humanitarian Access to Tigray Region", 
+        sv: "FN rapporterar förbättrad humanitär tillgång till Tigray-regionen" 
+      },
+      content: { 
+        en: "United Nations agencies report increased access to previously unreachable areas, enabling delivery of food aid to 75,000 additional people.", 
+        sv: "FN-organ rapporterar ökad tillgång till tidigare onåbara områden, vilket möjliggör leverans av mathjälp till ytterligare 75 000 personer." 
+      },
+      date: new Date(Date.now() - 432000000).toISOString(),
+      category: "International",
+      imageUrl: "/images/news/un-aid.jpg",
+      url: "https://news.un.org/en/story/2024/07/1151726"
+    },
+    {
+      title: { 
+        en: "Ethiopian Government Announces Infrastructure Rebuilding Initiative", 
+        sv: "Etiopiska regeringen tillkännager initiativ för återuppbyggnad av infrastruktur" 
+      },
+      content: { 
+        en: "Major infrastructure projects launched to restore roads, bridges, and communication networks in Tigray, with international funding support.", 
+        sv: "Stora infrastrukturprojekt lanserade för att återställa vägar, broar och kommunikationsnätverk i Tigray, med internationellt finansieringsstöd." 
+      },
+      date: new Date(Date.now() - 518400000).toISOString(),
+      category: "Reconstruction",
+      imageUrl: "/images/news/infrastructure.jpg",
+      url: "https://www.reuters.com/world/africa/ethiopia-tigray-reconstruction-2024-07-10/"
     }
   ];
 
