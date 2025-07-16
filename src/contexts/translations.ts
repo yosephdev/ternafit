@@ -56,6 +56,17 @@ export const initialTranslations: Translations = {
     // Crisis Update translations
     'crisis.title': { en: 'Tigray Crisis: The Situation Today', sv: 'Tigray-krisen: Situationen idag' },
     'crisis.updated': { en: 'Updated', sv: 'Uppdaterad' },
+    'crisis.peopleNeedAid': { en: 'People Need Aid', sv: 'Människor behöver hjälp' },
+    'crisis.childrenAtRisk': { en: 'Children at Risk', sv: 'Barn i riskzonen' },
+    'crisis.lackBasicServices': { en: 'Lack Basic Services', sv: 'Saknar grundläggande tjänster' },
+    'crisis.actionNeeded': { en: 'Action Needed', sv: 'Åtgärder behövs' },
+    'crisis.urgent': { en: 'URGENT', sv: 'BRÅDSKANDE' },
+    'crisis.currentChallenges': { en: 'Current Challenges:', sv: 'Aktuella utmaningar:' },
+    'crisis.challenge1': { en: 'Limited access to healthcare and medical supplies', sv: 'Begränsad tillgång till hälsovård och medicinska förnödenheter' },
+    'crisis.challenge2': { en: 'Disrupted education for over 1.7 million children', sv: 'Störd utbildning för över 1,7 miljoner barn' },
+    'crisis.challenge3': { en: 'Food insecurity affecting 89% of the population', sv: 'Matosäkerhet som påverkar 89% av befolkningen' },
+    'crisis.challenge4': { en: 'Damaged infrastructure limiting aid delivery', sv: 'Skadad infrastruktur som begränsar biståndsfördelning' },
+    'crisis.challenge5': { en: 'Ongoing need for psychosocial support', sv: 'Pågående behov av psykosocialt stöd' },
     'crisis.displaced.number': { en: '2.1M', sv: '2,1M' },
     'crisis.displaced.label': { en: 'People Displaced', sv: 'Människor fördrivna' },
     'crisis.needAid.number': { en: '4.5M', sv: '4,5M' },
@@ -93,7 +104,6 @@ export const initialTranslations: Translations = {
     'news.newsletterDescription': { en: 'Get the latest updates delivered to your inbox.', sv: 'Få de senaste uppdateringarna direkt till din inkorg.' },
     'news.loadError': { en: 'Failed to load news. Please try again later.', sv: 'Kunde inte ladda nyheter. Försök igen senare.' },
     'news.loading': { en: 'Loading news...', sv: 'Laddar nyheter...' },
-    'news.noNews': { en: 'No news articles found.', sv: 'Inga nyhetsartiklar hittades.' },
     'news.readFull': { en: 'Read Full Article', sv: 'Läs hela artikeln' },
     'news.source': { en: 'Source', sv: 'Källa' },
     'news.categories.all': { en: 'All', sv: 'Alla' },
@@ -176,17 +186,16 @@ export const initialTranslations: Translations = {
     'common.readMore': { en: 'Read More', sv: 'Läs mer' },
     'common.learnMore': { en: 'Learn More', sv: 'Läs mer' },
     'common.contact': { en: 'Contact Us', sv: 'Kontakta oss' },
-    'common.subscribe': { en: 'Subscribe', sv: 'Prenumerera' },
+    // 'common.subscribe': { en: 'Subscribe', sv: 'Prenumerera' },
     'common.email': { en: 'Email', sv: 'E-post' },
     'common.name': { en: 'Name', sv: 'Namn' },
     'common.subject': { en: 'Subject', sv: 'Ämne' },
     'common.message': { en: 'Message', sv: 'Meddelande' },
     'common.submit': { en: 'Send Message', sv: 'Skicka meddelande' },
-    'common.loading': { en: 'Sending...', sv: 'Skickar...' },
-    'common.success': { en: 'Success!', sv: 'Framgång!' },
-    'common.error': { en: 'Error', sv: 'Fel' },
-    'common.close': { en: 'Close', sv: 'Stäng' },
-    'common.cancel': { en: 'Cancel', sv: 'Avbryt' },
+    // 'common.loading': { en: 'Sending...', sv: 'Skickar...' },
+    // 'common.success': { en: 'Success!', sv: 'Framgång!' },
+    // 'common.error': { en: 'Error', sv: 'Fel' },
+    // 'common.close': { en: 'Close', sv: 'Stäng' }, // Duplicate removed
     'common.save': { en: 'Save', sv: 'Spara' },
     'common.edit': { en: 'Edit', sv: 'Redigera' },
     'common.delete': { en: 'Delete', sv: 'Ta bort' },
@@ -406,21 +415,12 @@ export const initialTranslations: Translations = {
     'search.noResults': { en: 'No results found', sv: 'Inga resultat hittades' },
     'search.clear': { en: 'Clear', sv: 'Rensa' },
 
-    // Home Award and Programs (moved inside the object)
-    'home.award.description1': { en: 'We are proud to announce that Ternafit has been named <span className="font-semibold">Best Tigrean Community Support Initiative 2025 – Sweden</span> by Acquisition International. This recognition celebrates our dedication to advocacy, awareness, and supporting the Tigrean community.', sv: 'Vi är stolta över att meddela att Ternafit har utnämnts till <span className="font-semibold">Bästa Tigreanska Samhällsstödsinitiativ 2025 – Sverige</span> av Acquisition International. Detta erkännande firar vårt engagemang för påverkansarbete, medvetenhet och stöd till det tigreanska samhället.' },
-    'home.award.description2': { en: 'Thank you to our community, volunteers, and supporters. Together, we make a difference. Stay tuned for the official announcement in June!', sv: 'Tack till vårt samhälle, våra volontärer och supportrar. Tillsammans gör vi skillnad. Håll utkik efter det officiella tillkännagivandet i juni!' },
-    'home.programs.title': { en: 'Our Programs', sv: 'Våra program' },
-    'home.programs.emergencyRelief.title': { en: 'Emergency Relief', sv: 'Nödhjälp' },
-    'home.programs.emergencyRelief.description': { en: 'Delivering food, safe water, shelter, and medical care to Tigrayan families affected by war, displacement, and disaster.', sv: 'Levererar mat, säkert vatten, skydd och medicinsk vård till tigreanska familjer som drabbats av krig, fördrivning och katastrofer.' },
-    'home.programs.educationYouth.title': { en: 'Education & Youth', sv: 'Utbildning & Ungdom' },
-    'home.programs.educationYouth.description': { en: 'Offering scholarships, supplies, and mentorship opportunities—helping Tigrayan children and youth rebuild their futures through learning.', sv: 'Erbjuder stipendier, förnödenheter och mentorskap – hjälper tigreanska barn och ungdomar att återuppbygga sin framtid genom lärande.' },
+    // Home Programs section
     'home.programs.advocacyAwareness.title': { en: 'Advocacy & Awareness', sv: 'Påverkansarbete & Medvetenhet' },
     'home.programs.advocacyAwareness.description': { en: 'Raising global awareness, informing policy, and partnering with communities and media to protect rights and amplify Tigrayan voices.', sv: 'Ökar global medvetenhet, informerar policy och samarbetar med samhällen och media för att skydda rättigheter och förstärka tigreanska röster.' },
 
     // Homepage Latest Posts
     'home.latestPosts.title': { en: 'From the Blog', sv: 'Från bloggen' },
-
-    // Homepage Latest Posts
     'home.latestPosts.viewAll': { en: 'View All Posts', sv: 'Visa alla inlägg' },
 
     // Homepage Featured Video
@@ -448,6 +448,84 @@ export const initialTranslations: Translations = {
     'podcast.play': { en: 'Play', sv: 'Spela' },
     'podcast.pause': { en: 'Pause', sv: 'Pausa' },
     'podcast.share': { en: 'Share', sv: 'Dela' },
-    'podcast.download': { en: 'Download', sv: 'Ladda ner' }
-};
+    'podcast.download': { en: 'Download', sv: 'Ladda ner' },
 
+    // Work page volunteer section
+    'work.volunteer.title': { en: 'Volunteer With Us', sv: 'Volontärarbeta med oss' },
+    'work.volunteer.desc': { en: 'Join our team of dedicated volunteers and contribute your skills to make a real difference in the Tigrean community. We welcome people from all backgrounds and skill levels.', sv: 'Gå med i vårt team av engagerade volontärer och bidra med dina färdigheter för att göra verklig skillnad i det tigreanska samhället. Vi välkomnar människor från alla bakgrunder och färdighetsnivåer.' },
+    'work.volunteer.button': { en: 'Get Involved', sv: 'Engagera dig' },
+
+    // Work page active campaigns
+    'work.activeCampaigns.title': { en: 'Active Campaigns', sv: 'Aktiva kampanjer' },
+    'work.activeCampaigns.standWithTigray.title': { en: 'Stand With Tigray', sv: 'Stå med Tigray' },
+    'work.activeCampaigns.standWithTigray.desc': { en: 'Ongoing advocacy campaign to raise global awareness', sv: 'Pågående påverkansarbetskampanj för att öka global medvetenhet' },
+    'work.activeCampaigns.partnerships.title': { en: 'Building Partnerships', sv: 'Bygger partnerskap' },
+    'work.activeCampaigns.partnerships.desc': { en: 'Connecting with aid organizations for maximum impact', sv: 'Kopplar samman med biståndsorganisationer för maximal påverkan' },
+    'work.activeCampaigns.mediaOutreach.title': { en: 'Media Outreach', sv: 'Medieuppmärksamhet' },
+    'work.activeCampaigns.mediaOutreach.desc': { en: 'Amplifying Tigrean voices through strategic media engagement', sv: 'Förstärker tigreanska röster genom strategiskt medieengagemang' },
+    'work.activeCampaigns.callToAction': { en: 'Want to get involved? Contact us to learn how you can contribute.', sv: 'Vill du engagera dig? Kontakta oss för att lära dig hur du kan bidra.' },
+
+    // About page impact so far section
+    'about.impactSoFar.title': { en: 'Our Impact So Far', sv: 'Vår påverkan hittills' },
+    'about.impactSoFar.infoShared.title': { en: '500+ Information Pieces Shared', sv: '500+ Informationsstycken delade' },
+    'about.impactSoFar.infoShared.desc': { en: 'Reliable updates and resources shared with our community', sv: 'Pålitliga uppdateringar och resurser delade med vårt samhälle' },
+    'about.impactSoFar.awarenessCampaigns.title': { en: '5 Awareness Campaigns', sv: '5 Medvetenhetskampanjer' },
+    'about.impactSoFar.awarenessCampaigns.desc': { en: 'Major campaigns launched to raise global awareness', sv: 'Stora kampanjer lanserade för att öka global medvetenhet' },
+    'about.impactSoFar.communityConnections.title': { en: '50+ Community Connections', sv: '50+ Samhällskontakter' },
+    'about.impactSoFar.communityConnections.desc': { en: 'Partnerships and connections built with organizations', sv: 'Partnerskap och kontakter byggda med organisationer' },
+    'about.impactSoFar.newsletterSubscribers.title': { en: '1,200+ Newsletter Subscribers', sv: '1,200+ Nyhetsbrevsprenumeranter' },
+    'about.impactSoFar.newsletterSubscribers.desc': { en: 'Active subscribers staying informed about Tigray', sv: 'Aktiva prenumeranter som håller sig informerade om Tigray' },
+    'about.impactSoFar.callToAction1': { en: 'These numbers represent real impact, but there\'s still much work to be done.', sv: 'Dessa siffror representerar verklig påverkan, men det finns fortfarande mycket arbete att göra.' },
+    'about.impactSoFar.callToAction2': { en: 'Join us in making an even greater difference.', sv: 'Gå med oss för att göra en ännu större skillnad.' },
+
+    // About page values section
+    'about.values.title': { en: 'Our Values', sv: 'Våra värderingar' },
+    'about.values.compassion.title': { en: 'Compassion', sv: 'Medkänsla' },
+    'about.values.compassion.desc': { en: 'We approach every situation with empathy and understanding, recognizing the human dignity in all we serve.', sv: 'Vi närmar oss varje situation med empati och förståelse, och erkänner den mänskliga värdigheten i alla vi tjänar.' },
+    'about.values.integrity.title': { en: 'Integrity', sv: 'Integritet' },
+    'about.values.integrity.desc': { en: 'We maintain transparency in our actions and accountability in our commitments to the community.', sv: 'Vi upprätthåller transparens i våra handlingar och ansvarsskyldighet i våra åtaganden gentemot samhället.' },
+    'about.values.collaboration.title': { en: 'Collaboration', sv: 'Samarbete' },
+    'about.values.collaboration.desc': { en: 'We work together with local communities, partners, and stakeholders to achieve sustainable impact.', sv: 'Vi arbetar tillsammans med lokala samhällen, partners och intressenter för att uppnå hållbar påverkan.' },
+    'about.values.innovation.title': { en: 'Innovation', sv: 'Innovation' },
+    'about.values.innovation.desc': { en: 'We embrace creative solutions and new approaches to address complex challenges facing the Tigrean community.', sv: 'Vi omfamnar kreativa lösningar och nya tillvägagångssätt för att hantera komplexa utmaningar som det tigreanska samhället står inför.' },
+
+    // About page join cause section
+    'about.joinCause.title': { en: 'Join Our Cause', sv: 'Anslut dig till vårt uppdrag' },
+    'about.joinCause.stayInformed.title': { en: 'Stay Informed:', sv: 'Håll dig informerad:' },
+    'about.joinCause.stayInformed.desc': { en: 'Follow our updates and learn about the latest developments in Tigray.', sv: 'Följ våra uppdateringar och lär dig om de senaste utvecklingarna i Tigray.' },
+    'about.joinCause.raiseAwareness.title': { en: 'Raise Awareness:', sv: 'Öka medvetenheten:' },
+    'about.joinCause.raiseAwareness.desc': { en: 'Share our content and help amplify Tigrean voices in your community.', sv: 'Dela vårt innehåll och hjälp till att förstärka tigreanska röster i ditt samhälle.' },
+    'about.joinCause.collaborate.title': { en: 'Collaborate:', sv: 'Samarbeta:' },
+    'about.joinCause.collaborate.desc': { en: 'Partner with us on initiatives that support the Tigrean community.', sv: 'Samarbeta med oss på initiativ som stödjer det tigreanska samhället.' },
+    'about.joinCause.subscribeButton': { en: 'Subscribe to Newsletter', sv: 'Prenumerera på nyhetsbrev' },
+
+    // About page impact section
+    'about.impact.infoShared': { en: 'Information Pieces Shared', sv: 'Informationsstycken delade' },
+    'about.impact.awarenessCampaigns': { en: 'Awareness Campaigns', sv: 'Medvetenhetskampanjer' },
+    'about.impact.communityConnections': { en: 'Community Connections', sv: 'Samhällskontakter' },
+    'about.impact.newsletterSubscribers': { en: 'Newsletter Subscribers', sv: 'Nyhetsbrevsprenumeranter' },
+    // Home page missing translations
+    'home.cta.donate': { en: 'Donate Now', sv: 'Donera nu' },
+    'home.cta.learn': { en: 'Learn More', sv: 'Läs mer' },
+    'home.donations.people': { en: 'people', sv: 'personer' },
+    'home.donations.donatedToday': { en: 'donated today', sv: 'donerade idag' },
+    
+    // Home impact section
+    'home.impact.title': { en: 'Our Impact', sv: 'Vår påverkan' },
+    'home.impact.peopleReached': { en: 'People Reached', sv: 'Personer nådda' },
+    'home.impact.advocacyCampaigns': { en: 'Advocacy Campaigns', sv: 'Påverkansarbetskampanjer' },
+    'home.impact.strategicPartnerships': { en: 'Strategic Partnerships', sv: 'Strategiska partnerskap' },
+    'home.impact.description': { en: 'Through our comprehensive approach, we have made significant strides in supporting the Tigrean community through information sharing, advocacy, and building vital connections.', sv: 'Genom vårt omfattande tillvägagångssätt har vi gjort betydande framsteg i att stödja det tigreanska samhället genom informationsdelning, påverkansarbete och att bygga viktiga kontakter.' },
+    'home.impact.stat1': { en: 'people reached through our information campaigns', sv: 'personer nådda genom våra informationskampanjer' },
+    'home.impact.stat2': { en: 'major advocacy campaigns launched', sv: 'stora påverkansarbetskampanjer lanserade' },
+    'home.impact.stat3': { en: 'strategic partnerships established', sv: 'strategiska partnerskap etablerade' },
+    
+    // Home award section
+    'home.award.description1': { en: 'Recognized by the Swedish NGO Association for outstanding humanitarian advocacy work in 2024.', sv: 'Erkänd av Svenska NGO-föreningen för enastående humanitärt påverkansarbete 2024.' },
+    'home.award.description2': { en: 'Awarded the Community Impact Prize for effective information sharing and awareness campaigns.', sv: 'Tilldelad Community Impact Prize för effektiv informationsdelning och medvetenhetskampanjer.' },
+    
+    // Home programs section
+    'home.programs.title': { en: 'Our Programs', sv: 'Våra program' },
+    
+    // 'about.impactSoFar.callToAction2': { en: 'Join us in making an even greater difference.', sv: 'Gå med oss för att göra en ännu större skillnad.' }
+};
