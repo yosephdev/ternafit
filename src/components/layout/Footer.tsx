@@ -41,7 +41,7 @@ const Footer = () => {
               <li><Link to={t("path.work")} className="text-sm text-gray-600 hover:text-terracotta">{t("nav.work")}</Link></li>
               <li><Link to={t("path.blog")} className="text-sm text-gray-600 hover:text-terracotta">{t("nav.blog")}</Link></li>
               <li><Link to={t("path.news")} className="text-sm text-gray-600 hover:text-terracotta">{t("nav.news")}</Link></li>
-              <li><Link to={t("path.podcast")} className="text-sm text-gray-600 hover:text-terracotta">{t("nav.podcast")}</Link></li>
+              {/* <li><Link to={t("path.podcast")} className="text-sm text-gray-600 hover:text-terracotta">{t("nav.podcast")}</Link></li> */}
             </ul>
           </div>
 

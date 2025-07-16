@@ -1,0 +1,6 @@
+git add src/contexts/translations.ts
+git commit -m "Fix syntax error and complete Swedish translations
+
+- Fixed unterminated string constant in translations.ts
+- Added missing Swedish translations for all sections
+- Completed translations for privacy policy, terms of service, blog, and search functionality"

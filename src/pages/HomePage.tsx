@@ -1,6 +1,7 @@
 
 import { useLanguage } from "@/contexts/LanguageContext";
 import Hero from "@/components/home/Hero";
+import CrisisUpdate from '@/components/home/CrisisUpdate';
 import ImpactStats from "@/components/home/ImpactStats";
 import LatestNews from "@/components/home/LatestNews";
 import DonateBox from "@/components/shared/DonateBox";
@@ -16,6 +17,7 @@ const HomePage = () => {
     <main>
       {/* Hero Section */}
       <Hero />
+      <CrisisUpdate />
       
       {/* Impact Statistics */}
       <ImpactStats />
