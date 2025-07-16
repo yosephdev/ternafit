@@ -26,17 +26,26 @@ const Hero = () => {
     }
   }, [language]);
 
-  // Get the appropriate background image
-  const backgroundImage = regionalBackgrounds[region as keyof typeof regionalBackgrounds] || regionalBackgrounds.default;
-
   return (
-    <div className="relative min-h-[80vh] flex flex-col justify-center">
-      {/* Background image with overlay */}
-      <div 
-        className="absolute inset-0 z-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${backgroundImage})` }}
-      >
-        <div className="absolute inset-0 hero-gradient"></div>
+    <div className="relative min-h-[80vh] flex flex-col justify-center overflow-hidden">
+      {/* Background video with overlay */}
+      <div className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/videos/gemini-hero-video.webm" type="video/webm" />
+          <source src="/videos/gemini-hero-video.mp4" type="video/mp4" />
+          <img 
+            src="/images/projects/hero-international.jpg" 
+            alt="Hero background"
+            className="w-full h-full object-cover"
+          />
+        </video>
+        <div className="absolute inset-0 bg-black/30"></div>
       </div>
       
       {/* Content */}
