@@ -187,21 +187,26 @@ const NewsPage = () => {
       setIsLoading(true);
       setError(null);
       const currentLang = language === 'sv' ? 'sv' : 'en';
-      const cacheKey = `tigrayCombinedNews_v3_${currentLang}`;
+      const cacheKey = `tigrayCombinedNews_v4_${currentLang}`; // Updated cache version
+      
+      // Clear old cache versions
+      sessionStorage.removeItem(`tigrayCombinedNews_v3_${currentLang}`);
+      
       const cachedData = sessionStorage.getItem(cacheKey);
 
-      if (cachedData) {
-        try {
-          const parsed = JSON.parse(cachedData);
-          setNewsItems(parsed.newsItems);
-          setCategories(parsed.categories);
-          setIsLoading(false);
-          return;
-        } catch (e) {
-          console.error("Error parsing cached data:", e);
-          sessionStorage.removeItem(cacheKey);
-        }
-      }
+      // Skip cache for debugging - remove this line later
+      // if (cachedData) {
+      //   try {
+      //     const parsed = JSON.parse(cachedData);
+      //     setNewsItems(parsed.newsItems);
+      //     setCategories(parsed.categories);
+      //     setIsLoading(false);
+      //     return;
+      //   } catch (e) {
+      //     console.error("Error parsing cached data:", e);
+      //     sessionStorage.removeItem(cacheKey);
+      //   }
+      // }
 
       let allArticles: NewsItem[] = [];
 
@@ -212,27 +217,32 @@ const NewsPage = () => {
         id: 1000 + index
       })));
 
+      console.log('Local news added:', allArticles.length);
+
       // 2. Fetch from international sources via GNews
       if (GNEWS_API_KEY) {
+        console.log('Attempting to fetch from GNews API...');
         try {
           const queries = [
             'Tigray humanitarian aid',
             'Ethiopia Tigray recovery',
-            'Horn of Africa crisis',
-            'Ethiopia conflict aftermath',
-            'Tigray children education health'
+            'Horn of Africa crisis'
+            // Reduced queries to avoid rate limiting
           ];
 
           for (const query of queries) {
             try {
+              console.log(`Fetching for query: ${query}`);
               const response = await axios.get('https://gnews.io/api/v4/search', {
                 params: {
                   q: query,
                   lang: currentLang,
-                  max: 6,
+                  max: 8, // Increased per query since we have fewer queries
                   apikey: GNEWS_API_KEY,
                 },
               });
+
+              console.log(`Response for "${query}":`, response.data);
 
               const articles = response.data.articles?.filter((article: GNewsArticle) => {
                 const text = `${article.title} ${article.description}`.toLowerCase();
@@ -253,7 +263,11 @@ const NewsPage = () => {
                 url: article.url,
               })) || [];
 
+              console.log(`Filtered articles for "${query}":`, articles.length);
               allArticles = allArticles.concat(articles);
+              
+              // Add delay between requests to avoid rate limiting
+              await new Promise(resolve => setTimeout(resolve, 1000));
             } catch (queryError) {
               console.error(`Error fetching news for query "${query}":`, queryError);
             }
@@ -261,7 +275,11 @@ const NewsPage = () => {
         } catch (e) {
           console.error("Error fetching international news:", e);
         }
+      } else {
+        console.log('No GNews API key found');
       }
+
+      console.log('Total articles before deduplication:', allArticles.length);
 
       // 3. Deduplicate and process articles
       const uniqueArticlesMap = new Map<string, NewsItem>();
@@ -300,6 +318,9 @@ const NewsPage = () => {
         ...article,
         category: categorizeArticle(article)
       }));
+
+      console.log('Final articles after processing:', finalArticles.length);
+      console.log('Final articles:', finalArticles);
 
       if (finalArticles.length > 0) {
         const uniqueCategories = [
