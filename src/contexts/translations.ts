@@ -528,4 +528,19 @@ export const initialTranslations: Translations = {
     'home.programs.title': { en: 'Our Programs', sv: 'Våra program' },
     
     // 'about.impactSoFar.callToAction2': { en: 'Join us in making an even greater difference.', sv: 'Gå med oss för att göra en ännu större skillnad.' }
+    // Home programs missing translations
+    'home.programs.emergencyRelief.title': { en: 'Emergency Relief', sv: 'Akut nödhjälp' },
+    'home.programs.emergencyRelief.description': { en: 'Providing immediate assistance to communities affected by conflict and crisis, including food, water, shelter, and medical aid.', sv: 'Tillhandahåller omedelbar hjälp till samhällen som påverkas av konflikt och kris, inklusive mat, vatten, skydd och medicinsk hjälp.' },
+    'home.programs.educationYouth.title': { en: 'Education & Youth', sv: 'Utbildning & Ungdom' },
+    'home.programs.educationYouth.description': { en: 'Supporting educational initiatives and youth development programs to build a stronger future for Tigrean communities.', sv: 'Stödjer utbildningsinitiativ och ungdomsutvecklingsprogram för att bygga en starkare framtid för tigreanska samhällen.' },
+
+    // Donate page missing translations
+    'donate.subtitle': { en: 'Your support makes a real difference in the lives of Tigrean families', sv: 'Ditt stöd gör verklig skillnad i livet för tigreanska familjer' },
+    'donate.amount': { en: 'Donation Amount', sv: 'Donationsbelopp' },
+    'donate.custom': { en: 'Custom Amount', sv: 'Anpassat belopp' },
+
+    // Common missing translations
+    'common.subscribe': { en: 'Subscribe', sv: 'Prenumerera' },
+
+    // 'about.impactSoFar.callToAction2': { en: 'Join us in making an even greater difference.', sv: 'Gå med oss för att göra en ännu större skillnad.' }
 };
