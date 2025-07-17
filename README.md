@@ -2,7 +2,7 @@
 
 <!-- ![Ternafit Logo](public/images/ternafit-logo.png) -->
 
-![Ternafit Preview](/images/ternafit-preview.png)
+![Ternafit Preview](public/images/ternafit-preview.png)
 
 ## 🌍 About Ternafit
 
