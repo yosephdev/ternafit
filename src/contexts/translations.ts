@@ -224,9 +224,9 @@ export const initialTranslations: Translations = {
     
     // Contact Address Information
     'contact.address.title': { en: 'Address', sv: 'Adress' },
-    'contact.address.line1': { en: 'Ternafit Organization', sv: 'Ternafit Organisation' },
-    'contact.address.line2': { en: 'Stockholm, Sweden', sv: 'Stockholm, Sverige' },
-    'contact.address.line3': { en: 'European Union', sv: 'Europeiska unionen' },
+    'contact.address.line1': { en: 'Ternafit', sv: 'Ternafit' },
+    'contact.address.line2': { en: 'Jungfrugatan 1F, 641 31 Katrineholm, Sweden', sv: 'Jungfrugatan 1F, 641 31 Katrineholm, Sverige' },
+    'contact.address.line3': { en: 'Registered in Sweden', sv: 'Registrerad i Sverige' },
     
     // Contact Email Information
     'contact.email.title': { en: 'Email', sv: 'E-post' },
