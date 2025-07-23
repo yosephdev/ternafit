@@ -221,6 +221,26 @@ export const initialTranslations: Translations = {
     'contact.subtitle': { en: 'Get in touch with our team', sv: 'Kontakta vårt team' },
     'contact.hero.title': { en: 'Get in Touch', sv: 'Kontakta oss' },
     'contact.hero.subtitle': { en: "We'd love to hear from you! Whether you have a question about our mission, activities, or how you can get involved, feel free to reach out.", sv: 'Vi vill gärna höra från dig! Oavsett om du har en fråga om vårt uppdrag, våra aktiviteter eller hur du kan engagera dig, tveka inte att höra av dig.' },
+    
+    // Contact Address Information
+    'contact.address.title': { en: 'Address', sv: 'Adress' },
+    'contact.address.line1': { en: 'Ternafit Organization', sv: 'Ternafit Organisation' },
+    'contact.address.line2': { en: 'Stockholm, Sweden', sv: 'Stockholm, Sverige' },
+    'contact.address.line3': { en: 'European Union', sv: 'Europeiska unionen' },
+    
+    // Contact Email Information
+    'contact.email.title': { en: 'Email', sv: 'E-post' },
+    
+    // Contact Office Hours
+    'contact.officeHours.title': { en: 'Office Hours', sv: 'Kontorstider' },
+    'contact.officeHours.desc': { en: 'Monday - Friday: 9:00 AM - 5:00 PM (CET)', sv: 'Måndag - Fredag: 09:00 - 17:00 (CET)' },
+    
+    // Contact Form
+    'contact.form.intro': { en: 'Send us a message and we\'ll get back to you as soon as possible.', sv: 'Skicka oss ett meddelande så återkommer vi så snart som möjligt.' },
+    'contact.form.fullName': { en: 'Full Name', sv: 'Fullständigt namn' },
+    'contact.form.placeholder.fullName': { en: 'Your full name', sv: 'Ditt fullständiga namn' },
+    'contact.form.emailAddress': { en: 'Email Address', sv: 'E-postadress' },
+    
     'contact.form.success': { en: 'Message sent successfully!', sv: 'Meddelandet har skickats!' },
     'contact.form.error': { en: 'Failed to send message. Please try again.', sv: 'Kunde inte skicka meddelandet. Försök igen.' },
     'contact.form.name': { en: 'Full Name', sv: 'Fullständigt namn' },
