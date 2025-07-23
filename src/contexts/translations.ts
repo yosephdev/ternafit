@@ -180,6 +180,8 @@ export const initialTranslations: Translations = {
     'about.howWeSupport.awareness.desc': { en: 'We advocate for the Tigrean people, leading discussions and running campaigns to keep their story heard.', sv: 'Vi förespråkar för det tigreanska folket, leder diskussioner och driver kampanjer för att deras berättelse ska höras.' },
     'about.howWeSupport.connections.title': { en: 'Building Connections', sv: 'Bygger kontakter' },
     'about.howWeSupport.connections.desc': { en: 'We connect supporters with effective aid opportunities and facilitate partnerships for sustainable impact.', sv: 'Vi kopplar samman supportrar med effektiva biståndsmöjligheter och underlättar partnerskap för hållbar påverkan.' },
+    'about.howWeSupport.adsPartnership.title': { en: 'Partnership with Anenitigray Development Services (ADS)', sv: 'Partnerskap med Anenitigray Development Services (ADS)' },
+    'about.howWeSupport.adsPartnership.desc': { en: 'Ternafit is helping ADS in fundraising, website development and management, digital marketing and other areas.', sv: 'Ternafit hjälper ADS med insamling, webbutveckling och hantering, digital marknadsföring och andra områden.' },
 
     // Common
     'common.lastUpdated': { en: 'Last Updated', sv: 'Senast uppdaterad' },
@@ -263,8 +265,10 @@ export const initialTranslations: Translations = {
     'home.impact.villagesReached': { en: 'Villages Reached', sv: 'Byar nådda' },
 
     // Homepage Award Section
-    'home.award.title': { en: 'Recognition & Awards', sv: 'Erkännande & Utmärkelser' },
-    'home.award.subtitle': { en: 'Honored for our commitment to humanitarian excellence', sv: 'Hedrad för vårt engagemang för humanitär excellens' },
+    'home.award.title': { en: 'Best Tigrean Community Support Initiative 2025 – Sweden', sv: 'Bästa Tigreanska Gemenskapsstödsinitiativ 2025 – Sverige' },
+    'home.award.description1': { en: 'We’re proud to announce that Ternafit has been recognized by Acquisition International Magazine as the:', sv: 'Vi är stolta över att meddela att Ternafit har uppmärksammats av Acquisition International Magazine som:' },
+    'home.award.description2': { en: 'This honor belongs to everyone who has supported, contributed to, and believed in our mission to connect, inform, and empower the Tigrayan diaspora around the world.', sv: 'Denna ära tillhör alla som har stöttat, bidragit till och trott på vårt uppdrag att ansluta, informera och stärka den tigrayanska diasporan runt om i världen.' },
+    'home.award.readMore': { en: 'Read more here', sv: 'Läs mer här' },
 
     // Newsletter
     'newsletter.title': { en: 'Stay Connected', sv: 'Håll kontakten' },
@@ -463,6 +467,8 @@ export const initialTranslations: Translations = {
     'work.activeCampaigns.partnerships.desc': { en: 'Connecting with aid organizations for maximum impact', sv: 'Kopplar samman med biståndsorganisationer för maximal påverkan' },
     'work.activeCampaigns.mediaOutreach.title': { en: 'Media Outreach', sv: 'Medieuppmärksamhet' },
     'work.activeCampaigns.mediaOutreach.desc': { en: 'Amplifying Tigrean voices through strategic media engagement', sv: 'Förstärker tigreanska röster genom strategiskt medieengagemang' },
+    'work.activeCampaigns.adsPartnership.title': { en: 'Partnership with Anenitigray Development Services (ADS)', sv: 'Partnerskap med Anenitigray Development Services (ADS)' },
+    'work.activeCampaigns.adsPartnership.desc': { en: 'Ternafit is helping ADS in fundraising, website development and management, digital marketing and other areas.', sv: 'Ternafit hjälper ADS med insamling, webbutveckling och hantering, digital marknadsföring och andra områden.' },
     'work.activeCampaigns.callToAction': { en: 'Want to get involved? Contact us to learn how you can contribute.', sv: 'Vill du engagera dig? Kontakta oss för att lära dig hur du kan bidra.' },
 
     // About page impact so far section
@@ -519,10 +525,6 @@ export const initialTranslations: Translations = {
     'home.impact.stat1': { en: 'people reached through our information campaigns', sv: 'personer nådda genom våra informationskampanjer' },
     'home.impact.stat2': { en: 'major advocacy campaigns launched', sv: 'stora påverkansarbetskampanjer lanserade' },
     'home.impact.stat3': { en: 'strategic partnerships established', sv: 'strategiska partnerskap etablerade' },
-    
-    // Home award section
-    'home.award.description1': { en: 'Recognized by the Swedish NGO Association for outstanding humanitarian advocacy work in 2024.', sv: 'Erkänd av Svenska NGO-föreningen för enastående humanitärt påverkansarbete 2024.' },
-    'home.award.description2': { en: 'Awarded the Community Impact Prize for effective information sharing and awareness campaigns.', sv: 'Tilldelad Community Impact Prize för effektiv informationsdelning och medvetenhetskampanjer.' },
     
     // Home programs section
     'home.programs.title': { en: 'Our Programs', sv: 'Våra program' },

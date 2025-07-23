@@ -89,6 +89,15 @@ const AboutPage = () => {
                       </p>
                     </div>
                   </div>
+                  <div className="bg-white rounded-lg p-6 shadow flex gap-4 items-start">
+                    <span className="text-3xl">🤝</span>
+                    <div>
+                      <h3 className="text-lg font-semibold mb-2">{t("about.howWeSupport.adsPartnership.title")}</h3>
+                      <p className="text-muted-foreground">
+                        {t("about.howWeSupport.adsPartnership.desc")}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
 

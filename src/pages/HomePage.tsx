@@ -70,10 +70,10 @@ const HomePage = () => {
           <p className="text-lg text-gray-600 mb-2">
             {t("home.award.description2")}
           </p>
-         {/*<p className="text-md text-gray-500">
-            ➡️ <a href="https://acquisitioninternational.digital/winners-list/?award=98329-2024" target="_blank" rel="noopener noreferrer"></a> 
+         <p className="text-md text-gray-500">
+            ➡️ <a href="https://www.acquisition-international.com/winners/ternafit/" target="_blank" rel="noopener noreferrer">{t("home.award.readMore")}</a> 
           </p>
-          */}
+          <img src="/images/ternafit-ai-magazine.png" alt="Ternafit in Acquisition International Magazine" className="max-w-full h-auto mt-8" />
         </div>
       </section>
 

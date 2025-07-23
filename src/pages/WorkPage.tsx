@@ -207,6 +207,15 @@ const WorkPage = () => {
                           </span>
                         </div>
                       </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-2xl">🤝</span>
+                        <div>
+                          <strong className="block">{t("work.activeCampaigns.adsPartnership.title")}</strong>
+                          <span className="text-sm block text-muted-foreground">
+                            {t("work.activeCampaigns.adsPartnership.desc")}
+                          </span>
+                        </div>
+                      </li>
                       <li className="text-xs text-muted-foreground mt-4">
                         {t("work.activeCampaigns.callToAction")}
                       </li>
