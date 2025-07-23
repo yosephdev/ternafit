@@ -145,7 +145,7 @@ Tillsammans är vi starkare. Tillsammans kan vi bygga en ljusare framtid för Ti
     author: "Yoseph Berhane",
     date: "2025-03-15",
     tags: ["Education", "Children", "Tigray"],
-    imageUrl: "/images/projects/education.webp"
+    imageUrl: "/images/projects/mission.webp"
   },
   {
     id: 2,
