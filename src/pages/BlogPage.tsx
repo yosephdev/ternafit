@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { blogPosts } from "@/data/blogPosts";
 
 import DonateBox from "@/components/shared/DonateBox";
 import { Calendar, User, Tag, MessageCircle } from "lucide-react";
@@ -20,7 +21,7 @@ const featuredStories = [
       en: "When we founded Ternafit, we were determined to do more than deliver aid—we wanted to elevate the voices and stories of Tigray. This blog is a place for resilience, hope, and the power of global solidarity.",
       sv: "När vi grundade Ternafit var vi fast beslutna att göra mer än att leverera bistånd – vi ville lyfta fram Tigrays röster och berättelser. Denna blogg är en plats för motståndskraft, hopp och kraften i global solidaritet."
     },
-    imageUrl: "/images/projects/terna-featured-1.jpg",
+    imageUrl: "/images/projects/terna-featured-1.webp",
     tags: ["Ternafit", "Founders"],
     content: {
       en: "After a year of advocacy, this blog will document the struggles, hopes and achievements of Ternafit and our wider Tigrayan community. We invite you to read, share, and be a part of this journey with us.",
@@ -39,7 +40,7 @@ const featuredStories = [
       en: "From launching social media campaigns to reporting from the field, our first year as Ternafit showed what's possible even without big partners. Here's a summary of wins, challenges, and what comes next.",
       sv: "Från att lansera sociala mediekampanjer till att rapportera från fältet, vårt första år som Ternafit visade vad som är möjligt även utan stora partners. Här är en sammanfattning av framgångar, utmaningar och vad som kommer härnäst."
     },
-    imageUrl: "/images/projects/terna-featured-2.jpg",
+    imageUrl: "/images/projects/terna-featured-3.webp",
     tags: ["Milestones", "Impact"],
     content: {
       en: "Your support made all this possible. This piece summarizes where we've been and where we're going, highlighting people and communities at the heart of our mission.",
@@ -123,6 +124,60 @@ const BlogPage: React.FC = () => {
                               para.trim() !== "" ? <p key={i}>{para}</p> : <br key={i} />
                             ))}
                           </div>
+                        </div>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </section>
+
+              <hr className="my-10" />
+
+              {/* Blog Posts from Data */}
+              <section>
+                <h2 className="text-2xl font-serif font-bold mb-6">Latest Articles</h2>
+                <div className="space-y-7">
+                  {blogPosts.map((post) => (
+                    <article
+                      key={post.id}
+                      className="bg-white rounded-lg overflow-hidden shadow-md border"
+                    >
+                      <div className="md:flex">
+                        <div className="md:w-1/3">
+                          <img
+                            src={post.imageUrl}
+                            alt={post.title[language]}
+                            className="w-full h-48 md:h-full object-cover"
+                            loading="lazy"
+                          />
+                        </div>
+                        <div className="md:w-2/3 p-6">
+                          <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mb-2">
+                            <div className="flex items-center">
+                              <Calendar className="h-4 w-4 mr-1" />
+                              <span>{formatDate(post.date)}</span>
+                            </div>
+                            <div className="flex items-center">
+                              <User className="h-4 w-4 mr-1" />
+                              <span>{post.author}</span>
+                            </div>
+                            <div className="flex items-center">
+                              <Tag className="h-4 w-4 mr-1" />
+                              <span>{post.tags.join(", ")}</span>
+                            </div>
+                          </div>
+                          <h2 className="text-xl font-serif font-bold mb-3">
+                            {post.title[language]}
+                          </h2>
+                          <p className="text-muted-foreground mb-4">
+                            {post.excerpt[language]}
+                          </p>
+                          <Link
+                            to={`/blog/${post.slug[language]}`}
+                            className="text-terracotta hover:underline font-medium"
+                          >
+                            Read Full Article →
+                          </Link>
                         </div>
                       </div>
                     </article>

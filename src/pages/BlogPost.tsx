@@ -2,12 +2,16 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import DonateBox from "@/components/shared/DonateBox";
 import { Calendar, User, Tag, Clock, ArrowLeft } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
-import { blogPosts } from "./BlogPage";
+import { blogPosts } from "@/data/blogPosts";
 
 const BlogPost = () => {
   const { t, language } = useLanguage();
   const { id } = useParams();
-  const post = blogPosts.find(post => post.id === Number(id));
+  
+  // Find the blog post by slug or fallback to ID for backward compatibility
+  const post = blogPosts.find(post => 
+    post.slug[language] === id || post.id === Number(id)
+  );
 
   if (!post) {
     return (
@@ -53,14 +57,10 @@ const BlogPost = () => {
                 <Tag className="h-4 w-4 mr-1" />
                 <span>{post.tags.join(", ")}</span>
               </div>
-              <div className="flex items-center">
-                <Clock className="h-4 w-4 mr-1" />
-                <span>{post.readTime} {t("blog.minRead")}</span>
-              </div>
             </div>
             
-            <h1 className="text-4xl font-serif font-bold mb-6">{post.title}</h1>
-            <p className="text-xl text-muted-foreground">{post.excerpt}</p>
+            <h1 className="text-4xl font-serif font-bold mb-6">{post.title[language]}</h1>
+            <p className="text-xl text-muted-foreground">{post.excerpt[language]}</p>
           </div>
         </div>
       </section>
@@ -74,17 +74,22 @@ const BlogPost = () => {
               <div className="prose max-w-none">
                 <img 
                   src={post.imageUrl} 
-                  alt={post.title} 
+                  alt={post.title[language]} 
                   className="w-full h-auto rounded-lg mb-8"
                 />
-                <div dangerouslySetInnerHTML={{ __html: post.content }} />
+                {/* Display content paragraphs */}
+                {post.content[language]
+                  .split('\n\n')
+                  .map((paragraph, index) => (
+                    <p key={index} className="mb-4 leading-relaxed">{paragraph}</p>
+                  ))}
               </div>
 
               {/* Share Buttons */}
               <div className="mt-12 pt-8 border-t border-muted">
                 <h3 className="text-lg font-serif font-semibold mb-4">{t("blog.sharePost")}</h3>
                 <div className="flex gap-4">
-                  <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(window.location.href)}`} 
+                  <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title[language])}&url=${encodeURIComponent(window.location.href)}`} 
                      target="_blank" 
                      rel="noopener noreferrer"
                      className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors"
@@ -98,7 +103,7 @@ const BlogPost = () => {
                   >
                     Facebook
                   </a>
-                  <a href={`mailto:?subject=${encodeURIComponent(post.title)}&body=${encodeURIComponent(`Check out this post: ${window.location.href}`)}`}
+                  <a href={`mailto:?subject=${encodeURIComponent(post.title[language])}&body=${encodeURIComponent(`Check out this post: ${window.location.href}`)}`}
                      className="bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors"
                   >
                     Email
@@ -121,8 +126,8 @@ const BlogPost = () => {
                       .slice(0, 3)
                       .map(relatedPost => (
                         <li key={relatedPost.id} className="border-b border-muted pb-4 last:border-0 last:pb-0">
-                          <Link to={`${t("path.blogPost")}${relatedPost.id}`} className="block hover:text-terracotta transition-colors">
-                            <h4 className="font-medium">{relatedPost.title}</h4>
+                          <Link to={`${t("path.blogPost")}${relatedPost.slug[language]}`} className="block hover:text-terracotta transition-colors">
+                            <h4 className="font-medium">{relatedPost.title[language]}</h4>
                             <p className="text-sm text-muted-foreground">{formatDate(relatedPost.date, language)}</p>
                           </Link>
                         </li>

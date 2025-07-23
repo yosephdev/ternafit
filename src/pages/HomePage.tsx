@@ -29,7 +29,7 @@ const HomePage = () => {
           <div className="flex flex-col md:flex-row gap-12 items-center">
             <div className="md:w-1/2">
               <img
-                src="/images/projects/hero-international.jpg"
+                src="/images/projects/hero-international.webp"
                 alt="Ternafit Impact"
                 className="rounded-lg shadow-lg w-full h-auto object-cover"
               />
@@ -73,7 +73,7 @@ const HomePage = () => {
          <p className="text-md text-gray-500">
             ➡️ <a href="https://www.acquisition-international.com/winners/ternafit/" target="_blank" rel="noopener noreferrer">{t("home.award.readMore")}</a> 
           </p>
-          <img src="/images/ternafit-ai-magazine.png" alt="Ternafit in Acquisition International Magazine" className="max-w-full h-auto mt-8" />
+          <img src="/images/ternafit-ai-magazine.webp" alt="Ternafit in Acquisition International Magazine" className="max-w-full h-auto mt-8" />
         </div>
       </section>
 
@@ -93,7 +93,7 @@ const HomePage = () => {
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="h-48 overflow-hidden">
                 <img
-                  src="/images/projects/emergency-relief.jpg"
+                  src="/images/projects/emergency-relief.webp"
                   alt="Emergency Relief"
                   className="w-full h-full object-cover"
                 />
@@ -111,7 +111,7 @@ const HomePage = () => {
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="h-48 overflow-hidden">
                 <img
-                  src="/images/projects/youth-education.jpg"
+                  src="/images/projects/youth-education.webp"
                   alt="Education & Youth"
                   className="w-full h-full object-cover"
                 />
@@ -129,7 +129,7 @@ const HomePage = () => {
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="h-48 overflow-hidden">
                 <img
-                  src="/images/projects/advocacy.jpg"
+                  src="/images/projects/advocacy.webp"
                   alt="Advocacy & Awareness"
                   className="w-full h-full object-cover"
                 />

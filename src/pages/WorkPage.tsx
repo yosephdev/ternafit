@@ -163,7 +163,7 @@ const WorkPage = () => {
                     {t("work.volunteer.desc")}
                   </p>
                   <a
-                    href="https://www.anenitigray.org/contact/"
+                    href="https://www.anenitigray.org/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block bg-white text-terracotta px-6 py-2 rounded-full font-medium shadow hover:bg-white/90"

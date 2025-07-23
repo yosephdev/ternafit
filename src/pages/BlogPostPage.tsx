@@ -11,10 +11,12 @@ import BlogSidebar from '@/components/blog/BlogSidebar';
 
 const BlogPostPage = () => {
   const { id } = useParams<{ id: string }>();
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
   
-  // Find the blog post by ID
-  const post = blogPosts.find(post => post.id === parseInt(id || '0'));
+  // Find the blog post by slug or fallback to ID for backward compatibility
+  const post = blogPosts.find(post => 
+    post.slug[language] === id || post.id === parseInt(id || '0')
+  );
 
   // If no post is found, show a simple not found message
   if (!post) {
@@ -70,7 +72,7 @@ const BlogPostPage = () => {
               <div className="rounded-lg overflow-hidden mb-8">
                 <img 
                   src={post.imageUrl}
-                  alt={post.title}
+                  alt={post.title[language]}
                   className="w-full h-auto"
                 />
               </div>
@@ -85,18 +87,18 @@ const BlogPostPage = () => {
                 {post.content[language]
                   .split('\n\n')
                   .map((paragraph, index) => (
-                    <p key={index}>{paragraph}</p>
+                    <p key={index} className="mb-4 leading-relaxed">{paragraph}</p>
                   ))}
               </div>
 
               {/* Share Section */}
-              <ShareSection language={language} />
+              <ShareSection />
 
               {/* Author Bio */}
-              <AuthorBio author={post.author} language={language} />
+              <AuthorBio author={post.author} />
 
               {/* Related Posts */}
-              <RelatedPosts currentPostId={post.id} posts={blogPosts} language={language} />
+              <RelatedPosts currentPostId={post.id} posts={blogPosts} />
             </div>
 
             {/* Sidebar */}

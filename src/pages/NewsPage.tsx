@@ -84,7 +84,7 @@ const NewsPage = () => {
       },
       date: new Date().toISOString(),
       category: "Health",
-      imageUrl: "/images/news/tigray-health.jpg",
+      imageUrl: "/images/projects/terna-featured-3.webp",
       url: "#local-health-update"
     },
     {
@@ -98,7 +98,7 @@ const NewsPage = () => {
       },
       date: new Date(Date.now() - 172800000).toISOString(),
       category: "Education",
-      imageUrl: "/images/news/schools-reopen.jpg",
+      imageUrl: "/images/projects/terna-featured-3.webp",
       url: "#education-revival"
     },
     {
@@ -112,7 +112,7 @@ const NewsPage = () => {
       },
       date: new Date(Date.now() - 259200000).toISOString(),
       category: "Women & Gender",
-      imageUrl: "/images/news/womens-cooperatives.jpg",
+      imageUrl: "/images/projects/terna-featured-3.webp",
       url: "#womens-cooperatives"
     },
     {
@@ -126,7 +126,7 @@ const NewsPage = () => {
       },
       date: new Date(Date.now() - 345600000).toISOString(),
       category: "Health",
-      imageUrl: "/images/news/mobile-clinics.jpg",
+      imageUrl: "/images/projects/terna-featured-3.webp",
       url: "#mobile-clinics"
     },
     // Add more fallback international-style news
@@ -141,7 +141,7 @@ const NewsPage = () => {
       },
       date: new Date(Date.now() - 432000000).toISOString(),
       category: "International",
-      imageUrl: "/images/news/un-aid.jpg",
+      imageUrl: "/images/projects/terna-featured-3.webp",
       url: "https://news.un.org/en/story/2024/07/1151726"
     },
     {
@@ -155,7 +155,7 @@ const NewsPage = () => {
       },
       date: new Date(Date.now() - 518400000).toISOString(),
       category: "Reconstruction",
-      imageUrl: "/images/news/infrastructure.jpg",
+      imageUrl: "/images/projects/terna-featured-3.webp",
       url: "https://www.reuters.com/world/africa/ethiopia-tigray-reconstruction-2024-07-10/"
     }
   ];
@@ -193,20 +193,6 @@ const NewsPage = () => {
       sessionStorage.removeItem(`tigrayCombinedNews_v3_${currentLang}`);
       
       const cachedData = sessionStorage.getItem(cacheKey);
-
-      // Skip cache for debugging - remove this line later
-      // if (cachedData) {
-      //   try {
-      //     const parsed = JSON.parse(cachedData);
-      //     setNewsItems(parsed.newsItems);
-      //     setCategories(parsed.categories);
-      //     setIsLoading(false);
-      //     return;
-      //   } catch (e) {
-      //     console.error("Error parsing cached data:", e);
-      //     sessionStorage.removeItem(cacheKey);
-      //   }
-      // }
 
       let allArticles: NewsItem[] = [];
 

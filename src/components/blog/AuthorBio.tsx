@@ -16,7 +16,7 @@ const AuthorBio = ({ author }: AuthorBioProps) => {
       <div className="flex items-center mb-4">
         <div className="w-16 h-16 bg-muted rounded-full overflow-hidden mr-4">
           <img 
-            src={`/images/team/${author === 'Yoseph Berhane' ? 'yoseph.jpg' : 'julian.jpg'}`} 
+            src={`/images/team/${author === 'Yoseph Berhane' ? 'yoseph.webp' : 'mebrat.webp'}`} 
             alt={author}
             className="w-full h-full object-cover"
           />

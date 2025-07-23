@@ -1,6 +1,7 @@
 // Blog post data type
 export interface BlogPost {
   id: number;
+  slug: { en: string; sv: string; };
   title: { en: string; sv: string; };
   excerpt: { en: string; sv: string; };
   content: { en: string; sv: string; };
@@ -13,7 +14,122 @@ export interface BlogPost {
 // Mock blog data - in a real implementation, this would come from an API
 export const blogPosts: BlogPost[] = [
   {
+    id: 6,
+    slug: {
+      en: "from-ritual-to-roots-reclaiming-cultural-identity",
+      sv: "fran-ritual-till-rotter-atertar-kulturell-identitet"
+    },
+    title: {
+      en: "From Ritual to Roots: Reclaiming Our Cultural Identity",
+      sv: "Från ritual till rötter: Att återta vår kulturella identitet"
+    },
+    excerpt: {
+      en: "We drink the 'buna' and dance the 'eskista', but do we understand the deep roots of our traditions? This post explores how we can move beyond cultural performance to a richer, more meaningful connection with our heritage.",
+      sv: "Vi dricker 'buna' och dansar 'eskista', men förstår vi de djupa rötterna till våra traditioner? Detta inlägg utforskar hur vi kan gå bortom kulturellt utförande till en rikare och mer meningsfull koppling till vårt arv."
+    },
+    content: {
+      en: `In diaspora communities across the world, from Stockholm to Toronto, our culture comes alive in vibrant flashes. We celebrate with the invigorating scent of freshly roasted coffee beans during a traditional 'buna' ceremony. We feel the ancestral rhythms in our shoulders when we dance the 'eskista'. But a crucial question is emerging, especially among second and third-generation diaspora: are we merely performing our culture, or are we truly living it?
+
+This is what author Yoseph Berhane calls "Cultural Performance Without Context"—one of the significant unmet needs in the Habesha diaspora. Many of us know the rituals but not the roots, the proverbs but not the poetry, the historical figures but not the nuanced stories that shaped them. This creates a subtle but profound sense of disconnection, a feeling of being an outsider in conversations with our elders.
+
+The preservation of our heritage is more critical now than ever. In Tigray, the recent conflict has not only devastated infrastructure but has also threatened the intangible fabric of our culture. The stories, the songs, the ancient traditions—these are all at risk of being lost amidst the struggle for survival and recovery.
+
+How can we bridge this gap?
+
+At Ternafit, we believe the answer lies in creating intentional spaces for intergenerational knowledge transfer. We envision a future where our platform can host a "MasterClass"-style series, where community elders share their wisdom on:
+
+- The art of storytelling: Understanding the narratives that have shaped our identity for centuries.
+
+- The meaning behind the rituals: Delving into the symbolism of ceremonies like 'buna' and their social significance.
+
+- The wisdom of our proverbs: Unpacking the life lessons embedded in our oral traditions.
+
+By investing in these initiatives, we are not just preserving the past; we are investing in a future where our youth can carry their heritage with confidence and understanding. It's about ensuring that our culture is not a relic in a museum but a living, breathing part of our daily lives, informing our values and strengthening our bonds.
+
+Join us in this mission to move from ritual to roots. Let's build a future where every member of our diaspora feels a deep and authentic connection to the rich tapestry of our history.`,
+      sv: `I diasporagemenskaper över hela världen, från Stockholm till Toronto, kommer vår kultur till liv i livfulla glimtar. Vi firar med den uppfriskande doften av färskrostade kaffebönor under en traditionell 'buna'-ceremoni. Vi känner de förfäders rytmer i våra axlar när vi dansar 'eskista'. Men en avgörande fråga växer fram, särskilt bland andra och tredje generationens diaspora: utför vi bara vår kultur, eller lever vi den verkligen?
+
+Detta är vad författaren Yoseph Berhane kallar "Kulturellt Utförande Utan Kontext" – ett av de betydande ouppfyllda behoven i Habesha-diasporan. Många av oss kan ritualerna men inte rötterna, ordspråken men inte poesin, de historiska personerna men inte de nyanserade berättelserna som formade dem. Detta skapar en subtil men djup känsla av frånkoppling, en känsla av att vara en utomstående i samtal med våra äldre.
+
+Bevarandet av vårt arv är mer kritiskt nu än någonsin. I Tigray har den senaste konflikten inte bara förstört infrastruktur utan också hotat den immateriella väven av vår kultur. Berättelserna, sångerna, de uråldriga traditionerna – allt detta riskerar att gå förlorat mitt i kampen för överlevnad och återhämtning.
+
+Hur kan vi överbrygga denna klyfta?
+
+På Ternafit tror vi att svaret ligger i att skapa avsiktliga utrymmen för kunskapsöverföring mellan generationerna. Vi ser en framtid där vår plattform kan vara värd för en "MasterClass"-liknande serie, där äldre i samhället delar med sig av sin visdom om:
+
+- Berättandets konst: Att förstå de narrativ som har format vår identitet i århundraden.
+
+- Meningen bakom ritualerna: Att fördjupa sig i symboliken i ceremonier som 'buna' och deras sociala betydelse.
+
+- Visdomen i våra ordspråk: Att packa upp de livsläxor som finns inbäddade i våra muntliga traditioner.
+
+Genom att investera i dessa initiativ bevarar vi inte bara det förflutna; vi investerar i en framtid där våra ungdomar kan bära sitt arv med självförtroende och förståelse. Det handlar om att se till att vår kultur inte är en relik på ett museum utan en levande, andande del av våra dagliga liv, som formar våra värderingar och stärker våra band.
+
+Följ med oss på detta uppdrag att gå från ritual till rötter. Låt oss bygga en framtid där varje medlem av vår diaspora känner en djup och autentisk koppling till den rika väven av vår historia.`
+    },
+    author: "Mebrat Gebru",
+    date: "2025-07-29",
+    tags: ["Culture", "Identity", "Diaspora", "Heritage"],
+    imageUrl: "/images/projects/terna-featured-4.webp"
+  },
+  {
+    id: 5,
+    slug: {
+      en: "power-of-partnership-strengthening-tigray-together",
+      sv: "kraft-partnerskap-styrka-tigray-tillsammans"
+    },
+    title: {
+      en: "The Power of Partnership: Strengthening Tigray Together",
+      sv: "Kraften i partnerskap: Vi stärker Tigray tillsammans"
+    },
+    excerpt: {
+      en: "In a region striving for recovery, our new strategic partnership with Anenitigray Development Services (ADS) and a recent award from Acquisition International Magazine underscore the vital role of diaspora-led collaboration.",
+      sv: "I en region som strävar efter återhämtning understryker vårt nya strategiska partnerskap med Anenitigray Development Services (ADS) och ett nyligen mottaget pris från Acquisition International Magazine den avgörande rollen för diasporaledda samarbeten."
+    },
+    content: {
+      en: `In the journey to support and empower the people of Tigray, collaboration is not just a strategy; it is the cornerstone of meaningful and sustainable impact. The region continues to face immense challenges, from rebuilding destroyed infrastructure to addressing deep-seated humanitarian needs. In this context, at Ternafit, we believe that our strength is multiplied when we join hands with those who share our vision and commitment. It is with this spirit that we are proud to highlight our strategic partnership with Anenitigray Development Services (ADS), a local NGO based in Mekele, Tigray.
+
+A Partnership Rooted in Grassroots Action
+
+ADS is on the front lines, working directly with communities in Tigray to address their most pressing needs. Their deep understanding of the local context and their direct engagement with the people make them an invaluable partner. Ternafit, as a Sweden-based NGO, is committed to empowering local actors like ADS. We are providing support in crucial areas such as fundraising, website development and management, and digital marketing to help them amplify their voice and secure the resources they need to implement their vital activities.
+
+This approach addresses a common challenge in development work: the disconnect between external funders and local realities. We believe that the most effective way to help the people of Tigray is by strengthening the capacity of local organizations that are already making a difference on the ground. This partnership is a testament to that belief.
+
+Recognized for Our Commitment
+
+This work has not gone unnoticed. We are incredibly honored to announce that Ternafit has been recognized by Acquisition International Magazine as the "Best Tigrean Community Support Initiative 2025 – Sweden".
+
+This award is a reflection of the collective effort of our team, our partners, and, most importantly, our supporters. It is a validation of our collaborative model and a powerful motivator to continue our work with even greater determination. This honor belongs to everyone who has supported, contributed to, and believed in our mission to connect, inform, and empower the Tigrayan diaspora around the world.
+
+Together, we are stronger. Together, we can build a brighter future for Tigray.`,
+      sv: `På resan för att stödja och stärka folket i Tigray är samarbete inte bara en strategi; det är hörnstenen för meningsfull och hållbar påverkan. Regionen står fortfarande inför enorma utmaningar, från att återuppbygga förstörd infrastruktur till att tillgodose djupt rotade humanitära behov. I detta sammanhang tror vi på Ternafit att vår styrka mångfaldigas när vi går samman med dem som delar vår vision och vårt engagemang. Det är i denna anda som vi är stolta över att lyfta fram vårt strategiska partnerskap med Anenitigray Development Services (ADS), en lokal NGO baserad i Mekele, Tigray.
+
+Ett partnerskap med rötter i gräsrotsarbete
+
+ADS är i frontlinjen och arbetar direkt med samhällen i Tigray för att tillgodose deras mest akuta behov. Deras djupa förståelse för den lokala kontexten och deras direkta engagemang med folket gör dem till en ovärderlig partner. Ternafit, som en svenskbaserad NGO, är engagerad i att stärka lokala aktörer som ADS. Vi tillhandahåller stöd inom avgörande områden som insamling, webbplatsutveckling och -hantering samt digital marknadsföring för att hjälpa dem att förstärka sin röst och säkra de resurser de behöver för att genomföra sina livsviktiga aktiviteter.
+
+Detta tillvägagångssätt adresserar en vanlig utmaning inom utvecklingsarbete: klyftan mellan externa finansiärer och lokala verkligheter. Vi tror att det mest effektiva sättet att hjälpa folket i Tigray är genom att stärka kapaciteten hos lokala organisationer som redan gör skillnad på plats. Detta partnerskap är ett bevis på den övertygelsen.
+
+Uppmärksammade för vårt engagemang
+
+Detta arbete har inte gått obemärkt förbi. Vi är otroligt hedrade att meddela att Ternafit har uppmärksammats av Acquisition International Magazine som ”Bästa Tigreanska Gemenskapsstödsinitiativ 2025 – Sverige”.
+
+Denna utmärkelse är en återspegling av den kollektiva ansträngningen från vårt team, våra partners och, viktigast av allt, våra supportrar. Det är en validering av vår samarbetsmodell och en kraftfull motivator att fortsätta vårt arbete med ännu större beslutsamhet. Denna ära tillhör alla som har stöttat, bidragit till och trott på vårt uppdrag att ansluta, informera och stärka den tigrayanska diasporan runt om i världen.
+
+Tillsammans är vi starkare. Tillsammans kan vi bygga en ljusare framtid för Tigray.`
+    },
+    author: "Yoseph Berhane",
+    date: "2025-07-24",
+    tags: ["Partnership", "Community", "Award", "Diaspora"],
+    imageUrl: "/images/ternafit-ai-magazine.webp"
+  },
+  // ... other existing blog posts with potential for similar enhancements
+  {
     id: 1,
+    slug: {
+      en: "education-initiatives-making-difference-tigray",
+      sv: "utbildningsinitiativ-gor-skillnad-tigray"
+    },
     title: {
       en: "Education Initiatives Making a Difference in Tigray",
       sv: "Utbildningsinitiativ som gör skillnad i Tigray"
@@ -28,11 +144,15 @@ export const blogPosts: BlogPost[] = [
     },
     author: "Yoseph Berhane",
     date: "2025-03-15",
-    tags: ["Education", "Children"],
-    imageUrl: "/images/projects/education.jpg"
+    tags: ["Education", "Children", "Tigray"],
+    imageUrl: "/images/projects/education.webp"
   },
   {
     id: 2,
+    slug: {
+      en: "healthcare-access-remote-communities",
+      sv: "tillgang-sjukvard-avlagsna-samhallen"
+    },
     title: {
       en: "Healthcare Access in Remote Communities",
       sv: "Tillgång till sjukvård i avlägsna samhällen"
@@ -47,11 +167,15 @@ export const blogPosts: BlogPost[] = [
     },
     author: "Dr. Michael Tesfaye",
     date: "2025-03-02",
-    tags: ["Healthcare", "Rural"],
-    imageUrl: "/images/projects/healthcare.jpg"
+    tags: ["Healthcare", "Rural", "Tigray"],
+    imageUrl: "/images/projects/healthcare.webp"
   },
   {
     id: 3,
+    slug: {
+      en: "stories-resilience-women-leading-community-recovery",
+      sv: "berattelser-motstandskraft-kvinnor-leder-samhalls-aterhantning"
+    },
     title: {
       en: "Stories of Resilience: Women Leading Community Recovery",
       sv: "Berättelser om motståndskraft: Kvinnor leder samhällsåterhämtning"
@@ -66,11 +190,15 @@ export const blogPosts: BlogPost[] = [
     },
     author: "Marta Abebe",
     date: "2025-02-20",
-    tags: ["Women", "Recovery"],
-    imageUrl: "/images/projects/weyniabraha.jpg"
+    tags: ["Women", "Recovery", "Resilience"],
+    imageUrl: "/images/projects/weyniabraha.webp"
   },
   {
     id: 4,
+    slug: {
+      en: "sustainable-agriculture-projects-eastern-tigray",
+      sv: "hallbara-jordbruksprojekt-ostra-tigray"
+    },
     title: {
       en: "Sustainable Agriculture Projects Launch in Eastern Tigray",
       sv: "Hållbara jordbruksprojekt lanseras i östra Tigray"
@@ -85,7 +213,7 @@ export const blogPosts: BlogPost[] = [
     },
     author: "Daniel Haile",
     date: "2025-02-12",
-    tags: ["Agriculture", "Sustainability"],
-    imageUrl: "/images/projects/agriculture.jpg"
+    tags: ["Agriculture", "Sustainability", "Tigray"],
+    imageUrl: "/images/projects/agriculture.webp"
   }
 ]

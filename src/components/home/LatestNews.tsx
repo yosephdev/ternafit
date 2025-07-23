@@ -38,7 +38,7 @@ const NEWS_SOURCES = [
         url: '#',
         publishedAt: new Date().toISOString(),
         source: { name: 'Tigray Health Bureau' },
-        image: '/images/news/health-supplies.jpg'
+        image: '/images/news/health-supplies.webp'
       },
       {
         title: 'School Reconstruction Begins in Mekelle Suburbs',
@@ -46,7 +46,7 @@ const NEWS_SOURCES = [
         url: '#',
         publishedAt: new Date(Date.now() - 86400000).toISOString(),
         source: { name: 'Mekelle Education Office' },
-        image: '/images/news/school-rebuild.jpg'
+        image: '/images/news/school-rebuild.webp'
       }
     ]
   }

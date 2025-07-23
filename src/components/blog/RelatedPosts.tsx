@@ -10,7 +10,7 @@ interface RelatedPostsProps {
 }
 
 const RelatedPosts = ({ currentPostId, posts }: RelatedPostsProps) => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', { // Assuming English for related posts date format
@@ -32,17 +32,17 @@ const RelatedPosts = ({ currentPostId, posts }: RelatedPostsProps) => {
           .map(relatedPost => (
             <Link 
               key={relatedPost.id} 
-              to={`${t("path.blogPost")}${relatedPost.id}`}
+              to={`${t("path.blogPost")}${relatedPost.slug[language]}`}
               className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
             >
               <img 
                 src={relatedPost.imageUrl}
-                alt={relatedPost.title}
+                alt={relatedPost.title[language]}
                 className="w-full h-40 object-cover"
               />
               <div className="p-4">
                 <h4 className="font-medium mb-2">
-                  {relatedPost.title}
+                  {relatedPost.title[language]}
                 </h4>
                 <div className="text-xs text-muted-foreground">
                   {formatDate(relatedPost.date)}

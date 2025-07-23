@@ -24,7 +24,7 @@ const podcastEpisodes: Episode[] = [
     },
     date: "2025-03-15",
     duration: "45:12",
-    imageUrl: "/images/podcast/episode6.jpg",
+    imageUrl: "/images/podcast/episode6.webp",
     audioUrl: "https://tigray-impact-podcasts.s3.eu-central-1.amazonaws.com/audiopodcast-episode8.wav",
     category: ["Stories", "Recovery"]
   },
@@ -36,7 +36,7 @@ const podcastEpisodes: Episode[] = [
     },
     date: "2025-03-1",
     duration: "45:30",
-    imageUrl: "/images/podcast/episode5.jpg",
+    imageUrl: "/images/podcast/episode5.webp",
     audioUrl: "https://tigray-impact-podcasts.s3.eu-central-1.amazonaws.com/ADS+and+Ternafit+in+Action.wav",
     category: ["Stories", "Updates"]
   },
@@ -48,7 +48,7 @@ const podcastEpisodes: Episode[] = [
     },
     date: "2025-04-15",
     duration: "50:20",
-    imageUrl: "/images/podcast/episode8.jpg",
+    imageUrl: "/images/podcast/episode8.webp",
     audioUrl: "https://tigray-impact-podcasts.s3.eu-central-1.amazonaws.com/Fear+or+Support_+Understanding+Tigray%E2%80%99s+Quiet+Resistance.wav",
     category: ["Stories", "Politics"]
   },
@@ -60,7 +60,7 @@ const podcastEpisodes: Episode[] = [
     },
     date: "2025-03-01",
     duration: "39:45",
-    imageUrl: "/images/podcast/episode1.png",
+    imageUrl: "/images/podcast/episode1.webp",
     audioUrl: "https://tigray-impact-podcasts.s3.eu-central-1.amazonaws.com/Beyond+Repair_+Reflections+of+a+Tigrean.wav",
     category: ["Stories", "Recovery"]
   },
@@ -72,7 +72,7 @@ const podcastEpisodes: Episode[] = [
     },
     date: "2025-02-28",
     duration: "46:15",
-    imageUrl: "/images/podcast/episode4.png",
+    imageUrl: "/images/podcast/episode4.webp",
     audioUrl: "https://tigray-impact-podcasts.s3.eu-central-1.amazonaws.com/Tigray%E2%80%99s+Future_+Why+a+Referendum+Matters.wav",
     category: ["Politics", "Updates"]
   },
@@ -84,7 +84,7 @@ const podcastEpisodes: Episode[] = [
     },
     date: "2025-02-15",
     duration: "45:30",
-    imageUrl: "/images/podcast/episode3.jpg",
+    imageUrl: "/images/podcast/episode3.webp",
     audioUrl: "https://tigray-impact-podcasts.s3.eu-central-1.amazonaws.com/The+Integrative+Voice.wav",
     category: ["Stories", "Interviews"]
   },
@@ -96,7 +96,7 @@ const podcastEpisodes: Episode[] = [
     },
     date: "2024-12-15",
     duration: "47:22",
-    imageUrl: "/images/podcast/episode2.jpg",
+    imageUrl: "/images/podcast/episode2.webp",
     audioUrl: "https://tigray-impact-podcasts.s3.eu-central-1.amazonaws.com/Inside+Tigray_+The+Battle+for+Voice+and+Freedom.mp3",
     category: ["Stories", "Politics"]
   },
@@ -120,7 +120,7 @@ const podcastEpisodes: Episode[] = [
     },
     date: "2024-11-01",
     duration: "38:50",
-    imageUrl: "/images/podcast/overcast.png",
+    imageUrl: "/images/podcast/overcast.webp",
     audioUrl: "https://tigray-impact-podcasts.s3.eu-central-1.amazonaws.com/audiopodcast-episode.mp3",
     category: ["Stories", "Updates"]
   }

@@ -10,24 +10,24 @@ const WorkAreas = () => {
     {
       title: t("work.area.emergency"),
       description: t("work.area.emergency.description"),
-      image: "/images/projects/work-area-1.jpg"
+      image: "/images/projects/work-area-1.webp"
     },
     {
       title: t("work.area.education"),
       description: t("work.area.education.description"),
-      image: "/images/projects/work-area-2.jpg"
+      image: "/images/projects/work-area-2.webp"
     },
     {
       title: t("work.area.healthcare"),
       description: t("work.area.healthcare.description"),
-      image: "/images/projects/work-area-3.jpg"
+      image: "/images/projects/work-area-3.webp"
     },
     {
       title: t("work.area.advocacy"),
       description: t("work.area.advocacy.description"),
-      image: "/images/projects/work-area-4.jpg"
+      image: "/images/projects/work-area-4.webp"
     }
-  ], [language, t]);
+  ], [t]);
 
   return (
     <div className="space-y-10">

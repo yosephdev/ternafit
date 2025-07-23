@@ -6,9 +6,9 @@ import { useEffect, useState } from "react";
 
 // Hero backgrounds for different regions
 const regionalBackgrounds = {
-  nordic: "/images/projects/hero-international.jpg", // Placeholder - this would be replaced with actual image
-  international: "/images/projects/hero-international.jpg", // Placeholder - this would be replaced with actual image
-  default: "/images/projects/hero-international.jpg", // Default image
+  nordic: "/images/projects/hero-international.webp", // Placeholder - this would be replaced with actual image
+  international: "/images/projects/hero-international.webp", // Placeholder - this would be replaced with actual image
+  default: "/images/projects/hero-international.webp", // Default image
 };
 
 const Hero = () => {
@@ -40,7 +40,7 @@ const Hero = () => {
           <source src="/videos/gemini-hero-video.webm" type="video/webm" />
           <source src="/videos/gemini-hero-video.mp4" type="video/mp4" />
           <img 
-            src="/images/projects/hero-international.jpg" 
+            src="/images/projects/hero-international.webp" 
             alt="Hero background"
             className="w-full h-full object-cover"
           />

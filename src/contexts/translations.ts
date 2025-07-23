@@ -83,6 +83,17 @@ export const initialTranslations: Translations = {
     'blog.author': { en: 'By', sv: 'Av' },
     'blog.publishedOn': { en: 'Published on', sv: 'Publicerad den' },
     'blog.backToBlog': { en: '← Back to blog', sv: '← Tillbaka till bloggen' },
+    'blog.sharePost': { en: 'Share this post', sv: 'Dela detta inlägg' },
+    'blog.relatedPosts': { en: 'Related Posts', sv: 'Relaterade inlägg' },
+    'blog.notFound': { en: 'Blog post not found', sv: 'Bloggpost hittades inte' },
+    'blog.minRead': { en: 'min read', sv: 'min läsning' },
+
+    // Author bio translations
+    'authorBio.title': { en: 'About the Author', sv: 'Om författaren' },
+    'authorBio.founderRole': { en: 'Founder & CEO of Ternafit', sv: 'Grundare & VD för Ternafit' },
+    'authorBio.fieldCoordinatorRole': { en: 'Progams Director of Ternafit', sv: 'Programdirektör för Ternafit' },
+    'authorBio.yosephBio': { en: 'Yoseph is the founder of Ternafit, dedicated to supporting the Tigrayan community through advocacy, information sharing, and building connections between the diaspora and homeland.', sv: 'Yoseph är grundaren av Ternafit, dedikerad till att stödja det tigrayanska samhället genom opinionsbildning, informationsdelning och att bygga kopplingar mellan diasporan och hemlandet.' },
+    'authorBio.genericBio': { en: 'A dedicated member of our team working to support and empower the Tigrayan community.', sv: 'En engagerad medlem av vårt team som arbetar för att stödja och stärka det tigrayanska samhället.' },
 
     // Podcast translations
     'podcast.title': { en: 'Tigray Impact Podcast', sv: 'Tigray Impact Podd' },
@@ -477,9 +488,9 @@ export const initialTranslations: Translations = {
     'about.impactSoFar.infoShared.desc': { en: 'Reliable updates and resources shared with our community', sv: 'Pålitliga uppdateringar och resurser delade med vårt samhälle' },
     'about.impactSoFar.awarenessCampaigns.title': { en: '5 Awareness Campaigns', sv: '5 Medvetenhetskampanjer' },
     'about.impactSoFar.awarenessCampaigns.desc': { en: 'Major campaigns launched to raise global awareness', sv: 'Stora kampanjer lanserade för att öka global medvetenhet' },
-    'about.impactSoFar.communityConnections.title': { en: '50+ Community Connections', sv: '50+ Samhällskontakter' },
+    'about.impactSoFar.communityConnections.title': { en: '5+ Community Connections', sv: '5+ Samhällskontakter' },
     'about.impactSoFar.communityConnections.desc': { en: 'Partnerships and connections built with organizations', sv: 'Partnerskap och kontakter byggda med organisationer' },
-    'about.impactSoFar.newsletterSubscribers.title': { en: '1,200+ Newsletter Subscribers', sv: '1,200+ Nyhetsbrevsprenumeranter' },
+    'about.impactSoFar.newsletterSubscribers.title': { en: '200+ Newsletter Subscribers', sv: '200+ Nyhetsbrevsprenumeranter' },
     'about.impactSoFar.newsletterSubscribers.desc': { en: 'Active subscribers staying informed about Tigray', sv: 'Aktiva prenumeranter som håller sig informerade om Tigray' },
     'about.impactSoFar.callToAction1': { en: 'These numbers represent real impact, but there\'s still much work to be done.', sv: 'Dessa siffror representerar verklig påverkan, men det finns fortfarande mycket arbete att göra.' },
     'about.impactSoFar.callToAction2': { en: 'Join us in making an even greater difference.', sv: 'Gå med oss för att göra en ännu större skillnad.' },

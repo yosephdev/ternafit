@@ -14,10 +14,10 @@ export const BlogPostCard = ({ post }: BlogPostCardProps) => {
     <Card className="overflow-hidden transition-shadow duration-300 hover:shadow-lg flex flex-col h-full">
       <CardHeader>
         <div className="aspect-w-16 aspect-h-9 mb-4">
-          <img src={post.imageUrl} alt={post.title} className="object-cover w-full h-full rounded-t-lg" />
+          <img src={post.imageUrl} alt={post.title[language]} className="object-cover w-full h-full rounded-t-lg" />
         </div>
         <CardTitle className="text-xl font-serif leading-tight">
-          <Link to={`${t("path.blogPost")}${post.id}`} className="hover:text-terracotta transition-colors duration-200">
+          <Link to={`${t("path.blogPost")}${post.slug[language]}`} className="hover:text-terracotta transition-colors duration-200">
             {post.title[language]}
           </Link>
         </CardTitle>
