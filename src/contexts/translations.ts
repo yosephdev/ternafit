@@ -455,9 +455,9 @@ export const initialTranslations: Translations = {
     'podcast.download': { en: 'Download', sv: 'Ladda ner' },
 
     // Work page volunteer section
-    'work.volunteer.title': { en: 'Volunteer With Us', sv: 'Volontärarbeta med oss' },
-    'work.volunteer.desc': { en: 'Join our team of dedicated volunteers and contribute your skills to make a real difference in the Tigrean community. We welcome people from all backgrounds and skill levels.', sv: 'Gå med i vårt team av engagerade volontärer och bidra med dina färdigheter för att göra verklig skillnad i det tigreanska samhället. Vi välkomnar människor från alla bakgrunder och färdighetsnivåer.' },
-    'work.volunteer.button': { en: 'Get Involved', sv: 'Engagera dig' },
+    'work.volunteer.title': { en: 'Volunteer with ADS', sv: 'Volontärarbeta med ADS' },
+    'work.volunteer.desc': { en: 'Volunteer with ADS, a grassroots organization, and contribute your skills to make a real difference in the Tigrean community. We welcome people from all backgrounds and skill levels.', sv: 'Volontärarbeta med ADS, en gräsrotsorganisation, och bidra med dina färdigheter för att göra verklig skillnad i det tigreanska samhället. Vi välkomnar människor från alla bakgrunder och färdighetsnivåer.' },
+    'work.volunteer.button': { en: 'Contact ADS', sv: 'Kontakta ADS' },
 
     // Work page active campaigns
     'work.activeCampaigns.title': { en: 'Active Campaigns', sv: 'Aktiva kampanjer' },
