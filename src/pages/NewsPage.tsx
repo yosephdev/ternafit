@@ -427,7 +427,7 @@ const NewsPage = () => {
                                   className="w-full h-48 md:h-full object-cover"
                                   loading="lazy"
                                   onError={(e) => {
-                                    (e.target as HTMLImageElement).src = '/images/default-news.jpg';
+                                    (e.target as HTMLImageElement).src = '/images/default-news.webp';
                                   }}
                                 />
                               </div>
@@ -521,7 +521,7 @@ const NewsPage = () => {
                     <div key={`featured-${item.id}`} className="flex gap-3">
                       <div className="flex-shrink-0 w-16 h-16">
                         <img
-                          src={item.imageUrl || '/images/default-news.jpg'}
+                          src={item.imageUrl || '/images/default-news.webp'}
                           alt={item.title[language]}
                           className="w-full h-full object-cover rounded"
                           loading="lazy"

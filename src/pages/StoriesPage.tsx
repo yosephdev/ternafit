@@ -9,21 +9,21 @@ const stories = [
         role: "New Mother, Maternal Health Program",
         location: "Shire, Tigray",
         story: "When I was pregnant, I was so worried. The health worker from ADS visited me regularly, taught me so much, and made sure we were both healthy. Today, my daughter Liya is strong and smiling. This program didn't just deliver a baby; it delivered peace of mind to our entire family.",
-        image: "/images/stories/abeba-liya.png" // Placeholder image
+    image: "/images/stories/abeba-liya.webp" // Placeholder image
     },
     {
         name: "Selam",
         role: "Participant, Girls' Education Initiative",
         location: "Adwa, Tigray",
         story: "For a long time, my dream of becoming a teacher felt impossible. The support from ADS didn't just give me books and a uniform; it gave me the confidence to lead in my class. Now, I help younger girls with their studies. I am becoming the future I want to see for Tigray.",
-        image: "/images/stories/selam-story.png" // Placeholder image
+    image: "/images/stories/selam-story.webp" // Placeholder image
     },
     {
         name: "Tesfay",
         role: "Farmer & Head of Household, Clean Water Project",
         location: "Eastern Tigray",
         story: "Before the new well was built by ADS, my wife and daughters spent four hours every day fetching water. Our children were often sick. Now, with clean water just minutes away, our crops are thriving, our family is healthy, and my daughters have time for school. This well gave us more than water; it gave us back our future.",
-        image: "/images/stories/tesfay-farmer.png" // Placeholder image
+    image: "/images/stories/tesfay-farmer.webp" // Placeholder image
     }
 ];
 

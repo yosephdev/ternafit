@@ -5,14 +5,14 @@ import { Button } from "@/components/ui/button";
 const memorialScholarships = [
   {
     name: "The Emperor Yohannes IV Memorial Scholarship",
-    image: "/images/figures/yohannes-iv.png", // Placeholder image
+  image: "/images/figures/yohannes-iv.webp", // Placeholder image
     bio: "Honoring the 19th-century Emperor of Ethiopia from Tigray, a unifying leader known for his dedication to defending the nation's sovereignty and his efforts to modernize the state. Emperor Yohannes IV's legacy is one of profound courage and leadership.",
     focus: "Awarded to students demonstrating exceptional leadership potential and a commitment to community service.",
     donateLink: "/donate?fund=yohannes-iv-memorial"
   },
   {
     name: "The Gebrehiwot Baykedagn Intellectual Fund",
-    image: "/images/figures/gebrehiwot-baykedagn.png", // Placeholder image
+  image: "/images/figures/gebrehiwot-baykedagn.webp", // Placeholder image
     bio: "In tribute to one of Ethiopia's foremost intellectuals and political economists of the early 20th century. Gebrehiwot Baykedagn was a visionary who advocated for education, industrialization, and modern governance as the keys to a prosperous future.",
     focus: "Awarded to outstanding university students pursuing studies in economics, political science, and development.",
     donateLink: "/donate?fund=gebrehiwot-baykedagn-fund"
@@ -45,7 +45,7 @@ const ScholarshipProgramPage = () => (
             </Button>
         </div>
         <div className="flex-1 mt-6 md:mt-0">
-            <img src="/images/projects/education-group.png" alt="Group of students supported by the scholarship program" className="rounded-lg shadow w-full" />
+            <img src="/images/projects/education-group.webp" alt="Group of students supported by the scholarship program" className="rounded-lg shadow w-full" />
         </div>
       </div>
     </section>
@@ -80,7 +80,7 @@ const ScholarshipProgramPage = () => (
     <section className="mt-16 pt-12 border-t">
       <h2 className="text-2xl font-semibold mb-4 text-center">A Story of Impact</h2>
       <div className="flex flex-col items-center text-center max-w-2xl mx-auto">
-        <img src="/images/team/selam.png" alt="Selam" className="w-32 h-32 rounded-full object-cover mb-4" />
+  <img src="/images/team/selam.webp" alt="Selam" className="w-32 h-32 rounded-full object-cover mb-4" />
         <p className="text-sm font-semibold text-terracotta">Selam, Recipient of the General Scholarship Fund</p>
         <blockquote className="italic text-xl text-muted-foreground mt-2">
           “For years, my dream of becoming a doctor felt out of reach. This scholarship didn't just pay for my school fees; it gave my family and me hope. I am studying harder than ever to one day serve my community.”

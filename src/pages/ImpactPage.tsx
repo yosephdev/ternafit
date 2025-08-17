@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import L from "leaflet";
+import 'leaflet/dist/leaflet.css';
 
 // MODIFIED: Data now reflects the specific project areas of your partner,
 // Anenitigray Development Services (ADS). Using "+" indicates ongoing growth.
@@ -16,7 +18,35 @@ const annualReports = [
     { year: 2025, url: "#", status: "Coming Soon" },
 ];
 
-const ImpactPage = () => (
+const ImpactPage = () => {
+  const mapRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!mapRef.current) return;
+    // Prevent multiple map initializations
+    if (mapRef.current.children.length > 0) return;
+    // Initialize the map
+    const map = L.map(mapRef.current).setView([13.9, 39.0], 8);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    const projectSites = [
+      { name: "Mekelle", lat: 13.4969, lng: 39.4769, projects: ["Regional coordination hub","Maternal health initiatives","Educational program oversight"] },
+      { name: "Adigrat", lat: 14.277, lng: 39.460, projects: ["Clean water access projects (wells)","Support for local health clinics","Agricultural cooperatives support"] },
+      { name: "Adwa", lat: 14.1667, lng: 38.8917, projects: ["Girls' Education Initiative","Scholarship & school supplies distribution","Community mentorship programs"] },
+      { name: "Aksum (Axum)", lat: 14.128, lng: 38.718, projects: ["Cultural heritage preservation support","Economic empowerment for women","Youth development programs"] },
+      { name: "Shire (Inda Selassie)", lat: 14.100, lng: 38.283, projects: ["Hub for western Tigray operations","Food security and resilience projects","Support for displaced families"] }
+    ];
+    projectSites.forEach(site => {
+      const marker = L.marker([site.lat, site.lng]).addTo(map);
+      let popupContent = `<h3 style='color:#c05621;margin:0 0 10px;'>${site.name}</h3><p><strong>Key Project Areas:</strong></p><ul>`;
+      site.projects.forEach(project => { popupContent += `<li>${project}</li>`; });
+      popupContent += `</ul>`;
+      marker.bindPopup(popupContent);
+    });
+  }, []);
+
+  return (
     <div className="container mx-auto py-12 px-4">
         {/* MODIFIED: Added a title and introductory paragraph to explain the partnership model. 
             This is VITAL for donor transparency and trust. */}
@@ -46,9 +76,8 @@ const ImpactPage = () => (
             </div>
             <div>
                 <h2 className="text-xl font-semibold mb-4">Project Locations in Tigray</h2>
-                {/* MODIFIED: Placeholder text is now more specific to the partner. */}
-                <div className="bg-gray-100 rounded-lg h-64 flex items-center justify-center text-gray-500 text-center p-4">
-                    Interactive Map of Anenitigray Development Services' Project Sites<br/>(Coming Soon)
+                <div className="bg-gray-100 rounded-lg overflow-hidden" style={{ height: '400px', position: 'relative' }}>
+                  <div ref={mapRef} id="ads-map" style={{ height: '100%', width: '100%' }} />
                 </div>
             </div>
         </div>
@@ -80,6 +109,7 @@ const ImpactPage = () => (
             </ul>
         </div>
     </div>
-);
+  );
+};
 
 export default ImpactPage;

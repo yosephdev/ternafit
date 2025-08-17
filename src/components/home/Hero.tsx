@@ -88,7 +88,7 @@ const Hero = () => {
         {/* Testimonial Section */}
         <div className="mt-8 max-w-xl mx-auto bg-white/80 rounded-lg shadow p-6">
           <div className="flex items-center mb-4">
-            <img src="/images/team/selam.png" alt="Selam" className="w-12 h-12 rounded-full object-cover mr-3" />
+            <img src="/images/team/selam.webp" alt="Selam" className="w-12 h-12 rounded-full object-cover mr-3" />
             <div>
               <span className="font-semibold text-terracotta">Selam</span>
               <span className="ml-2 text-xs text-muted-foreground">Student</span>
