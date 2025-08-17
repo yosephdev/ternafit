@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useLanguage, Language } from "@/contexts/LanguageContext";
@@ -9,12 +9,40 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null); // Track which dropdown is open
+  const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const location = useLocation();
 
   const toggleLanguage = () => {
     const newLanguage: Language = language === "en" ? "sv" : "en";
     setLanguage(newLanguage);
   };
+
+  // Improved dropdown handling with delays
+  const handleDropdownEnter = (labelKey: string) => {
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
+      dropdownTimeoutRef.current = null;
+    }
+    setOpenDropdown(labelKey);
+  };
+
+  const handleDropdownLeave = () => {
+    dropdownTimeoutRef.current = setTimeout(() => {
+      setOpenDropdown(null);
+    }, 150); // 150ms delay before closing
+  };
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = () => {
+      setOpenDropdown(null);
+    };
+    
+    if (openDropdown) {
+      document.addEventListener('click', handleClickOutside);
+      return () => document.removeEventListener('click', handleClickOutside);
+    }
+  }, [openDropdown]);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
@@ -30,6 +58,15 @@ const Header = () => {
     document.body.style.overflow = mobileMenuOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [mobileMenuOpen]);
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (dropdownTimeoutRef.current) {
+        clearTimeout(dropdownTimeoutRef.current);
+      }
+    };
+  }, []);
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -69,18 +106,34 @@ const Header = () => {
               <div 
                 key={link.labelKey}
                 className="relative"
-                onMouseEnter={() => setOpenDropdown(link.labelKey)}
-                onMouseLeave={() => setOpenDropdown(null)}
+                onMouseEnter={() => handleDropdownEnter(link.labelKey)}
+                onMouseLeave={handleDropdownLeave}
               >
-                <button className={`flex items-center font-medium transition duration-200 hover:text-terracotta ${openDropdown === link.labelKey || link.subLinks.some(sub => isActive(sub.path)) ? "text-terracotta" : "text-foreground"}`}>
+                <button 
+                  className={`flex items-center font-medium transition duration-200 hover:text-terracotta ${openDropdown === link.labelKey || link.subLinks.some(sub => isActive(sub.path)) ? "text-terracotta" : "text-foreground"}`}
+                  onClick={() => setOpenDropdown(openDropdown === link.labelKey ? null : link.labelKey)}
+                >
                   {t(link.labelKey)}
                   <ChevronDown className="ml-1 h-4 w-4" />
                 </button>
                 {openDropdown === link.labelKey && (
-                  <div className="absolute top-full left-0 mt-2 w-48 rounded-md bg-background shadow-lg ring-1 ring-black ring-opacity-5">
-                    <div className="py-1">
+                  <div 
+                    className="absolute top-full left-0 mt-1 w-56 rounded-md bg-background shadow-lg ring-1 ring-black ring-opacity-5 border z-50"
+                    onMouseEnter={() => handleDropdownEnter(link.labelKey)}
+                    onMouseLeave={handleDropdownLeave}
+                  >
+                    <div className="py-2">
                       {link.subLinks.map((subLink) => (
-                        <Link key={subLink.path} to={subLink.path} className={`block px-4 py-2 text-sm ${isActive(subLink.path) ? "font-bold text-terracotta" : "text-foreground"} hover:bg-muted`}>
+                        <Link 
+                          key={subLink.path} 
+                          to={subLink.path} 
+                          className={`block px-4 py-3 text-sm transition-colors ${
+                            isActive(subLink.path) 
+                              ? "font-bold text-terracotta bg-terracotta/10" 
+                              : "text-foreground hover:bg-muted hover:text-terracotta"
+                          }`}
+                          onClick={() => setOpenDropdown(null)}
+                        >
                           {t(subLink.labelKey)}
                         </Link>
                       ))}
