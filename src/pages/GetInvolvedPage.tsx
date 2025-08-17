@@ -44,7 +44,7 @@ const GetInvolvedPage = () => {
                 {t("getInvolved.hero.subtitle")}
               </p>
               <div>
-                <a href="/reports/annual-report-2024.pdf" target="_blank" rel="noopener noreferrer" className="inline-block bg-terracotta text-white font-semibold px-6 py-3 rounded shadow hover:bg-terracotta/90">
+                <a href="/reports/ternafit-annual-report-2024.pdf" target="_blank" rel="noopener noreferrer" className="inline-block bg-terracotta text-white font-semibold px-6 py-3 rounded shadow hover:bg-terracotta/90">
                   Download Annual Report
                 </a>
               </div>

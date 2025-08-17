@@ -50,7 +50,7 @@ const HomePage = () => {
                 </li>
               </ul>
               <div className="flex flex-col gap-4 mb-4">
-                <a href="/reports/annual-report-2024.pdf" target="_blank" rel="noopener noreferrer" className="inline-block bg-terracotta text-white font-semibold px-6 py-3 rounded shadow hover:bg-terracotta/90">Download Annual Report</a>
+                <a href="/reports/ternafit-annual-report-2024.pdf" target="_blank" rel="noopener noreferrer" className="inline-block bg-terracotta text-white font-semibold px-6 py-3 rounded shadow hover:bg-terracotta/90">Download Annual Report</a>
                 <Link to={t("path.getInvolved")}> 
                   <Button variant="outline" className="text-terracotta hover:bg-terracotta hover:text-white">Learn How to Volunteer</Button>
                 </Link>
