@@ -90,8 +90,8 @@ const WorkPage = () => {
               </div>
               <div className="flex justify-center">
                 <img 
-                  src="/images/stories/tesfay-farmer.webp" 
-                  alt="Community agricultural work in Tigray" 
+                  src="/images/stories/ternafit-ads-donor.webp" 
+                  alt="Ternafit and ADS partnership work in Tigray" 
                   className="rounded-lg shadow-lg max-w-sm w-full"
                 />
               </div>

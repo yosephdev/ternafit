@@ -43,8 +43,8 @@ const DonatePage = () => {
             </div>
             <div className="flex justify-center">
               <img 
-                src="/images/stories/abeba-liya.webp" 
-                alt="Support our work through donations" 
+                src="/images/stories/ternafit-ads-donor.png" 
+                alt="Support our partnership work through donations" 
                 className="rounded-lg shadow-lg max-w-sm w-full"
               />
             </div>
