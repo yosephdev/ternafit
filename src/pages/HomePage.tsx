@@ -49,7 +49,19 @@ const HomePage = () => {
                   <span className="font-bold text-terracotta">4</span> {t("home.impact.stat3")}
                 </li>
               </ul>
-              <Link to={t("path.about")}>
+              <div className="flex flex-col gap-4 mb-4">
+                <a href="/reports/annual-report-2024.pdf" target="_blank" rel="noopener noreferrer" className="inline-block bg-terracotta text-white font-semibold px-6 py-3 rounded shadow hover:bg-terracotta/90">Download Annual Report</a>
+                <Link to={t("path.getInvolved")}> 
+                  <Button variant="outline" className="text-terracotta hover:bg-terracotta hover:text-white">Learn How to Volunteer</Button>
+                </Link>
+                <Link to={t("path.stories")}> 
+                  <Button variant="outline" className="text-terracotta hover:bg-terracotta hover:text-white">Stories</Button>
+                </Link>
+                <Link to={t("path.impact")}> 
+                  <Button variant="outline" className="text-terracotta hover:bg-terracotta hover:text-white">Our Impact</Button>
+                </Link>
+              </div>
+              <Link to={t("path.about")}> 
                 <Button variant="outline" className="text-terracotta hover:bg-terracotta hover:text-white">
                   {t('common.learnMore')}
                 </Button>

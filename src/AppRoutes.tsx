@@ -1,3 +1,4 @@
+import ScholarshipProgramPage from "./pages/ScholarshipProgramPage";
 import { Routes, Route } from "react-router-dom";
 import { useLanguage } from "./contexts/LanguageContext";
 import HomePage from "./pages/HomePage";
@@ -16,10 +17,17 @@ import ContactPage from "./pages/ContactPage";
 import GetInvolvedPage from "./pages/GetInvolvedPage";
 import NotFound from "./pages/NotFound";
 
+import StoriesPage from "./pages/StoriesPage";
+import ImpactPage from "./pages/ImpactPage";
+
 const AppRoutes = () => {
   const { t } = useLanguage();
 
   const routes = [
+    {
+      path: t("path.scholarshipProgram"),
+      element: <ScholarshipProgramPage />,
+    },
     {
       path: t("path.home"),
       element: <HomePage />,
@@ -75,6 +83,14 @@ const AppRoutes = () => {
     {
       path: t("path.getInvolved"),
       element: <GetInvolvedPage />,
+    },
+    {
+      path: t("path.stories"),
+      element: <StoriesPage />,
+    },
+    {
+      path: t("path.impact"),
+      element: <ImpactPage />,
     },
     {
       path: t("path.notFound"),

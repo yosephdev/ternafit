@@ -5,29 +5,28 @@ import { workTranslations } from "@/translations/workTranslations";
 // Components
 import DonateBox from "@/components/shared/DonateBox";
 
-// Optional: If using Next.js or similar, for page metadata
-// import Head from "next/head";
-
-// Editable – add/change these as your org grows.
-const workHighlights = [
+// REFINED: Clarified Ternafit's specific role as a support NGO.
+// These are the core functions performed by Ternafit in Sweden.
+const ternafitWorkHighlights = [
   {
-    icon: "🌐",
-    key: "infoSharing"
+    icon: "💰",
+    key: "fundraising"
   },
   {
-    icon: "📢",
-    key: "awareness"
+    icon: "💻",
+    key: "digitalAdvocacy"
   },
   {
-    icon: "🤲",
-    key: "alliances"
+    icon: "🤝",
+    key: "partnershipSupport"
   },
   {
-    icon: "💡",
-    key: "innovativeSupport"
+    icon: "📊",
+    key: "transparencyReporting"
   },
 ];
 
+// This section remains strong, reflecting universal values. No changes needed.
 const approachPrinciples = [
   {
     icon: "🤝",
@@ -47,22 +46,24 @@ const approachPrinciples = [
   },
 ];
 
-const focusAreas = [
+// REFINED: These are now explicitly the on-the-ground project areas of ADS, which Ternafit supports.
+// The keys are more specific to reflect known project types.
+const partnerFocusAreas = [
   {
-    icon: "📚",
-    key: "education"
+    icon: "🎓",
+    key: "girlsEducation"
   },
   {
-    icon: "🏥",
-    key: "healthcare"
+    icon: "👩‍⚕️",
+    key: "maternalHealth"
   },
   {
-    icon: "⛑️",
-    key: "emergencyRelief"
+    icon: "💧",
+    key: "waterAndFood"
   },
   {
-    icon: "🗣️",
-    key: "advocacyRights"
+    icon: "📈",
+    key: "economicEmpowerment"
   }
 ];
 
@@ -70,29 +71,16 @@ const WorkPage = () => {
   const { addTranslations, t } = useLanguage();
 
   useEffect(() => {
-    // Register translations
     addTranslations(workTranslations);
-
-    // Scroll to top with a slight delay to prevent layout shift scroll
     const timeout = setTimeout(() => {
       window.scrollTo({ top: 0, behavior: "auto" });
     }, 50);
-
     return () => clearTimeout(timeout);
   }, [addTranslations]);
 
   return (
     <>
-      {/* Optional: Meta tags for SEO */}
-      {/* 
-      <Head>
-        <title>{t("work.title")} | Your Site Name</title>
-        <meta name="description" content="Learn about our work, current projects, and how you can get involved." />
-      </Head> 
-      */}
-
       <main className="min-h-screen">
-        {/* Hero - Inviting Mission Statement */}
         <section className="bg-muted py-14">
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-4xl font-serif font-bold mb-3">{t("work.title")}</h1>
@@ -102,17 +90,16 @@ const WorkPage = () => {
           </div>
         </section>
 
-        {/* Main Content */}
         <section className="py-16">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-              {/* Main Section */}
               <div className="md:col-span-2 space-y-12">
-                {/* What We Do Highlights */}
                 <section>
+                  {/* MODIFIED: Title changed to be specific to Ternafit's role */}
                   <h2 className="text-2xl font-serif font-bold mb-6">{t("work.whatWeDo.title")}</h2>
                   <div className="grid md:grid-cols-2 gap-8">
-                    {workHighlights.map((item, idx) => (
+                    {/* MODIFIED: Using the new ternafitWorkHighlights array */}
+                    {ternafitWorkHighlights.map((item, idx) => (
                       <div key={idx} className="bg-white rounded-lg p-6 shadow flex gap-4 items-start">
                         <span className="text-3xl">{item.icon}</span>
                         <div>
@@ -124,7 +111,6 @@ const WorkPage = () => {
                   </div>
                 </section>
 
-                {/* Our Principles */}
                 <section>
                   <h2 className="text-2xl font-serif font-bold mb-6">{t("work.approach.title")}</h2>
                   <div className="grid md:grid-cols-2 gap-8">
@@ -140,11 +126,13 @@ const WorkPage = () => {
                   </div>
                 </section>
 
-                {/* Focus Areas */}
                 <section>
                   <h2 className="text-2xl font-serif font-bold mb-6">{t("work.focusAreas.title")}</h2>
+                  {/* MODIFIED: Added a subtitle to explicitly credit the implementing partner, ADS. */}
+                  <p className="text-muted-foreground -mt-4 mb-6">{t("work.focusAreas.partnershipSubtitle")}</p>
                   <div className="grid md:grid-cols-2 gap-8">
-                    {focusAreas.map((f, idx) => (
+                    {/* MODIFIED: Using the new partnerFocusAreas array */}
+                    {partnerFocusAreas.map((f, idx) => (
                       <div key={idx} className="bg-white rounded-lg p-6 shadow flex gap-4 items-start">
                         <span className="text-3xl">{f.icon}</span>
                         <div>
@@ -156,16 +144,14 @@ const WorkPage = () => {
                   </div>
                 </section>
 
-                {/* Volunteer CTA */}
                 <section className="bg-terracotta text-white rounded-lg shadow-md p-6">
                   <h3 className="text-lg font-serif font-semibold mb-3">{t("work.volunteer.title")}</h3>
                   <p className="text-sm mb-4">
                     {t("work.volunteer.desc")}
                   </p>
+                  {/* MODIFIED: Link changed to point to a local contact page for volunteering with Ternafit */}
                   <a
-                    href="https://www.anenitigray.org/"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="/contact"
                     className="inline-block bg-white text-terracotta px-6 py-2 rounded-full font-medium shadow hover:bg-white/90"
                   >
                     {t("work.volunteer.button")}
@@ -173,53 +159,40 @@ const WorkPage = () => {
                 </section>
               </div>
 
-              {/* Sidebar */}
               <div className="md:col-span-1">
                 <div className="space-y-6 sticky top-6">
                   <DonateBox compact />
                   
-                  {/* Active Campaigns & Impact */}
+                  {/* MODIFIED: Active campaigns are now specific to Ternafit's first year of operation */}
                   <div className="bg-white rounded-lg shadow-md p-6 mt-6">
                     <h3 className="text-lg font-serif font-semibold mb-4">{t("work.activeCampaigns.title")}</h3>
-                    <ul className="space-y-3">
-                      <li className="flex items-start gap-2">
-                        <span className="text-2xl">📢</span>
+                    <ul className="space-y-4">
+                      <li className="flex items-start gap-3">
+                        <span className="text-2xl mt-1">🚀</span>
                         <div>
-                          <strong className="block">{t("work.activeCampaigns.standWithTigray.title")}</strong>
+                          <strong className="block">{t("work.activeCampaigns.launchYearFund.title")}</strong>
                           <span className="text-sm block text-muted-foreground">
-                            {t("work.activeCampaigns.standWithTigray.desc")}
+                            {t("work.activeCampaigns.launchYearFund.desc")}
                           </span>
                         </div>
                       </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-2xl">🤝</span>
+                      <li className="flex items-start gap-3">
+                        <span className="text-2xl mt-1">🤝</span>
                         <div>
-                          <strong className="block">{t("work.activeCampaigns.partnerships.title")}</strong>
+                          <strong className="block">{t("work.activeCampaigns.supportADS.title")}</strong>
                           <span className="text-sm block text-muted-foreground">
-                            {t("work.activeCampaigns.partnerships.desc")}
+                            {t("work.activeCampaigns.supportADS.desc")}
                           </span>
                         </div>
                       </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-2xl">💬</span>
+                      <li className="flex items-start gap-3">
+                        <span className="text-2xl mt-1">🌐</span>
                         <div>
-                          <strong className="block">{t("work.activeCampaigns.mediaOutreach.title")}</strong>
+                          <strong className="block">{t("work.activeCampaigns.digitalReach.title")}</strong>
                           <span className="text-sm block text-muted-foreground">
-                            {t("work.activeCampaigns.mediaOutreach.desc")}
+                            {t("work.activeCampaigns.digitalReach.desc")}
                           </span>
                         </div>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-2xl">🤝</span>
-                        <div>
-                          <strong className="block">{t("work.activeCampaigns.adsPartnership.title")}</strong>
-                          <span className="text-sm block text-muted-foreground">
-                            {t("work.activeCampaigns.adsPartnership.desc")}
-                          </span>
-                        </div>
-                      </li>
-                      <li className="text-xs text-muted-foreground mt-4">
-                        {t("work.activeCampaigns.callToAction")}
                       </li>
                     </ul>
                   </div>
@@ -234,4 +207,3 @@ const WorkPage = () => {
 };
 
 export default WorkPage;
-

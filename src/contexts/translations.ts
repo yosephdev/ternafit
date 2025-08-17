@@ -9,6 +9,18 @@ export type Translations = {
 
 // Initial translations
 export const initialTranslations: Translations = {
+    'nav.ourWork': { en: 'Our Work', sv: 'Vårt arbete' }, // NEW: Main dropdown label
+    'nav.ourApproach': { en: 'Our Approach', sv: 'Vårt tillvägagångssätt' }, // NEW: Replaces old "Our Work" link
+    'nav.impactAndStories': { en: 'Impact & Stories', sv: 'Påverkan & Berättelser' }, // NEW: Combines two previous links
+    'nav.newsAndUpdates': { en: 'News & Updates', sv: 'Nyheter & Uppdateringar' }, // NEW: Merges "Blog" and "News"
+    'footer.contactUs': { en: 'Contact Us', sv: 'Kontakta oss' },
+    'nav.scholarshipProgram': { en: 'Scholarship Program', sv: 'Stipendieprogram' },
+    'nav.stories': { en: 'Stories', sv: 'Berättelser' },
+    'nav.impact': { en: 'Impact', sv: 'Påverkan' },
+    'path.scholarshipProgram': { en: '/scholarship-program', sv: '/scholarship-program' },
+    // Custom paths for new pages
+    'path.stories': { en: '/stories', sv: '/stories' },
+    'path.impact': { en: '/impact', sv: '/impact' },
     // Navigation
     'nav.home': { en: 'Home', sv: 'Hem' },
     'nav.about': { en: 'About', sv: 'Om oss' },
@@ -230,6 +242,63 @@ export const initialTranslations: Translations = {
     
     // Contact Email Information
     'contact.email.title': { en: 'Email', sv: 'E-post' },
+        // Footer translations
+        'footer.tagline': {
+            en: 'A Swedish-based non-profit organization dedicated to empowering communities in Tigray through partnership and support.',
+            sv: 'En svensk ideell organisation som arbetar för att stärka samhällen i Tigray genom partnerskap och stöd.'
+        },
+        'footer.orgNumber': {
+            en: 'Org.nr',
+            sv: 'Org.nr'
+        },
+        'footer.country': {
+            en: 'Sweden',
+            sv: 'Sverige'
+        },
+        'footer.explore': {
+            en: 'Explore',
+            sv: 'Utforska'
+        },
+        'footer.getInvolved': {
+            en: 'Get Involved',
+            sv: 'Engagera dig'
+        },
+        'footer.ourImpact': {
+            en: 'Our Impact',
+            sv: 'Vår påverkan'
+        },
+        'footer.impactStories': {
+            en: 'Impact Stories',
+            sv: 'Berättelser om påverkan'
+        },
+        'footer.volunteer': {
+            en: 'Volunteer With Us',
+            sv: 'Volontärarbeta med oss'
+        },
+        'footer.annualReport': {
+            en: 'Annual Report 2024',
+            sv: 'Årsrapport 2024'
+        },
+        'footer.knowledgeBase': {
+            en: 'Tigray Knowledge Base',
+            sv: 'Tigray Kunskapsbas'
+        },
+        'footer.newsletterDescription': {
+            en: 'Stay updated with our work and the latest stories of impact from the field.',
+            sv: 'Håll dig uppdaterad om vårt arbete och de senaste berättelserna om påverkan från fältet.'
+        },
+        'footer.rights': {
+            en: 'All Rights Reserved.',
+            sv: 'Alla rättigheter förbehållna.'
+        },
+        'footer.privacy': {
+            en: 'Privacy Policy',
+            sv: 'Integritetspolicy'
+        },
+        'footer.terms': {
+            en: 'Terms of Service',
+            sv: 'Användarvillkor'
+        },
     
     // Contact Office Hours
     'contact.officeHours.title': { en: 'Office Hours', sv: 'Kontorstider' },
@@ -266,18 +335,6 @@ export const initialTranslations: Translations = {
     'privacy.hero.subtitle': { en: 'Learn how we collect, use, and protect your personal information.', sv: 'Lär dig hur vi samlar in, använder och skyddar din personliga information.' },
 
     // Footer
-    'footer.tagline': { en: 'Supporting the Tigrean community through humanitarian aid, education, and advocacy.', sv: 'Stödjer det tigreanska samhället genom humanitärt bistånd, utbildning och påverkansarbete.' },
-    'footer.about': { en: 'About', sv: 'Om oss' },
-    'footer.work': { en: 'Our Work', sv: 'Vårt arbete' },
-    'footer.blog': { en: 'Blog', sv: 'Blogg' },
-    'footer.news': { en: 'News', sv: 'Nyheter' },
-    'footer.donate': { en: 'Donate', sv: 'Donera' },
-    'footer.terms': { en: 'Terms of Service', sv: 'Användarvillkor' },
-    'footer.contact': { en: 'Contact', sv: 'Kontakt' },
-    'footer.quickLinks': { en: 'Quick Links', sv: 'Snabblänkar' },
-    'footer.newsletterTitle': { en: 'Stay Updated', sv: 'Håll dig uppdaterad' },
-    // 'footer.newsletterDescription': { en: 'Stay updated with our latest news and events.', sv: 'Håll dig uppdaterad med våra senaste nyheter och evenemang.' },
-    'footer.socialMedia': { en: 'Follow Us', sv: 'Följ oss' },
 
     // Homepage Donation Section
     'home.donate.title': { en: 'Make a Difference Today', sv: 'Gör skillnad idag' },
@@ -394,14 +451,6 @@ export const initialTranslations: Translations = {
 
 
     // Footer
-    'footer.rights': {
-        en: ' 2025 Ternafit. All rights reserved.',
-        sv: ' 2025 Ternafit. Alla rättigheter förbehållna.'
-    },
-    'footer.privacy': { en: 'Privacy Policy', sv: 'Integritetspolicy' },
-    'footer.supportUs': { en: 'Support Us', sv: 'Stöd oss' },
-    'footer.country': { en: 'Sweden', sv: 'Sverige' },
-    'footer.newsletterDescription': { en: 'Stay updated with our latest news and events.', sv: 'Håll dig uppdaterad med våra senaste nyheter och evenemang.' },
 
     // Homepage Donation Section
     // (Duplicate keys removed above. This section can be deleted.)

@@ -47,6 +47,14 @@ const Hero = () => {
         </video>
         <div className="absolute inset-0 bg-black/30"></div>
       </div>
+        {/* Tigray Knowledge Base Banner */}
+        {/* <div className="mt-8 bg-yellow-50 border border-yellow-300 rounded-lg shadow p-6 max-w-2xl mx-auto text-center">
+          <h2 className="text-2xl font-bold text-terracotta mb-2">Welcome to the Tigray Knowledge Base</h2>
+          <p className="text-base text-gray-700 mb-4">The World's Most Comprehensive Resource on Tigray, Ethiopia. Ternafit presents the definitive, multimedia-rich knowledge base covering every aspect of Tigray—from ancient civilizations to modern challenges. Built for students, journalists, researchers, policymakers, and anyone seeking authoritative information about this historic region.</p>
+          <a href="https://tigray.ternafit.org/" target="_blank" rel="noopener noreferrer">
+            <Button className="bg-terracotta text-white font-semibold px-6 py-3 rounded shadow hover:bg-terracotta/90">Explore Knowledge Base</Button>
+          </a>
+        </div> */}
       
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 py-20 flex flex-col items-center text-center">
@@ -76,6 +84,18 @@ const Hero = () => {
         <div className="mt-12 bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3 text-white text-sm">
           <span className="font-semibold">3 {t('home.donations.people')}</span> {t('home.donations.donatedToday')}
         </div>
+
+        {/* Testimonial Section */}
+        <div className="mt-8 max-w-xl mx-auto bg-white/80 rounded-lg shadow p-6">
+          <div className="flex items-center mb-4">
+            <img src="/images/team/selam.png" alt="Selam" className="w-12 h-12 rounded-full object-cover mr-3" />
+            <div>
+              <span className="font-semibold text-terracotta">Selam</span>
+              <span className="ml-2 text-xs text-muted-foreground">Student</span>
+            </div>
+          </div>
+          <blockquote className="italic text-gray-700">“Thanks to Ternafit's scholarship, I can continue my education and dream of becoming a doctor.”</blockquote>
+  </div>
       </div>
     </div>
   );

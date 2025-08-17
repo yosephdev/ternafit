@@ -1,4 +1,3 @@
-
 export const workTranslations = {
   'work.title': { en: 'Our Work', sv: 'Vårt arbete' },
   'work.intro': { 
@@ -37,7 +36,36 @@ export const workTranslations = {
     sv: 'Vi söker alltid engagerade volontärer som kan hjälpa oss i vårt uppdrag. Oavsett om du har specialiserade färdigheter eller helt enkelt vill bidra med din tid, välkomnar vi ditt stöd.'
   },
   'work.join': { en: 'Join Our Team', sv: 'Gå med i vårt team' },
-  'work.whatwedo': { en: 'What We Do', sv: 'Vad vi gör' },
+  'work.whatWeDo.title': { en: 'What We Do', sv: 'Vad vi gör' },
+  'work.whatWeDo.fundraising.title': { en: 'Fundraising', sv: 'Insamling' },
+  'work.whatWeDo.fundraising.desc': { en: 'We raise funds in Sweden and internationally to support vital projects in Tigray.', sv: 'Vi samlar in medel i Sverige och internationellt för att stödja viktiga projekt i Tigray.' },
+  'work.whatWeDo.digitalAdvocacy.title': { en: 'Digital Advocacy', sv: 'Digitalt påverkansarbete' },
+  'work.whatWeDo.digitalAdvocacy.desc': { en: 'We use digital platforms to raise awareness and mobilize support for Tigray.', sv: 'Vi använder digitala plattformar för att öka medvetenheten och mobilisera stöd för Tigray.' },
+  'work.whatWeDo.partnershipSupport.title': { en: 'Partnership Support', sv: 'Partnerskapsstöd' },
+  'work.whatWeDo.partnershipSupport.desc': { en: 'We build and support partnerships with organizations working on the ground in Tigray.', sv: 'Vi bygger och stödjer partnerskap med organisationer som arbetar på plats i Tigray.' },
+  'work.whatWeDo.transparencyReporting.title': { en: 'Transparency & Reporting', sv: 'Transparens & rapportering' },
+  'work.whatWeDo.transparencyReporting.desc': { en: 'We report openly on our activities and finances to build trust with donors and partners.', sv: 'Vi rapporterar öppet om vår verksamhet och ekonomi för att bygga förtroende med givare och partners.' },
+
+  'work.approach.title': { en: 'Our Approach', sv: 'Vårt tillvägagångssätt' },
+  'work.approach.community.title': { en: 'Community-Led', sv: 'Samhällsledd' },
+  'work.approach.community.desc': { en: 'We involve local communities in all stages of our work, from planning to implementation and evaluation.', sv: 'Vi involverar lokala samhällen i alla stadier av vårt arbete, från planering till implementering och utvärdering.' },
+  'work.approach.sustainable.title': { en: 'Sustainable', sv: 'Hållbar' },
+  'work.approach.sustainable.desc': { en: 'We develop solutions that can be maintained and built upon by local communities over time.', sv: 'Vi utvecklar lösningar som kan underhållas och byggas vidare på av lokala samhällen över tid.' },
+  'work.approach.inclusive.title': { en: 'Inclusive', sv: 'Inkluderande' },
+  'work.approach.inclusive.desc': { en: 'We ensure that our programs are accessible to all members of the community, regardless of age, gender, or ability.', sv: 'Vi säkerställer att våra program är tillgängliga för alla medlemmar i samhället, oavsett ålder, kön eller förmåga.' },
+  'work.approach.transparent.title': { en: 'Transparent', sv: 'Transparent' },
+  'work.approach.transparent.desc': { en: 'We maintain open communication with our donors and partners about how resources are used and the impact they create.', sv: 'Vi upprätthåller öppen kommunikation med våra givare och partners om hur resurser används och vilken påverkan de skapar.' },
+
+  'work.focusAreas.title': { en: 'Focus Areas', sv: 'Fokusområden' },
+  'work.focusAreas.partnershipSubtitle': { en: 'Implemented by our partner ADS in Tigray', sv: 'Genomförs av vår partner ADS i Tigray' },
+  'work.focusAreas.girlsEducation.title': { en: "Girls' Education", sv: 'Flickors utbildning' },
+  'work.focusAreas.girlsEducation.desc': { en: 'Supporting girls to stay in school and achieve their dreams.', sv: 'Stödjer flickor att stanna i skolan och uppnå sina drömmar.' },
+  'work.focusAreas.maternalHealth.title': { en: 'Maternal Health', sv: 'Mödravård' },
+  'work.focusAreas.maternalHealth.desc': { en: 'Improving health outcomes for mothers and newborns.', sv: 'Förbättrar hälsan för mödrar och nyfödda.' },
+  'work.focusAreas.waterAndFood.title': { en: 'Water & Food Security', sv: 'Vatten & livsmedelssäkerhet' },
+  'work.focusAreas.waterAndFood.desc': { en: 'Ensuring access to clean water and nutritious food.', sv: 'Säkerställer tillgång till rent vatten och näringsrik mat.' },
+  'work.focusAreas.economicEmpowerment.title': { en: 'Economic Empowerment', sv: 'Ekonomisk egenmakt' },
+  'work.focusAreas.economicEmpowerment.desc': { en: 'Helping families build sustainable livelihoods.', sv: 'Hjälper familjer att bygga hållbara försörjningsmöjligheter.' },
   
   // New translations for work areas
   'work.area.emergency': { en: 'Emergency Relief', sv: 'Akut nödhjälp' },
@@ -81,5 +109,14 @@ export const workTranslations = {
   'work.project.water.description': {
     en: 'Installing wells in 12 villages',
     sv: 'Installerar brunnar i 12 byar'
-  }
+  },
+
+  // Active Campaigns
+  'work.activeCampaigns.title': { en: 'Active Campaigns', sv: 'Aktiva kampanjer' },
+  'work.activeCampaigns.launchYearFund.title': { en: 'Launch Year Fund', sv: 'Startårsfonden' },
+  'work.activeCampaigns.launchYearFund.desc': { en: 'Kickstarting our first year with a fund to support urgent needs and new initiatives in Tigray.', sv: 'Kickstartar vårt första år med en fond för att stödja akuta behov och nya initiativ i Tigray.' },
+  'work.activeCampaigns.supportADS.title': { en: 'Support for ADS', sv: 'Stöd till ADS' },
+  'work.activeCampaigns.supportADS.desc': { en: 'Providing resources and partnership to Anenitigray Development Services (ADS) for on-the-ground impact.', sv: 'Tillhandahåller resurser och partnerskap till Anenitigray Development Services (ADS) för konkret påverkan på plats.' },
+  'work.activeCampaigns.digitalReach.title': { en: 'Digital Reach', sv: 'Digital räckvidd' },
+  'work.activeCampaigns.digitalReach.desc': { en: 'Expanding our online presence to connect with supporters and raise awareness globally.', sv: 'Utökar vår närvaro online för att nå supportrar och öka medvetenheten globalt.' }
 };

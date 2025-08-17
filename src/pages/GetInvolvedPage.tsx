@@ -41,6 +41,11 @@ const GetInvolvedPage = () => {
           <p className="text-lg max-w-2xl mx-auto">
             {t("getInvolved.hero.subtitle")}
           </p>
+          <div className="mt-8">
+            <a href="/reports/annual-report-2024.pdf" target="_blank" rel="noopener noreferrer" className="inline-block bg-terracotta text-white font-semibold px-6 py-3 rounded shadow hover:bg-terracotta/90">
+              Download Annual Report
+            </a>
+          </div>
         </div>
       </section>
 
@@ -61,6 +66,14 @@ const GetInvolvedPage = () => {
               </Card>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-2xl font-bold mb-4">Learn How to Volunteer</h2>
+          <p className="text-lg max-w-2xl mx-auto mb-6">Even if opportunities are limited, your time and skills can make a difference. Contact us to learn more about volunteering with Ternafit.</p>
+          <a href="mailto:info@ternafit.org" className="inline-block bg-terracotta text-white font-semibold px-6 py-3 rounded shadow hover:bg-terracotta/90">Contact Us to Volunteer</a>
         </div>
       </section>
     </main>
