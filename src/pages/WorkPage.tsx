@@ -82,11 +82,20 @@ const WorkPage = () => {
     <>
       <main className="min-h-screen">
         <section className="bg-muted py-14">
-          <div className="container mx-auto px-4 text-center">
-            <h1 className="text-4xl font-serif font-bold mb-3">{t("work.title")}</h1>
-            <p className="text-lg max-w-2xl mx-auto">
-              {t("work.hero.subtitle")}
-            </p>
+          <div className="container mx-auto px-4">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <h1 className="text-4xl font-serif font-bold mb-4">{t("work.title")}</h1>
+                <p className="text-lg">{t("work.hero.subtitle")}</p>
+              </div>
+              <div className="flex justify-center">
+                <img 
+                  src="/images/stories/tesfay-farmer.webp" 
+                  alt="Community agricultural work in Tigray" 
+                  className="rounded-lg shadow-lg max-w-sm w-full"
+                />
+              </div>
+            </div>
           </div>
         </section>
 

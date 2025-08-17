@@ -32,11 +32,22 @@ const AboutPage = () => {
       {/* Welcome & Intro */}
       <section className="bg-muted py-14">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-serif font-bold text-center mb-4">{t("about.title")} <span className="block text-lg font-normal mt-2">(Tigrinya: ጠርናፊት)</span></h1>
-          <p className="text-lg text-center max-w-2xl mx-auto">
-            <strong>{t("about.welcome")}</strong><br />
-            {t("about.intro")}
-          </p>
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h1 className="text-4xl font-serif font-bold mb-4">{t("about.title")} <span className="block text-lg font-normal mt-2">(Tigrinya: ጠርናፊት)</span></h1>
+              <p className="text-lg max-w-2xl">
+                <strong>{t("about.welcome")}</strong><br />
+                {t("about.intro")}
+              </p>
+            </div>
+            <div className="flex justify-center">
+              <img 
+                src="/images/figures/yohannes-iv.webp" 
+                alt="Emperor Yohannes IV - Historical figure from Tigray" 
+                className="rounded-lg shadow-lg max-w-sm w-full"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -47,15 +58,24 @@ const AboutPage = () => {
             <div className="md:col-span-2 space-y-10">
 
               {/* Mission statement */}
-              <div>
-                <h2 className="text-2xl font-serif font-bold mb-4">{t("about.mission.title")}</h2>
-                <p className="mb-4">
-                  {t("about.mission.text1")}
-                </p>
-                <ul className="list-disc ml-6 space-y-2 text-muted-foreground">
-                  <li>{t("about.mission.text2")}</li>
-                  <li>{t("about.mission.text3")}</li>
-                </ul>
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <h2 className="text-2xl font-serif font-bold mb-4">{t("about.mission.title")}</h2>
+                  <p className="mb-4">
+                    {t("about.mission.text1")}
+                  </p>
+                  <ul className="list-disc ml-6 space-y-2 text-muted-foreground">
+                    <li>{t("about.mission.text2")}</li>
+                    <li>{t("about.mission.text3")}</li>
+                  </ul>
+                </div>
+                <div className="flex justify-center">
+                  <img 
+                    src="/images/figures/gebrehiwot-baykedagn.webp" 
+                    alt="Gebrehiwot Baykedagn - Historical figure from Tigray" 
+                    className="rounded-lg shadow-lg max-w-sm w-full"
+                  />
+                </div>
               </div>
 
               {/* How We Support */}

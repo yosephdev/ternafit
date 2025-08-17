@@ -45,7 +45,13 @@ const Header = () => {
         { path: t("path.scholarshipProgram"), labelKey: "nav.scholarshipProgram" },
       ]
     },
-    { path: t("path.news"), labelKey: "nav.newsAndUpdates" },
+    { 
+      labelKey: "nav.newsAndUpdates",
+      subLinks: [
+        { path: t("path.news"), labelKey: "nav.news" },
+        { path: t("path.blog"), labelKey: "nav.blog" },
+      ]
+    },
     { path: t("path.getInvolved"), labelKey: "nav.getInvolved" },
   ];
 

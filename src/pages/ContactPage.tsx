@@ -131,8 +131,19 @@ const ContactPage: React.FC = () => {
       {/* Hero Section */}
       <section className="bg-muted py-14">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-serif font-bold text-center text-gray-800">{t('contact.hero.title')}</h1>
-          <p className="text-center mt-4 text-lg max-w-2xl mx-auto text-gray-600">{t('contact.hero.subtitle')}</p>
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h1 className="text-4xl font-serif font-bold mb-4 text-gray-800">{t('contact.hero.title')}</h1>
+              <p className="text-lg text-gray-600">{t('contact.hero.subtitle')}</p>
+            </div>
+            <div className="flex justify-center">
+              <img 
+                src="/images/figures/gebrehiwot-baykedagn.webp" 
+                alt="Contact us to get involved" 
+                className="rounded-lg shadow-lg max-w-sm w-full"
+              />
+            </div>
+          </div>
         </div>
       </section>
 

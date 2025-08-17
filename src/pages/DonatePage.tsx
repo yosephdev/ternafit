@@ -34,10 +34,21 @@ const DonatePage = () => {
       {/* Page Header */}
       <section className="bg-muted py-14">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-serif font-bold text-center">{t("donate.title")}</h1>
-          <p className="text-center mt-4 text-muted-foreground max-w-2xl mx-auto">
-            {t("donate.subtitle")}
-          </p>
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h1 className="text-4xl font-serif font-bold mb-4">{t("donate.title")}</h1>
+              <p className="text-muted-foreground">
+                {t("donate.subtitle")}
+              </p>
+            </div>
+            <div className="flex justify-center">
+              <img 
+                src="/images/stories/abeba-liya.webp" 
+                alt="Support our work through donations" 
+                className="rounded-lg shadow-lg max-w-sm w-full"
+              />
+            </div>
+          </div>
         </div>
       </section>
 

@@ -29,8 +29,8 @@ const HomePage = () => {
           <div className="flex flex-col md:flex-row gap-12 items-center">
             <div className="md:w-1/2">
               <img
-                src="/images/projects/hero-international.webp"
-                alt="Ternafit Impact"
+                src="/images/stories/abeba-liya.webp"
+                alt="Success story - Community impact in Tigray"
                 className="rounded-lg shadow-lg w-full h-auto object-cover"
               />
             </div>
@@ -105,7 +105,7 @@ const HomePage = () => {
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="h-48 overflow-hidden">
                 <img
-                  src="/images/projects/emergency-relief.webp"
+                  src="/images/stories/selam-story.webp"
                   alt="Emergency Relief"
                   className="w-full h-full object-cover"
                 />
@@ -123,7 +123,7 @@ const HomePage = () => {
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="h-48 overflow-hidden">
                 <img
-                  src="/images/projects/youth-education.webp"
+                  src="/images/stories/tesfay-farmer.webp"
                   alt="Education & Youth"
                   className="w-full h-full object-cover"
                 />
