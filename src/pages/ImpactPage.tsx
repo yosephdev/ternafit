@@ -25,6 +25,17 @@ const ImpactPage = () => {
     if (!mapRef.current) return;
     // Prevent multiple map initializations
     if (mapRef.current.children.length > 0) return;
+    
+    // Create custom marker icon
+    const customIcon = L.icon({
+      iconUrl: '/images/marker-icon.png',
+      iconSize: [25, 41], // size of the icon
+      iconAnchor: [12, 41], // point of the icon which will correspond to marker's location
+      popupAnchor: [1, -34], // point from which the popup should open relative to the iconAnchor
+      shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+      shadowSize: [41, 41]
+    });
+    
     // Initialize the map
     const map = L.map(mapRef.current).setView([13.9, 39.0], 8);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -38,7 +49,7 @@ const ImpactPage = () => {
       { name: "Shire (Inda Selassie)", lat: 14.100, lng: 38.283, projects: ["Hub for western Tigray operations","Food security and resilience projects","Support for displaced families"] }
     ];
     projectSites.forEach(site => {
-      const marker = L.marker([site.lat, site.lng]).addTo(map);
+      const marker = L.marker([site.lat, site.lng], { icon: customIcon }).addTo(map);
       let popupContent = `<h3 style='color:#c05621;margin:0 0 10px;'>${site.name}</h3><p><strong>Key Project Areas:</strong></p><ul>`;
       site.projects.forEach(project => { popupContent += `<li>${project}</li>`; });
       popupContent += `</ul>`;
