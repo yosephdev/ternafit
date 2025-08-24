@@ -104,6 +104,28 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Partner Trust Signals - Following Gemini Strategic Recommendations */}
+        <div className="border-t border-gray-300 mt-8 pt-6">
+          <h3 className="text-lg font-bold mb-4 text-center">Our Trusted Partners</h3>
+          <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-gray-600">
+            <div className="text-center">
+              <p className="font-medium">Anenitigray Development Services (ADS)</p>
+              <p className="text-xs">Local Implementing Partner - Mekelle, Tigray</p>
+            </div>
+            <div className="text-center">
+              <p className="font-medium">Tigray Disaster Relief Fund (TDRF)</p>
+              <p className="text-xs">Verified Partnership Network</p>
+            </div>
+            <div className="text-center">
+              <p className="font-medium">Best Tigrean Community Support Initiative 2025</p>
+              <p className="text-xs">Acquisition International Award Winner</p>
+            </div>
+          </div>
+          <p className="text-center text-xs text-gray-500 mt-4">
+            Part of the Alliance of Civil Society Organizations of Tigray (ACSOT) network
+          </p>
+        </div>
+
         {/* Bottom Footer */}
         <div className="border-t border-gray-300 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-600">
           {/* --- MODIFIED: Copyright year is now dynamic --- */}

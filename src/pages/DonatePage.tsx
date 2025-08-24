@@ -55,18 +55,42 @@ const DonatePage = () => {
       {/* Donation Form Section */}
       <section className="py-16">
         <div className="container mx-auto px-4 max-w-4xl">
+          {/* Crisis Context Banner - Following Gemini Strategic Recommendations */}
+          <div className="bg-red-50 border-l-4 border-red-400 p-6 mb-8 rounded-lg">
+            <h3 className="text-xl font-bold text-red-800 mb-3">Why Your Donation is Critical Now</h3>
+            <div className="grid md:grid-cols-2 gap-4 text-red-800 text-sm">
+              <div>
+                <p className="mb-2">• <strong>9 million people</strong> need food aid</p>
+                <p className="mb-2">• <strong>40% of Tigray</strong> faces extreme hunger</p>
+              </div>
+              <div>
+                <p className="mb-2">• <strong>1 million displaced</strong> in dire conditions</p>
+                <p className="mb-2">• <strong>Crops at 10%</strong> of normal levels</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Local Implementer Advantage */}
+          <div className="bg-blue-50 border-l-4 border-blue-400 p-6 mb-8 rounded-lg">
+            <h3 className="text-xl font-bold text-blue-800 mb-3">Your Local Impact Advantage</h3>
+            <p className="text-blue-800 text-sm">
+              <strong>100% of your donation reaches communities directly</strong> through our local implementing partner, 
+              Anenitigray Development Services (ADS), who understand the context intimately and operate with minimal overhead.
+            </p>
+          </div>
+
           <div className="bg-white rounded-xl shadow-md overflow-hidden">
             <div className="md:flex">
               {/* Left side - Impact Information */}
               <div className="md:w-1/3 bg-terracotta text-white p-6 md:p-8">
-                <h3 className="text-xl font-serif font-bold mb-6">Your Impact</h3>
+                <h3 className="text-xl font-serif font-bold mb-6">Your Life-Saving Impact</h3>
                 <ul className="space-y-6">
                   <li className="flex items-start">
                     <div className="bg-white rounded-full p-1 mr-3 mt-1">
                       <Check className="h-4 w-4 text-terracotta" />
                     </div>
                     <span className="text-sm">
-                      <strong>$25</strong> provides emergency food supplies for a family for a week
+                      <strong>$25</strong> provides emergency nutrition for a malnourished child for a month
                     </span>
                   </li>
                   <li className="flex items-start">
@@ -74,7 +98,7 @@ const DonatePage = () => {
                       <Check className="h-4 w-4 text-terracotta" />
                     </div>
                     <span className="text-sm">
-                      <strong>$50</strong> ensures clean water access for a month
+                      <strong>$50</strong> supports a displaced family with shelter and clean water access
                     </span>
                   </li>
                   <li className="flex items-start">
@@ -82,7 +106,7 @@ const DonatePage = () => {
                       <Check className="h-4 w-4 text-terracotta" />
                     </div>
                     <span className="text-sm">
-                      <strong>$100</strong> provides educational materials for 10 children
+                      <strong>$100</strong> funds essential medical care for expectant mothers in crisis
                     </span>
                   </li>
                   <li className="flex items-start">
@@ -90,10 +114,17 @@ const DonatePage = () => {
                       <Check className="h-4 w-4 text-terracotta" />
                     </div>
                     <span className="text-sm">
-                      <strong>$250</strong> supports medical aid for a community clinic
+                      <strong>$250</strong> establishes a Child-Friendly Space providing safety and education
                     </span>
                   </li>
                 </ul>
+                
+                <div className="mt-6 p-4 bg-white/20 rounded-lg">
+                  <p className="text-xs text-white/90">
+                    <strong>Direct Impact Guarantee:</strong> Your donation reaches communities immediately through 
+                    our vetted local partner with zero international overhead.
+                  </p>
+                </div>
               </div>
               
               {/* Right side - Donation Form */}

@@ -101,6 +101,24 @@ const WorkPage = () => {
 
         <section className="py-16">
           <div className="container mx-auto px-4">
+            {/* Crisis Context Section - Following Gemini Strategic Recommendations */}
+            <div className="bg-red-50 border-l-4 border-red-400 p-6 mb-12 rounded-lg">
+              <h3 className="text-xl font-bold text-red-800 mb-3">Humanitarian Crisis Context</h3>
+              <div className="grid md:grid-cols-2 gap-6 text-red-800">
+                <div>
+                  <p className="mb-2"><strong>9 million people</strong> require food aid across the region</p>
+                  <p className="mb-2"><strong>40% of Tigray's population</strong> faces extreme food insecurity</p>
+                </div>
+                <div>
+                  <p className="mb-2"><strong>1 million internally displaced</strong> persons in dire conditions</p>
+                  <p className="mb-2"><strong>Crop production at 10%</strong> of pre-war levels</p>
+                </div>
+              </div>
+              <p className="text-red-800 mt-4 font-medium">
+                Every program below represents a direct, life-saving response to these verified humanitarian needs.
+              </p>
+            </div>
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
               <div className="md:col-span-2 space-y-12">
                 <section>

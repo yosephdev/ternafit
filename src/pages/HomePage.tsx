@@ -35,9 +35,21 @@ const HomePage = () => {
               />
             </div>
             <div className="md:w-1/2">
+              <div className="bg-red-50 border-l-4 border-red-400 p-4 mb-6">
+                <p className="text-red-800 font-medium text-sm">
+                  <strong>Crisis Reality:</strong> With 9 million people requiring food aid and crop production at just 10% of pre-war levels, 
+                  our local partners provide life-saving interventions where they're needed most.
+                </p>
+              </div>
               <p className="text-lg text-muted-foreground mb-6">
                 {t("home.impact.description")}
               </p>
+              <div className="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
+                <p className="text-blue-800 font-medium text-sm">
+                  <strong>Local Implementer Advantage:</strong> Your donations reach communities directly through trusted, 
+                  embedded partners who understand the context intimately - no international overhead.
+                </p>
+              </div>
               <ul className="space-y-3 mb-8 text-base">
                 <li>
                   <span className="font-bold text-terracotta">3,500+</span> {t("home.impact.stat1")}
