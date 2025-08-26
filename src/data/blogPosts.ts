@@ -117,7 +117,7 @@ Tillsammans är vi starkare. Tillsammans kan vi bygga en ljusare framtid för Ti
     author: "Yoseph Berhane",
     date: "2025-07-24",
     tags: ["Partnership", "Community", "Award", "Diaspora"],
-    imageUrl: "/images/ternafit-ai-magazine.webp"
+    imageUrl: "/images/education-group.webp"
   },
     {
         id: 1,

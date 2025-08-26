@@ -117,7 +117,7 @@ const HomePage = () => {
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="h-48 overflow-hidden">
                 <img
-                  src="/images/stories/selam-story.webp"
+                  src="/images/stories/tesfay-farmer.webp"
                   alt="Emergency Relief"
                   className="w-full h-full object-cover"
                 />
@@ -135,7 +135,7 @@ const HomePage = () => {
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="h-48 overflow-hidden">
                 <img
-                  src="/images/stories/tesfay-farmer.webp"
+                  src="/images/stories/selam-story.webp"
                   alt="Education & Youth"
                   className="w-full h-full object-cover"
                 />
