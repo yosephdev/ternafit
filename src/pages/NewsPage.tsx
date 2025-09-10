@@ -116,7 +116,7 @@ const NewsPage = () => {
                       }`}
                       onClick={() => { setActiveCategory(category); setCurrentPage(1); }}
                     >
-                      {t(`categories.${category.toLowerCase().replace(/ & /g, '_')}`) || category}
+                      {t(`news.categories.${category.toLowerCase().replace(/ & /g, '_').replace(/ /g, '_')}`) || category}
                     </button>
                   ))}
                 </div>

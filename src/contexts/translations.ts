@@ -138,6 +138,7 @@ export const initialTranslations: Translations = {
     'news.categories.agriculture': { en: 'Agriculture', sv: 'Jordbruk' },
     'news.categories.reconstruction': { en: 'Reconstruction', sv: 'Återuppbyggnad' },
     'news.categories.peace': { en: 'Peace & Reconciliation', sv: 'Fred & Försoning' },
+    'news.categories.water_&_sanitation': { en: 'Water & Sanitation', sv: 'Vatten & Sanitet' },
     'news.categories.general': { en: 'General', sv: 'Allmänt' },
 
     // Pagination
