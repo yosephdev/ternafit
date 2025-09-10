@@ -32,7 +32,7 @@ export const blogPosts: BlogPost[] = [
 
 This isn't just about scholarships; it's about rebuilding lives, restoring hope, and securing the future of Tigray.
 
-### Our Rigorous Selection Process in Action
+## Our Rigorous Selection Process in Action
 
 Our dedicated local implementing partner, ADS, is actively working on the ground in Mekelle and surrounding areas. Their crucial work includes:
 
@@ -46,7 +46,7 @@ Our dedicated local implementing partner, ADS, is actively working on the ground
 
 **Documenting Student Stories:** Capturing powerful individual narratives to ensure accountability and to share the profound impact of your generosity.
 
-### Why Our Local Partnership with ADS is Indispensable
+## Why Our Local Partnership with ADS is Indispensable
 
 The integrity and success of our selection process are a direct testament to our vital partnership with ADS:
 
@@ -58,7 +58,7 @@ The integrity and success of our selection process are a direct testament to our
 
 **Built-in Trust:** Years of dedicated community service have cultivated the trust essential for families to openly share their stories and urgent needs.
 
-### Diverse Scholarship Opportunities Available
+## Diverse Scholarship Opportunities Available
 
 We are currently selecting recipients for several impactful scholarship tracks:
 
@@ -68,18 +68,18 @@ We are currently selecting recipients for several impactful scholarship tracks:
 
 **Gebrehiwot Baykedagn Scholarship:** Supporting students dedicated to pursuing studies that will directly contribute to Tigray's long-term development and prosperity.
 
-### Urgent Call: Your Support Fuels Tigray's Future
+## Urgent Call: Your Support Fuels Tigray's Future
 
 While the rigorous selection of these deserving students is underway, **we face an urgent need for continued financial support.** Your timely contribution ensures that every student identified through this meticulous process can actually receive the education they deserve.
 
-#### How Every Dollar Makes an Immediate Difference:
+### How Every Dollar Makes an Immediate Difference:
 
 - **$50:** Equips one student with essential school supplies for an entire semester.
 - **$100:** Provides a student with school uniforms and covers basic necessities.
 - **$250:** Funds one student's full academic year, including fees and all materials.
 - **$500:** Supports a complete scholarship, encompassing academic costs and crucial mentorship.
 
-#### Why Your Donation is Critical Right Now:
+### Why Your Donation is Critical Right Now:
 
 **100% Direct Impact:** Every single dollar you donate goes straight to students through our trusted local partner, ADS, with zero diversions.
 
@@ -89,7 +89,7 @@ While the rigorous selection of these deserving students is underway, **we face 
 
 **Verified Recipients:** Our exhaustive selection process guarantees that your support reaches the most vulnerable and truly deserving individuals.
 
-### The Profound Impact of Education in Tigray
+## The Profound Impact of Education in Tigray
 
 In a region where devastating conflict has disrupted education for millions, each scholarship is a beacon of hope. It represents:
 
@@ -109,7 +109,7 @@ Ready to make a life-changing impact? Visit our donation page or learn more abou
 
 Detta handlar inte bara om stipendier; det handlar om att återuppbygga liv, återställa hopp och säkra Tigrays framtid.
 
-### Vår rigorösa urvalsprocess i aktion
+## Vår rigorösa urvalsprocess i aktion
 
 Vår dedikerade lokala implementeringspartner, ADS, arbetar aktivt på marken i Mekelle och omkringliggande områden. Deras avgörande arbete inkluderar:
 
@@ -123,7 +123,7 @@ Vår dedikerade lokala implementeringspartner, ADS, arbetar aktivt på marken i 
 
 **Dokumentera studentberättelser:** Fånga kraftfulla individuella berättelser för att säkerställa ansvarsskyldighet och för att dela den djupa påverkan av din generositet.
 
-### Varför vårt lokala partnerskap med ADS är oumbärligt
+## Varför vårt lokala partnerskap med ADS är oumbärligt
 
 Integriteten och framgången för vår urvalsprocess är ett direkt bevis på vårt viktiga partnerskap med ADS:
 
@@ -135,7 +135,7 @@ Integriteten och framgången för vår urvalsprocess är ett direkt bevis på v�
 
 **Inbyggt förtroende:** År av dedikerad samhällsservice har odlat det förtroende som är nödvändigt för familjer att öppet dela sina berättelser och akuta behov.
 
-### Mångfaldiga stipendiemöjligheter tillgängliga
+## Mångfaldiga stipendiemöjligheter tillgängliga
 
 Vi väljer för närvarande mottagare för flera slagkraftiga stipendiespår:
 
@@ -145,18 +145,18 @@ Vi väljer för närvarande mottagare för flera slagkraftiga stipendiespår:
 
 **Gebrehiwot Baykedagn-stipendiet:** Stöder studenter som ägnar sig åt studier som direkt kommer att bidra till Tigrays långsiktiga utveckling och välstånd.
 
-### Brådskande uppmaning: Ditt stöd driver Tigrays framtid
+## Brådskande uppmaning: Ditt stöd driver Tigrays framtid
 
 Medan det rigorösa urvalet av dessa förtjänta studenter pågår, **står vi inför ett akut behov av fortsatt ekonomiskt stöd.** Ditt snabba bidrag säkerställer att varje student som identifieras genom denna noggranna process faktiskt kan få den utbildning de förtjänar.
 
-#### Hur varje dollar gör omedelbar skillnad:
+### Hur varje dollar gör omedelbar skillnad:
 
 - **$50:** Utrustar en student med nödvändigt skolmaterial för en hel termin.
 - **$100:** Förser en student med skoluniformer och täcker grundläggande behov.
 - **$250:** Finansierar en students hela läsår, inklusive avgifter och allt material.
 - **$500:** Stöder ett komplett stipendium, omfattande akademiska kostnader och avgörande mentorskap.
 
-#### Varför din donation är kritisk just nu:
+### Varför din donation är kritisk just nu:
 
 **100% Direkt påverkan:** Varje dollar du donerar går direkt till studenter genom vår betrodda lokala partner, ADS, utan några omvägar.
 
@@ -166,7 +166,7 @@ Medan det rigorösa urvalet av dessa förtjänta studenter pågår, **står vi i
 
 **Verifierade mottagare:** Vår noggranna urvalsprocess garanterar att ditt stöd når de mest sårbara och verkligt förtjänta individerna.
 
-### Utbildningens djupgående påverkan i Tigray
+## Utbildningens djupgående påverkan i Tigray
 
 I en region där förödande konflikt har stört utbildningen för miljontals, är varje stipendium en fyr av hopp. Det representerar:
 
