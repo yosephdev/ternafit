@@ -72,11 +72,20 @@ const DonatePage = () => {
 
           {/* Local Implementer Advantage */}
           <div className="bg-blue-50 border-l-4 border-blue-400 p-6 mb-8 rounded-lg">
-            <h3 className="text-xl font-bold text-blue-800 mb-3">Your Local Impact Advantage</h3>
-            <p className="text-blue-800 text-sm">
-              <strong>100% of your donation reaches communities directly</strong> through our local implementing partner, 
-              Anenitigray Development Services (ADS), who understand the context intimately and operate with minimal overhead.
-            </p>
+            <div className="flex items-start space-x-4">
+              <img 
+                src="/images/AneniTigray-Development-Services-logo.png" 
+                alt="Aneni Tigray Development Services Logo" 
+                className="h-12 w-auto flex-shrink-0"
+              />
+              <div>
+                <h3 className="text-xl font-bold text-blue-800 mb-3">Your Local Impact Advantage</h3>
+                <p className="text-blue-800 text-sm">
+                  <strong>100% of your donation reaches communities directly</strong> through our local implementing partner, 
+                  Anenitigray Development Services (ADS), who understand the context intimately and operate with minimal overhead.
+                </p>
+              </div>
+            </div>
           </div>
 
           <div className="bg-white rounded-xl shadow-md overflow-hidden">

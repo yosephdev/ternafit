@@ -96,7 +96,11 @@ const Header = () => {
     <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${scrolled ? "bg-background/95 backdrop-blur-sm shadow-md" : "bg-transparent"}`}>
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link to={t("path.home")} className="flex items-center">
-          <span className="font-serif text-xl font-bold text-terracotta">Ternafit</span>
+          <img 
+            src="/images/ternafit-logo-nobg.png" 
+            alt="Ternafit Logo" 
+            className="h-16 w-auto"
+          />
         </Link>
 
         {/* --- UX IMPROVEMENT: Desktop Navigation with Dropdown Menu --- */}

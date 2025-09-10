@@ -110,7 +110,13 @@ const AboutPage = () => {
                     </div>
                   </div>
                   <div className="bg-white rounded-lg p-6 shadow flex gap-4 items-start">
-                    <span className="text-3xl">🤝</span>
+                    <div className="flex-shrink-0">
+                      <img 
+                        src="/images/AneniTigray-Development-Services-logo.png" 
+                        alt="Aneni Tigray Development Services Logo" 
+                        className="h-12 w-auto"
+                      />
+                    </div>
                     <div>
                       <h3 className="text-lg font-semibold mb-2">{t("about.howWeSupport.adsPartnership.title")}</h3>
                       <p className="text-muted-foreground">

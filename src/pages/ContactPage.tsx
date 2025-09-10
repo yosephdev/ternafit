@@ -138,7 +138,7 @@ const ContactPage: React.FC = () => {
             </div>
             <div className="flex justify-center">
               <img 
-                src="/images/figures/gebrehiwot-baykedagn.webp" 
+                src="/images/stories/selam-story.webp" 
                 alt="Contact us to get involved" 
                 className="rounded-lg shadow-lg max-w-sm w-full"
               />

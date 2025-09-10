@@ -117,7 +117,7 @@ Tillsammans är vi starkare. Tillsammans kan vi bygga en ljusare framtid för Ti
     author: "Yoseph Berhane",
     date: "2025-07-24",
     tags: ["Partnership", "Community", "Award", "Diaspora"],
-    imageUrl: "/images/education-group.webp"
+    imageUrl: "/images/projects/youth-education.webp"
   },
     {
         id: 1,
@@ -140,7 +140,7 @@ Tillsammans är vi starkare. Tillsammans kan vi bygga en ljusare framtid för Ti
         author: "Mebrat Gebru",
         date: "2025-08-15",
         tags: ["Education", "Girls' Rights", "Tigray", "Crisis"],
-        imageUrl: "/images/projects/mission.webp"
+        imageUrl: "/images/projects/work-area-2.webp"
     },
     {
         id: 2,

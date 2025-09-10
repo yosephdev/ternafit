@@ -1,24 +1,23 @@
-
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-// Hero backgrounds for different regions
+// Consider if you really need regional backgrounds if you're using a video.
+// If you do, ensure these images are high quality and impactful.
 const regionalBackgrounds = {
-  nordic: "/images/projects/hero-international.webp", // Placeholder - this would be replaced with actual image
-  international: "/images/projects/hero-international.webp", // Placeholder - this would be replaced with actual image
-  default: "/images/projects/hero-international.webp", // Default image
+  nordic: "/images/hero/hero-nordic-fallback.webp", // Specific, impactful image for Nordic
+  international: "/images/hero/hero-international-fallback.webp", // Specific, impactful image for International
+  default: "/images/hero/hero-default-fallback.webp", // General fallback
 };
 
 const Hero = () => {
   const { t, language } = useLanguage();
   const [region, setRegion] = useState<string>("default");
-  
-  // Simulating AI-driven location detection
+
+  // Simulating AI-driven location detection (using language as proxy for now)
   useEffect(() => {
-    // In a real implementation, this would be based on IP geolocation
-    // For now, we'll just use the language setting
+    // In a real implementation, this would be based on IP geolocation or user preference
     if (language === 'sv') {
       setRegion("nordic");
     } else {
@@ -26,9 +25,12 @@ const Hero = () => {
     }
   }, [language]);
 
+  // Determine which fallback image to use
+  const fallbackBackgroundImage = regionalBackgrounds[region] || regionalBackgrounds.default;
+
   return (
     <div className="relative min-h-[80vh] flex flex-col justify-center overflow-hidden">
-      {/* Background video with overlay */}
+      {/* Background Video with Fallback and Overlay */}
       <div className="absolute inset-0 z-0">
         <video
           autoPlay
@@ -36,66 +38,86 @@ const Hero = () => {
           loop
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
+          // Add a poster image for faster loading before video starts
+          poster={fallbackBackgroundImage}
         >
           <source src="/videos/gemini-hero-video.webm" type="video/webm" />
           <source src="/videos/gemini-hero-video.mp4" type="video/mp4" />
-          <img 
-            src="/images/projects/hero-international.webp" 
+          {/* Fallback image for browsers that don't support video */}
+          <img
+            src={fallbackBackgroundImage}
             alt="Hero background"
             className="w-full h-full object-cover"
           />
         </video>
-        <div className="absolute inset-0 bg-black/30"></div>
+        {/* Darker overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/50"></div>
       </div>
-        {/* Tigray Knowledge Base Banner */}
-        {/* <div className="mt-8 bg-yellow-50 border border-yellow-300 rounded-lg shadow p-6 max-w-2xl mx-auto text-center">
-          <h2 className="text-2xl font-bold text-terracotta mb-2">Welcome to the Tigray Knowledge Base</h2>
-          <p className="text-base text-gray-700 mb-4">The World's Most Comprehensive Resource on Tigray, Ethiopia. Ternafit presents the definitive, multimedia-rich knowledge base covering every aspect of Tigray—from ancient civilizations to modern challenges. Built for students, journalists, researchers, policymakers, and anyone seeking authoritative information about this historic region.</p>
-          <a href="https://tigray.ternafit.org/" target="_blank" rel="noopener noreferrer">
-            <Button className="bg-terracotta text-white font-semibold px-6 py-3 rounded shadow hover:bg-terracotta/90">Explore Knowledge Base</Button>
-          </a>
-        </div> */}
-      
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 py-20 flex flex-col items-center text-center">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 animate-fade-in">
+
+      {/* Main Content Area - Centered and Spaced */}
+      <div className="relative z-10 container mx-auto px-4 py-16 md:py-24 flex flex-col items-center text-center justify-center min-h-[80vh]">
+        {/* Main Headline */}
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight animate-fade-in-up drop-shadow-lg max-w-4xl">
           {t("home.hero.title")}
         </h1>
-        
-        <p className="text-lg md:text-xl text-white mb-8 max-w-2xl animate-fade-in">
+
+        {/* Subtitle / Mission Statement */}
+        <p className="text-lg md:text-xl text-white mb-10 max-w-3xl animate-fade-in-up delay-200">
           {t("home.hero.subtitle")}
         </p>
-        
-        <div className="flex flex-col sm:flex-row gap-4 animate-fade-in">
+
+        {/* Call to Action Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 mb-12 animate-fade-in-up delay-400">
           <Link to={t("path.donate")}>
-            <Button className="bg-white text-terracotta hover:bg-gray-100 font-semibold px-8 py-6 text-lg">
+            <Button className="bg-terracotta text-white hover:bg-terracotta-dark font-bold px-10 py-7 text-lg rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:-translate-y-1">
               {t("home.cta.donate")}
             </Button>
           </Link>
-          
+
           <Link to={t("path.about")}>
-            <Button variant="outline" className="border-2 border-white text-terracotta hover:bg-white/10 font-semibold px-8 py-6 text-lg">
+            <Button
+              variant="outline"
+              className="border-2 border-white text-terracotta hover:bg-white hover:text-terracotta font-bold px-10 py-7 text-lg rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:-translate-y-1"
+            >
               {t("home.cta.learn")}
             </Button>
           </Link>
         </div>
-        
-        {/* Optional: Add a "Currently X people are donating" banner */}
-        <div className="mt-12 bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3 text-white text-sm">
+
+        {/* Optional: Immediate Impact / Social Proof */}
+        {/* Reduced size to keep focus on main CTAs, could be a separate component below hero too */}
+        <div className="bg-white/20 backdrop-blur-sm rounded-full px-5 py-2 text-white text-sm md:text-base animate-fade-in-up delay-600">
           <span className="font-semibold">3 {t('home.donations.people')}</span> {t('home.donations.donatedToday')}
         </div>
 
-        {/* Testimonial Section */}
-        <div className="mt-8 max-w-xl mx-auto bg-white/80 rounded-lg shadow p-6">
-          <div className="flex items-center mb-4">
-            <img src="/images/team/selam.webp" alt="Selam" className="w-12 h-12 rounded-full object-cover mr-3" />
-            <div>
-              <span className="font-semibold text-terracotta">Selam</span>
-              <span className="ml-2 text-xs text-muted-foreground">Student</span>
-            </div>
+        {/* Testimonial Snippet - A simplified version to keep the hero clean */}
+        {/* Consider moving the full testimonial block to a dedicated section below the hero. */}
+        {/* If keeping it here, make it smaller and less dominant than the main message. */}
+        {/* <div className="mt-8 max-w-sm mx-auto bg-white/80 rounded-lg shadow-md p-4 animate-fade-in-up delay-700">
+          <div className="flex items-center mb-2">
+            <img src="/images/team/selam.webp" alt="Selam" className="w-9 h-9 rounded-full object-cover mr-2" />
+            <span className="font-semibold text-terracotta text-sm">Selam, Student</span>
           </div>
-          <blockquote className="italic text-gray-700">“Thanks to Ternafit's scholarship, I can continue my education and dream of becoming a doctor.”</blockquote>
-  </div>
+          <blockquote className="italic text-gray-700 text-sm">"This scholarship didn't just pay for my school fees; it gave my family and me hope."</blockquote>
+        </div> */}
+
+        {/* Tigray Knowledge Base Snippet - Also consider moving this to a dedicated section below the hero */}
+        {/* If keeping here, perhaps just a subtle link or small banner, not a full block. */}
+        {/* <div className="mt-8 bg-yellow-50/80 rounded-lg shadow p-4 max-w-lg mx-auto text-center animate-fade-in-up delay-800">
+          <div className="flex items-center justify-center space-x-2 mb-2">
+            <img
+              src="/images/logo-tigray-knowledge-base.svg"
+              alt="Tigray Knowledge Base Logo"
+              className="h-6 w-auto"
+            />
+            <h3 className="text-xl font-bold text-terracotta">Tigray Knowledge Base</h3>
+          </div>
+          <p className="text-sm text-gray-700 mb-3">The World's Most Comprehensive Resource on Tigray. Explore now!</p>
+          <a href="https://tigray.ternafit.org/" target="_blank" rel="noopener noreferrer">
+            <Button className="bg-terracotta text-white px-4 py-2 text-sm rounded shadow hover:bg-terracotta/90">Explore</Button>
+          </a>
+        </div> */}
+
       </div>
     </div>
   );

@@ -51,7 +51,7 @@ const GetInvolvedPage = () => {
             </div>
             <div className="flex justify-center">
               <img 
-                src="/images/stories/ternafit-ads-donor.png" 
+                src="/images/projects/education-group.webp" 
                 alt="Get involved with our partnership work" 
                 className="rounded-lg shadow-lg max-w-sm w-full"
               />

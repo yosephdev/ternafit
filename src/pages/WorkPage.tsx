@@ -154,9 +154,18 @@ const WorkPage = () => {
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-serif font-bold mb-6">{t("work.focusAreas.title")}</h2>
-                  {/* MODIFIED: Added a subtitle to explicitly credit the implementing partner, ADS. */}
-                  <p className="text-muted-foreground -mt-4 mb-6">{t("work.focusAreas.partnershipSubtitle")}</p>
+                  <div className="flex items-center space-x-4 mb-6">
+                    <img 
+                      src="/images/AneniTigray-Development-Services-logo.png" 
+                      alt="Aneni Tigray Development Services Logo" 
+                      className="h-10 w-auto"
+                    />
+                    <div>
+                      <h2 className="text-2xl font-serif font-bold">{t("work.focusAreas.title")}</h2>
+                      {/* MODIFIED: Added a subtitle to explicitly credit the implementing partner, ADS. */}
+                      <p className="text-muted-foreground">{t("work.focusAreas.partnershipSubtitle")}</p>
+                    </div>
+                  </div>
                   <div className="grid md:grid-cols-2 gap-8">
                     {/* MODIFIED: Using the new partnerFocusAreas array */}
                     {partnerFocusAreas.map((f, idx) => (

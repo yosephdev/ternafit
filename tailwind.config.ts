@@ -34,10 +34,12 @@ export default {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         terracotta: '#D35728',
+        'terracotta-dark': '#C9654C',
         ochre: '#C06C28',
         amber: '#E9A23B',
         skyblue: '#1457DC',
         lightblue: '#2368E2',
+        
         primary: {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))'

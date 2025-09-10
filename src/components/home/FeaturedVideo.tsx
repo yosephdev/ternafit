@@ -12,7 +12,7 @@ const FeaturedVideo = () => {
                         <div className="aspect-w-16 aspect-h-9">
                             <iframe
                                 src="https://www.youtube.com/embed/qkkYJwOuVnc"
-                                title="Rick Astley - Never Gonna Give You Up (Official Music Video)"
+                                title="ADS - Changing Lives in Tigray"
                                 frameBorder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                 allowFullScreen

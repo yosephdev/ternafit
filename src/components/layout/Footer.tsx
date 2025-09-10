@@ -17,14 +17,18 @@ const Footer = () => {
           {/* 1. About Ternafit */}
           <div className="col-span-1">
             <Link to={t("path.home")} className="inline-block mb-4">
-              <h3 className="text-xl font-serif font-bold text-terracotta">Ternafit</h3>
+              <img 
+                src="/images/ternafit-logo-nobg.png" 
+                alt="Ternafit Logo" 
+                className="h-20 w-auto"
+              />
             </Link>
             <p className="text-sm text-muted-foreground mb-4">
               {t("footer.tagline")}
             </p>
             <ul className="space-y-2 text-sm text-gray-600">
               <li>Jungfrugatan 1F, 641 31 Katrineholm, {t("footer.country")}</li>
-              {/* --- ADDED: Swedish Org Number for legitimacy --- */}
+         
               <li>{t("footer.orgNumber")}: 802548-9231</li>
               <li className="pt-2 flex items-center gap-2">
                 <Mail className="h-4 w-4" /> 
@@ -64,9 +68,14 @@ const Footer = () => {
                   href="https://tigray.ternafit.org/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-gray-600 hover:text-terracotta"
+                  className="text-sm text-gray-600 hover:text-terracotta flex items-center space-x-2"
                 >
-                  {t("footer.knowledgeBase")}
+                  {/* <img 
+                    src="/images/logo-tigray-knowledge-base.svg" 
+                    alt="Tigray Knowledge Base Logo" 
+                    className="h-4 w-auto"
+                  /> */}
+                  <span>{t("footer.knowledgeBase")}</span>
                 </a>
               </li>
               <li><Link to={t("path.contact")} className="text-sm text-gray-600 hover:text-terracotta">{t("footer.contactUs")}</Link></li>
@@ -106,23 +115,26 @@ const Footer = () => {
 
         {/* Partner Trust Signals - Following Gemini Strategic Recommendations */}
         <div className="border-t border-gray-300 mt-8 pt-6">
-          <h3 className="text-lg font-bold mb-4 text-center">Our Trusted Partners</h3>
+          <h3 className="text-lg font-bold mb-4 text-center">Our Trusted Partner</h3>
           <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-gray-600">
-            <div className="text-center">
+            <a 
+              href="https://anenitigray.org" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-center flex flex-col items-center hover:text-terracotta transition-colors duration-200 group"
+            >
+              <img 
+                src="/images/AneniTigray-Development-Services-logo.png" 
+                alt="Aneni Tigray Development Services Logo" 
+                className="h-12 w-auto mb-2 group-hover:scale-105 transition-transform duration-200"
+              />
               <p className="font-medium">Anenitigray Development Services (ADS)</p>
               <p className="text-xs">Local Implementing Partner - Mekelle, Tigray</p>
-            </div>
-            <div className="text-center">
-              <p className="font-medium">Tigray Disaster Relief Fund (TDRF)</p>
-              <p className="text-xs">Verified Partnership Network</p>
-            </div>
-            <div className="text-center">
-              <p className="font-medium">Best Tigrean Community Support Initiative 2025</p>
-              <p className="text-xs">Acquisition International Award Winner</p>
-            </div>
+              <p className="text-xs text-terracotta mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200">Visit Website →</p>
+            </a>
           </div>
           <p className="text-center text-xs text-gray-500 mt-4">
-            Part of the Alliance of Civil Society Organizations of Tigray (ACSOT) network
+            Working together to deliver direct impact in Tigray communities
           </p>
         </div>
 
