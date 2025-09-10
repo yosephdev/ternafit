@@ -10,8 +10,10 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { XCircle } from 'lucide-react'; // Using XCircle for cancellation
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const DonationCancelPage: React.FC = () => {
+  const { t } = useLanguage();
   // const [searchParams] = useSearchParams(); // Not needed if session_id is not displayed
   // const sessionId = searchParams.get('session_id');
 
@@ -20,22 +22,22 @@ const DonationCancelPage: React.FC = () => {
       <Card className="w-full max-w-md">
         <CardHeader className="items-center text-center">
           <XCircle className="w-16 h-16 text-red-500 mb-4" />
-          <CardTitle className="text-2xl font-bold">Donation Cancelled</CardTitle>
+          <CardTitle className="text-2xl font-bold">{t('donate.cancel.title')}</CardTitle>
           <CardDescription>
-            Your donation process was cancelled. You have not been charged.
+            {t('donate.cancel.description')}
           </CardDescription>
         </CardHeader>
         <CardContent className="text-center">
           <p className="text-sm text-muted-foreground">
-            If you encountered any issues or have questions, please feel free to contact us.
+            {t('donate.cancel.contactText')}
           </p>
         </CardContent>
         <CardFooter className="flex flex-col sm:flex-row justify-center items-center gap-4 pt-6">
           <Button asChild variant="outline">
-            <Link to="/donate">Try Donating Again</Link>
+            <Link to="/donate">{t('donate.cancel.tryAgain')}</Link>
           </Button>
           <Button asChild>
-            <Link to="/">Return to Home</Link>
+            <Link to="/">{t('donate.cancel.returnHome')}</Link>
           </Button>
         </CardFooter>
       </Card>

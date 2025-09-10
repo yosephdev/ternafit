@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 // NEW: Data for the named memorial scholarships. This makes it easy to add more in the future.
 const memorialScholarships = [
@@ -19,7 +20,10 @@ const memorialScholarships = [
   }
 ];
 
-const ScholarshipProgramPage = () => (
+const ScholarshipProgramPage = () => {
+  const { t } = useLanguage();
+  
+  return (
   <main className="container mx-auto py-12 px-4">
     {/* MODIFIED: Title is more encompassing now */}
     <h1 className="text-4xl font-bold mb-6 text-center">Empowering Tigray's Future Through Education</h1>
@@ -52,9 +56,9 @@ const ScholarshipProgramPage = () => (
 
     {/* NEW SECTION: Memorial & Named Scholarships */}
     <section className="mt-16 pt-12 border-t">
-      <h2 className="text-3xl font-bold mb-8 text-center">Memorial & Named Scholarships</h2>
+      <h2 className="text-3xl font-bold mb-8 text-center">{t('scholarship.memorial.title')}</h2>
       <p className="text-center max-w-3xl mx-auto text-muted-foreground mb-12">
-        To honor the enduring legacy of Tigray's great leaders and thinkers, we offer these named scholarships. Your contribution to these funds creates a living tribute that empowers the next generation to build upon their work.
+        {t('scholarship.memorial.description')}
       </p>
       <div className="space-y-12">
         {memorialScholarships.map((scholarship, index) => (
@@ -68,7 +72,7 @@ const ScholarshipProgramPage = () => (
               <p className="mt-4 font-semibold text-gray-800">{scholarship.focus}</p>
               <Button asChild className="mt-6 bg-gray-800 text-white font-semibold px-6 py-2 rounded shadow hover:bg-gray-700">
                 <a href={scholarship.donateLink}>
-                    Contribute to this Fund
+                    {t('scholarship.memorial.contribute')}
                 </a>
               </Button>
             </div>
@@ -88,6 +92,7 @@ const ScholarshipProgramPage = () => (
       </div>
     </section>
   </main>
-);
+  );
+};
 
 export default ScholarshipProgramPage;

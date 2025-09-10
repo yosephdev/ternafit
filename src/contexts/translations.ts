@@ -367,7 +367,7 @@ export const initialTranslations: Translations = {
     'newsletter.success': { en: 'Thank you for subscribing!', sv: 'Tack för att du prenumererar!' },
     'newsletter.error': { en: 'Please enter a valid email address', sv: 'Vänligen ange en giltig e-postadress' },
 
-    // Donation Page
+    // Donation page
     'donate.title': { en: 'Support Our Mission', sv: 'Stöd vårt uppdrag' },
     'donate.hero.title': { en: 'Make a Difference', sv: 'Gör skillnad' },
     'donate.hero.subtitle': { en: 'Your donation helps us provide essential support to the Tigrean community', sv: 'Din donation hjälper oss att ge viktigt stöd till det tigreanska samhället' },
@@ -378,6 +378,18 @@ export const initialTranslations: Translations = {
     'donate.frequency.monthly': { en: 'Monthly', sv: 'Månadsvis' },
     'donate.button': { en: 'Donate Now', sv: 'Donera nu' },
     'donate.secure': { en: 'Secure payment powered by Stripe', sv: 'Säker betalning med Stripe' },
+
+    // Donation Success Page
+    'donate.success.title': { en: 'Thank You for Your Donation!', sv: 'Tack för din donation!' },
+    'donate.success.description': { en: 'Your generosity is greatly appreciated.', sv: 'Din generositet uppskattas mycket.' },
+    'donate.success.returnHome': { en: 'Return to Home', sv: 'Återgå till startsidan' },
+
+    // Donation Cancel Page
+    'donate.cancel.title': { en: 'Donation Cancelled', sv: 'Donation avbruten' },
+    'donate.cancel.description': { en: 'Your donation process was cancelled. You have not been charged.', sv: 'Din donationsprocess avbröts. Du har inte debiterats.' },
+    'donate.cancel.contactText': { en: 'If you encountered any issues or have questions, please feel free to contact us.', sv: 'Om du stötte på problem eller har frågor, tveka inte att kontakta oss.' },
+    'donate.cancel.tryAgain': { en: 'Try Donating Again', sv: 'Försök donera igen' },
+    'donate.cancel.returnHome': { en: 'Return to Home', sv: 'Återgå till startsidan' },
 
     // Error Pages
     'error.404.title': { en: 'Page Not Found', sv: 'Sidan hittades inte' },
@@ -624,6 +636,21 @@ export const initialTranslations: Translations = {
 
     // Common missing translations
     'common.subscribe': { en: 'Subscribe', sv: 'Prenumerera' },
+    'common.downloadAnnualReport': { en: 'Download Annual Report', sv: 'Ladda ner årsrapport' },
+
+    // Blog page missing translations
+    'blog.featuredStories': { en: 'Featured Ternafit Stories', sv: 'Utvalda Ternafit-berättelser' },
+    'blog.latestArticles': { en: 'Latest Articles', sv: 'Senaste artiklarna' },
+
+    // Get Involved page missing translations
+    'getInvolved.volunteer.title': { en: 'Learn How to Volunteer', sv: 'Lär dig hur du volontärarbetar' },
+    'getInvolved.volunteer.description': { en: 'Even if opportunities are limited, your time and skills can make a difference. Contact us to learn more about volunteering with Ternafit.', sv: 'Även om möjligheterna är begränsade kan din tid och dina färdigheter göra skillnad. Kontakta oss för att lära dig mer om volontärarbete med Ternafit.' },
+    'getInvolved.volunteer.cta': { en: 'Contact Us to Volunteer', sv: 'Kontakta oss för volontärarbete' },
+
+    // Scholarship program missing translations
+    'scholarship.memorial.title': { en: 'Memorial & Named Scholarships', sv: 'Minnesstipendier & Namngivna stipendier' },
+    'scholarship.memorial.description': { en: 'To honor the enduring legacy of Tigray\'s great leaders and thinkers, we offer these named scholarships. Your contribution to these funds creates a living tribute that empowers the next generation to build upon their work.', sv: 'För att hedra det bestående arvet från Tigrays stora ledare och tänkare erbjuder vi dessa namngivna stipendier. Ditt bidrag till dessa fonder skapar en levande hyllning som ger nästa generation möjlighet att bygga vidare på deras arbete.' },
+    'scholarship.memorial.contribute': { en: 'Contribute to this Fund', sv: 'Bidra till denna fond' },
 
     // 'about.impactSoFar.callToAction2': { en: 'Join us in making an even greater difference.', sv: 'Gå med oss för att göra en ännu större skillnad.' }
 };

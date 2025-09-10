@@ -45,7 +45,7 @@ const GetInvolvedPage = () => {
               </p>
               <div>
                 <a href="/reports/ternafit-annual-report-2024.pdf" target="_blank" rel="noopener noreferrer" className="inline-block bg-terracotta text-white font-semibold px-6 py-3 rounded shadow hover:bg-terracotta/90">
-                  Download Annual Report
+                  {t('common.downloadAnnualReport')}
                 </a>
               </div>
             </div>
@@ -82,9 +82,9 @@ const GetInvolvedPage = () => {
 
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-2xl font-bold mb-4">Learn How to Volunteer</h2>
-          <p className="text-lg max-w-2xl mx-auto mb-6">Even if opportunities are limited, your time and skills can make a difference. Contact us to learn more about volunteering with Ternafit.</p>
-          <a href="mailto:info@ternafit.org" className="inline-block bg-terracotta text-white font-semibold px-6 py-3 rounded shadow hover:bg-terracotta/90">Contact Us to Volunteer</a>
+          <h2 className="text-2xl font-bold mb-4">{t('getInvolved.volunteer.title')}</h2>
+          <p className="text-lg max-w-2xl mx-auto mb-6">{t('getInvolved.volunteer.description')}</p>
+          <a href="mailto:info@ternafit.org" className="inline-block bg-terracotta text-white font-semibold px-6 py-3 rounded shadow hover:bg-terracotta/90">{t('getInvolved.volunteer.cta')}</a>
         </div>
       </section>
     </main>

@@ -40,7 +40,7 @@ const featuredStories = [
       en: "From launching social media campaigns to reporting from the field, our first year as Ternafit showed what's possible even without big partners. Here's a summary of wins, challenges, and what comes next.",
       sv: "Från att lansera sociala mediekampanjer till att rapportera från fältet, vårt första år som Ternafit visade vad som är möjligt även utan stora partners. Här är en sammanfattning av framgångar, utmaningar och vad som kommer härnäst."
     },
-    imageUrl: "/images/projects/terna-featured-3.webp",
+    imageUrl: "/images/projects/support-ternafit.webp",
     tags: ["Milestones", "Impact"],
     content: {
       en: "Your support made all this possible. This piece summarizes where we've been and where we're going, highlighting people and communities at the heart of our mission.",
@@ -64,14 +64,23 @@ const BlogPage: React.FC = () => {
   return (
     <main>
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-terracotta to-muted py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl font-serif font-bold text-white mb-4">
-            {t("nav.blog")}
-          </h1>
-          <p className="text-lg text-white max-w-xl mx-auto">
-            {t("blog.hero.subtitle")}
-          </p>
+      <section 
+        className="relative py-20 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: 'url(/images/blog-hero.png)',
+        }}
+      >
+        {/* Overlay for better text readability */}
+        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+                <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto text-center text-white">
+            <h1 className="text-4xl font-serif font-bold mb-6">
+              {t('blog.title')}
+            </h1>
+            <p className="text-xl opacity-90 max-w-2xl mx-auto">
+              {t('blog.hero.subtitle')}
+            </p>
+          </div>
         </div>
       </section>
       {/* Blog Content */}
@@ -82,7 +91,7 @@ const BlogPage: React.FC = () => {
             <div className="md:col-span-2 space-y-12">
               {/* Featured Internal Ternafit Blog Posts */}
               <section>
-                <h2 className="text-2xl font-serif font-bold mb-6">Featured Ternafit Stories</h2>
+                <h2 className="text-2xl font-serif font-bold mb-6">{t('blog.featuredStories')}</h2>
                 <div className="space-y-7">
                   {featuredStories.map((post) => (
                     <article
@@ -135,7 +144,7 @@ const BlogPage: React.FC = () => {
 
               {/* Blog Posts from Data */}
               <section>
-                <h2 className="text-2xl font-serif font-bold mb-6">Latest Articles</h2>
+                <h2 className="text-2xl font-serif font-bold mb-6">{t('blog.latestArticles')}</h2>
                 <div className="space-y-7">
                   {blogPosts.map((post) => (
                     <article
