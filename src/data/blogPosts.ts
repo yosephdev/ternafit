@@ -14,6 +14,159 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: 7,
+    slug: {
+      en: "scholarship-program-selection-process-underway",
+      sv: "stipendieprogram-urval-process-pagaende"
+    },
+    title: {
+      en: "Ternafit Scholarship Program: Selection Process Underway - Support Needed",
+      sv: "Ternafit Stipendieprogram: Urvalsprocess Pågår - Stöd Behövs"
+    },
+    excerpt: {
+      en: "Our 'Empowering Tigray's Future Through Education' scholarship program is moving into its crucial selection phase. Through our trusted partnership with ADS, we are identifying the most deserving students for life-changing educational support.",
+      sv: "Vårt program 'Empowering Tigray's Future Through Education' går in i sin avgörande urvalsfas. Genom vårt pålitliga partnerskap med ADS identifierar vi de mest förtjänta studenterna för livsförändrande utbildningsstöd."
+    },
+    content: {
+      en: `We are excited to announce that our "Empowering Tigray's Future Through Education" scholarship program is moving into its crucial selection phase. Through our trusted partnership with Anenitigray Development Services (ADS), we are currently identifying and vetting the most deserving students who will benefit from this life-changing educational support.
+
+## Current Activities: Rigorous Selection Process
+
+Our local implementing partner, ADS, is actively working on the ground in Mekelle and surrounding areas to:
+
+- **Identify students in greatest need** through community outreach and school partnerships
+- **Conduct thorough assessments** of academic potential and financial circumstances
+- **Verify family situations** to ensure support reaches those most affected by conflict and poverty
+- **Cultural sensitivity reviews** to align with local realities and community values
+- **Document student stories** to ensure transparency in our selection process
+
+## Why Local Partnership Matters
+
+The selection process showcases exactly why our partnership with ADS is so vital:
+
+✅ **Deep Community Knowledge**: ADS has established relationships with schools, families, and community leaders across Tigray
+
+✅ **Cultural Understanding**: Local staff ensure the selection process respects cultural sensitivities and community dynamics
+
+✅ **Direct Access**: Physical presence in Tigray allows for face-to-face meetings and verification of circumstances
+
+✅ **Trust**: Years of community service have built the trust necessary for families to share their stories and needs
+
+## Scholarship Opportunities Available
+
+We are currently selecting recipients for:
+
+### General Scholarship Fund
+- Primary and secondary school support
+- School supplies, uniforms, and fees
+- Mentorship programs
+
+### Memorial & Named Scholarships
+- **Emperor Yohannes IV Scholarship**: For students showing exceptional leadership potential
+- **Gebrehiwot Baykedagn Scholarship**: For students pursuing studies that will benefit Tigray's development
+
+## Urgent Need: Your Support Makes This Possible
+
+While our selection process is underway, we urgently need continued financial support to ensure we can support all deserving students identified through this rigorous process.
+
+### How Your Donation Helps:
+- **$50**: Provides school supplies for one student for a semester
+- **$100**: Covers school uniforms and basic needs for one student
+- **$250**: Supports one student's full academic year including fees and materials
+- **$500**: Funds a complete scholarship including mentorship support
+
+### Why Donate Now?
+- **100% Direct Impact**: Every dollar goes directly to students through our local partner ADS
+- **No Administrative Overhead**: Local implementation means minimal operational costs
+- **Immediate Need**: Students are waiting for support to continue their education
+- **Verified Recipients**: Our rigorous selection ensures support reaches those who need it most
+
+## The Difference Education Makes
+
+In a region where conflict has disrupted education for millions, each scholarship represents:
+- A family's hope restored
+- A community's future secured
+- A student's potential unlocked
+- Tigray's recovery accelerated
+
+*"Education is the most powerful weapon which you can use to change the world." - Nelson Mandela*
+
+Every scholarship we award is a step toward rebuilding Tigray's future. Through the dedicated work of our local partner ADS and the generosity of donors like you, we are ensuring that despite conflict and hardship, Tigray's brightest minds will continue to learn, grow, and eventually lead their communities toward recovery and prosperity.
+
+**Together, we are empowering Tigray's future through education.**`,
+      sv: `Vi är glada att meddela att vårt stipendieprogram "Empowering Tigray's Future Through Education" går in i sin avgörande urvalsfas. Genom vårt pålitliga partnerskap med Anenitigray Development Services (ADS) identifierar och granskar vi för närvarande de mest förtjänta studenterna som kommer att dra nytta av detta livsförändrande utbildningsstöd.
+
+## Pågående Aktiviteter: Rigorös Urvalsprocess
+
+Vår lokala genomförande partner, ADS, arbetar aktivt på plats i Mekelle och omkringliggande områden för att:
+
+- **Identifiera studenter i störst behov** genom samhällsuppdrag och skolpartnerskap
+- **Genomföra grundliga bedömningar** av akademisk potential och ekonomiska omständigheter
+- **Verifiera familjesituationer** för att säkerställa att stöd når de som mest påverkats av konflikt och fattigdom
+- **Kulturell känslighetsöversyn** för att anpassa sig till lokala realiteter och samhällsvärden
+- **Dokumentera studentberättelser** för att säkerställa transparens i vår urvalsprocess
+
+## Varför Lokalt Partnerskap Är Viktigt
+
+Urvalsprocessen visar exakt varför vårt partnerskap med ADS är så viktigt:
+
+✅ **Djup Samhällskunskap**: ADS har etablerade relationer med skolor, familjer och samhällsledare över hela Tigray
+
+✅ **Kulturell Förståelse**: Lokal personal säkerställer att urvalsprocessen respekterar kulturella känsligheter och samhällsdynamik
+
+✅ **Direkt Tillgång**: Fysisk närvaro i Tigray möjliggör ansiktsiktssammanträden och verifiering av omständigheter
+
+✅ **Förtroende**: År av samhällstjänst har byggt det förtroende som är nödvändigt för familjer att dela sina berättelser och behov
+
+## Tillgängliga Stipendiemöjligheter
+
+Vi väljer för närvarande mottagare för:
+
+### Allmän Stipendiefond
+- Stöd för grund- och gymnasieutbildning
+- Skolmaterial, uniformer och avgifter
+- Mentorprogram
+
+### Memorial & Namngivna Stipendier
+- **Kejsar Yohannes IV Stipendium**: För studenter som visar exceptionell ledarskapspotential
+- **Gebrehiwot Baykedagn Stipendium**: For studenter som ägnar sig åt studier som kommer att gynna Tigrays utveckling
+
+## Akut Behov: Ditt Stöd Gör Detta Möjligt
+
+Medan vår urvalsprocess pågår behöver vi akut fortsatt ekonomiskt stöd för att säkerställa att vi kan stödja alla förtjänta studenter som identifierats genom denna rigorösa process.
+
+### Hur Din Donation Hjälper:
+- **$50**: Tillhandahåller skolmaterial för en student för en termin
+- **$100**: Täcker skoluniformen och grundläggande behov för en student
+- **$250**: Stöder en students hela läsår inklusive avgifter och material
+- **$500**: Finansierar ett komplett stipendium inklusive mentorstöd
+
+### Varför Donera Nu?
+- **100% Direkt Påverkan**: Varje dollar går direkt till studenter genom vår lokala partner ADS
+- **Inga Administrativa Kostnader**: Lokal genomförande innebär minimala driftskostnader
+- **Omedelbart Behov**: Studenter väntar på stöd för att fortsätta sin utbildning
+- **Verifierade Mottagare**: Vårt rigorösa urval säkerställer att stöd når de som behöver det mest
+
+## Skillnaden Utbildning Gör
+
+I en region där konflikt har stört utbildningen för miljoner representerar varje stipendium:
+- En familjs hopp återställt
+- Ett samhälles framtid säkrad
+- En students potential frigjord
+- Tigrays återhämtning accelererad
+
+*"Utbildning är det mäktigaste vapnet som du kan använda för att förändra världen." - Nelson Mandela*
+
+Varje stipendium vi tilldelas är ett steg mot att återuppbygga Tigrays framtid. Genom det hängivna arbetet från vår lokala partner ADS och generositeten från donatorer som du säkerställer vi att trots konflikt och svårigheter kommer Tigrays ljusaste sinnen att fortsätta att lära sig, växa och så småningom leda sina samhällen mot återhämtning och välstånd.
+
+**Tillsammans stärker vi Tigrays framtid genom utbildning.**`
+    },
+    author: "Ternafit Team",
+    date: "2025-09-10",
+    tags: ["Education", "Scholarships", "Partnership", "ADS", "Tigray"],
+    imageUrl: "/images/stories/ternafit-ads-donor.webp"
+  },
+  {
     id: 6,
     slug: {
       en: "from-ritual-to-roots-reclaiming-cultural-identity",
