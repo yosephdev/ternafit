@@ -186,7 +186,7 @@ Redo att göra en livsavgörande skillnad? Besök vår donationssida eller läs 
     author: "Yoseph Berhane",
     date: "2025-09-10",
     tags: ["Education", "Scholarships", "Partnership", "ADS", "Tigray"],
-    imageUrl: "/images/projects/work-area-1.webp"
+    imageUrl: "/images/projects/education.webp"
   },
   {
     id: 6,
@@ -315,7 +315,7 @@ Tillsammans är vi starkare. Tillsammans kan vi bygga en ljusare framtid för Ti
         author: "Mebrat Gebru",
         date: "2025-08-15",
         tags: ["Education", "Girls' Rights", "Tigray", "Crisis"],
-        imageUrl: "/images/projects/work-area-2.webp"
+        imageUrl: "/images/projects/education.webp"
     },
     {
         id: 2,

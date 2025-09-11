@@ -67,6 +67,16 @@ export const initialTranslations: Translations = {
     'work.focusAreas.advocacyRights.title': { en: 'Advocacy & Rights', sv: 'Påverkansarbete & Rättigheter' },
     'work.focusAreas.advocacyRights.desc': { en: 'Amplifying Tigrayan voices, documenting experiences, and advocating for justice and human rights protection.', sv: 'Förstärker tigreanska röster, dokumenterar upplevelser och förespråkar rättvisa och skydd av mänskliga rättigheter.' },
 
+    // Work Area translations for WorkAreas component
+    'work.area.emergency': { en: 'Emergency Relief', sv: 'Akut nödhjälp' },
+    'work.area.emergency.description': { en: 'Immediate aid distribution, medical supplies, and crisis response coordination to address urgent humanitarian needs in Tigray.', sv: 'Omedelbar biståndsfördelning, medicinska förnödenheter och krishanteringskoordinering för att möta akuta humanitära behov i Tigray.' },
+    'work.area.education': { en: 'Education Initiatives', sv: 'Utbildningsinitiativ' },
+    'work.area.education.description': { en: 'Supporting school rebuilding, providing educational supplies, and ensuring children can continue their learning despite the ongoing crisis.', sv: 'Stödja skolåteruppbyggnad, tillhandahålla utbildningsmaterial och säkerställa att barn kan fortsätta sin utbildning trots den pågående krisen.' },
+    'work.area.healthcare': { en: 'Healthcare Advocacy', sv: 'Hälsovårdsförespråkande' },
+    'work.area.healthcare.description': { en: 'Supporting healthcare infrastructure, training medical professionals, and advocating for improved healthcare access across Tigray.', sv: 'Stödja hälsovårdsinfrastruktur, utbilda medicinsk personal och förespråka förbättrad tillgång till hälsovård i hela Tigray.' },
+    'work.area.advocacy': { en: 'Advocacy & Rights', sv: 'Påverkansarbete & Rättigheter' },
+    'work.area.advocacy.description': { en: 'Amplifying Tigrayan voices internationally, documenting human rights violations, and advocating for justice and accountability.', sv: 'Förstärka tigrayanska röster internationellt, dokumentera kränkningar av mänskliga rättigheter och förespråka rättvisa och ansvarsskyldighet.' },
+
     // Crisis Update translations
     'crisis.title': { en: 'Tigray Crisis: The Situation Today', sv: 'Tigray-krisen: Situationen idag' },
     'crisis.updated': { en: 'Updated', sv: 'Uppdaterad' },

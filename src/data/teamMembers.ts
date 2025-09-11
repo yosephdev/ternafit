@@ -21,19 +21,19 @@ export const teamMembers: TeamMember[] = [
   {
     name: "Julian Bergman",
     role: "Treasurer",
-    imageUrl: "/images/team/julian-bergman.webp",
+    imageUrl: "/images/team/yoseph-berhane.webp", // Placeholder until actual image is available
     bio: "Julian brings extensive financial expertise to Ternafit, ensuring transparent and effective management of our resources to maximize impact for the communities we serve."
   },
   {
     name: "Filmon Michael",
     role: "Secretary",
-    imageUrl: "/images/team/filmon-michael.webp",
+    imageUrl: "/images/team/mebrat.webp", // Placeholder until actual image is available
     bio: "Filmon manages organizational communications and documentation, ensuring smooth operations and maintaining clear records of our activities and decisions."
   },
   {
     name: "Selamawit Asres",
     role: "Board Member",
-    imageUrl: "/images/team/selamawit-asres.webp",
+    imageUrl: "/images/team/selam.webp", // Using available image
     bio: "Selamawit provides strategic guidance and oversight as a board member, contributing valuable insights to help shape Ternafit's mission and direction."
   }
 ];

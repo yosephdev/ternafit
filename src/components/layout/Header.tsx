@@ -97,7 +97,7 @@ const Header = () => {
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link to={t("path.home")} className="flex items-center">
           <img 
-            src="/images/ternafit-logo-nobg.png" 
+            src="/images/logos/ternafit-logo-nobg.png" 
             alt="Ternafit Logo" 
             className="h-16 w-auto"
           />

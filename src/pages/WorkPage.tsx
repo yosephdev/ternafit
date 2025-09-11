@@ -156,7 +156,7 @@ const WorkPage = () => {
                 <section>
                   <div className="flex items-center space-x-4 mb-6">
                     <img 
-                      src="/images/AneniTigray-Development-Services-logo.png" 
+                      src="/images/logos/AneniTigray-Development-Services-logo.png" 
                       alt="Aneni Tigray Development Services Logo" 
                       className="h-10 w-auto"
                     />

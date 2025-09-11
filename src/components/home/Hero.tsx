@@ -106,7 +106,7 @@ const Hero = () => {
         {/* <div className="mt-8 bg-yellow-50/80 rounded-lg shadow p-4 max-w-lg mx-auto text-center animate-fade-in-up delay-800">
           <div className="flex items-center justify-center space-x-2 mb-2">
             <img
-              src="/images/logo-tigray-knowledge-base.svg"
+              src="/images/logos/logo-tigray-knowledge-base.svg"
               alt="Tigray Knowledge Base Logo"
               className="h-6 w-auto"
             />

@@ -10,22 +10,22 @@ const WorkAreas = () => {
     {
       title: t("work.area.emergency"),
       description: t("work.area.emergency.description"),
-      image: "/images/projects/work-area-1.webp"
+      image: "/images/projects/emergency-relief.webp"
     },
     {
       title: t("work.area.education"),
       description: t("work.area.education.description"),
-      image: "/images/projects/work-area-2.webp"
+      image: "/images/projects/education.webp"
     },
     {
       title: t("work.area.healthcare"),
       description: t("work.area.healthcare.description"),
-      image: "/images/projects/work-area-3.webp"
+      image: "/images/projects/healthcare.webp"
     },
     {
       title: t("work.area.advocacy"),
       description: t("work.area.advocacy.description"),
-      image: "/images/projects/work-area-4.webp"
+      image: "/images/projects/advocacy.webp"
     }
   ], [t]);
 

@@ -74,7 +74,7 @@ const DonatePage = () => {
           <div className="bg-blue-50 border-l-4 border-blue-400 p-6 mb-8 rounded-lg">
             <div className="flex items-start space-x-4">
               <img 
-                src="/images/AneniTigray-Development-Services-logo.png" 
+                src="/images/logos/AneniTigray-Development-Services-logo.png" 
                 alt="Aneni Tigray Development Services Logo" 
                 className="h-12 w-auto flex-shrink-0"
               />

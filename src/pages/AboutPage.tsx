@@ -112,7 +112,7 @@ const AboutPage = () => {
                   <div className="bg-white rounded-lg p-6 shadow flex gap-4 items-start">
                     <div className="flex-shrink-0">
                       <img 
-                        src="/images/AneniTigray-Development-Services-logo.png" 
+                        src="/images/logos/AneniTigray-Development-Services-logo.png" 
                         alt="Aneni Tigray Development Services Logo" 
                         className="h-12 w-auto"
                       />

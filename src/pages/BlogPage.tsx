@@ -67,7 +67,7 @@ const BlogPage: React.FC = () => {
       <section 
         className="relative py-20 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url(/images/blog-hero.png)',
+          backgroundImage: 'url(/images/blog/blog-hero.png)',
         }}
       >
         {/* Overlay for better text readability */}

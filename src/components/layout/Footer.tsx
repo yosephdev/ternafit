@@ -18,7 +18,7 @@ const Footer = () => {
           <div className="col-span-1">
             <Link to={t("path.home")} className="inline-block mb-4">
               <img 
-                src="/images/ternafit-logo-nobg.png" 
+                src="/images/logos/ternafit-logo-nobg.png" 
                 alt="Ternafit Logo" 
                 className="h-20 w-auto"
               />
@@ -71,7 +71,7 @@ const Footer = () => {
                   className="text-sm text-gray-600 hover:text-terracotta flex items-center space-x-2"
                 >
                   {/* <img 
-                    src="/images/logo-tigray-knowledge-base.svg" 
+                    src="/images/logos/logo-tigray-knowledge-base.svg" 
                     alt="Tigray Knowledge Base Logo" 
                     className="h-4 w-auto"
                   /> */}
@@ -124,7 +124,7 @@ const Footer = () => {
               className="text-center flex flex-col items-center hover:text-terracotta transition-colors duration-200 group"
             >
               <img 
-                src="/images/AneniTigray-Development-Services-logo.png" 
+                src="/images/logos/AneniTigray-Development-Services-logo.png" 
                 alt="Aneni Tigray Development Services Logo" 
                 className="h-12 w-auto mb-2 group-hover:scale-105 transition-transform duration-200"
               />
