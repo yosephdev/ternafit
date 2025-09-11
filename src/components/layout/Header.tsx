@@ -184,17 +184,17 @@ const Header = () => {
             {navLinks.map((link) => 
               link.subLinks ? (
                 <div key={link.labelKey}>
-                  <p className="p-3 font-medium text-muted-foreground flex items-center">{t(link.labelKey)} <ChevronDown className="ml-1 h-4 w-4" /></p>
+                  <p className="p-3 font-medium text-foreground flex items-center">{t(link.labelKey)} <ChevronDown className="ml-1 h-4 w-4" /></p>
                   <div className="flex flex-col pl-4 border-l-2 border-muted">
                     {link.subLinks.map(subLink => (
-                      <Link key={subLink.path} to={subLink.path} className={`rounded-md p-3 font-medium ${isActive(subLink.path) ? "bg-muted text-terracotta" : "hover:bg-muted"}`}>
+                      <Link key={subLink.path} to={subLink.path} className={`rounded-md p-3 font-medium ${isActive(subLink.path) ? "bg-muted text-terracotta" : "text-foreground hover:bg-muted"}`}>
                         {t(subLink.labelKey)}
                       </Link>
                     ))}
                   </div>
                 </div>
               ) : (
-                <Link key={link.path} to={link.path!} className={`rounded-md p-3 font-medium ${isActive(link.path!) ? "bg-muted text-terracotta" : "hover:bg-muted"}`}>
+                <Link key={link.path} to={link.path!} className={`rounded-md p-3 font-medium ${isActive(link.path!) ? "bg-muted text-terracotta" : "text-foreground hover:bg-muted"}`}>
                   {t(link.labelKey)}
                 </Link>
               )

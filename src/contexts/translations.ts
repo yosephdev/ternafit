@@ -31,6 +31,8 @@ export const initialTranslations: Translations = {
     'nav.getInvolved': { en: 'Get Involved', sv: 'Engagera dig' },
     'nav.donate': { en: 'Donate', sv: 'Donera' },
     'nav.contact': { en: 'Contact', sv: 'Kontakt' },
+    'nav.impactStories': { en: 'Impact Stories', sv: 'Påverkansberättelser' },
+    'nav.ourImpact': { en: 'Our Impact', sv: 'Vår påverkan' },
 
     // Work page translations
     'work.title': { en: 'Our Work', sv: 'Vårt arbete' },
@@ -136,6 +138,8 @@ export const initialTranslations: Translations = {
     'news.categories.humanitarian': { en: 'Humanitarian', sv: 'Humanitärt' },
     'news.categories.women': { en: 'Women & Gender', sv: 'Kvinnor & Kön' },
     'news.categories.children': { en: 'Children & Youth', sv: 'Barn & Ungdom' },
+    'news.noTigrayNews': { en: 'No Tigray news found.', sv: 'Inga Tigray-nyheter hittades.' },
+    'news.readAnalysis': { en: 'Read Our Analysis', sv: 'Läs vår analys' },
     'news.categories.agriculture': { en: 'Agriculture', sv: 'Jordbruk' },
     'news.categories.reconstruction': { en: 'Reconstruction', sv: 'Återuppbyggnad' },
     'news.categories.peace': { en: 'Peace & Reconciliation', sv: 'Fred & Försoning' },
