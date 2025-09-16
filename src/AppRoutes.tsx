@@ -19,6 +19,7 @@ import NotFound from "./pages/NotFound";
 
 import StoriesPage from "./pages/StoriesPage";
 import ImpactPage from "./pages/ImpactPage";
+import TrainingEventPage from "./pages/TrainingEventPage";
 
 const AppRoutes = () => {
   const { t } = useLanguage();
@@ -27,6 +28,10 @@ const AppRoutes = () => {
     {
       path: t("path.scholarshipProgram"),
       element: <ScholarshipProgramPage />,
+    },
+    {
+      path: t("path.trainingEvent"),
+      element: <TrainingEventPage />,
     },
     {
       path: t("path.home"),
