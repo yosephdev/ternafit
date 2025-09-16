@@ -29,7 +29,7 @@ const TrainingEventPage = () => (
       <ul className="list-disc pl-6 mb-4">
         <li>Practical sessions on AI and digital tools</li>
         <li>Certificate of Completion for all participants</li>
-        <li>Open to all interested community members</li>
+        <li>Open to all interested ADS Volunteers</li>
       </ul>
       <p className="mb-2">For questions or special arrangements, please contact:</p>
       <p className="font-semibold">Yoseph Berhane, Ternafit</p>
