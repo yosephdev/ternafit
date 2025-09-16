@@ -21,8 +21,6 @@ const TrainingEventPage = () => (
       <a href="/images/AI & Digital Literacy Certificate.png" download className="text-sm underline text-blue-600">Download Certificate Template (PNG)</a>
       <br />
       <a href="/images/The Digital Empowerment Kit.pdf" download className="text-sm underline text-blue-600">Download Digital Empowerment Kit (PDF)</a>
-      <br />
-      <a href="/images/Training Agenda_ AI & Digital Literacy for ADS Volunteers.md" download className="text-sm underline text-blue-600">Download Training Agenda (Markdown)</a>
     </div>
     <section className="my-8">
       <h2 className="text-xl font-semibold mb-2">Event Highlights</h2>
