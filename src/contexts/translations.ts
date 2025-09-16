@@ -15,9 +15,11 @@ export const initialTranslations: Translations = {
     'nav.newsAndUpdates': { en: 'News & Updates', sv: 'Nyheter & Uppdateringar' }, // NEW: Merges "Blog" and "News"
     'footer.contactUs': { en: 'Contact Us', sv: 'Kontakta oss' },
     'nav.scholarshipProgram': { en: 'Scholarship Program', sv: 'Stipendieprogram' },
+    'nav.trainingEvent': { en: 'AI & Digital Literacy Training', sv: 'AI & Digital kompetensträning' },
     'nav.stories': { en: 'Stories', sv: 'Berättelser' },
     'nav.impact': { en: 'Impact', sv: 'Påverkan' },
     'path.scholarshipProgram': { en: '/scholarship-program', sv: '/scholarship-program' },
+    'path.trainingEvent': { en: '/training-event', sv: '/training-event' },
     // Custom paths for new pages
     'path.stories': { en: '/stories', sv: '/stories' },
     'path.impact': { en: '/impact', sv: '/impact' },

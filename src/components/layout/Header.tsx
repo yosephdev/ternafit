@@ -80,6 +80,7 @@ const Header = () => {
         { path: t("path.work"), labelKey: "nav.ourApproach" },
         { path: t("path.impact"), labelKey: "nav.impactAndStories" },
         { path: t("path.scholarshipProgram"), labelKey: "nav.scholarshipProgram" },
+        { path: t("path.trainingEvent"), labelKey: "nav.trainingEvent" },
       ]
     },
     { 
