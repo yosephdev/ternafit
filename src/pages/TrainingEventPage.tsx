@@ -20,6 +20,8 @@ const TrainingEventPage = () => (
       <img src="/images/AI & Digital Literacy Certificate.png" alt="Certificate Template" className="rounded-lg shadow-md mb-2" />
       <a href="/images/AI & Digital Literacy Certificate.png" download className="text-sm underline text-blue-600">Download Certificate Template (PNG)</a>
       <br />
+      <a href="/images/Training Agenda_ AI & Digital Literacy for ADS Volunteers.pdf" download className="text-sm underline text-blue-600">Download Training Agenda (PDF)</a>
+      <br />
       <a href="/images/The Digital Empowerment Kit.pdf" download className="text-sm underline text-blue-600">Download Digital Empowerment Kit (PDF)</a>
     </div>
     <section className="my-8">
