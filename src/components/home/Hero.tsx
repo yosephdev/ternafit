@@ -32,6 +32,14 @@ const Hero = () => {
     <div className="relative min-h-[80vh] flex flex-col justify-center overflow-hidden">
       {/* Background Video with Fallback and Overlay */}
       <div className="absolute inset-0 z-0">
+        {/* Ensure a visible image background even if video/poster fails */}
+        <img
+          src={fallbackBackgroundImage}
+          alt="Hero background"
+          className="absolute inset-0 w-full h-full object-cover"
+          loading="eager"
+          decoding="async"
+        />
         <video
           autoPlay
           muted
@@ -44,11 +52,7 @@ const Hero = () => {
           <source src="/videos/gemini-hero-video.webm" type="video/webm" />
           <source src="/videos/gemini-hero-video.mp4" type="video/mp4" />
           {/* Fallback image for browsers that don't support video */}
-          <img
-            src={fallbackBackgroundImage}
-            alt="Hero background"
-            className="w-full h-full object-cover"
-          />
+          <img src={fallbackBackgroundImage} alt="" />
         </video>
         {/* Darker overlay for better text readability */}
         <div className="absolute inset-0 bg-black/50"></div>

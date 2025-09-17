@@ -23,15 +23,17 @@ const HomePage = () => {
       <ImpactStats />
       
       {/* Impact Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white" aria-labelledby="impact-title">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-serif font-bold mb-8 text-center">{t("home.impact.sectionTitle")}</h2>
+          <h2 id="impact-title" className="text-3xl font-serif font-bold mb-8 text-center">{t("home.impact.sectionTitle")}</h2>
           <div className="flex flex-col md:flex-row gap-12 items-center">
             <div className="md:w-1/2">
               <img
                 src="/images/stories/abeba-liya.webp"
                 alt="Success story - Community impact in Tigray"
                 className="rounded-lg shadow-lg w-full h-auto object-cover"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div className="md:w-1/2">
@@ -84,9 +86,9 @@ const HomePage = () => {
       </section>
 
       {/* Award Announcement Section */}
-      <section className="py-16 bg-gray-100">
+      <section className="py-16 bg-gray-100" aria-labelledby="award-title">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-serif font-bold mb-4 text-gray-800">{t("home.award.title")}</h2>
+          <h2 id="award-title" className="text-3xl font-serif font-bold mb-4 text-gray-800">{t("home.award.title")}</h2>
           <p className="text-lg text-gray-600 mb-6 max-w-3xl mx-auto">
             {t("home.award.description1")}
           </p>
@@ -97,22 +99,40 @@ const HomePage = () => {
          <p className="text-md text-gray-500">
             ➡️ <a href="https://www.acquisition-international.com/winners/ternafit/" target="_blank" rel="noopener noreferrer">{t("home.award.readMore")}</a> 
           </p>
-          <img src="/images/ternafit-ai-magazine.webp" alt="Ternafit in Acquisition International Magazine" className="max-w-full h-auto mt-8" />
+          <img src="/images/logos/ternafit-ai-magazine.webp" alt="Ternafit in Acquisition International Magazine" className="max-w-full h-auto mt-8 mx-auto rounded-lg shadow" loading="lazy" decoding="async" />
+        </div>
+      </section>
+
+      {/* CTA Banner */}
+      <section className="py-16 bg-terracotta" aria-labelledby="cta-title">
+        <div className="container mx-auto px-4 text-center text-white">
+          <h2 id="cta-title" className="text-3xl font-serif font-bold mb-4">{t('home.ctaBanner.title') || 'Help Rebuild Lives in Tigray'}</h2>
+          <p className="text-lg max-w-2xl mx-auto mb-8 opacity-90">
+            {t('home.ctaBanner.subtitle') || 'Your support funds food, water, education, and healthcare through trusted local partners.'}
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to={t('path.donate')}>
+              <Button className="bg-white text-terracotta hover:bg-white/90 font-bold px-8 py-6 rounded-full">{t('home.cta.donate')}</Button>
+            </Link>
+            <Link to={t('path.getInvolved')}>
+              <Button variant="outline" className="border-2 border-white text-terracotta hover:bg-white hover:text-terracotta font-bold px-8 py-6 rounded-full">{t('getInvolved.volunteer.title')}</Button>
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* Featured Video */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white" aria-labelledby="video-title">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-serif font-bold text-center mb-8">{t("home.featuredVideo.title")}</h2>
+          <h2 id="video-title" className="text-3xl font-serif font-bold text-center mb-8">{t("home.featuredVideo.title")}</h2>
           <FeaturedVideo />
         </div>
       </section>
 
       {/* Programs Section */}
-      <section className="py-16 bg-muted/50">
+      <section className="py-16 bg-muted/50" aria-labelledby="programs-title">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-serif font-bold mb-8 text-center">{t("home.programs.title")}</h2>
+          <h2 id="programs-title" className="text-3xl font-serif font-bold mb-8 text-center">{t("home.programs.title")}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="h-48 overflow-hidden">
@@ -120,6 +140,8 @@ const HomePage = () => {
                   src="/images/stories/tesfay-farmer.webp"
                   alt="Emergency Relief"
                   className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div className="p-6">
@@ -138,6 +160,8 @@ const HomePage = () => {
                   src="/images/stories/selam-story.webp"
                   alt="Education & Youth"
                   className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div className="p-6">
@@ -156,6 +180,8 @@ const HomePage = () => {
                   src="/images/projects/advocacy.webp"
                   alt="Advocacy & Awareness"
                   className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div className="p-6">
@@ -173,11 +199,11 @@ const HomePage = () => {
       </section>
       
       {/* Donation Section */}
-      <section className="py-16 bg-muted">
+      <section className="py-16 bg-muted" aria-labelledby="donate-title">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-serif font-bold mb-4">{t('donate.title')}</h2>
+              <h2 id="donate-title" className="text-3xl font-serif font-bold mb-4">{t('donate.title')}</h2>
               <p className="text-lg mb-6">
                 {t("home.donate.intro")}
               </p>

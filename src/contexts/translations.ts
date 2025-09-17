@@ -157,6 +157,16 @@ export const initialTranslations: Translations = {
     'news.categories.peace': { en: 'Peace & Reconciliation', sv: 'Fred & Försoning' },
     'news.categories.water_sanitation': { en: 'Water & Sanitation', sv: 'Vatten & Sanitet' },
     'news.categories.general': { en: 'General', sv: 'Allmänt' },
+    // News source categories (RSS)
+    'news.categories.reuters_africa': { en: 'Reuters Africa', sv: 'Reuters Afrika' },
+    'news.categories.un_ocha_ethiopia': { en: 'UN OCHA Ethiopia', sv: 'UN OCHA Etiopien' },
+    'news.categories.al_jazeera_africa': { en: 'Al Jazeera Africa', sv: 'Al Jazeera Afrika' },
+    'news.categories.the_world_bank': { en: 'The World Bank', sv: 'Världsbanken' },
+    'news.categories.un_ocha_-_ethiopia': { en: 'UN OCHA Ethiopia', sv: 'UN OCHA Etiopien' },
+    'news.categories.horn_of_africa_-_the_guardian': { en: 'The Guardian - Horn of Africa', sv: 'The Guardian - Afrikas horn' },
+    'news.categories.ethiopia_insight': { en: 'Ethiopia Insight', sv: 'Ethiopia Insight' },
+    'news.categories.borkena': { en: 'Borkena', sv: 'Borkena' },
+    'news.categories.bbc_news_-_africa': { en: 'BBC News Africa', sv: 'BBC News Afrika' },
 
     // Pagination
     'pagination.previous': { en: 'Previous', sv: 'Föregående' },
@@ -203,6 +213,9 @@ export const initialTranslations: Translations = {
     },
     'home.hero.cta': { en: 'Get Involved', sv: 'Engagera dig' },
     'home.hero.learnMore': { en: 'Learn More', sv: 'Läs mer' },
+    // Homepage CTA Banner
+    'home.ctaBanner.title': { en: 'Help Rebuild Lives in Tigray', sv: 'Hjälp att återuppbygga liv i Tigray' },
+    'home.ctaBanner.subtitle': { en: 'Your support funds food, water, education, and healthcare through trusted local partners.', sv: 'Ditt stöd finansierar mat, vatten, utbildning och sjukvård genom betrodda lokala partners.' },
 
     // About
     'about.title': { en: 'About Ternafit', sv: 'Om Ternafit' },

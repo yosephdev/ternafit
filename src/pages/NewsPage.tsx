@@ -3,38 +3,92 @@ import DonateBox from "@/components/shared/DonateBox";
 import { Calendar, ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom"; // Import Link for internal routing
-
-// Import the new curated content
-import { curatedNews, NewsItem } from "@/data/curatedNews";
+import { curatedNews } from "@/data/curatedNews"; // Fallback content
 
 const NewsPage = () => {
   const { t, language } = useLanguage();
-  const [newsItems, setNewsItems] = useState<NewsItem[]>([]);
+  type FetchedArticle = {
+    title: string;
+    description: string;
+    publishedAt: string;
+    url: string;
+    image?: string;
+    source: { name: string };
+  };
+
+  type CardItem = {
+    id: string;
+    title: string;
+    excerpt: string;
+    date: string;
+    imageUrl: string | null;
+    url: string;
+    sourceName: string;
+  };
+
+  const [newsItems, setNewsItems] = useState<CardItem[]>([]);
   const [activeCategory, setActiveCategory] = useState("all");
   const [categories, setCategories] = useState<string[]>(["all"]);
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const itemsPerPage = 6; // Adjusted for a better layout
 
   useEffect(() => {
     setIsLoading(true);
-
-    // No API call needed. We use our high-quality curated list directly.
-    const allArticles = curatedNews;
-
-    // Sort by date descending
-    allArticles.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-    
-    // Extract unique categories
-    const uniqueCategories = [
-      "all",
-      ...Array.from(new Set(allArticles.map(item => item.category))),
-    ];
-
-    setNewsItems(allArticles);
-    setCategories(uniqueCategories);
-    setIsLoading(false);
-  }, [language]); 
+    setError(null);
+    fetch('/.netlify/functions/fetch-news?max=24')
+      .then(res => {
+        if (!res.ok) throw new Error(res.statusText);
+        const ct = res.headers.get('content-type') || '';
+        if (!ct.includes('application/json')) throw new Error('Invalid response');
+        return res.json();
+      })
+      .then((data: { articles: FetchedArticle[] }) => {
+        const items: CardItem[] = (data.articles || []).map((a) => ({
+          id: a.url || Math.random().toString(36).slice(2),
+          title: a.title,
+          excerpt: a.description,
+          date: a.publishedAt,
+          imageUrl: a.image || null,
+          url: a.url,
+          sourceName: a.source?.name || 'Source',
+        }));
+        // Sort by date desc
+        items.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+        // Build categories from source names
+        const srcs = Array.from(new Set(items.map(i => i.sourceName)));
+        // Map source names to translation keys compatible with existing button label code
+        const normalized = srcs.map(s => s.toLowerCase().replace(/ & /g, '_').replace(/ /g, '_'));
+        const mapped = srcs.map((s, idx) => ({ label: s, key: normalized[idx] }));
+        // Store only labels, we use raw names for filtering and computed keys for labels through t()
+        setCategories(["all", ...srcs]);
+        setNewsItems(items);
+      })
+      .catch((e) => {
+        console.error('Failed to load news', e);
+        // Fallback to curated news so the page still shows content
+        try {
+          const items: CardItem[] = curatedNews.map((n) => ({
+            id: String(n.id),
+            title: n.title[language],
+            excerpt: n.content[language],
+            date: n.date,
+            imageUrl: n.imageUrl || null,
+            url: n.url,
+            sourceName: n.source || 'Ternafit',
+          }));
+          items.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+          const srcs = Array.from(new Set(items.map(i => i.sourceName)));
+          setCategories(["all", ...srcs]);
+          setNewsItems(items);
+          setError(null);
+        } catch (err) {
+          setError(t('news.loadError') || 'Failed to load news.');
+        }
+      })
+      .finally(() => setIsLoading(false));
+  }, [language, t]);
 
   const formatDate = (dateStr: string) => {
     return new Date(dateStr).toLocaleDateString(language === 'sv' ? 'sv-SE' : 'en-US', {
@@ -44,7 +98,7 @@ const NewsPage = () => {
 
   const filteredNewsItems = activeCategory === "all" 
     ? newsItems 
-    : newsItems.filter(item => item.category === activeCategory);
+    : newsItems.filter(item => item.sourceName === activeCategory);
 
   const totalPages = Math.ceil(filteredNewsItems.length / itemsPerPage);
   const currentNewsItems = filteredNewsItems.slice(
@@ -52,22 +106,8 @@ const NewsPage = () => {
     currentPage * itemsPerPage
   );
   
-  const ReadMoreLink = ({ item }: { item: NewsItem }) => {
-    const text = item.type === 'internal' ? (t("news.readAnalysis") || "Read Our Analysis") : (t("common.readMore") || "Read More");
-
-    if (item.url === "#") {
-      return <span className="text-muted-foreground italic text-sm mt-4 block">{t("news.partnerUpdate") || "Partner Field Update"}</span>;
-    }
-
-    if (item.type === 'internal') {
-      return (
-        <Link to={item.url} className="text-terracotta font-medium hover:underline flex items-center mt-4">
-          {text}
-          <ArrowRight className="h-4 w-4 ml-1" />
-        </Link>
-      );
-    }
-
+  const ReadMoreLink = ({ item }: { item: CardItem }) => {
+    const text = t("common.readMore") || "Read More";
     return (
       <a href={item.url} target="_blank" rel="noopener noreferrer" className="text-terracotta font-medium hover:underline flex items-center mt-4">
         {text}
@@ -106,24 +146,32 @@ const NewsPage = () => {
             <div className="md:col-span-2">
               <div className="mb-8 overflow-x-auto">
                 <div className="flex space-x-2 border-b pb-4">
-                  {categories.map((category) => (
-                    <button
-                      key={category}
-                      className={`px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap ${
-                        activeCategory === category
-                          ? "bg-terracotta text-white"
-                          : "bg-gray-100 text-foreground hover:bg-gray-200"
-                      }`}
-                      onClick={() => { setActiveCategory(category); setCurrentPage(1); }}
-                    >
-                      {t(`news.categories.${category.toLowerCase().replace(/ & /g, '_').replace(/ /g, '_')}`) || category}
-                    </button>
-                  ))}
+                  {categories.map((category) => {
+                    const normalized = category.toLowerCase().replace(/ & /g, '_').replace(/ /g, '_');
+                    const key = `news.categories.${normalized}`;
+                    const label = t(key);
+                    const finalLabel = label === key ? category : label;
+                    return (
+                      <button
+                        key={category}
+                        className={`px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap ${
+                          activeCategory === category
+                            ? "bg-terracotta text-white"
+                            : "bg-gray-100 text-foreground hover:bg-gray-200"
+                        }`}
+                        onClick={() => { setActiveCategory(category); setCurrentPage(1); }}
+                      >
+                        {finalLabel}
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
 
               {isLoading ? (
-                <div className="text-center py-10">Loading news...</div>
+                <div className="text-center py-10">{t('news.loading') || 'Loading news...'}</div>
+              ) : error ? (
+                <div className="text-center py-10 text-red-600">{error}</div>
               ) : (
                 <>
                   <div className="grid grid-cols-1 gap-8">
@@ -132,22 +180,22 @@ const NewsPage = () => {
                         <article key={item.id} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col md:flex-row">
                           {item.imageUrl && (
                             <div className="md:w-1/3">
-                              <img src={item.imageUrl} alt={item.title[language]} className="w-full h-48 md:h-full object-cover" loading="lazy" />
+                              <img src={item.imageUrl} alt={item.title} className="w-full h-48 md:h-full object-cover" loading="lazy" />
                             </div>
                           )}
                           <div className={`p-6 flex flex-col ${item.imageUrl ? 'md:w-2/3' : 'w-full'}`}>
                             <div className="flex justify-between items-center mb-2">
-                              <span className="text-xs font-semibold text-terracotta uppercase">{item.source}</span>
+                              <span className="text-xs font-semibold text-terracotta uppercase">{item.sourceName}</span>
                               <div className="flex items-center text-sm text-muted-foreground">
                                 <Calendar className="h-4 w-4 mr-1.5" />
                                 <span>{formatDate(item.date)}</span>
                               </div>
                             </div>
                             <h2 className="text-xl font-serif font-bold mb-3 flex-grow">
-                              {item.title[language]}
+                              {item.title}
                             </h2>
                             <p className="text-muted-foreground mb-4 line-clamp-3">
-                              {item.content[language]}
+                              {item.excerpt}
                             </p>
                             <ReadMoreLink item={item} />
                           </div>
@@ -183,8 +231,8 @@ const NewsPage = () => {
                     <div key={`featured-${item.id}`}>
                       <p className="text-xs text-muted-foreground">{formatDate(item.date)}</p>
                       <h4 className="text-sm font-semibold leading-tight">
-                        <a href={item.url} target={item.type === 'external' ? '_blank' : '_self'} rel="noopener noreferrer" className="hover:text-terracotta">
-                          {item.title[language]}
+                        <a href={item.url} target="_blank" rel="noopener noreferrer" className="hover:text-terracotta">
+                          {item.title}
                         </a>
                       </h4>
                     </div>

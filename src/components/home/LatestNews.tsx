@@ -19,37 +19,30 @@ interface NewsItem {
   urlToImage?: string | null;
 }
 
-const GNEWS_API_KEY = import.meta.env.VITE_GNEWS_API_KEY;
-const GNEWS_API_URL_BASE = 'https://gnews.io/api/v4/search';
-const TOP_HEADLINES_QUERY = 'Tigray OR Ethiopia humanitarian';
+// Use Netlify function in production; provide dev fallback
+const NETLIFY_NEWS_FN = '/.netlify/functions/fetch-news';
+const TOP_HEADLINES_QUERY = 'Tigray OR Tigrayan OR Tigrinya OR Mekelle OR Axum OR Adwa OR Shire OR Abi Adi';
+const DEV_GNEWS_API_KEY = (import.meta as any).env?.VITE_GNEWS_API_KEY as string | undefined;
 
-const NEWS_SOURCES = [
+const fallbackLocal: NewsItem[] = [
   {
-    name: 'GNews',
-    url: 'https://gnews.io/api/v4/search',
-    params: { q: 'Tigray OR Ethiopia humanitarian', lang: 'en', max: 10 }
+    id: 'local-1',
+    title: { en: 'Tigray Health Bureau Reports Progress in Medical Supply Distribution', sv: 'Tigrays hälsobyrå rapporterar framsteg i distributionen av medicinska förnödenheter' },
+    excerpt: { en: 'Essential medicines delivered to 15 health centers across central Tigray.', sv: 'Viktiga läkemedel levererade till 15 vårdcentraler i centrala Tigray.' },
+    date: new Date().toISOString(),
+    imageUrl: '/images/news/health-supplies.webp',
+    url: '#',
+    source: { name: 'Tigray Health Bureau' },
   },
   {
-    name: 'Local',
-    articles: [
-      {
-        title: 'Tigray Health Bureau Reports Progress in Medical Supply Distribution',
-        description: 'Local health officials confirm delivery of essential medicines to 15 health centers across central Tigray, benefiting over 50,000 residents.',
-        url: '#',
-        publishedAt: new Date().toISOString(),
-        source: { name: 'Tigray Health Bureau' },
-        image: '/images/news/health-supplies.webp'
-      },
-      {
-        title: 'School Reconstruction Begins in Mekelle Suburbs',
-        description: 'Community-led initiative launches reconstruction of 8 primary schools with support from diaspora funding and local volunteers.',
-        url: '#',
-        publishedAt: new Date(Date.now() - 86400000).toISOString(),
-        source: { name: 'Mekelle Education Office' },
-        image: '/images/news/school-rebuild.webp'
-      }
-    ]
-  }
+    id: 'local-2',
+    title: { en: 'School Reconstruction Begins in Mekelle Suburbs', sv: 'Skolåteruppbyggnad börjar i Mekelles förorter' },
+    excerpt: { en: 'Community-led initiative launches reconstruction of 8 primary schools.', sv: 'Samhällslett initiativ startar återuppbyggnaden av 8 grundskolor.' },
+    date: new Date(Date.now() - 86400000).toISOString(),
+    imageUrl: '/images/news/school-rebuild.webp',
+    url: '#',
+    source: { name: 'Mekelle Education Office' },
+  },
 ];
 
 const formatDate = (dateString: string, language: string) => {
@@ -95,15 +88,24 @@ const LatestNews = () => {
   const [news, setNews] = useState<NewsItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [showSpinner, setShowSpinner] = useState(false);
 
   useEffect(() => {
     setLoading(true);
+    setShowSpinner(false);
+    const spinnerTimer = setTimeout(() => setShowSpinner(true), 600);
     setError(null);
 
-    fetch(
-      `${GNEWS_API_URL_BASE}?q=${encodeURIComponent(TOP_HEADLINES_QUERY)}&lang=${language === "sv" ? "sv" : "en"}&country=et&max=6&apikey=${GNEWS_API_KEY}`
-    )
+    const params = new URLSearchParams({
+      query: TOP_HEADLINES_QUERY,
+      // Force English for better coverage; can expand per language later
+      lang: 'en',
+      max: '12'
+    });
+
+    fetch(`${NETLIFY_NEWS_FN}?${params.toString()}`)
       .then(res => {
+        const contentType = res.headers.get('content-type') || '';
         if (!res.ok) {
           return res.json().then(errData => {
             throw new Error(errData.errors ? errData.errors.join(', ') : `API request failed: ${res.statusText}`);
@@ -111,31 +113,81 @@ const LatestNews = () => {
             throw new Error(`API request failed: ${res.statusText}`);
           });
         }
+        if (!contentType.includes('application/json')) {
+          throw new Error('Unexpected response type from news endpoint');
+        }
         return res.json();
       })
       .then(data => {
-        const articles: NewsItem[] = (data.articles || []).map((article: Partial<NewsItem>) => ({
-          id: article.url || `news-${Math.random()}`,
+        const raw: Array<Partial<NewsItem>> = data.articles || [];
+        const toStringSafe = (value: unknown): string => (typeof value === 'string' ? value : '');
+        const filtered = raw.filter((article) => {
+          const title = toStringSafe((article as any).title);
+          const desc = toStringSafe((article as any).description);
+          const text = `${title} ${desc}`.toLowerCase();
+          const must = ['tigray','tigrayan','tigrinya','mekelle','axum','adwa','shire','abi adi'];
+          return must.some(k => text.includes(k));
+        });
+        const articles: NewsItem[] = filtered.map((article: Partial<NewsItem>) => ({
+          id: toStringSafe(article.url) || `news-${Math.random()}`,
           title: {
-            en: article.title || "No title available",
-            sv: article.title || "Ingen titel tillgänglig",
+            en: toStringSafe((article as any).title) || 'No title available',
+            sv: toStringSafe((article as any).title) || 'Ingen titel tillgänglig',
           },
           excerpt: {
-            en: article.description || article.content || "",
-            sv: article.description || article.content || "",
+            en: toStringSafe((article as any).description) || toStringSafe((article as any).content) || '',
+            sv: toStringSafe((article as any).description) || toStringSafe((article as any).content) || '',
           },
-          date: article.publishedAt || new Date().toISOString(),
-          imageUrl: article.image || null,
-          url: article.url || "#",
-          source: typeof article.source === 'object' && article.source !== null ? article.source.name || "Unknown source" : typeof article.source === 'string' ? article.source : "Unknown source",
+          date: toStringSafe((article as any).publishedAt) || new Date().toISOString(),
+          imageUrl: (article as any).image || (article as any).urlToImage || null,
+          url: toStringSafe(article.url) || '#',
+          source: typeof (article as any).source === 'object' && (article as any).source !== null ? ((article as any).source as any).name || 'Unknown source' : typeof (article as any).source === 'string' ? (article as any).source : 'Unknown source',
         }));
-        setNews(articles.slice(0, 6));
+        const finalList = articles.length > 0 ? articles.slice(0, 6) : fallbackLocal.slice(0, 6);
+        setNews(finalList);
       })
       .catch((err) => {
+        // Fallback to direct GNews in dev if function is unavailable or returns HTML
+        if (DEV_GNEWS_API_KEY) {
+          const gnewsUrl = `https://gnews.io/api/v4/search?q=${encodeURIComponent(TOP_HEADLINES_QUERY)}&lang=en&max=12&apikey=${DEV_GNEWS_API_KEY}`;
+          fetch(gnewsUrl)
+            .then(r => r.json())
+            .then(data => {
+              const raw: Array<Partial<NewsItem>> = data.articles || [];
+              const toStringSafe = (value: unknown): string => (typeof value === 'string' ? value : '');
+              const filtered = raw.filter((article) => {
+                const title = toStringSafe((article as any).title);
+                const desc = toStringSafe((article as any).description);
+                const text = `${title} ${desc}`.toLowerCase();
+                const must = ['tigray','tigrayan','tigrinya','mekelle','axum','adwa','shire','abi adi'];
+                return must.some(k => text.includes(k));
+              });
+              const articles: NewsItem[] = filtered.map((article: Partial<NewsItem>) => ({
+                id: toStringSafe(article.url) || `news-${Math.random()}`,
+                title: { en: toStringSafe((article as any).title) || 'No title available', sv: toStringSafe((article as any).title) || 'Ingen titel tillgänglig' },
+                excerpt: { en: toStringSafe((article as any).description) || toStringSafe((article as any).content) || '', sv: toStringSafe((article as any).description) || toStringSafe((article as any).content) || '' },
+                date: toStringSafe((article as any).publishedAt) || new Date().toISOString(),
+                imageUrl: (article as any).image || (article as any).urlToImage || null,
+                url: toStringSafe(article.url) || '#',
+                source: typeof (article as any).source === 'object' && (article as any).source !== null ? ((article as any).source as any).name || 'Unknown source' : typeof (article as any).source === 'string' ? (article as any).source : 'Unknown source',
+              }));
+              const finalList = articles.length > 0 ? articles.slice(0, 6) : fallbackLocal.slice(0, 6);
+              setNews(finalList);
+              setError(null);
+            })
+            .catch((fallbackErr) => {
+              console.error('Fallback GNews fetch failed:', fallbackErr);
+              setNews(fallbackLocal.slice(0, 6));
+              setError(null);
+            })
+            .finally(() => setLoading(false));
+          return;
+        }
         console.error("Error fetching top headlines:", err);
-        setError(String(err.message || t('news.loadError')));
+        setNews(fallbackLocal.slice(0, 6));
+        setError(null);
       })
-      .finally(() => setLoading(false));
+      .finally(() => { setLoading(false); clearTimeout(spinnerTimer); });
   }, [language, t]);
 
   return (
@@ -151,7 +203,7 @@ const LatestNews = () => {
         </div>
 
         {loading ? (
-          <div className="text-center text-lg py-12">{t('news.loading')}</div>
+          <div className="text-center text-lg py-12">{showSpinner ? t('news.loading') : ''}</div>
         ) : error ? (
           <div className="text-center text-red-600">{error}</div>
         ) : news.length === 0 ? (

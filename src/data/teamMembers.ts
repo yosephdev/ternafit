@@ -19,21 +19,21 @@ export const teamMembers: TeamMember[] = [
     bio: "Mebrat is a dedicated and experienced leader with a background in humanitarian aid and development. She oversees all of Ternafit's programs and initiatives."
   },
   {
-    name: "Julian Bergman",
+    name: "Filmon Michael",
     role: "Treasurer",
-    imageUrl: "/images/team/yoseph-berhane.webp", // Placeholder until actual image is available
-    bio: "Julian brings extensive financial expertise to Ternafit, ensuring transparent and effective management of our resources to maximize impact for the communities we serve."
+    imageUrl: "/images/team/filmon-michael.webp", // Placeholder until actual image is available
+    bio: "Filmon brings extensive financial expertise to Ternafit, ensuring transparent and effective management of our resources to maximize impact for the communities we serve."
   },
   {
-    name: "Filmon Michael",
+    name: "Julian Bergman",
     role: "Secretary",
-    imageUrl: "/images/team/mebrat.webp", // Placeholder until actual image is available
-    bio: "Filmon manages organizational communications and documentation, ensuring smooth operations and maintaining clear records of our activities and decisions."
+    imageUrl: "/images/team/julian-bergman.webp", // Placeholder until actual image is available
+    bio: "Julian manages organizational communications and documentation, ensuring smooth operations and maintaining clear records of our activities and decisions."
   },
   {
     name: "Selamawit Asres",
     role: "Board Member",
-    imageUrl: "/images/team/selam.webp", // Using available image
+    imageUrl: "/images/team/selam-asres.webp", // Using available image
     bio: "Selamawit provides strategic guidance and oversight as a board member, contributing valuable insights to help shape Ternafit's mission and direction."
   }
 ];
