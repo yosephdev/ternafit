@@ -38,9 +38,9 @@ const Footer = () => {
               </li>
             </ul>
             <div className="flex space-x-4 mt-6">
-              <a href="https://www.facebook.com/ternafit" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><Facebook className="h-5 w-5 text-gray-600 hover:text-terracotta" /></a>
-              <a href="https://twitter.com/InfoTernafit" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><Twitter className="h-5 w-5 text-gray-600 hover:text-terracotta" /></a>
-              <a href="http://instagram.com/ternafit" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><Instagram className="h-5 w-5 text-gray-600 hover:text-terracotta" /></a>
+              <a href="https://www.facebook.com/ternafit" aria-label="Facebook" target="_blank" rel="noopener noreferrer" className="rounded p-2 hover:bg-white/40 transition"><Facebook className="h-5 w-5 text-gray-600 hover:text-terracotta" /></a>
+              <a href="https://twitter.com/InfoTernafit" aria-label="Twitter" target="_blank" rel="noopener noreferrer" className="rounded p-2 hover:bg-white/40 transition"><Twitter className="h-5 w-5 text-gray-600 hover:text-terracotta" /></a>
+              <a href="http://instagram.com/ternafit" aria-label="Instagram" target="_blank" rel="noopener noreferrer" className="rounded p-2 hover:bg-white/40 transition"><Instagram className="h-5 w-5 text-gray-600 hover:text-terracotta" /></a>
             </div>
           </div>
 

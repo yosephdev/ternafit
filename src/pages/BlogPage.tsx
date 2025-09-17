@@ -6,6 +6,7 @@ import DonateBox from "@/components/shared/DonateBox";
 import { Calendar, User, Tag, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import BlogSidebar from "@/components/blog/BlogSidebar";
+import { Helmet } from "react-helmet-async";
 
 // Featured internal blog stories for Ternafit; can easily add more here!
 const featuredStories = [
@@ -62,7 +63,50 @@ const BlogPage: React.FC = () => {
   };
 
   return (
-    <main>
+    <>
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Blog",
+            "name": "Ternafit Blog",
+            "description": "Stories, insights, and updates from Ternafit's humanitarian work in Tigray",
+            "url": "https://ternafit.org/blog",
+            "publisher": {
+              "@type": "Organization",
+              "name": "Ternafit",
+              "url": "https://ternafit.org"
+            },
+            "blogPost": [
+              ...featuredStories.map(story => ({
+                "@type": "BlogPosting",
+                "headline": story.title[language],
+                "description": story.excerpt[language],
+                "datePublished": story.date,
+                "author": {
+                  "@type": "Person",
+                  "name": story.author
+                },
+                "image": story.imageUrl,
+                "keywords": story.tags.join(", ")
+              })),
+              ...blogPosts.map(post => ({
+                "@type": "BlogPosting",
+                "headline": post.title[language],
+                "description": post.excerpt[language],
+                "datePublished": post.date,
+                "author": {
+                  "@type": "Person",
+                  "name": post.author
+                },
+                "image": post.imageUrl,
+                "keywords": post.tags.join(", ")
+              }))
+            ]
+          })}
+        </script>
+      </Helmet>
+      <main>
       {/* Hero Section */}
       <section 
         className="relative py-20 bg-cover bg-center bg-no-repeat"
@@ -198,14 +242,15 @@ const BlogPage: React.FC = () => {
             </div>
 
             {/* Sidebar */}
-            <div className="md:col-span-1 space-y-6">
+            <aside className="md:col-span-1 space-y-6" aria-label="Blog sidebar">
               {/* <DonateBox compact sticky /> */}
               <BlogSidebar />
-            </div>
+            </aside>
           </div>
         </div>
       </section>
-    </main>
+      </main>
+    </>
   );
 };
 

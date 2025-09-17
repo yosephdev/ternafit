@@ -9,12 +9,44 @@ import LatestPosts from "@/components/home/LatestPosts";
 import FeaturedVideo from "@/components/home/FeaturedVideo";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const HomePage = () => {
   const { t } = useLanguage();
 
   return (
-    <main>
+    <>
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Ternafit",
+            "description": "Swedish NGO providing humanitarian aid to Tigray",
+            "url": "https://ternafit.org",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://ternafit.org/search?q={search_term_string}",
+              "query-input": "required name=search_term_string"
+            },
+            "mainEntity": {
+              "@type": "Organization",
+              "name": "Ternafit",
+              "description": "Swedish NGO providing humanitarian aid to Tigray",
+              "url": "https://ternafit.org",
+              "sameAs": [
+                "https://twitter.com/ternafit",
+                "https://facebook.com/ternafit"
+              ],
+              "potentialAction": {
+                "@type": "DonateAction",
+                "target": "https://ternafit.org/donate"
+              }
+            }
+          })}
+        </script>
+      </Helmet>
+      <main>
       {/* Hero Section */}
       <Hero />
       <CrisisUpdate />
@@ -246,7 +278,8 @@ const HomePage = () => {
       
       {/* Latest Blog Posts */}
       <LatestPosts />
-    </main>
+      </main>
+    </>
   );
 };
 

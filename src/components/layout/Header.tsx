@@ -94,7 +94,7 @@ const Header = () => {
   ];
 
   return (
-    <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${scrolled ? "bg-background/95 backdrop-blur-sm shadow-md" : "bg-transparent"}`}>
+    <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${scrolled ? "bg-background/80 backdrop-blur-md shadow-sm" : "bg-background/30 backdrop-blur-md"}`}>
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link to={t("path.home")} className="flex items-center">
           <img 
@@ -105,7 +105,7 @@ const Header = () => {
         </Link>
 
         {/* --- UX IMPROVEMENT: Desktop Navigation with Dropdown Menu --- */}
-        <nav className="hidden items-center space-x-6 md:flex">
+        <nav className="hidden items-center space-x-6 md:flex" aria-label="Primary">
           {navLinks.map((link) => 
             link.subLinks ? (
               <div 
@@ -123,7 +123,7 @@ const Header = () => {
                 </button>
                 {openDropdown === link.labelKey && (
                   <div 
-                    className="absolute top-full left-0 mt-1 w-56 rounded-md bg-background shadow-lg ring-1 ring-black ring-opacity-5 border z-50"
+                    className="absolute top-full left-0 mt-2 w-56 rounded-xl bg-background/95 backdrop-blur-md shadow-lg ring-1 ring-black/5 border z-50"
                     onMouseEnter={() => handleDropdownEnter(link.labelKey)}
                     onMouseLeave={handleDropdownLeave}
                   >
@@ -132,12 +132,13 @@ const Header = () => {
                         <Link 
                           key={subLink.path} 
                           to={subLink.path} 
-                          className={`block px-4 py-3 text-sm transition-colors ${
+                          className={`block px-4 py-3 text-sm rounded-md mx-1 transition-colors ${
                             isActive(subLink.path) 
-                              ? "font-bold text-terracotta bg-terracotta/10" 
+                              ? "font-semibold text-terracotta bg-terracotta/10" 
                               : "text-foreground hover:bg-muted hover:text-terracotta"
                           }`}
                           onClick={() => setOpenDropdown(null)}
+                          aria-current={isActive(subLink.path) ? 'page' : undefined}
                         >
                           {t(subLink.labelKey)}
                         </Link>
@@ -147,8 +148,9 @@ const Header = () => {
                 )}
               </div>
             ) : (
-              <Link key={link.path} to={link.path!} className={`font-medium transition duration-200 hover:text-terracotta ${isActive(link.path!) ? "text-terracotta" : "text-foreground"}`}>
+              <Link key={link.path} to={link.path!} className={`group font-medium transition duration-200 hover:text-terracotta relative ${isActive(link.path!) ? "text-terracotta" : "text-foreground"}`} aria-current={isActive(link.path!) ? 'page' : undefined}>
                 {t(link.labelKey)}
+                <span className={`absolute -bottom-1 left-0 h-0.5 bg-terracotta transition-all duration-300 ${isActive(link.path!) ? 'w-full' : 'w-0 group-hover:w-full'}`} />
               </Link>
             )
           )}
@@ -178,9 +180,10 @@ const Header = () => {
         </div>
       </div>
 
-      {/* --- UX IMPROVEMENT: Mobile menu with nested structure --- */}
-      <div className={`fixed inset-0 top-16 z-50 transform transition-transform duration-300 ease-in-out md:hidden ${mobileMenuOpen ? "translate-x-0" : "-translate-x-full"}`}>
-        <div className="h-full w-full bg-background p-4 shadow-lg">
+      {/* --- UX IMPROVEMENT: Mobile menu with nested structure and overlay --- */}
+      {mobileMenuOpen && <div className="fixed inset-0 top-16 z-40 bg-black/40 backdrop-blur-sm md:hidden" onClick={() => setMobileMenuOpen(false)} />}
+      <div className={`fixed inset-y-0 left-0 top-16 z-50 w-11/12 max-w-sm transform transition-transform duration-300 ease-in-out md:hidden ${mobileMenuOpen ? "translate-x-0" : "-translate-x-full"}`}>
+        <div className="h-full w-full bg-background/95 backdrop-blur-md p-4 shadow-xl border-r">
           <div className="flex flex-col space-y-2">
             {navLinks.map((link) => 
               link.subLinks ? (
@@ -188,14 +191,14 @@ const Header = () => {
                   <p className="p-3 font-medium text-foreground flex items-center">{t(link.labelKey)} <ChevronDown className="ml-1 h-4 w-4" /></p>
                   <div className="flex flex-col pl-4 border-l-2 border-muted">
                     {link.subLinks.map(subLink => (
-                      <Link key={subLink.path} to={subLink.path} className={`rounded-md p-3 font-medium ${isActive(subLink.path) ? "bg-muted text-terracotta" : "text-foreground hover:bg-muted"}`}>
+                      <Link key={subLink.path} to={subLink.path} className={`rounded-md p-3 font-medium ${isActive(subLink.path) ? "bg-muted text-terracotta" : "text-foreground hover:bg-muted"}`} onClick={() => setMobileMenuOpen(false)}>
                         {t(subLink.labelKey)}
                       </Link>
                     ))}
                   </div>
                 </div>
               ) : (
-                <Link key={link.path} to={link.path!} className={`rounded-md p-3 font-medium ${isActive(link.path!) ? "bg-muted text-terracotta" : "text-foreground hover:bg-muted"}`}>
+                <Link key={link.path} to={link.path!} className={`rounded-md p-3 font-medium ${isActive(link.path!) ? "bg-muted text-terracotta" : "text-foreground hover:bg-muted"}`} onClick={() => setMobileMenuOpen(false)}>
                   {t(link.labelKey)}
                 </Link>
               )

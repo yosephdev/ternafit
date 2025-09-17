@@ -4,6 +4,7 @@ import { Calendar, ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom"; // Import Link for internal routing
 import { curatedNews } from "@/data/curatedNews"; // Fallback content
+import { Helmet } from "react-helmet-async";
 
 const NewsPage = () => {
   const { t, language } = useLanguage();
@@ -118,7 +119,34 @@ const NewsPage = () => {
 
 
   return (
-    <main>
+    <>
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": "News & Updates - Ternafit",
+            "description": "Latest news and updates from Tigray and Ternafit's humanitarian work",
+            "url": "https://ternafit.org/news",
+            "mainEntity": {
+              "@type": "ItemList",
+              "itemListElement": newsItems.slice(0, 10).map((item, index) => ({
+                "@type": "NewsArticle",
+                "position": index + 1,
+                "headline": item.title,
+                "description": item.excerpt,
+                "datePublished": item.date,
+                "url": item.url,
+                "publisher": {
+                  "@type": "Organization",
+                  "name": item.sourceName
+                }
+              }))
+            }
+          })}
+        </script>
+      </Helmet>
+      <main>
       <section className="bg-muted py-14">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -152,17 +180,19 @@ const NewsPage = () => {
                     const label = t(key);
                     const finalLabel = label === key ? category : label;
                     return (
-                      <button
-                        key={category}
-                        className={`px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap ${
-                          activeCategory === category
-                            ? "bg-terracotta text-white"
-                            : "bg-gray-100 text-foreground hover:bg-gray-200"
-                        }`}
-                        onClick={() => { setActiveCategory(category); setCurrentPage(1); }}
-                      >
-                        {finalLabel}
-                      </button>
+                        <button
+                          key={category}
+                          className={`px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap ${
+                            activeCategory === category
+                              ? "bg-terracotta text-white"
+                              : "bg-gray-100 text-foreground hover:bg-gray-200"
+                          }`}
+                          onClick={() => { setActiveCategory(category); setCurrentPage(1); }}
+                          aria-label={`Filter news by ${finalLabel}`}
+                          aria-pressed={activeCategory === category}
+                        >
+                          {finalLabel}
+                        </button>
                     );
                   })}
                 </div>
@@ -209,7 +239,13 @@ const NewsPage = () => {
                   {totalPages > 1 && (
                      <div className="flex justify-center mt-10 space-x-2">
                       {[...Array(totalPages)].map((_, i) => (
-                        <button key={i} onClick={() => setCurrentPage(i + 1)} className={`w-10 h-10 rounded-full text-sm font-medium ${currentPage === i + 1 ? 'bg-terracotta text-white' : 'bg-muted hover:bg-gray-200'}`}>
+                        <button 
+                          key={i} 
+                          onClick={() => setCurrentPage(i + 1)} 
+                          className={`w-10 h-10 rounded-full text-sm font-medium ${currentPage === i + 1 ? 'bg-terracotta text-white' : 'bg-muted hover:bg-gray-200'}`}
+                          aria-label={`Go to page ${i + 1}`}
+                          aria-current={currentPage === i + 1 ? 'page' : undefined}
+                        >
                           {i + 1}
                         </button>
                       ))}
@@ -220,7 +256,7 @@ const NewsPage = () => {
             </div>
 
             {/* Sidebar */}
-            <aside className="md:col-span-1 space-y-8 sticky top-24">
+            <aside className="md:col-span-1 space-y-8 sticky top-24" aria-label="News sidebar">
               <DonateBox />
               <div className="bg-white rounded-lg shadow-sm p-6">
                 <h3 className="text-lg font-serif font-semibold mb-4">
@@ -243,7 +279,8 @@ const NewsPage = () => {
           </div>
         </div>
       </section>
-    </main>
+      </main>
+    </>
   );
 };
 
