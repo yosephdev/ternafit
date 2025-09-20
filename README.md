@@ -1,8 +1,6 @@
-# Ternafit - Tigray Impact Initiative
+# Ternafit
 
-<!-- ![Ternafit Logo](public/images/ternafit-logo.png) -->
-
-![Ternafit Preview](public/images/ternafit-preview.png)
+![Ternafit Preview](public/images/logos/ternafit-preview.png)
 
 ## 🌍 About Ternafit
 
@@ -42,7 +40,7 @@ Ternafit is a platform dedicated to raising awareness about the Tigray region, s
 
    ```sh
    git clone https://github.com/yosephdev/ternafit.git
-   cd tigray-impact-ai-reach
+   cd ternafit
    ```
 
 2. **Install dependencies**
@@ -64,16 +62,36 @@ Ternafit is a platform dedicated to raising awareness about the Tigray region, s
 4. **Open in your browser**
    The app should be running at `http://localhost:5173`
 
-## 📂 Project Structure
+## 📂 Project & Asset Structure
 
 ```
-src/
-├── components/     # Reusable UI components
-├── pages/          # Page components
-├── assets/         # Static assets
-├── styles/         # Global styles
-└── utils/          # Utility functions
+public/images/
+├── blog/            # Blog-related images
+├── documentation/   # Conflict documentation images
+├── education-group.webp
+├── figures/         # Historical figures
+├── hero/            # Hero section images
+├── logos/           # All logo and branding images
+├── news/            # News section images
+├── podcast/         # Podcast episode images
+├── projects/        # Project and work area images
+├── stories/         # Story/testimonial content
+├── team/            # Team member photos
+├── testimonials/    # User testimonials
+├── ...other assets
 ```
+
+Other documents (PDF, PNG) are also stored in `public/images/` and its subfolders for clarity.
+
+## ✅ Public Audit & Inspection Checklist
+
+Before making the repository public, please:
+- [ ] Ensure all images are in the correct subfolder (see structure above)
+- [ ] Place all PDF and certificate files in `public/images/` or a relevant subfolder
+- [ ] Remove any sensitive or private files
+- [ ] Verify that all referenced images in code match their actual location
+- [ ] Check that the preview image in README is visible
+- [ ] Review for copyright or privacy issues
 
 ## 🌐 Deployment
 
