@@ -1,4 +1,5 @@
 {
+  "_audit": "Updated for public repository compliance",
   "$schema": "https://ui.shadcn.com/schema.json",
   "style": "default",
   "rsc": false,
