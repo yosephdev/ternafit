@@ -41,7 +41,6 @@ This project is built with a modern, robust technology stack:
 - **Hosting & Serverless:** Netlify
 - **Media Storage:** AWS S3
 
-
 ## 🚀 Getting Started
 
 To get a local copy up and running, follow these steps:
@@ -59,45 +58,38 @@ npm -v
 ### Installation
 
 1. **Clone the repository**
-   
-   
+
    ```bash
    git clone https://github.com/yosephdev/ternafit.git
    cd ternafit
    ```
-   
+
 2. **Install dependencies**
-   
-   
+
    ```bash
    npm install
    ```
-   
+
 3. **Set up environment variables**
     - Copy the example file:
-     
-     
+
       ```bash
        cp .env.example .env
       ```
-     
+
     - Fill in required values (e.g., API keys):
-     
-     
+
       ```env
        VITE_NEWS_API_URL=https://your-netlify-function-url/.netlify/functions/fetch-news
       ```
-     
+
 4. **Run the development server**
-   
-   
+
    ```bash
    npm run dev
    ```
-   
-   
-   Open [http://localhost:5173](http://localhost:5173) to view in your browser.
 
+   Open [http://localhost:5173](http://localhost:5173) to view in your browser.
 
 ## 📂 Project Structure
 
@@ -134,14 +126,12 @@ The project follows a standard Vite/React structure. Key directories and files:
 └── package.json
 ```
 
-
 ## 🔗 APIs & Integrations
 
 - **News API:** Fetched via Netlify serverless function (`/netlify/functions/fetch-news.ts`) to securely handle API keys.
 - **Podcast Hosting:** Audio files streamed from AWS S3 for reliability.
 - **Contact Form:** Uses Netlify Forms for backend-free submissions.
 - **Event Registration:** QR codes and direct links to Google Meet for access.
-
 
 ## 🌐 Deployment
 
@@ -150,16 +140,13 @@ Deployed and hosted on Netlify. CI/CD pipeline is configured for automatic deplo
 - Push changes to the main branch.
 - Netlify builds and deploys the new version automatically.
 
-
 ## 🤝 Contributing
 
 Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md) for details on code of conduct and submitting pull requests.
 
-
 ## 📝 License
 
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
-
 
 ## 📞 Contact
 
