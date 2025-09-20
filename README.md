@@ -1,116 +1,151 @@
 # Ternafit
 
-![Ternafit Preview](public/images/logos/ternafit-preview.png)
+A modern web platform dedicated to amplifying Tigrean voices, sharing stories of resilience, and supporting humanitarian efforts in the Tigray region.
 
-## 🌍 About Ternafit
+**Live Site → [www.ternafit.org](https://www.ternafit.org)**
 
-Ternafit is a platform dedicated to raising awareness about the Tigray region, sharing stories of resilience, and providing updates on recovery efforts. Our mission is to amplify Tigrean voices and support the community through information and advocacy.
+---
 
-## 🚀 Features
+## 🌍 About The Project
 
-- **Podcast Series**: Engaging audio content featuring stories, interviews, and discussions about Tigray
-- **Multilingual Support**: Content available in English and Swedish
-- **Responsive Design**: Works on all devices
-- **Modern Tech Stack**: Built with the latest web technologies
+Ternafit is a digital platform created to raise global awareness about the Tigray region. Our mission is to share powerful stories of resilience, provide reliable information, and support ongoing humanitarian recovery efforts. Through news, podcasts, educational resources, and community engagement, we aim to amplify Tigrean voices and foster a global community of support.
 
-## 🛠️ Technologies Used
+## ✨ Features
 
-- **Frontend**:
-  - React 18 with TypeScript
-  - Vite for fast development
-  - shadcn/ui components
-  - Tailwind CSS for styling
-  - React Router for navigation
-  - Lucide Icons
+- **Podcast Series:** Engaging audio stories, interviews, and discussions that bring Tigray's narratives to the forefront.
+- **News Aggregator:** A curated feed of up-to-date news concerning Tigray, powered by the News API.
+- **In-Depth Blog:** A space for articles, impact stories, and updates on our programs and initiatives.
+- **Community Events:** Information and registration for training sessions, scholarships, and community gatherings.
+- **Multilingual Support:** Fully accessible in both English and Swedish.
+- **Responsive Design:** A seamless experience across all devices, from mobile phones to desktops.
 
-- **Hosting & Storage**:
-  - Netlify for web hosting
-  - AWS S3 for media storage
+## 🛠️ Tech Stack
+
+This project is built with a modern, robust technology stack:
+
+- **Frontend:** React 18 & TypeScript
+- **Build Tool:** Vite
+- **Styling:** Tailwind CSS
+- **UI Components:** shadcn/ui
+- **Routing:** React Router
+- **Icons:** Lucide React
+- **Hosting & Serverless:** Netlify
+- **Media Storage:** AWS S3
 
 ## 🚀 Getting Started
 
+To get a local copy up and running, follow these simple steps.
+
 ### Prerequisites
 
-- Node.js (v16 or later)
-- npm (v8 or later) or yarn
+Make sure you have Node.js and npm installed on your machine.
+
+- Node.js (v18.x or later recommended)
+- npm (v9.x or later recommended)
+
+```bash
+node -v
+npm -v
+```
 
 ### Installation
 
 1. **Clone the repository**
 
-   ```sh
-   git clone https://github.com/yosephdev/ternafit.git
-   cd ternafit
-   ```
+   ```bash
 
-2. **Install dependencies**
-
-   ```sh
-   npm install
-   # or
-   yarn
-   ```
-
-3. **Start the development server**
-
-   ```sh
-   npm run dev
-   # or
-   yarn dev
-   ```
-
-4. **Open in your browser**
-   The app should be running at `http://localhost:5173`
-
-## 📂 Project & Asset Structure
+git clone <https://github.com/your-username/ternafit.git>
 
 ```
-public/images/
-├── blog/            # Blog-related images
-├── documentation/   # Conflict documentation images
-├── education-group.webp
-├── figures/         # Historical figures
-├── hero/            # Hero section images
-├── logos/           # All logo and branding images
-├── news/            # News section images
-├── podcast/         # Podcast episode images
-├── projects/        # Project and work area images
-├── stories/         # Story/testimonial content
-├── team/            # Team member photos
-├── testimonials/    # User testimonials
-├── ...other assets
+2. **Navigate to the project directory**
+   ```bash
+cd ternafit
 ```
 
-Other documents (PDF, PNG) are also stored in `public/images/` and its subfolders for clarity.
+3. **Install NPM packages**
 
-## ✅ Public Audit & Inspection Checklist
+   ```bash
 
-Before making the repository public, please:
-- [ ] Ensure all images are in the correct subfolder (see structure above)
-- [ ] Place all PDF and certificate files in `public/images/` or a relevant subfolder
-- [ ] Remove any sensitive or private files
-- [ ] Verify that all referenced images in code match their actual location
-- [ ] Check that the preview image in README is visible
-- [ ] Review for copyright or privacy issues
+npm install
+
+```
+4. **Set up environment variables**
+   Create a `.env` file in the root of the project and add any necessary environment variables. You can copy the example file:
+   ```bash
+cp .env.example .env
+```
+
+   Then, fill in the required values (e.g., API keys).
+
+   ```env
+# .env
+VITE_NEWS_API_URL=https://your-netlify-function-url/.netlify/functions/fetch-news
+```
+
+5. **Run the development server**
+
+   ```bash
+
+npm run dev
+
+```
+   Open [http://localhost:5173](http://localhost:5173) (or the port shown in your terminal) to view it in the browser.
+
+## 📂 Project Structure
+The project follows a standard Vite/React structure. Key directories and files are outlined below:
+
+```
+
+/
+├── public/                  # Static assets (images, logos, documents)
+│   └── images/
+│       ├── blog/
+│       ├── documentation/
+│       ├── figures/
+│       ├── hero/
+│       ├── logos/
+│       └── ...
+├── src/                     # Main source code
+│   ├── assets/              # Static assets processed by Vite
+│   ├── components/          # Reusable UI components (buttons, cards, etc.)
+│   │   └── ui/              # shadcn/ui components
+│   ├── hooks/               # Custom React hooks
+│   ├── lib/                 # Utility functions
+│   ├── pages/               # Page components mapped to routes
+│   │   ├── Home.tsx
+│   │   ├── Blog.tsx
+│   │   ├── News.tsx
+│   │   └── ...
+│   ├── App.tsx              # Root component with routing
+│   └── main.tsx             # Application entry point
+├── netlify/                 # Netlify serverless functions
+│   └── functions/
+│       └── fetch-news.ts    # Serverless function for News API
+└── package.json
+
+```
+
+## 🔗 APIs & Integrations
+- **News API:** News articles are fetched via a Netlify serverless function (`/netlify/functions/fetch-news.ts`) to securely handle the API key.
+- **Podcast Hosting:** Audio files are hosted on and streamed from an AWS S3 bucket for reliable delivery.
+- **Contact Form:** The contact page uses Netlify Forms for seamless, backend-free form handling.
+- **Event Registration:** Events utilize QR codes and direct links to platforms like Google Meet for registration and access.
 
 ## 🌐 Deployment
-
-The application is deployed on Netlify. To deploy your changes:
-
-1. Push your changes to the `main` branch
-2. Netlify will automatically trigger a new deployment
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This application is deployed and hosted on Netlify. The CI/CD pipeline is configured for automatic deployments.
+- Push your changes to the main branch.
+- Netlify will automatically build and deploy the new version of the site.
 
 ## 🤝 Contributing
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
 
-We welcome contributions! Please read our [Contributing Guide](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+Please read our [Contributing Guide](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+
+## 📝 License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
 ## 📞 Contact
-
-For inquiries, please contact us at [info@ternafit.org](mailto:info@ternafit.org)
+For inquiries or to get in touch, please email us at [info@ternafit.org](mailto:info@ternafit.org).
 
 ---
 

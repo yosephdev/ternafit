@@ -186,7 +186,7 @@ Redo att göra en livsavgörande skillnad? Besök vår donationssida eller läs 
     author: "Yoseph Berhane",
     date: "2025-09-10",
     tags: ["Education", "Scholarships", "Partnership", "ADS", "Tigray"],
-    imageUrl: "/images/projects/education.webp"
+    imageUrl: "/images/projects/youth-education.webp"
   },
   {
     id: 6,
