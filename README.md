@@ -1,3 +1,4 @@
+
 # Ternafit
 
 A modern web platform dedicated to amplifying Tigrean voices, sharing stories of resilience, and supporting humanitarian efforts in the Tigray region.
@@ -5,6 +6,14 @@ A modern web platform dedicated to amplifying Tigrean voices, sharing stories of
 **Live Site → [www.ternafit.org](https://www.ternafit.org)**
 
 ---
+
+## 🔗 Quick Links
+
+- [Live Site](https://www.ternafit.org)
+- [Strategic Roadmap](GEMINI_IMPLEMENTATION.md)
+- [Annual Report](public/reports/ternafit-annual-report-2024.pdf)
+- [Contributing Guide](CONTRIBUTING.md)
+- [License](LICENSE)
 
 ## 🌍 About The Project
 
@@ -32,13 +41,12 @@ This project is built with a modern, robust technology stack:
 - **Hosting & Serverless:** Netlify
 - **Media Storage:** AWS S3
 
+
 ## 🚀 Getting Started
 
-To get a local copy up and running, follow these simple steps.
+To get a local copy up and running, follow these steps:
 
 ### Prerequisites
-
-Make sure you have Node.js and npm installed on your machine.
 
 - Node.js (v18.x or later recommended)
 - npm (v9.x or later recommended)
@@ -51,51 +59,51 @@ npm -v
 ### Installation
 
 1. **Clone the repository**
-
+   
+   
    ```bash
-
-git clone <https://github.com/your-username/ternafit.git>
-
-```
-2. **Navigate to the project directory**
+   git clone https://github.com/yosephdev/ternafit.git
+   cd ternafit
+   ```
+   
+2. **Install dependencies**
+   
+   
    ```bash
-cd ternafit
-```
-
-3. **Install NPM packages**
-
+   npm install
+   ```
+   
+3. **Set up environment variables**
+    - Copy the example file:
+     
+     
+      ```bash
+       cp .env.example .env
+      ```
+     
+    - Fill in required values (e.g., API keys):
+     
+     
+      ```env
+       VITE_NEWS_API_URL=https://your-netlify-function-url/.netlify/functions/fetch-news
+      ```
+     
+4. **Run the development server**
+   
+   
    ```bash
+   npm run dev
+   ```
+   
+   
+   Open [http://localhost:5173](http://localhost:5173) to view in your browser.
 
-npm install
-
-```
-4. **Set up environment variables**
-   Create a `.env` file in the root of the project and add any necessary environment variables. You can copy the example file:
-   ```bash
-cp .env.example .env
-```
-
-   Then, fill in the required values (e.g., API keys).
-
-   ```env
-# .env
-VITE_NEWS_API_URL=https://your-netlify-function-url/.netlify/functions/fetch-news
-```
-
-5. **Run the development server**
-
-   ```bash
-
-npm run dev
-
-```
-   Open [http://localhost:5173](http://localhost:5173) (or the port shown in your terminal) to view it in the browser.
 
 ## 📂 Project Structure
-The project follows a standard Vite/React structure. Key directories and files are outlined below:
 
-```
+The project follows a standard Vite/React structure. Key directories and files:
 
+```text
 /
 ├── public/                  # Static assets (images, logos, documents)
 │   └── images/
@@ -104,48 +112,58 @@ The project follows a standard Vite/React structure. Key directories and files a
 │       ├── figures/
 │       ├── hero/
 │       ├── logos/
+│       ├── podcast/
+│       ├── projects/
+│       ├── stories/
+│       ├── team/
 │       └── ...
 ├── src/                     # Main source code
-│   ├── assets/              # Static assets processed by Vite
-│   ├── components/          # Reusable UI components (buttons, cards, etc.)
+│   ├── components/          # Reusable UI components
 │   │   └── ui/              # shadcn/ui components
 │   ├── hooks/               # Custom React hooks
 │   ├── lib/                 # Utility functions
 │   ├── pages/               # Page components mapped to routes
-│   │   ├── Home.tsx
-│   │   ├── Blog.tsx
-│   │   ├── News.tsx
-│   │   └── ...
-│   ├── App.tsx              # Root component with routing
+│   ├── contexts/            # Language and translation contexts
+│   ├── data/                # Static data (blog posts, news, team)
+│   ├── translations/        # Translation files
+│   ├── types/               # TypeScript types
 │   └── main.tsx             # Application entry point
 ├── netlify/                 # Netlify serverless functions
 │   └── functions/
-│       └── fetch-news.ts    # Serverless function for News API
+│       └── fetch-news.ts    # News API serverless function
 └── package.json
-
 ```
 
+
 ## 🔗 APIs & Integrations
-- **News API:** News articles are fetched via a Netlify serverless function (`/netlify/functions/fetch-news.ts`) to securely handle the API key.
-- **Podcast Hosting:** Audio files are hosted on and streamed from an AWS S3 bucket for reliable delivery.
-- **Contact Form:** The contact page uses Netlify Forms for seamless, backend-free form handling.
-- **Event Registration:** Events utilize QR codes and direct links to platforms like Google Meet for registration and access.
+
+- **News API:** Fetched via Netlify serverless function (`/netlify/functions/fetch-news.ts`) to securely handle API keys.
+- **Podcast Hosting:** Audio files streamed from AWS S3 for reliability.
+- **Contact Form:** Uses Netlify Forms for backend-free submissions.
+- **Event Registration:** QR codes and direct links to Google Meet for access.
+
 
 ## 🌐 Deployment
-This application is deployed and hosted on Netlify. The CI/CD pipeline is configured for automatic deployments.
-- Push your changes to the main branch.
-- Netlify will automatically build and deploy the new version of the site.
+
+Deployed and hosted on Netlify. CI/CD pipeline is configured for automatic deployments:
+
+- Push changes to the main branch.
+- Netlify builds and deploys the new version automatically.
+
 
 ## 🤝 Contributing
-Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
 
-Please read our [Contributing Guide](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md) for details on code of conduct and submitting pull requests.
+
 
 ## 📝 License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+
 
 ## 📞 Contact
-For inquiries or to get in touch, please email us at [info@ternafit.org](mailto:info@ternafit.org).
+
+For inquiries, email: [info@ternafit.org](mailto:info@ternafit.org)
 
 ---
 
