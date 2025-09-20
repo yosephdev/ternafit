@@ -1,3 +1,4 @@
+// Audit: Updated for public repository compliance
 {
   "compilerOptions": {
     "target": "ES2020",
